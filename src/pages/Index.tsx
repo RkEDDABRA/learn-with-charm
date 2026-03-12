@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import AccueilPage from "@/pages/AccueilPage";
+import LicencePage from "@/pages/LicencePage";
+import MasterPage from "@/pages/MasterPage";
+import PfePage from "@/pages/PfePage";
+import CvPage from "@/pages/CvPage";
 
 const Index = () => {
+  const [activePage, setActivePage] = useState("accueil");
+
+  const renderPage = () => {
+    switch (activePage) {
+      case "accueil":
+        return <AccueilPage onNavigate={setActivePage} />;
+      case "licence":
+        return <LicencePage />;
+      case "master":
+        return <MasterPage />;
+      case "pfe":
+        return <PfePage />;
+      case "cv":
+        return <CvPage />;
+      default:
+        return <AccueilPage onNavigate={setActivePage} />;
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background flex flex-col">
+      <SiteHeader activePage={activePage} onNavigate={setActivePage} />
+      <main className="flex-1">{renderPage()}</main>
+      <SiteFooter />
     </div>
   );
 };
