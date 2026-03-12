@@ -13,54 +13,58 @@ const sidebarInfo = {
 };
 
 const formations = [
-  { title: "Habilitation Universitaire", lieu: "Université Ibn Zohr, Agadir", date: "2021", desc: "Microbiologie, Bactériologie, Parasitologie" },
-  { title: "Doctorat en Microbiologie", lieu: "Université de Strasbourg, France", date: "2010", desc: "Caractérisation de Vibrio spp. dans les eaux usées" },
-  { title: "Master en Microbiologie Appliquée", lieu: "Université Ibn Zohr, Agadir", date: "2006", desc: "" },
-  { title: "Licence en Biologie", lieu: "Université Ibn Zohr, Agadir", date: "2004", desc: "" },
+  { title: "Habilitation Universitaire", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2021", desc: "Microbiologie, Bactériologie, Parasitologie" },
+  { title: "Doctorat en Microbiologie – Environnement", lieu: "Université de Strasbourg, France", date: "2006 – 2010", desc: "Caractérisation de Vibrio spp. isolés des stations d'épuration des eaux usées de la ville d'Agadir. Identification, typage moléculaire et résistance aux antibiotiques." },
+  { title: "DESA (Diplôme des Études Supérieures Approfondies) – Microbiologie Appliquée", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2004 – 2006", desc: "" },
+  { title: "Licence en Sciences – Biologie Générale · Option : Physiologie", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2003", desc: "" },
 ];
 
 const parcours = [
-  { title: "Professeur de l'Enseignement Supérieur (MCH)", lieu: "ISPITS Agadir", date: "2021 – Présent", desc: "Coordonnatrice Licence & Master PAU. Enseignement, encadrement PFE, recherche." },
-  { title: "Professeur Assistante", lieu: "ISPITS Laayoune", date: "2013 – 2021", desc: "Microbiologie, Sciences Biologiques. Directrice par intérim. Encadrement PFE." },
-  { title: "Post-doc / ATER", lieu: "Université de Strasbourg", date: "2010 – 2012", desc: "Recherche en microbiologie environnementale et diagnostic moléculaire." },
+  { title: "Coordonnatrice pédagogique – Master PAU", lieu: "ISPITS d'Agadir", date: "En cours", desc: "Coordination pédagogique et encadrement de la filière Master : Pratiques Avancées en Urgentologie." },
+  { title: "Coordonnatrice pédagogique – Filière Licence Soins Infirmiers", lieu: "ISPITS d'Agadir", date: "Depuis 23/07/2022", desc: "" },
+  { title: "Responsable de l'Unité de Gestion Pédagogique", lieu: "ISPITS d'Agadir – Annexe Guelmim", date: "23/07/2019 – 22/07/2022", desc: "" },
+  { title: "Coordonnatrice pédagogique des Filières (Soins Infirmiers, Sage-femme, Techniques de Santé)", lieu: "ISPITS de Laayoune", date: "21/01/2015 – 22/07/2019", desc: "Directrice par intérim de l'ISPITS de Laayoune · Membre commissions de validation des PFE · Membre commissions régionales CROC." },
+  { title: "Enseignante & Coordonnatrice – Filière Génie Agroalimentaire", lieu: "École Polytechnique Universiapolis – Agadir", date: "2013 – 2015", desc: "Microbiologie générale (1ère année), Microbiologie alimentaire (2ème année)." },
+  { title: "Enseignante vacataire – EST Agadir, EST Laayoune, Universiapolis, Faculté des Lettres IBZ", lieu: "Université Ibn Zohr · Universiapolis", date: "2010 – 2019", desc: "Microbiologie générale & alimentaire, Biologie moléculaire, Immunologie générale, Informatique (Études Anglaises)." },
 ];
 
 const publications = [
-  { title: "Article IN PRESS (2026)", desc: "Molecular Diagnostic Tests for Tuberculosis — Diagnostics" },
-  { title: "Article IN PRESS (2026)", desc: "Nursing Simulation & Self-Efficacy — Education in Medicine Journal" },
-  { title: "Article de revue (2018)", desc: "EDDABRA R. & AIT BEN HASSOU H. – Rapid molecular assays for detection of tuberculosis. Pneumonia (Nathan)." },
-  { title: "Article (2014) – Nanoparticles", desc: "BADRI W., EDDABRA R. et al. – Biodegradable Polymer Based Nanoparticles. Journal of Colloid Science and Biotechnology." },
-  { title: "Article (2012) – MALDI-TOF Vibrio", desc: "EDDABRA R. et al. – Rapid discrimination of environmental Vibrio by MALDI-TOF. Microbiological Research." },
-  { title: "Article (2011) – Vibrio cholerae", desc: "EDDABRA R. et al. – Occurrence of Vibrio cholerae non-O1 in three wastewater treatment plants in Agadir. World Journal of Microbiology and Biotechnology." },
-  { title: "Article (2011) – ChromID Vibrio", desc: "EDDABRA R. et al. – Evaluation of a new chromogenic medium ChromID™ Vibrio. Eur. J. Clin. Microbiology & Infectious Diseases." },
+  { title: "📄 Articles IN PRESS (2026)", desc: "EL KASSIMI S., EDDABRA R. et al. – Molecular Diagnostic Tests for Tuberculosis. Diagnostics. | AMECHGHAL A., TAKHDAT K., …, EDDABRA R. et al. – Nursing Simulation & Self-Efficacy. Education in Medicine Journal." },
+  { title: "📗 Chapitre – Springer (2023)", desc: "ELACHOURI M., ABOUDAMIA F.Z, EDDABRA R. et al. – Citrullus colocynthis (L.) Schrad. In: Ethnobotany of Northern Africa and Levant. Springer, Cham. doi: 10.1007/978-3-031-13933-8_77-1" },
+  { title: "📄 Revue systématique (2020)", desc: "EDDABRA R., NEFFA M. – Mutations associated with rifampicin resistance in M. tuberculosis. Journal Interdisciplinary Perspectives on Infectious Diseases. doi: 10.1155/2020/5185896" },
+  { title: "📄 Article de revue (2018)", desc: "EDDABRA R. & AIT BEN HASSOU H. – Rapid molecular assays for detection of tuberculosis. Pneumonia (Nathan). doi: 10.1186/s41479-018-0049-2" },
+  { title: "📄 Article (2014) – Nanoparticles & Drug Delivery", desc: "BADRI W., EDDABRA R., FESSI H., ELAISSARI A. – Biodegradable Polymer Based Nanoparticles. Journal of Colloid Science and Biotechnology, 3, 141–149." },
+  { title: "📄 Article (2012) – MALDI-TOF Vibrio", desc: "EDDABRA R., PREVOST G., SCHEFTEL JM. – Rapid discrimination of environmental Vibrio by MALDI-TOF. Microbiological Research, 167: 226–230." },
+  { title: "📄 Article (2011) – Vibrio cholerae & Eaux usées Agadir", desc: "EDDABRA R. et al. – Occurrence of Vibrio cholerae non-O1 in three wastewater treatment plants in Agadir. World Journal of Microbiology and Biotechnology, 27:1099–1108." },
+  { title: "📄 Article (2011) – ChromID Vibrio", desc: "EDDABRA R., SCHEFTEL JM., PIEMONT Y. – Evaluation of a new chromogenic medium ChromID™ Vibrio. Eur. J. Clin. Microbiology & Infectious Diseases, 30:733–737." },
 ];
 
 const communications = [
-  { title: "Conférence plénière – CINESIA 2025", desc: "Profil des nouveau-nés admis pour infection materno-fœtale – CHR Hassan II Agadir. Oujda, Juin 2025." },
-  { title: "Communication orale – 12th International Nursing Conference (2023)", desc: "Miliary tuberculosis: A report of 12 cases. Dubai, UAE, July 2023." },
-  { title: "Communication orale – 9ème École Internationale de Recherche (2023)", desc: "Diagnostic moléculaire du Mycobacterium tuberculosis résistant à la rifampicine au Maroc." },
-  { title: "Modérateur de session – 8ème École Internationale (2021)", desc: "Biodiversité, Biotechnologies, Durabilité & Innovation. Université Ibn Zohr, FSA Agadir." },
-  { title: "Communication affichée – 20th ECCMID (2010)", desc: "MALDI-TOF MS analysis and molecular typing of environmental Vibrio isolates. Vienna, Austria." },
-  { title: "Communication affichée – Vibrio 2009", desc: "Comparative analysis of Vibrio spp. from wastewater treatment plants of Agadir. Rio de Janeiro, Brazil." },
+  { title: "Conférence plénière – CINESIA 2025", desc: "Profil des nouveau-nés admis pour infection materno-fœtale et CRP positive – CHR Hassan II Agadir. Université Mohammed Premier d'Oujda, 27-29 Juin 2025." },
+  { title: "Communication orale – 12th International Nursing Conference (2023)", desc: "Miliary tuberculosis: A report of 12 cases. Dubai, UAE, July 25-27, 2023." },
+  { title: "Communication orale – 9ème École Internationale de Recherche (2023)", desc: "Diagnostic moléculaire du Mycobacterium tuberculosis résistant à la rifampicine au Maroc. Université Ibn Zohr, Décembre 2023." },
+  { title: "Modérateur de session – 8ème École Internationale de Recherche (2021)", desc: "Biodiversité, Biotechnologies, Durabilité & Innovation. Université Ibn Zohr, FSA Agadir, 20-22 Décembre 2021." },
+  { title: "Communication affichée – 20th ECCMID (2010)", desc: "MALDI-TOF MS analysis and molecular typing of environmental Vibrio isolates. Vienna, Austria, April 2010." },
+  { title: "Communication affichée – Vibrio 2009", desc: "Comparative analysis of Vibrio spp. isolated from wastewater treatment plants of Agadir. Rio de Janeiro, Brazil, November 2009." },
 ];
 
 const certifications = [
-  { title: "Formation PIGAI", lieu: "ISPITS d'Agadir", date: "Juin 2022" },
-  { title: "Disaster Response Casualty Care (DRCC)", lieu: "Moroccan American Cooperation – Agadir", date: "Mai 2021" },
-  { title: "Tuberculose de l'enfant pour agents de santé", lieu: "The Union & OMS", date: "Mars 2020" },
+  { title: "Formation PIGAI – Plateforme intégrée de gestion académique des ISPITS", lieu: "ISPITS d'Agadir", date: "Juin 2022" },
+  { title: "Disaster Response Casualty Care (DRCC) – SPTC 8ème édition", lieu: "Moroccan American Cooperation – Agadir", date: "Mai 2021" },
+  { title: "Tuberculose de l'enfant pour agents de santé (en ligne)", lieu: "The Union & Organisation Mondiale de la Santé (OMS)", date: "Mars 2020" },
   { title: "Ingénierie pédagogique", lieu: "Ministère de la Santé – Rabat", date: "Avril 2016" },
-  { title: "Brevets et Informations liées aux Brevets", lieu: "AMAPIC", date: "Mai 2014" },
-  { title: "Research Proposal Development and Writing", lieu: "MEDREC – Muscat, Oman", date: "Octobre 2012" },
+  { title: "Brevets et Informations liées aux Brevets", lieu: "Académie Marocaine de la Propriété Intellectuelle et Commerciale (AMAPIC)", date: "Mai 2014" },
+  { title: "Research Proposal Development and Writing", lieu: "Middle East Desalination Research Center (MEDREC) – Muscat, Oman", date: "Octobre 2012" },
 ];
 
 const admin = [
   "Directrice par intérim de l'ISPITS de Laayoune",
   "Membre du comité de pilotage du projet d'établissement 2017–2020",
   "Membre des commissions de validation des PFE",
-  "Membre des commissions régionales (CROC) du jury du concours d'accès à l'ISPITS",
+  "Membre des commissions régionales (CROC) du jury du concours d'accès à l'ISPITS de Laayoune et Guelmim",
   "Membre de la commission Ad Hoc à l'ISPITS de Laayoune",
   "Membre des commissions régionales de surveillance de concours de recrutement",
-  "Membre du comité scientifique des 1ères Journées Scientifiques de l'ISPITS d'Agadir (2016)",
+  "Membre du comité scientifique des 1ères Journées Scientifiques de l'ISPITS d'Agadir «Santé-Environnement» (2016)",
   "Membre du comité d'organisation des Journées Francophones de Microbiologie des Milieux Hydriques, Agadir (2006)",
 ];
 
@@ -139,13 +143,13 @@ export default function CvPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <CvSection title="Parcours Professionnel" icon="💼" borderColor="border-l-gold">
+            <CvSection title="Expérience Professionnelle" icon="💼" borderColor="border-l-gold">
               {parcours.map((p, i) => <CvEntry key={i} title={p.title} lieu={p.lieu} date={p.date} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <CvSection title="Publications Scientifiques" icon="📄" borderColor="border-l-rose">
+            <CvSection title="Publications Scientifiques" icon="📚" borderColor="border-l-rose">
               {publications.map((p, i) => <CvEntry key={i} title={p.title} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
