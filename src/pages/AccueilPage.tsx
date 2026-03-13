@@ -22,7 +22,7 @@ const actualites = [
   { tag: "Dubai", tagColor: "bg-gold/10 text-gold", text: "12th International Nursing Conference 2023 — Miliary tuberculosis in children" },
 ];
 
-const BADGE_TEXT = "Supports de cours • Bibliographie • Exercices corrigés • Vidéos";
+
 
 export default function AccueilPage({ onNavigate }: AccueilPageProps) {
   const modulesRef = useRef<HTMLDivElement>(null);
