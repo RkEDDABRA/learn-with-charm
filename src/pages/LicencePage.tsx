@@ -9,9 +9,11 @@ type Option = "" | "sf" | "diet";
 
 const sfS1 = {
   label: "Module : Sciences Biologiques",
-  desc: "Introduction aux sciences du vivant. Cytologie, histologie et biochimie fondamentale.",
-  tags: ["Cytologie", "Histologie", "Biochimie"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  desc: "Le cours est destiné aux étudiants du premier semestre et vise à leur faire acquérir les concepts fondamentaux en sciences biologiques, notamment en immunologie, hématologie, microbiologie (parasitologie, bactériologie, virologie) ainsi qu'en génétique.",
+  tags: ["Immunologie", "Hématologie", "Microbiologie", "Génétique"],
+  link: "https://padlet.com/eddabra/module-sciences-biologiques-um3rj7zq3q4vmz4i",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
+  qrImage: qrSciencesBio,
 };
 
 const sfS2 = {
