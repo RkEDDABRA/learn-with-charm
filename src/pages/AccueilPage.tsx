@@ -52,7 +52,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
       <AnimatedSection delay={0.08}>
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
           <button
-            onClick={scrollToModules}
+            onClick={() => onNavigate("licence")}
             className="bg-card rounded-xl p-5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 text-left border-t-4 border-t-primary"
           >
             <div className="text-2xl mb-2">📚</div>
