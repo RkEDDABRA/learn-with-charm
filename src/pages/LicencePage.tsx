@@ -150,7 +150,7 @@ export default function LicencePage() {
             ))}
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <ModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
+            <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
           </div>
         </AnimatedSection>
       )}
