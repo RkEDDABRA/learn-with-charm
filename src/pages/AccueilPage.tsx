@@ -1,9 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import ModuleCard from "@/components/ModuleCard";
-import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { BookOpen, Award, FileText, Microscope, Mic, Trophy } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 interface AccueilPageProps {
   onNavigate: (page: string) => void;
