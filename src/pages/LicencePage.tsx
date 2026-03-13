@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import ModuleCard from "@/components/ModuleCard";
+import ImportedModuleCard from "@/components/ModuleCard";
 import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
