@@ -1,5 +1,4 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import AnimatedSection from "@/components/AnimatedSection";
 import { BookOpen, Award, FileText, Microscope, Mic, Trophy } from "lucide-react";
 
 interface AccueilPageProps {
