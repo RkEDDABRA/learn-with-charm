@@ -8,6 +8,7 @@ interface ModuleCardProps {
   description?: string;
   objectives?: string;
   badge: string;
+  qrImage?: string;
 }
 
 export default function ModuleCard({ title, link, description, objectives, badge }: ModuleCardProps) {
