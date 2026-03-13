@@ -1,5 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import ImportedModuleCard from "@/components/ModuleCard";
+import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 
@@ -7,33 +9,47 @@ type Option = "" | "sf" | "diet";
 
 const sfS1 = {
   label: "Module : Sciences Biologiques",
-  desc: "Introduction aux sciences du vivant. Cytologie, histologie et biochimie fondamentale.",
-  tags: ["Cytologie", "Histologie", "Biochimie"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  desc: "Le cours est destiné aux étudiants du premier semestre et vise à leur faire acquérir les concepts fondamentaux en sciences biologiques, notamment en immunologie, hématologie, microbiologie (parasitologie, bactériologie, virologie) ainsi qu'en génétique.",
+  tags: ["Immunologie", "Hématologie", "Microbiologie", "Génétique"],
+  link: "https://padlet.com/eddabra/module-sciences-biologiques-um3rj7zq3q4vmz4i",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
+  qrImage: qrSciencesBio,
 };
 
 const sfS2 = {
-  label: "Élément du Module : Anatomie Gynéco-obstéricale",
-  desc: "Anatomie du pelvis féminin, organes génitaux, structures obstétricales.",
+  label: "Élément du Module : Anatomie Gynéco-Obstétricale",
+  desc: "Au terme de ce module l'étudiante doit:\n• Identifier les structures anatomiques du système reproducteur féminin et masculin\n• Décrire la fonction des organes reproducteurs et leurs caractéristiques physiologiques\n• Distinguer les mécanismes d'homéostasie en lien avec le système reproducteur",
   tags: ["Pelvis féminin", "Organes génitaux", "Obstétrique"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-anatomie-gyn-co-obst-ricale-xa7cxtqdtvwaq9pu",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
 const dietS1 = {
-  label: "Module : Anatomie-Physiologie",
+  label: "Module : Anatomie Physiologie Humaine",
   desc: "Bases anatomiques et physiologiques du corps humain. Systèmes digestif, cardiovasculaire et endocrinien.",
   tags: ["Anatomie", "Physiologie", "Systèmes"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-anatomie-physiologie-humaines-qdmuic43ce4la7vp",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
 const dietS2 = {
-  label: "Module : Bases Physiologiques",
-  desc: "Approfondissement des mécanismes physiologiques. Métabolisme, homéostasie et régulation hormonale.",
+  label: "Module : Bases Physiologiques de la Nutrition",
+  desc: "Au terme de ce module l'étudiant doit:\n• Décrire et expliquer les aspects anatomiques et physiologiques des systèmes endocrinien et digestif",
   tags: ["Métabolisme", "Homéostasie", "Régulation"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-bases-physiologiques-de-la-nutrition-syst-me-digestif-5jopi0qzi34wa8wf",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
-function ModuleCard({ module, semester, color }: { module: typeof sfS1; semester: string; color: string }) {
+interface ModuleData {
+  label: string;
+  desc: string;
+  tags: string[];
+  link: string;
+  badge: string;
+  qrImage?: string;
+}
+
+function SemesterModuleCard({ module, semester, color }: { module: ModuleData; semester: string; color: string }) {
   return (
     <div className="bg-card rounded-xl shadow-card overflow-hidden">
       <div className={`px-5 py-3 flex items-center gap-3 ${color}`}>
@@ -41,25 +57,13 @@ function ModuleCard({ module, semester, color }: { module: typeof sfS1; semester
         <h3 className="font-display font-bold text-sm text-card">Semestre {semester.replace("S", "")}</h3>
       </div>
       <div className="p-5">
-        <div className="flex items-start gap-2 mb-1">
-          <span className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${color.includes("rose") ? "bg-rose" : "bg-teal"}`} />
-          <div>
-            <div className="font-semibold text-sm">{module.label}</div>
-            <div className="text-sm text-muted-foreground mt-1">{module.desc}</div>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {module.tags.map((t) => (
-                <span key={t} className={`text-xs font-semibold px-2 py-0.5 rounded-md ${color.includes("rose") ? "bg-rose/10 text-rose" : "bg-teal/10 text-teal"}`}>
-                  {t}
-                </span>
-              ))}
-            </div>
-            <div className={`mt-4 p-4 rounded-xl border border-dashed text-center ${color.includes("rose") ? "border-rose/30 bg-rose/5" : "border-teal/30 bg-teal/5"}`}>
-              <p className={`text-xs font-bold tracking-widest uppercase mb-2 ${color.includes("rose") ? "text-rose" : "text-teal"}`}>📱 Accéder au cours</p>
-              <div className="w-24 h-24 rounded-lg bg-muted mx-auto mb-2 flex items-center justify-center text-muted-foreground text-3xl">📲</div>
-              <p className="text-xs text-muted-foreground">{module.qr}</p>
-            </div>
-          </div>
-        </div>
+        <ImportedModuleCard
+          title={module.label}
+          link={module.link}
+          description={module.desc}
+          badge={module.badge}
+          qrImage={module.qrImage}
+        />
       </div>
     </div>
   );
@@ -146,7 +150,7 @@ export default function LicencePage() {
             ))}
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <ModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
+            <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
           </div>
         </AnimatedSection>
       )}
@@ -175,7 +179,7 @@ export default function LicencePage() {
             ))}
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <ModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
+            <SemesterModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
           </div>
         </AnimatedSection>
       )}

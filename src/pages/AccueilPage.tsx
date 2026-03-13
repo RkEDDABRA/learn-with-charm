@@ -1,9 +1,5 @@
-import { useRef, useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import ModuleCard from "@/components/ModuleCard";
-import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { BookOpen, Award, FileText, Microscope, Mic, Trophy } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 interface AccueilPageProps {
   onNavigate: (page: string) => void;
@@ -25,14 +21,9 @@ const actualites = [
   { tag: "Dubai", tagColor: "bg-gold/10 text-gold", text: "12th International Nursing Conference 2023 — Miliary tuberculosis in children" },
 ];
 
-const BADGE_TEXT = "Supports de cours • Bibliographie • Exercices corrigés • Vidéos";
+
 
 export default function AccueilPage({ onNavigate }: AccueilPageProps) {
-  const modulesRef = useRef<HTMLDivElement>(null);
-
-  const scrollToModules = () => {
-    modulesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,7 +51,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
       <AnimatedSection delay={0.08}>
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
           <button
-            onClick={scrollToModules}
+            onClick={() => onNavigate("licence")}
             className="bg-card rounded-xl p-5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 text-left border-t-4 border-t-primary"
           >
             <div className="text-2xl mb-2">📚</div>
@@ -96,53 +87,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         </div>
       </AnimatedSection>
 
-      {/* ── MODULES SECTION ── */}
-      <div ref={modulesRef}>
-        <AnimatedSection delay={0.12}>
-          <div className="bg-card rounded-xl p-6 shadow-card mb-10">
-            <h2 className="font-display text-xl font-bold text-foreground mb-5 flex items-center gap-2">
-              📚 Modules Enseignés — Licence
-            </h2>
-
-            <Tabs defaultValue="sage-femme">
-              <TabsList className="mb-6">
-                <TabsTrigger value="sage-femme">🤱 Sage-Femme</TabsTrigger>
-                <TabsTrigger value="dietetique">🥗 Diététique / Nutrition</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="sage-femme" className="space-y-5">
-                <ModuleCard
-                  title="Sciences Biologiques"
-                  link="https://padlet.com/eddabra/module-sciences-biologiques-um3rj7zq3q4vmz4i"
-                  description="Le cours est destiné aux étudiants du premier semestre et vise à leur faire acquérir les concepts fondamentaux en sciences biologiques, notamment en immunologie, hématologie, microbiologie (parasitologie, bactériologie, virologie) ainsi qu'en génétique."
-                  badge={BADGE_TEXT}
-                  qrImage={qrSciencesBio}
-                />
-                <ModuleCard
-                  title="Anatomie Gynéco-Obstétricale"
-                  link="https://padlet.com/eddabra/module-anatomie-gyn-co-obst-ricale-xa7cxtqdtvwaq9pu"
-                  objectives={`Au terme de ce module l'étudiante doit:\n• Identifier les structures anatomiques du système reproducteur féminin et masculin\n• Décrire la fonction des organes reproducteurs et leurs caractéristiques physiologiques\n• Distinguer les mécanismes d'homéostasie en lien avec le système reproducteur`}
-                  badge={BADGE_TEXT}
-                />
-              </TabsContent>
-
-              <TabsContent value="dietetique" className="space-y-5">
-                <ModuleCard
-                  title="Anatomie Physiologie Humaine"
-                  link="https://padlet.com/eddabra/module-anatomie-physiologie-humaines-qdmuic43ce4la7vp"
-                  badge={BADGE_TEXT}
-                />
-                <ModuleCard
-                  title="Bases Physiologiques de la Nutrition"
-                  link="https://padlet.com/eddabra/module-bases-physiologiques-de-la-nutrition-syst-me-digestif-5jopi0qzi34wa8wf"
-                  objectives={`Au terme de ce module l'étudiant doit:\n• Décrire et expliquer les aspects anatomiques et physiologiques des systèmes endocrinien et digestif`}
-                  badge={BADGE_TEXT}
-                />
-              </TabsContent>
-            </Tabs>
-          </div>
-        </AnimatedSection>
-      </div>
 
       {/* Filières + Actualités */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
