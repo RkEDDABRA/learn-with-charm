@@ -179,7 +179,7 @@ export default function LicencePage() {
             ))}
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <ModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
+            <SemesterModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
           </div>
         </AnimatedSection>
       )}
