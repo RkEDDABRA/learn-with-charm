@@ -11,7 +11,7 @@ interface ModuleCardProps {
   qrImage?: string;
 }
 
-export default function ModuleCard({ title, link, description, objectives, badge }: ModuleCardProps) {
+export default function ModuleCard({ title, link, description, objectives, badge, qrImage }: ModuleCardProps) {
   return (
     <div className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-200 border border-border">
       <h4 className="font-display text-lg font-bold text-foreground mb-4">{title}</h4>
@@ -19,7 +19,11 @@ export default function ModuleCard({ title, link, description, objectives, badge
       <div className="flex flex-col sm:flex-row gap-5 mb-4">
         {/* QR Code */}
         <div className="flex-shrink-0 bg-secondary rounded-xl p-3 self-start">
-          <QRCodeSVG value={link} size={120} bgColor="transparent" fgColor="hsl(var(--foreground))" />
+          {qrImage ? (
+            <img src={qrImage} alt={`QR code ${title}`} className="w-[120px] h-[120px]" />
+          ) : (
+            <QRCodeSVG value={link} size={120} bgColor="transparent" fgColor="hsl(var(--foreground))" />
+          )}
         </div>
 
         <div className="flex-1 space-y-3">
