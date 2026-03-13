@@ -33,10 +33,11 @@ const dietS1 = {
 };
 
 const dietS2 = {
-  label: "Module : Bases Physiologiques",
-  desc: "Approfondissement des mécanismes physiologiques. Métabolisme, homéostasie et régulation hormonale.",
+  label: "Module : Bases Physiologiques de la Nutrition",
+  desc: "Au terme de ce module l'étudiant doit:\n• Décrire et expliquer les aspects anatomiques et physiologiques des systèmes endocrinien et digestif",
   tags: ["Métabolisme", "Homéostasie", "Régulation"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-bases-physiologiques-de-la-nutrition-syst-me-digestif-5jopi0qzi34wa8wf",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
 function ModuleCard({ module, semester, color }: { module: typeof sfS1; semester: string; color: string }) {
