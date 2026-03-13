@@ -17,10 +17,11 @@ const sfS1 = {
 };
 
 const sfS2 = {
-  label: "Élément du Module : Anatomie Gynéco-obstéricale",
-  desc: "Anatomie du pelvis féminin, organes génitaux, structures obstétricales.",
+  label: "Élément du Module : Anatomie Gynéco-Obstétricale",
+  desc: "Au terme de ce module l'étudiante doit:\n• Identifier les structures anatomiques du système reproducteur féminin et masculin\n• Décrire la fonction des organes reproducteurs et leurs caractéristiques physiologiques\n• Distinguer les mécanismes d'homéostasie en lien avec le système reproducteur",
   tags: ["Pelvis féminin", "Organes génitaux", "Obstétrique"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-anatomie-gyn-co-obst-ricale-xa7cxtqdtvwaq9pu",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
 const dietS1 = {
