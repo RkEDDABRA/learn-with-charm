@@ -40,7 +40,16 @@ const dietS2 = {
   badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
-function ModuleCard({ module, semester, color }: { module: typeof sfS1; semester: string; color: string }) {
+interface ModuleData {
+  label: string;
+  desc: string;
+  tags: string[];
+  link: string;
+  badge: string;
+  qrImage?: string;
+}
+
+function SemesterModuleCard({ module, semester, color }: { module: ModuleData; semester: string; color: string }) {
   return (
     <div className="bg-card rounded-xl shadow-card overflow-hidden">
       <div className={`px-5 py-3 flex items-center gap-3 ${color}`}>
@@ -48,25 +57,13 @@ function ModuleCard({ module, semester, color }: { module: typeof sfS1; semester
         <h3 className="font-display font-bold text-sm text-card">Semestre {semester.replace("S", "")}</h3>
       </div>
       <div className="p-5">
-        <div className="flex items-start gap-2 mb-1">
-          <span className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${color.includes("rose") ? "bg-rose" : "bg-teal"}`} />
-          <div>
-            <div className="font-semibold text-sm">{module.label}</div>
-            <div className="text-sm text-muted-foreground mt-1">{module.desc}</div>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {module.tags.map((t) => (
-                <span key={t} className={`text-xs font-semibold px-2 py-0.5 rounded-md ${color.includes("rose") ? "bg-rose/10 text-rose" : "bg-teal/10 text-teal"}`}>
-                  {t}
-                </span>
-              ))}
-            </div>
-            <div className={`mt-4 p-4 rounded-xl border border-dashed text-center ${color.includes("rose") ? "border-rose/30 bg-rose/5" : "border-teal/30 bg-teal/5"}`}>
-              <p className={`text-xs font-bold tracking-widest uppercase mb-2 ${color.includes("rose") ? "text-rose" : "text-teal"}`}>📱 Accéder au cours</p>
-              <div className="w-24 h-24 rounded-lg bg-muted mx-auto mb-2 flex items-center justify-center text-muted-foreground text-3xl">📲</div>
-              <p className="text-xs text-muted-foreground">{module.qr}</p>
-            </div>
-          </div>
-        </div>
+        <ImportedModuleCard
+          title={module.label}
+          link={module.link}
+          description={module.desc}
+          badge={module.badge}
+          qrImage={module.qrImage}
+        />
       </div>
     </div>
   );
