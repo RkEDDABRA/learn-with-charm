@@ -25,10 +25,11 @@ const sfS2 = {
 };
 
 const dietS1 = {
-  label: "Module : Anatomie-Physiologie",
+  label: "Module : Anatomie Physiologie Humaine",
   desc: "Bases anatomiques et physiologiques du corps humain. Systèmes digestif, cardiovasculaire et endocrinien.",
   tags: ["Anatomie", "Physiologie", "Systèmes"],
-  qr: "Scanner le QR code pour accéder au cours complet sur Google Drive",
+  link: "https://padlet.com/eddabra/module-anatomie-physiologie-humaines-qdmuic43ce4la7vp",
+  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
 };
 
 const dietS2 = {
