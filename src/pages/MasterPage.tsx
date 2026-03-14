@@ -1,6 +1,9 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { cn } from "@/lib/utils";
+import { QRCodeSVG } from "qrcode.react";
+import { ExternalLink } from "lucide-react";
+import qrActivites from "@/assets/qr-activites-master.png";
 
 const tabs = [
   { id: "cours", label: "📚 Cours", color: "gold" },
