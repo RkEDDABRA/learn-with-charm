@@ -8,11 +8,82 @@ import qrActivites from "@/assets/qr-activites-master.png";
 const tabs = [
   { id: "cours", label: "📚 Cours", color: "gold" },
   { id: "activites", label: "🎯 Activités réalisées", color: "purple" },
+  { id: "organisation", label: "🧩 Organisation Modulaire", color: "green" },
   { id: "planning", label: "📅 Planning", color: "blue" },
   { id: "stages", label: "🏥 Stages", color: "yellow" },
   { id: "guides", label: "📘 Guides", color: "pink" },
   { id: "eval", label: "📋 Évaluation", color: "teal" },
   { id: "pfe", label: "🎓 PFE", color: "grey" },
+];
+
+const semesters = [
+  {
+    title: "Semestre 1",
+    color: "bg-emerald-600",
+    textColor: "text-emerald-700",
+    bgLight: "bg-emerald-50 dark:bg-emerald-950/30",
+    borderColor: "border-emerald-200 dark:border-emerald-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Philosophie des soins et raisonnement clinique", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Psychologie et sociologie de la santé", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Déontologie et aspect organisationnel des urgences", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Pharmacologie d'urgence et matériel/appareillage utilisé en soins d'urgence", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Approfondissement clinique en soins d'urgences, démarche qualité", vh: "50h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Français / Anglais", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Soft Skills", vh: "45h", credits: "3" },
+    ],
+    totalVH: "341h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 2",
+    color: "bg-blue-600",
+    textColor: "text-blue-700",
+    bgLight: "bg-blue-50 dark:bg-blue-950/30",
+    borderColor: "border-blue-200 dark:border-blue-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Urgences chirurgicales et pathologies circonstancielles", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage d'application : simulation en santé", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage au bloc opératoire", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage d'approfondissement : Service d'Accueil des Urgences (SAU)", vh: "120h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Français / Anglais", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Culture digitale", vh: "45h", credits: "3" },
+    ],
+    totalVH: "551h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 3",
+    color: "bg-orange-500",
+    textColor: "text-orange-700",
+    bgLight: "bg-orange-50 dark:bg-orange-950/30",
+    borderColor: "border-orange-200 dark:border-orange-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Méthodologie de recherche et biostatistique", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Urgences mère enfant et stratégie de prise en charge", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Traumatologie vitale et Médecine de catastrophe", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage : Service d'Assistance Médicale d'Urgence (SAMU)", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage : Mère Enfant", vh: "120h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Langues étrangères", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Culture and Art Skills", vh: "45h", credits: "3" },
+    ],
+    totalVH: "481h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 4",
+    color: "bg-red-600",
+    textColor: "text-red-700",
+    bgLight: "bg-red-50 dark:bg-red-950/30",
+    borderColor: "border-red-200 dark:border-red-800",
+    modules: [
+      { nature: "Power Skills", intitule: "Employment Skills", vh: "45h", credits: "3" },
+      { nature: "PFE", intitule: "Projet de Fin d'Études", vh: "300h", credits: "27" },
+    ],
+    totalVH: "345h",
+    totalCredits: "30",
+  },
 ];
 
 const cours = [
