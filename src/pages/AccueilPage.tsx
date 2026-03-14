@@ -29,6 +29,14 @@ const actualites = [
 
 
 export default function AccueilPage({ onNavigate }: AccueilPageProps) {
+  const { toast } = useToast();
+  const [contactForm, setContactForm] = useState({ nom: "", email: "", sujet: "", message: "" });
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({ title: "Message envoyé !", description: "Merci pour votre message. Nous vous répondrons bientôt." });
+    setContactForm({ nom: "", email: "", sujet: "", message: "" });
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
