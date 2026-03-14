@@ -1,9 +1,13 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { cn } from "@/lib/utils";
+import { QRCodeSVG } from "qrcode.react";
+import { ExternalLink } from "lucide-react";
+import qrActivites from "@/assets/qr-activites-master.png";
 
 const tabs = [
   { id: "cours", label: "📚 Cours", color: "gold" },
+  { id: "activites", label: "🎯 Activités réalisées", color: "purple" },
   { id: "planning", label: "📅 Planning", color: "blue" },
   { id: "stages", label: "🏥 Stages", color: "yellow" },
   { id: "guides", label: "📘 Guides", color: "pink" },
@@ -12,12 +16,9 @@ const tabs = [
 ];
 
 const cours = [
-  { icon: "🧬", title: "Physiopathologie des urgences", desc: "Mécanismes physiopathologiques des états critiques.", tag: "Fondamental", color: "border-t-primary" },
-  { icon: "💊", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold" },
-  { icon: "🫀", title: "Réanimation cardio-pulmonaire", desc: "Techniques avancées de RCP et gestion des arrêts cardiaques.", tag: "Pratique", color: "border-t-rose" },
-  { icon: "🩺", title: "Triage et évaluation clinique", desc: "Systèmes de triage, évaluation rapide du patient en urgence.", tag: "Clinique", color: "border-t-teal" },
-  { icon: "🧪", title: "Biologie des urgences", desc: "Interprétation des bilans biologiques en contexte d'urgence.", tag: "Biologie", color: "border-t-primary" },
-  { icon: "📊", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-gold" },
+  { icon: "💊", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { icon: "📊", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-primary", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { icon: "👶", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
 const planning = [
@@ -67,6 +68,7 @@ export default function MasterPage() {
     if (!isActive) return "bg-muted text-muted-foreground hover:text-foreground";
     const map: Record<string, string> = {
       cours: "bg-gold text-gold-foreground shadow-md",
+      activites: "bg-primary text-primary-foreground shadow-md",
       planning: "bg-primary text-primary-foreground shadow-md",
       stages: "bg-gold text-gold-foreground shadow-md",
       guides: "bg-rose text-rose-foreground shadow-md",
@@ -120,15 +122,51 @@ export default function MasterPage() {
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
             <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📚 Programme des Cours</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cours.map((c, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 shadow-card border-t-[3px] ${c.color} hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200`}>
                   <div className="text-2xl mb-3">{c.icon}</div>
                   <h4 className="font-bold text-sm mb-1">{c.title}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
                   <span className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-md bg-primary/10 text-primary mt-3">{c.tag}</span>
+                  <div className="mt-3 flex items-center gap-2">
+                    <a href={c.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors">
+                      <ExternalLink size={14} /> Accéder au Padlet
+                    </a>
+                  </div>
+                  <div className="mt-3 bg-card rounded-lg p-2 inline-block">
+                    <QRCodeSVG value={c.link} size={80} bgColor="transparent" fgColor="hsl(var(--foreground))" />
+                  </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </AnimatedSection>
+      )}
+
+      {/* Activités réalisées */}
+      {activeTab === "activites" && (
+        <AnimatedSection>
+          <div className="bg-card rounded-2xl p-6 shadow-card">
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🎯 Activités réalisées dans le cadre du Master</h2>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Découvrez toutes les activités réalisées dans le cadre du Master Pratiques Avancées en Urgentologie.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="bg-secondary rounded-xl p-3">
+                <img src={qrActivites} alt="QR code Activités réalisées" className="w-[150px] h-[150px]" />
+              </div>
+              <div className="flex-1">
+                <a
+                  href="https://padlet.com/eddabra/activit-s-r-alis-es-dans-le-cadre-du-master-pau-iqpbsk0ngliz6r5e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  <ExternalLink size={16} />
+                  Accéder au Padlet des Activités
+                </a>
+              </div>
             </div>
           </div>
         </AnimatedSection>
@@ -199,6 +237,17 @@ export default function MasterPage() {
                   </ul>
                 </div>
               ))}
+            </div>
+            <div className="mt-6 pt-4 border-t border-border">
+              <a
+                href="https://padlet.com/eddabra/breakout-room/5Wkoqm1alVemq8pM-RdZYv7LoE55JbrPl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-rose text-rose-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-rose/90 transition-colors"
+              >
+                <ExternalLink size={16} />
+                Accéder au Guide
+              </a>
             </div>
           </div>
         </AnimatedSection>
