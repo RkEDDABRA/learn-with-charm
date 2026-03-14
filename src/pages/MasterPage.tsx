@@ -92,13 +92,7 @@ const cours = [
   { icon: "👶", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
-const planning = [
-  { day: "Lundi", am: "Physiopathologie", pm: "TD / Travaux dirigés" },
-  { day: "Mardi", am: "Pharmacologie d'urgence", pm: "TP Simulation" },
-  { day: "Mercredi", am: "Réanimation cardio-pulmonaire", pm: "Stage clinique" },
-  { day: "Jeudi", am: "Triage et évaluation", pm: "Biologie des urgences" },
-  { day: "Vendredi", am: "Méthodologie de recherche", pm: "Encadrement PFE" },
-];
+const planning: { day: string; am: string; pm: string }[] = [];
 
 const stages = [
   { name: "Stage 1 — Urgences", badge: "S1", desc: "Service des urgences du CHR Hassan II · 4 semaines", color: "bg-primary/10 text-primary" },
