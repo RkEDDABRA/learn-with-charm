@@ -16,12 +16,9 @@ const tabs = [
 ];
 
 const cours = [
-  { icon: "🧬", title: "Physiopathologie des urgences", desc: "Mécanismes physiopathologiques des états critiques.", tag: "Fondamental", color: "border-t-primary" },
-  { icon: "💊", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold" },
-  { icon: "🫀", title: "Réanimation cardio-pulmonaire", desc: "Techniques avancées de RCP et gestion des arrêts cardiaques.", tag: "Pratique", color: "border-t-rose" },
-  { icon: "🩺", title: "Triage et évaluation clinique", desc: "Systèmes de triage, évaluation rapide du patient en urgence.", tag: "Clinique", color: "border-t-teal" },
-  { icon: "🧪", title: "Biologie des urgences", desc: "Interprétation des bilans biologiques en contexte d'urgence.", tag: "Biologie", color: "border-t-primary" },
-  { icon: "📊", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-gold" },
+  { icon: "💊", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { icon: "📊", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-primary", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { icon: "👶", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
 const planning = [
