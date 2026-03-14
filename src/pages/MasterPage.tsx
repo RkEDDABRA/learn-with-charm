@@ -144,6 +144,34 @@ export default function MasterPage() {
         </AnimatedSection>
       )}
 
+      {/* Activités réalisées */}
+      {activeTab === "activites" && (
+        <AnimatedSection>
+          <div className="bg-card rounded-2xl p-6 shadow-card">
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🎯 Activités réalisées dans le cadre du Master</h2>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Découvrez toutes les activités réalisées dans le cadre du Master Pratiques Avancées en Urgentologie.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="bg-secondary rounded-xl p-3">
+                <img src={qrActivites} alt="QR code Activités réalisées" className="w-[150px] h-[150px]" />
+              </div>
+              <div className="flex-1">
+                <a
+                  href="https://padlet.com/eddabra/activit-s-r-alis-es-dans-le-cadre-du-master-pau-iqpbsk0ngliz6r5e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  <ExternalLink size={16} />
+                  Accéder au Padlet des Activités
+                </a>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      )}
+
       {/* Planning */}
       {activeTab === "planning" && (
         <AnimatedSection>
