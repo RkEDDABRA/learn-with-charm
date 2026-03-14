@@ -68,6 +68,7 @@ export default function MasterPage() {
     if (!isActive) return "bg-muted text-muted-foreground hover:text-foreground";
     const map: Record<string, string> = {
       cours: "bg-gold text-gold-foreground shadow-md",
+      activites: "bg-primary text-primary-foreground shadow-md",
       planning: "bg-primary text-primary-foreground shadow-md",
       stages: "bg-gold text-gold-foreground shadow-md",
       guides: "bg-rose text-rose-foreground shadow-md",
