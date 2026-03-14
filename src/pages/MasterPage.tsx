@@ -275,6 +275,61 @@ export default function MasterPage() {
       )}
 
       {/* Stages */}
+      {/* Organisation Modulaire */}
+      {activeTab === "organisation" && (
+        <AnimatedSection>
+          <div className="bg-card rounded-2xl p-6 shadow-card">
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🧩 Organisation Modulaire — Master PAU</h2>
+            <div className="space-y-8">
+              {semesters.map((sem, si) => (
+                <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
+                  <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide`}>
+                    📘 {sem.title}
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className={sem.bgLight}>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Nature</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Intitulé</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume Horaire</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Crédits</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sem.modules.map((m, mi) => (
+                          <tr key={mi} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
+                            <td className="px-3 py-2.5">
+                              <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-md ${
+                                m.nature === "Disciplinaire" ? "bg-primary/10 text-primary" :
+                                m.nature === "PFE" ? "bg-gold/15 text-gold" :
+                                m.nature === "Power Skills" ? "bg-rose/10 text-rose" :
+                                "bg-teal/10 text-teal"
+                              }`}>{m.nature}</span>
+                            </td>
+                            <td className="px-3 py-2.5 text-foreground">{m.intitule}</td>
+                            <td className="px-3 py-2.5 font-medium text-muted-foreground">{m.vh}</td>
+                            <td className="px-3 py-2.5 font-bold text-foreground">{m.credits}</td>
+                          </tr>
+                        ))}
+                        <tr className={`font-bold ${sem.bgLight}`}>
+                          <td className="px-3 py-2.5" colSpan={2}>Total</td>
+                          <td className="px-3 py-2.5">{sem.totalVH}</td>
+                          <td className="px-3 py-2.5">{sem.totalCredits}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-primary/10 via-gold/10 to-rose/10 border border-border text-center">
+              <p className="font-bold text-foreground text-sm">📊 Total Général : <span className="text-primary">1718h</span> — <span className="text-gold">120 crédits</span> — <span className="text-rose">4 Semestres</span></p>
+            </div>
+          </div>
+        </AnimatedSection>
+      )}
+
       {activeTab === "stages" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
