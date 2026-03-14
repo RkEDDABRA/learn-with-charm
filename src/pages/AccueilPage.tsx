@@ -1,5 +1,10 @@
+import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { BookOpen, Award, FileText, Microscope, Mic, Trophy } from "lucide-react";
+import { BookOpen, Award, FileText, Microscope, Mic, Trophy, Send } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 interface AccueilPageProps {
   onNavigate: (page: string) => void;
