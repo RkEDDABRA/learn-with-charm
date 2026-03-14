@@ -7,6 +7,7 @@ import qrActivites from "@/assets/qr-activites-master.png";
 
 const tabs = [
   { id: "cours", label: "📚 Cours", color: "gold" },
+  { id: "activites", label: "🎯 Activités réalisées", color: "purple" },
   { id: "planning", label: "📅 Planning", color: "blue" },
   { id: "stages", label: "🏥 Stages", color: "yellow" },
   { id: "guides", label: "📘 Guides", color: "pink" },
