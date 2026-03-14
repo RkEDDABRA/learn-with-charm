@@ -225,7 +225,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
       </div>
 
       {/* Quick nav + Institution */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
         <AnimatedSection delay={0.35}>
           <div className="bg-navy rounded-xl p-6 shadow-card">
             <div className="flex items-center gap-2 mb-4">
@@ -245,7 +245,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
                 key={i}
                 onClick={() => onNavigate(item.page)}
                 className="w-full text-left flex items-center gap-3 text-navy-foreground/70 hover:text-navy-foreground text-sm px-3 py-2 rounded-lg hover:bg-navy-foreground/5 transition-all">
-                
                   <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                   {item.label}
                 </button>
@@ -276,6 +275,56 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
           </div>
         </AnimatedSection>
       </div>
+
+      {/* Contact Form */}
+      <AnimatedSection delay={0.45}>
+        <div className="bg-card rounded-xl p-6 shadow-card border-t-4 border-t-teal">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 bg-teal rounded-xl flex items-center justify-center text-lg">✉</div>
+            <div>
+              <div className="font-display font-bold text-sm">Formulaire de Contact</div>
+              <div className="text-xs text-muted-foreground">N'hésitez pas à me contacter</div>
+            </div>
+          </div>
+          <form onSubmit={handleContactSubmit} className="grid sm:grid-cols-2 gap-4">
+            <Input
+              placeholder="Nom"
+              required
+              value={contactForm.nom}
+              onChange={(e) => setContactForm(prev => ({ ...prev, nom: e.target.value }))}
+              className="bg-secondary border-border"
+            />
+            <Input
+              type="email"
+              placeholder="Email"
+              required
+              value={contactForm.email}
+              onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+              className="bg-secondary border-border"
+            />
+            <Input
+              placeholder="Sujet"
+              required
+              value={contactForm.sujet}
+              onChange={(e) => setContactForm(prev => ({ ...prev, sujet: e.target.value }))}
+              className="sm:col-span-2 bg-secondary border-border"
+            />
+            <Textarea
+              placeholder="Votre message..."
+              required
+              value={contactForm.message}
+              onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+              className="sm:col-span-2 bg-secondary border-border min-h-[100px]"
+            />
+            <div className="sm:col-span-2">
+              <Button type="submit" className="bg-teal text-teal-foreground hover:bg-teal/90 font-semibold">
+                <Send size={16} className="mr-2" />
+                Envoyer
+              </Button>
+            </div>
+          </form>
+        </div>
+      </AnimatedSection>
     </div>);
 
 }

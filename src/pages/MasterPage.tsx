@@ -238,6 +238,17 @@ export default function MasterPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-6 pt-4 border-t border-border">
+              <a
+                href="https://padlet.com/eddabra/breakout-room/5Wkoqm1alVemq8pM-RdZYv7LoE55JbrPl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-rose text-rose-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-rose/90 transition-colors"
+              >
+                <ExternalLink size={16} />
+                Accéder au Guide
+              </a>
+            </div>
           </div>
         </AnimatedSection>
       )}
