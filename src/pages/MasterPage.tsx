@@ -140,6 +140,7 @@ export default function MasterPage() {
     const map: Record<string, string> = {
       cours: "bg-gold text-gold-foreground shadow-md",
       activites: "bg-primary text-primary-foreground shadow-md",
+      organisation: "bg-emerald-600 text-white shadow-md",
       planning: "bg-primary text-primary-foreground shadow-md",
       stages: "bg-gold text-gold-foreground shadow-md",
       guides: "bg-rose text-rose-foreground shadow-md",
