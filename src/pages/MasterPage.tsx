@@ -8,11 +8,82 @@ import qrActivites from "@/assets/qr-activites-master.png";
 const tabs = [
   { id: "cours", label: "📚 Cours", color: "gold" },
   { id: "activites", label: "🎯 Activités réalisées", color: "purple" },
+  { id: "organisation", label: "🧩 Organisation Modulaire", color: "green" },
   { id: "planning", label: "📅 Planning", color: "blue" },
   { id: "stages", label: "🏥 Stages", color: "yellow" },
   { id: "guides", label: "📘 Guides", color: "pink" },
   { id: "eval", label: "📋 Évaluation", color: "teal" },
   { id: "pfe", label: "🎓 PFE", color: "grey" },
+];
+
+const semesters = [
+  {
+    title: "Semestre 1",
+    color: "bg-emerald-600",
+    textColor: "text-emerald-700",
+    bgLight: "bg-emerald-50 dark:bg-emerald-950/30",
+    borderColor: "border-emerald-200 dark:border-emerald-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Philosophie des soins et raisonnement clinique", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Psychologie et sociologie de la santé", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Déontologie et aspect organisationnel des urgences", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Pharmacologie d'urgence et matériel/appareillage utilisé en soins d'urgence", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Approfondissement clinique en soins d'urgences, démarche qualité", vh: "50h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Français / Anglais", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Soft Skills", vh: "45h", credits: "3" },
+    ],
+    totalVH: "341h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 2",
+    color: "bg-blue-600",
+    textColor: "text-blue-700",
+    bgLight: "bg-blue-50 dark:bg-blue-950/30",
+    borderColor: "border-blue-200 dark:border-blue-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Urgences chirurgicales et pathologies circonstancielles", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage d'application : simulation en santé", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage au bloc opératoire", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage d'approfondissement : Service d'Accueil des Urgences (SAU)", vh: "120h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Français / Anglais", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Culture digitale", vh: "45h", credits: "3" },
+    ],
+    totalVH: "551h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 3",
+    color: "bg-orange-500",
+    textColor: "text-orange-700",
+    bgLight: "bg-orange-50 dark:bg-orange-950/30",
+    borderColor: "border-orange-200 dark:border-orange-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Méthodologie de recherche et biostatistique", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Urgences mère enfant et stratégie de prise en charge", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Traumatologie vitale et Médecine de catastrophe", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage : Service d'Assistance Médicale d'Urgence (SAMU)", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage : Mère Enfant", vh: "120h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Langues étrangères", vh: "46h", credits: "3" },
+      { nature: "Power Skills", intitule: "Culture and Art Skills", vh: "45h", credits: "3" },
+    ],
+    totalVH: "481h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 4",
+    color: "bg-red-600",
+    textColor: "text-red-700",
+    bgLight: "bg-red-50 dark:bg-red-950/30",
+    borderColor: "border-red-200 dark:border-red-800",
+    modules: [
+      { nature: "Power Skills", intitule: "Employment Skills", vh: "45h", credits: "3" },
+      { nature: "PFE", intitule: "Projet de Fin d'Études", vh: "300h", credits: "27" },
+    ],
+    totalVH: "345h",
+    totalCredits: "30",
+  },
 ];
 
 const cours = [
@@ -69,6 +140,7 @@ export default function MasterPage() {
     const map: Record<string, string> = {
       cours: "bg-gold text-gold-foreground shadow-md",
       activites: "bg-primary text-primary-foreground shadow-md",
+      organisation: "bg-emerald-600 text-white shadow-md",
       planning: "bg-primary text-primary-foreground shadow-md",
       stages: "bg-gold text-gold-foreground shadow-md",
       guides: "bg-rose text-rose-foreground shadow-md",
@@ -91,7 +163,7 @@ export default function MasterPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              🏅 Master Spécialisé
+              🏅 Master
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Master PAU</h1>
             <p className="text-card/60 text-sm">Pratiques Avancées en Urgentologie · ISPITS Agadir</p>
@@ -204,6 +276,61 @@ export default function MasterPage() {
       )}
 
       {/* Stages */}
+      {/* Organisation Modulaire */}
+      {activeTab === "organisation" && (
+        <AnimatedSection>
+          <div className="bg-card rounded-2xl p-6 shadow-card">
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🧩 Organisation Modulaire — Master PAU</h2>
+            <div className="space-y-8">
+              {semesters.map((sem, si) => (
+                <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
+                  <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide`}>
+                    📘 {sem.title}
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className={sem.bgLight}>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Nature</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Intitulé</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume Horaire</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Crédits</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sem.modules.map((m, mi) => (
+                          <tr key={mi} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
+                            <td className="px-3 py-2.5">
+                              <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-md ${
+                                m.nature === "Disciplinaire" ? "bg-primary/10 text-primary" :
+                                m.nature === "PFE" ? "bg-gold/15 text-gold" :
+                                m.nature === "Power Skills" ? "bg-rose/10 text-rose" :
+                                "bg-teal/10 text-teal"
+                              }`}>{m.nature}</span>
+                            </td>
+                            <td className="px-3 py-2.5 text-foreground">{m.intitule}</td>
+                            <td className="px-3 py-2.5 font-medium text-muted-foreground">{m.vh}</td>
+                            <td className="px-3 py-2.5 font-bold text-foreground">{m.credits}</td>
+                          </tr>
+                        ))}
+                        <tr className={`font-bold ${sem.bgLight}`}>
+                          <td className="px-3 py-2.5" colSpan={2}>Total</td>
+                          <td className="px-3 py-2.5">{sem.totalVH}</td>
+                          <td className="px-3 py-2.5">{sem.totalCredits}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-primary/10 via-gold/10 to-rose/10 border border-border text-center">
+              <p className="font-bold text-foreground text-sm">📊 Total Général : <span className="text-primary">1718h</span> — <span className="text-gold">120 crédits</span> — <span className="text-rose">4 Semestres</span></p>
+            </div>
+          </div>
+        </AnimatedSection>
+      )}
+
       {activeTab === "stages" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
