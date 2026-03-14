@@ -162,7 +162,7 @@ export default function MasterPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              🏅 Master Spécialisé
+              🏅 Master
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Master PAU</h1>
             <p className="text-card/60 text-sm">Pratiques Avancées en Urgentologie · ISPITS Agadir</p>
