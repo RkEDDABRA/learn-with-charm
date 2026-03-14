@@ -122,13 +122,21 @@ export default function MasterPage() {
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
             <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📚 Programme des Cours</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cours.map((c, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 shadow-card border-t-[3px] ${c.color} hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200`}>
                   <div className="text-2xl mb-3">{c.icon}</div>
                   <h4 className="font-bold text-sm mb-1">{c.title}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
                   <span className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-md bg-primary/10 text-primary mt-3">{c.tag}</span>
+                  <div className="mt-3 flex items-center gap-2">
+                    <a href={c.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors">
+                      <ExternalLink size={14} /> Accéder au Padlet
+                    </a>
+                  </div>
+                  <div className="mt-3 bg-card rounded-lg p-2 inline-block">
+                    <QRCodeSVG value={c.link} size={80} bgColor="transparent" fgColor="hsl(var(--foreground))" />
+                  </div>
                 </div>
               ))}
             </div>
