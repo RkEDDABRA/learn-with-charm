@@ -84,21 +84,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         </div>
       </AnimatedSection>
 
-      {/* Stats */}
-      <AnimatedSection delay={0.1}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
-          {stats.map((s, i) =>
-          <div
-            key={i}
-            className="bg-card rounded-xl p-5 text-center shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5">
-            
-              <div className={`flex justify-center mb-2 ${s.color}`}>{s.icon}</div>
-              <div className={`font-display text-2xl font-bold ${s.color}`}>{s.value}</div>
-              <div className="text-xs text-muted-foreground font-medium mt-1">{s.label}</div>
-            </div>
-          )}
-        </div>
-      </AnimatedSection>
 
 
       {/* Filières + Actualités */}
