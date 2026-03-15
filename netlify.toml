@@ -1,0 +1,131 @@
+# ============================================================
+#  NETLIFY.TOML — Configuration de Sécurité Complète (Gratuit)
+#  Généré pour votre site Lovable déployé sur Netlify
+#  Date : Mars 2026
+# ============================================================
+
+# ----------------------------
+# BUILD SETTINGS (optionnel)
+# Adaptez "publish" à votre projet
+# ----------------------------
+[build]
+  publish = "dist"        # ou "build" selon votre framework
+  command = "npm run build"  # votre commande de build
+
+# ----------------------------
+# EN-TÊTES DE SÉCURITÉ GLOBAUX
+# Appliqués à toutes les pages
+# ----------------------------
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+
+    # 🔒 Force HTTPS pendant 1 an + tous les sous-domaines
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # 🚫 Empêche votre site d'être chargé dans une iframe (anti-clickjacking)
+    X-Frame-Options = "DENY"
+
+    # 🛡️ Bloque les attaques XSS dans les anciens navigateurs
+    X-XSS-Protection = "1; mode=block"
+
+    # 🚫 Empêche le navigateur de deviner le type MIME (anti-sniffing)
+    X-Content-Type-Options = "nosniff"
+
+    # 🔗 Contrôle les infos envoyées au site de destination
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # 🎯 Désactive les fonctionnalités sensibles du navigateur
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+
+    # 🛡️ Content Security Policy — Protège contre les injections de scripts
+    # ⚠️ Adaptez selon vos domaines externes (fonts, analytics, etc.)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+
+    # 🌐 Politique Cross-Origin pour les ressources embarquées
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+# ----------------------------
+# PROTECTION DES FICHIERS SENSIBLES
+# Bloque l'accès aux fichiers critiques
+# ----------------------------
+[[headers]]
+  for = "/.env"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*.config.js"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# ----------------------------
+# EN-TÊTES SPÉCIAUX POUR LES ASSETS STATIQUES
+# Cache long + sécurité pour JS/CSS
+# ----------------------------
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ----------------------------
+# PROTECTION DE LA ZONE ADMIN
+# Remplacez admin par votre vrai chemin d'admin
+# ----------------------------
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+# ----------------------------
+# REDIRECTIONS DE SÉCURITÉ
+# Force HTTPS + supprime www si non utilisé
+# ----------------------------
+[[redirects]]
+  from = "http://votresite.com/*"
+  to   = "https://votresite.com/:splat"
+  status = 301
+  force  = true
+
+# Redirige les URLs avec trailing slash (optionnel)
+[[redirects]]
+  from   = "/:path/"
+  to     = "/:path"
+  status = 301
+
+# ----------------------------
+# SPA ROUTING (React / Vue / Lovable)
+# Nécessaire pour les Single Page Apps
+# ----------------------------
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ============================================================
+# ✅ CHECKLIST APRÈS DÉPLOIEMENT :
+#
+# 1. Testez vos en-têtes sur : https://securityheaders.com
+# 2. Testez HTTPS sur       : https://www.ssllabs.com/ssltest
+# 3. Activez la 2FA dans    : Netlify Dashboard > User Settings > Security
+# 4. Stockez vos clés API dans : Netlify Dashboard > Site Settings > Environment Variables
+# 5. Vérifiez le score CSP sur : https://csp-evaluator.withgoogle.com
+# ============================================================
