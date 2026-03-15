@@ -31,6 +31,7 @@ const actualites = [
 export default function AccueilPage({ onNavigate }: AccueilPageProps) {
   const { toast } = useToast();
   const [contactForm, setContactForm] = useState({ nom: "", email: "", sujet: "", message: "" });
+  const [activeActuTab, setActiveActuTab] = useState("recherche");
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,21 +85,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         </div>
       </AnimatedSection>
 
-      {/* Stats */}
-      <AnimatedSection delay={0.1}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
-          {stats.map((s, i) =>
-          <div
-            key={i}
-            className="bg-card rounded-xl p-5 text-center shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5">
-            
-              <div className={`flex justify-center mb-2 ${s.color}`}>{s.icon}</div>
-              <div className={`font-display text-2xl font-bold ${s.color}`}>{s.value}</div>
-              <div className="text-xs text-muted-foreground font-medium mt-1">{s.label}</div>
-            </div>
-          )}
-        </div>
-      </AnimatedSection>
 
 
       {/* Filières + Actualités */}
@@ -148,14 +134,36 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
             <h3 className="font-display text-lg font-bold text-foreground mb-4 flex items-center gap-2">
               📰 Actualités & Publications
             </h3>
-            <div className="space-y-3">
-              {actualites.map((a, i) =>
-              <div key={i} className="flex items-start gap-3">
-                  <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md flex-shrink-0 mt-0.5 ${a.tagColor}`}>
-                    {a.tag}
-                  </span>
-                  <p className="text-sm text-foreground leading-relaxed">{a.text}</p>
-                </div>
+            {/* Tabs */}
+            <div className="flex gap-2 mb-4 flex-wrap">
+              {[
+                { id: "recherche", label: "🔬 Recherche", color: "bg-rose/10 text-rose border-rose/20" },
+                { id: "enseignement", label: "📚 Enseignement", color: "bg-primary/10 text-primary border-primary/20" },
+                { id: "formation", label: "🎓 Formation", color: "bg-gold/10 text-gold border-gold/20" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveActuTab(tab.id)}
+                  className={`text-xs font-bold px-3 py-1.5 rounded-full border transition-all ${
+                    activeActuTab === tab.id
+                      ? tab.color + " shadow-sm"
+                      : "bg-secondary text-muted-foreground border-border hover:border-muted-foreground/30"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            {/* Content */}
+            <div className="space-y-3 min-h-[80px]">
+              {activeActuTab === "recherche" && (
+                <p className="text-sm text-muted-foreground italic">Aucune actualité pour le moment. Contenu à venir.</p>
+              )}
+              {activeActuTab === "enseignement" && (
+                <p className="text-sm text-muted-foreground italic">Aucune actualité pour le moment. Contenu à venir.</p>
+              )}
+              {activeActuTab === "formation" && (
+                <p className="text-sm text-muted-foreground italic">Aucune actualité pour le moment. Contenu à venir.</p>
               )}
             </div>
           </div>
