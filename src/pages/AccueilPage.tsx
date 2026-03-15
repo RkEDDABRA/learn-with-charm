@@ -31,6 +31,7 @@ const actualites = [
 export default function AccueilPage({ onNavigate }: AccueilPageProps) {
   const { toast } = useToast();
   const [contactForm, setContactForm] = useState({ nom: "", email: "", sujet: "", message: "" });
+  const [activeActuTab, setActiveActuTab] = useState("recherche");
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
