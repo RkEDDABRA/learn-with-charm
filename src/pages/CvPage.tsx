@@ -7,7 +7,7 @@ const sidebarInfo = {
     { icon: "🏛️", text: "ISPITS Agadir" },
     { icon: "🎓", text: "Université Ibn Zohr, Agadir" },
     { icon: "🔬", text: "Microbiologie & Sciences de la Santé" },
-    { icon: "✉", text: "r.eddabra@uiz.ac.ma" },
+    { icon: "✉", text: "eddabrarkia@gmail.com" },
   ],
   skills: ["Microbiologie", "Bactériologie", "Parasitologie", "Biologie Moléculaire", "Pédagogie Universitaire", "Recherche Clinique", "Encadrement PFE"],
 };
