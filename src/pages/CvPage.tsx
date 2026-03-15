@@ -14,8 +14,8 @@ const sidebarInfo = {
 
 const formations = [
   { title: "Habilitation Universitaire", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2021", desc: "Microbiologie, Bactériologie, Parasitologie" },
-  { title: "Doctorat en Microbiologie – Environnement", lieu: "Université de Strasbourg, France", date: "2006 – 2010", desc: "Caractérisation de Vibrio spp. isolés des stations d'épuration des eaux usées de la ville d'Agadir. Identification, typage moléculaire et résistance aux antibiotiques." },
-  { title: "DESA (Diplôme des Études Supérieures Approfondies) – Microbiologie Appliquée", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2004 – 2006", desc: "" },
+  { title: "Doctorat en Microbiologie", lieu: "Université de Strasbourg, France", date: "2006 – 2010", desc: "Caractérisation de Vibrio spp. isolés des stations d'épuration des eaux usées de la ville d'Agadir. Identification, typage moléculaire et résistance aux antibiotiques." },
+  { title: "DESA (Diplôme des Études Supérieures Approfondies)", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2004 – 2006", desc: "" },
   { title: "Licence en Sciences – Biologie Générale · Option : Physiologie", lieu: "Faculté des Sciences – Université Ibn Zohr, Agadir", date: "2003", desc: "" },
 ];
 
