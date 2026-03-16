@@ -294,9 +294,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
               <a href="https://ispits.sante.gov.ma" target="_blank" rel="noopener" className="flex items-center gap-2 text-primary/80 hover:text-primary text-sm transition-colors">
                 <span>🔗</span> ispits.sante.gov.ma
               </a>
-              <span className="flex items-center gap-2 text-primary/80 text-sm">
-                <span>✉</span> contact@ispits-agadir.ma
-              </span>
             </div>
           </div>
         </AnimatedSection>
