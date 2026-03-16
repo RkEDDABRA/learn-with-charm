@@ -194,6 +194,24 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
                 </span>
               </div>
             </div>
+            <div className="bg-gold/5 border border-gold/20 rounded-xl p-4 flex items-center gap-3 mt-3">
+              <div className="w-11 h-13 bg-destructive rounded-lg flex flex-col items-center justify-center flex-shrink-0 p-2">
+                <span className="text-[10px] font-bold text-destructive-foreground">PDF</span>
+                <span className="text-sm">📄</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-sm mb-1">CNPN 2024 Master</p>
+                <p className="text-xs text-muted-foreground mb-2">Cahier des Normes Pédagogiques Nationales du Master</p>
+                <a
+                  href="/documents/CNPN_2024_Master.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 bg-gold text-gold-foreground text-xs font-bold px-3 py-1 rounded-full hover:opacity-90 transition-opacity"
+                >
+                  ⬇ Télécharger le PDF
+                </a>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
