@@ -5,8 +5,6 @@ const sidebarInfo = {
   title: "Maître de Conférence Habilité",
   contact: [
     { icon: "🏛️", text: "ISPITS Agadir" },
-    { icon: "🎓", text: "Université Ibn Zohr, Agadir" },
-    { icon: "🔬", text: "Microbiologie & Sciences de la Santé" },
     { icon: "✉", text: "eddabrarkia@gmail.com" },
   ],
   skills: ["Microbiologie", "Bactériologie", "Parasitologie", "Biologie Moléculaire", "Pédagogie Universitaire", "Recherche Clinique", "Encadrement PFE"],
