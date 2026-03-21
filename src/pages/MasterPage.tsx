@@ -6,14 +6,14 @@ import { ExternalLink } from "lucide-react";
 import qrActivites from "@/assets/qr-activites-master.png";
 
 const tabs = [
-  { id: "cours", label: "📚 Cours", color: "gold" },
-  { id: "activites", label: "🎯 Activités réalisées", color: "purple" },
-  { id: "organisation", label: "🧩 Organisation Modulaire", color: "green" },
-  { id: "planning", label: "📅 Planning", color: "blue" },
-  { id: "stages", label: "🏥 Stages", color: "yellow" },
-  { id: "guides", label: "📘 Guides", color: "pink" },
-  { id: "eval", label: "📋 Évaluation", color: "teal" },
-  { id: "pfe", label: "🎓 PFE", color: "grey" },
+  { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", color: "gold" },
+  { id: "activites", label: "Activités réalisées", fa: "fa-solid fa-bullseye", color: "purple" },
+  { id: "organisation", label: "Organisation Modulaire", fa: "fa-solid fa-puzzle-piece", color: "green" },
+  { id: "planning", label: "Planning", fa: "fa-solid fa-calendar-days", color: "blue" },
+  { id: "stages", label: "Stages", fa: "fa-solid fa-hospital", color: "yellow" },
+  { id: "guides", label: "Guides", fa: "fa-solid fa-book", color: "pink" },
+  { id: "eval", label: "Évaluation", fa: "fa-solid fa-clipboard-check", color: "teal" },
+  { id: "pfe", label: "PFE", fa: "fa-solid fa-graduation-cap", color: "grey" },
 ];
 
 const semesters = [
@@ -87,9 +87,9 @@ const semesters = [
 ];
 
 const cours = [
-  { icon: "💊", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
-  { icon: "📊", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-primary", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
-  { icon: "👶", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
+  { fa: "fa-solid fa-pills", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { fa: "fa-solid fa-chart-line", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-primary", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
+  { fa: "fa-solid fa-baby", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
 const planning: { day: string; am: string; pm: string }[] = [];
@@ -102,9 +102,9 @@ const stages = [
 ];
 
 const guides = [
-  { title: "📘 Guide du stagiaire", items: ["Objectifs de stage par service", "Compétences à acquérir", "Grille d'auto-évaluation", "Carnet de stage à compléter"], color: "border-l-primary" },
-  { title: "📋 Rapport de stage", items: ["Structure attendue du rapport", "Critères d'évaluation", "Exemples de problématiques", "Normes de rédaction APA"], color: "border-l-gold" },
-  { title: "🎓 Guide du PFE", items: ["Choix du sujet et validation", "Recherche bibliographique", "Méthodologie et outils", "Préparation de la soutenance"], color: "border-l-rose" },
+  { title: "Guide du stagiaire", fa: "fa-solid fa-book-open", items: ["Objectifs de stage par service", "Compétences à acquérir", "Grille d'auto-évaluation", "Carnet de stage à compléter"], color: "border-l-primary" },
+  { title: "Rapport de stage", fa: "fa-solid fa-file-lines", items: ["Structure attendue du rapport", "Critères d'évaluation", "Exemples de problématiques", "Normes de rédaction APA"], color: "border-l-gold" },
+  { title: "Guide du PFE", fa: "fa-solid fa-graduation-cap", items: ["Choix du sujet et validation", "Recherche bibliographique", "Méthodologie et outils", "Préparation de la soutenance"], color: "border-l-rose" },
 ];
 
 const evalStage = [
@@ -157,10 +157,10 @@ export default function MasterPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              🏅 Master
+              <i className="fa-solid fa-award" aria-hidden="true" /> Master
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Master PAU</h1>
-            <p className="text-card/60 text-sm">Pratiques Avancées en Urgentologie · ISPITS Agadir</p>
+            <p className="text-card/60 text-sm"><i className="fa-solid fa-stethoscope mr-1" aria-hidden="true" />Pratiques Avancées en Urgentologie · ISPITS Agadir</p>
           </div>
         </div>
       </AnimatedSection>
@@ -173,11 +173,11 @@ export default function MasterPage() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "px-4 py-2 rounded-xl text-sm font-semibold transition-all",
+                "px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-1.5",
                 getTabColor(tab.id, activeTab === tab.id)
               )}
             >
-              {tab.label}
+              <i className={tab.fa} aria-hidden="true" /> {tab.label}
             </button>
           ))}
         </div>
@@ -187,11 +187,11 @@ export default function MasterPage() {
       {activeTab === "cours" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📚 Programme des Cours</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-book-open text-gold" aria-hidden="true" /> Programme des Cours</h2>
            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cours.map((c, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 shadow-card border-t-[3px] ${c.color} hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200`}>
-                  <div className="text-2xl mb-3">{c.icon}</div>
+                  <div className="text-2xl mb-3 text-primary"><i className={c.fa} aria-hidden="true" /></div>
                   <h4 className="font-bold text-sm mb-1">{c.title}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
                   <span className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-md bg-primary/10 text-primary mt-3">{c.tag}</span>
@@ -214,7 +214,7 @@ export default function MasterPage() {
       {activeTab === "activites" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🎯 Activités réalisées dans le cadre du Master</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-bullseye text-primary" aria-hidden="true" /> Activités réalisées dans le cadre du Master</h2>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
               Découvrez toutes les activités réalisées dans le cadre du Master Pratiques Avancées en Urgentologie.
             </p>
@@ -242,7 +242,7 @@ export default function MasterPage() {
       {activeTab === "planning" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📅 Planning Hebdomadaire</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-calendar-days text-primary" aria-hidden="true" /> Planning Hebdomadaire</h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -269,17 +269,16 @@ export default function MasterPage() {
         </AnimatedSection>
       )}
 
-      {/* Stages */}
       {/* Organisation Modulaire */}
       {activeTab === "organisation" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🧩 Organisation Modulaire — Master PAU</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-puzzle-piece text-emerald-600" aria-hidden="true" /> Organisation Modulaire — Master PAU</h2>
             <div className="space-y-8">
               {semesters.map((sem, si) => (
                 <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
-                  <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide`}>
-                    📘 {sem.title}
+                  <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center gap-2`}>
+                    <i className="fa-solid fa-book-bookmark" aria-hidden="true" /> {sem.title}
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
@@ -319,7 +318,7 @@ export default function MasterPage() {
               ))}
             </div>
             <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-primary/10 via-gold/10 to-rose/10 border border-border text-center">
-              <p className="font-bold text-foreground text-sm">📊 Total Général : <span className="text-primary">1718h</span> — <span className="text-gold">120 crédits</span> — <span className="text-rose">4 Semestres</span></p>
+              <p className="font-bold text-foreground text-sm"><i className="fa-solid fa-chart-pie mr-1" aria-hidden="true" /> Total Général : <span className="text-primary">1718h</span> — <span className="text-gold">120 crédits</span> — <span className="text-rose">4 Semestres</span></p>
             </div>
           </div>
         </AnimatedSection>
@@ -328,7 +327,7 @@ export default function MasterPage() {
       {activeTab === "stages" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🏥 Stages Cliniques</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-hospital text-gold" aria-hidden="true" /> Stages Cliniques</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {stages.map((s, i) => (
                 <div key={i} className="bg-secondary rounded-xl p-5 border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200">
@@ -346,11 +345,11 @@ export default function MasterPage() {
       {activeTab === "guides" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📘 Guides Pédagogiques</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-book text-rose" aria-hidden="true" /> Guides Pédagogiques</h2>
             <div className="space-y-4">
               {guides.map((g, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 border-l-4 ${g.color} hover:translate-x-1 transition-all duration-200`}>
-                  <h4 className="font-bold text-sm mb-3">{g.title}</h4>
+                  <h4 className="font-bold text-sm mb-3 flex items-center gap-2"><i className={g.fa} aria-hidden="true" /> {g.title}</h4>
                   <ul className="space-y-1.5 pl-4 list-disc">
                     {g.items.map((item, j) => (
                       <li key={j} className="text-sm text-muted-foreground">{item}</li>
@@ -378,9 +377,9 @@ export default function MasterPage() {
       {activeTab === "eval" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">📋 Grilles d'Évaluation</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-clipboard-check text-teal" aria-hidden="true" /> Grilles d'Évaluation</h2>
 
-            <h3 className="font-bold text-sm mb-3 text-foreground">🏥 Évaluation du Stage</h3>
+            <h3 className="font-bold text-sm mb-3 text-foreground flex items-center gap-2"><i className="fa-solid fa-hospital text-primary" aria-hidden="true" /> Évaluation du Stage</h3>
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm">
                 <thead>
@@ -406,7 +405,7 @@ export default function MasterPage() {
               </table>
             </div>
 
-            <h3 className="font-bold text-sm mb-3 text-foreground">🎓 Évaluation du PFE</h3>
+            <h3 className="font-bold text-sm mb-3 text-foreground flex items-center gap-2"><i className="fa-solid fa-graduation-cap text-gold" aria-hidden="true" /> Évaluation du PFE</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -439,11 +438,11 @@ export default function MasterPage() {
       {activeTab === "pfe" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">🎓 Projet de Fin d'Étude</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-graduation-cap text-foreground" aria-hidden="true" /> Projet de Fin d'Étude</h2>
             <div className="space-y-4">
               {guides.map((g, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 border-l-4 ${g.color}`}>
-                  <h4 className="font-bold text-sm mb-3">{g.title}</h4>
+                  <h4 className="font-bold text-sm mb-3 flex items-center gap-2"><i className={g.fa} aria-hidden="true" /> {g.title}</h4>
                   <ul className="space-y-1.5 pl-4 list-disc">
                     {g.items.map((item, j) => (
                       <li key={j} className="text-sm text-muted-foreground">{item}</li>

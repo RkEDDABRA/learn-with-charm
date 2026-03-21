@@ -3,9 +3,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { cn } from "@/lib/utils";
 
 const pfeTabs = [
-  { id: "licence", label: "🎓 PFE Licence", count: 15 },
-  { id: "master", label: "🏅 PFE Master", count: 2 },
-  { id: "rapports", label: "📋 Rapports de Stage", count: 7 },
+  { id: "licence", label: "PFE Licence", fa: "fa-solid fa-graduation-cap", count: 15 },
+  { id: "master", label: "PFE Master", fa: "fa-solid fa-award", count: 2 },
+  { id: "rapports", label: "Rapports de Stage", fa: "fa-solid fa-clipboard-list", count: 7 },
 ];
 
 interface PfeItem {
@@ -76,7 +76,7 @@ function PfeCard({ item }: { item: PfeItem }) {
     <div className="bg-card rounded-xl p-5 shadow-card border-t-[3px] border-t-primary/30 hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200">
       <div className="flex items-center gap-2 flex-wrap mb-3">
         <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${item.filiereColor}`}>{item.filiere}</span>
-        <span className="text-[11px] font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded-full border border-border">{item.lieu}</span>
+        <span className="text-[11px] font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded-full border border-border"><i className="fa-solid fa-location-dot mr-1 text-[9px]" aria-hidden="true" />{item.lieu}</span>
       </div>
       <p className="text-sm font-medium leading-relaxed">{item.title}</p>
       {item.extra && <p className="text-xs text-muted-foreground mt-2">{item.extra}</p>}
@@ -98,7 +98,7 @@ export default function PfePage() {
       <div className="bg-navy py-12 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-gold/10 pointer-events-none" />
         <div className="relative z-10">
-          <span className="inline-block bg-gold text-gold-foreground text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">📁 Travaux Encadrés</span>
+          <span className="inline-block bg-gold text-gold-foreground text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4"><i className="fa-solid fa-folder-open mr-1" aria-hidden="true" /> Travaux Encadrés</span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-navy-foreground mb-2">PFE & Travaux Encadrés</h1>
           <p className="text-navy-foreground/60 text-sm">
             Projets de Fin d'Étude et Rapports de Stage encadrés par <strong className="text-gold">Pr. Rkia EDDABRA</strong>
@@ -119,7 +119,7 @@ export default function PfePage() {
                 : "bg-muted text-muted-foreground hover:text-foreground border border-border"
             )}
           >
-            {tab.label}
+            <i className={tab.fa} aria-hidden="true" /> {tab.label}
             <span className={cn(
               "text-[10px] font-bold px-1.5 py-0.5 rounded-full",
               activeTab === tab.id ? "bg-gold-foreground/15" : "bg-foreground/10"
@@ -137,13 +137,13 @@ export default function PfePage() {
           <AnimatedSection>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
               {[
-                { icon: "📄", value: "15", label: "PFE Licence", color: "text-gold" },
-                { icon: "🤱", value: "6", label: "Filière SF", color: "text-rose" },
-                { icon: "🏥", value: "9", label: "Filière SI", color: "text-primary" },
-                { icon: "📅", value: "2017–2025", label: "Années", color: "text-accent" },
+                { fa: "fa-solid fa-file-lines", value: "15", label: "PFE Licence", color: "text-gold" },
+                { fa: "fa-solid fa-baby", value: "6", label: "Filière SF", color: "text-rose" },
+                { fa: "fa-solid fa-hospital", value: "9", label: "Filière SI", color: "text-primary" },
+                { fa: "fa-solid fa-calendar-days", value: "2017–2025", label: "Années", color: "text-accent" },
               ].map((s, i) => (
                 <div key={i} className="bg-card rounded-xl p-4 text-center shadow-card">
-                  <div className="text-xl mb-1">{s.icon}</div>
+                  <div className="text-xl mb-1 text-muted-foreground"><i className={s.fa} aria-hidden="true" /></div>
                   <div className={`font-display text-xl font-bold ${s.color}`}>{s.value}</div>
                   <div className="text-[11px] text-muted-foreground font-medium">{s.label}</div>
                 </div>
@@ -151,7 +151,7 @@ export default function PfePage() {
             </div>
             {Object.entries(pfeLicenceByYear).map(([year, items]) => (
               <div key={year} className="mb-8">
-                <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm">{year}</span>
+                <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm"><i className="fa-regular fa-calendar mr-1" aria-hidden="true" />{year}</span>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {items.map((item, i) => <PfeCard key={i} item={item} />)}
                 </div>
@@ -159,7 +159,7 @@ export default function PfePage() {
             ))}
             {/* Legend */}
             <div className="bg-card rounded-xl p-5 border border-border mt-4">
-              <p className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-3">Légende des filières</p>
+              <p className="text-[11px] font-bold text-muted-foreground tracking-widest uppercase mb-3"><i className="fa-solid fa-info-circle mr-1" aria-hidden="true" />Légende des filières</p>
               <div className="flex flex-wrap gap-2">
                 {[
                   { code: "SF = Sage-Femme", color: "bg-accent/10 text-accent" },
@@ -179,19 +179,19 @@ export default function PfePage() {
           <AnimatedSection>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-card rounded-xl p-4 text-center shadow-card">
-                <div className="text-xl mb-1">🏅</div>
+                <div className="text-xl mb-1 text-gold"><i className="fa-solid fa-award" aria-hidden="true" /></div>
                 <div className="font-display text-xl font-bold text-gold">2</div>
                 <div className="text-[11px] text-muted-foreground font-medium">PFE Master encadrés</div>
               </div>
               <div className="bg-card rounded-xl p-4 text-center shadow-card">
-                <div className="text-xl mb-1">🎓</div>
+                <div className="text-xl mb-1 text-primary"><i className="fa-solid fa-graduation-cap" aria-hidden="true" /></div>
                 <div className="font-display text-xl font-bold text-primary">2</div>
                 <div className="text-[11px] text-muted-foreground font-medium">Masters différents</div>
               </div>
             </div>
             {Object.entries(pfeMaster).map(([year, items]) => (
               <div key={year} className="mb-8">
-                <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm">{year}</span>
+                <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm"><i className="fa-regular fa-calendar mr-1" aria-hidden="true" />{year}</span>
                 <div className="grid gap-4">
                   {items.map((item, i) => <PfeCard key={i} item={item} />)}
                 </div>
@@ -205,17 +205,17 @@ export default function PfePage() {
           <AnimatedSection>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-card rounded-xl p-4 text-center shadow-card">
-                <div className="text-xl mb-1">📋</div>
+                <div className="text-xl mb-1 text-rose"><i className="fa-solid fa-clipboard-list" aria-hidden="true" /></div>
                 <div className="font-display text-xl font-bold text-rose">7</div>
                 <div className="text-[11px] text-muted-foreground font-medium">Rapports de stage</div>
               </div>
               <div className="bg-card rounded-xl p-4 text-center shadow-card">
-                <div className="text-xl mb-1">🏥</div>
+                <div className="text-xl mb-1 text-accent"><i className="fa-solid fa-hospital" aria-hidden="true" /></div>
                 <div className="font-display text-xl font-bold text-accent">CHR</div>
                 <div className="text-[11px] text-muted-foreground font-medium">Agadir · Semestre 2</div>
               </div>
             </div>
-            <span className="inline-block bg-rose text-rose-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm">Promotion 2024–2026 · Semestre 2 · CHR Agadir</span>
+            <span className="inline-block bg-rose text-rose-foreground text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm"><i className="fa-solid fa-users mr-1" aria-hidden="true" />Promotion 2024–2026 · Semestre 2 · CHR Agadir</span>
             <div className="grid sm:grid-cols-2 gap-4">
               {rapportsStage.map((item, i) => <PfeCard key={i} item={item} />)}
             </div>

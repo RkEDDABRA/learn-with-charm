@@ -54,7 +54,7 @@ function SemesterModuleCard({ module, semester, color }: { module: ModuleData; s
     <div className="bg-card rounded-xl shadow-card overflow-hidden">
       <div className={`px-5 py-3 flex items-center gap-3 ${color}`}>
         <span className="w-9 h-9 rounded-lg bg-card/20 flex items-center justify-center font-bold text-sm text-card">{semester}</span>
-        <h3 className="font-display font-bold text-sm text-card">Semestre {semester.replace("S", "")}</h3>
+        <h3 className="font-display font-bold text-sm text-card"><i className="fa-solid fa-book-bookmark mr-1" aria-hidden="true" />Semestre {semester.replace("S", "")}</h3>
       </div>
       <div className="p-5">
         <ImportedModuleCard
@@ -86,10 +86,10 @@ export default function LicencePage() {
           />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              🎓 Filière Licence
+              <i className="fa-solid fa-graduation-cap" aria-hidden="true" /> Filière Licence
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Licence en Sciences de la Santé</h1>
-            <p className="text-card/60 text-sm">Sélectionnez votre option pour accéder aux ressources pédagogiques</p>
+            <p className="text-card/60 text-sm"><i className="fa-solid fa-hand-pointer mr-1" aria-hidden="true" />Sélectionnez votre option pour accéder aux ressources pédagogiques</p>
           </div>
         </div>
       </AnimatedSection>
@@ -106,7 +106,7 @@ export default function LicencePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-rose/90 via-rose/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card">🤱 Sage-Femme</h3>
+                <h3 className="font-display text-xl font-bold text-card"><i className="fa-solid fa-baby mr-2" aria-hidden="true" />Sage-Femme</h3>
                 <p className="text-card/70 text-sm mt-1">Obstétrique · Gynécologie · Sciences Biologiques</p>
               </div>
             </button>
@@ -118,7 +118,7 @@ export default function LicencePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-teal/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card">🥗 Diététique / Nutrition</h3>
+                <h3 className="font-display text-xl font-bold text-card"><i className="fa-solid fa-apple-whole mr-2" aria-hidden="true" />Diététique / Nutrition</h3>
                 <p className="text-card/70 text-sm mt-1">Physiologie · Nutrition · Sciences Biologiques</p>
               </div>
             </button>
@@ -133,7 +133,7 @@ export default function LicencePage() {
             <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft size={14} /> Retour
             </button>
-            <h2 className="font-display text-lg font-bold text-rose">🤱 Option : Sage-Femme</h2>
+            <h2 className="font-display text-lg font-bold text-rose"><i className="fa-solid fa-baby mr-1" aria-hidden="true" /> Option : Sage-Femme</h2>
           </div>
           <div className="flex gap-2 mb-6">
             {(["s1", "s2"] as const).map((tab) => (
@@ -141,11 +141,11 @@ export default function LicencePage() {
                 key={tab}
                 onClick={() => setSfTab(tab)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold transition-all",
+                  "px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5",
                   sfTab === tab ? "bg-rose text-rose-foreground shadow-md" : "bg-muted text-muted-foreground hover:text-foreground"
                 )}
               >
-                {tab === "s1" ? "📘 Semestre 1" : "📗 Semestre 2"}
+                <i className={tab === "s1" ? "fa-solid fa-book" : "fa-solid fa-book-open"} aria-hidden="true" /> Semestre {tab === "s1" ? "1" : "2"}
               </button>
             ))}
           </div>
@@ -162,7 +162,7 @@ export default function LicencePage() {
             <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft size={14} /> Retour
             </button>
-            <h2 className="font-display text-lg font-bold text-teal">🥗 Option : Diététique / Nutrition</h2>
+            <h2 className="font-display text-lg font-bold text-teal"><i className="fa-solid fa-apple-whole mr-1" aria-hidden="true" /> Option : Diététique / Nutrition</h2>
           </div>
           <div className="flex gap-2 mb-6">
             {(["s1", "s2"] as const).map((tab) => (
@@ -170,11 +170,11 @@ export default function LicencePage() {
                 key={tab}
                 onClick={() => setDietTab(tab)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold transition-all",
+                  "px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5",
                   dietTab === tab ? "bg-teal text-teal-foreground shadow-md" : "bg-muted text-muted-foreground hover:text-foreground"
                 )}
               >
-                {tab === "s1" ? "📘 Semestre 1" : "📗 Semestre 2"}
+                <i className={tab === "s1" ? "fa-solid fa-book" : "fa-solid fa-book-open"} aria-hidden="true" /> Semestre {tab === "s1" ? "1" : "2"}
               </button>
             ))}
           </div>
