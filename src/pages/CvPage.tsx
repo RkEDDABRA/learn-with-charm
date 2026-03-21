@@ -4,8 +4,8 @@ const sidebarInfo = {
   name: "Pr. Rkia EDDABRA",
   title: "Maître de Conférence Habilité",
   contact: [
-    { icon: "🏛️", text: "ISPITS Agadir" },
-    { icon: "✉", text: "eddabrarkia@gmail.com" },
+    { icon: "fa-solid fa-building-columns", text: "ISPITS Agadir" },
+    { icon: "fa-solid fa-envelope", text: "eddabrarkia@gmail.com" },
   ],
   skills: ["Microbiologie", "Bactériologie", "Parasitologie", "Biologie Moléculaire", "Pédagogie Universitaire", "Recherche Clinique", "Encadrement PFE"],
 };
@@ -27,14 +27,14 @@ const parcours = [
 ];
 
 const publications = [
-  { title: "📄 Articles IN PRESS (2026)", desc: "EL KASSIMI S., EDDABRA R. et al. – Molecular Diagnostic Tests for Tuberculosis. Diagnostics. | AMECHGHAL A., TAKHDAT K., …, EDDABRA R. et al. – Nursing Simulation & Self-Efficacy. Education in Medicine Journal." },
-  { title: "📗 Chapitre – Springer (2023)", desc: "ELACHOURI M., ABOUDAMIA F.Z, EDDABRA R. et al. – Citrullus colocynthis (L.) Schrad. In: Ethnobotany of Northern Africa and Levant. Springer, Cham. doi: 10.1007/978-3-031-13933-8_77-1" },
-  { title: "📄 Revue systématique (2020)", desc: "EDDABRA R., NEFFA M. – Mutations associated with rifampicin resistance in M. tuberculosis. Journal Interdisciplinary Perspectives on Infectious Diseases. doi: 10.1155/2020/5185896" },
-  { title: "📄 Article de revue (2018)", desc: "EDDABRA R. & AIT BEN HASSOU H. – Rapid molecular assays for detection of tuberculosis. Pneumonia (Nathan). doi: 10.1186/s41479-018-0049-2" },
-  { title: "📄 Article (2014) – Nanoparticles & Drug Delivery", desc: "BADRI W., EDDABRA R., FESSI H., ELAISSARI A. – Biodegradable Polymer Based Nanoparticles. Journal of Colloid Science and Biotechnology, 3, 141–149." },
-  { title: "📄 Article (2012) – MALDI-TOF Vibrio", desc: "EDDABRA R., PREVOST G., SCHEFTEL JM. – Rapid discrimination of environmental Vibrio by MALDI-TOF. Microbiological Research, 167: 226–230." },
-  { title: "📄 Article (2011) – Vibrio cholerae & Eaux usées Agadir", desc: "EDDABRA R. et al. – Occurrence of Vibrio cholerae non-O1 in three wastewater treatment plants in Agadir. World Journal of Microbiology and Biotechnology, 27:1099–1108." },
-  { title: "📄 Article (2011) – ChromID Vibrio", desc: "EDDABRA R., SCHEFTEL JM., PIEMONT Y. – Evaluation of a new chromogenic medium ChromID™ Vibrio. Eur. J. Clin. Microbiology & Infectious Diseases, 30:733–737." },
+  { title: "Articles IN PRESS (2026)", desc: "EL KASSIMI S., EDDABRA R. et al. – Molecular Diagnostic Tests for Tuberculosis. Diagnostics. | AMECHGHAL A., TAKHDAT K., …, EDDABRA R. et al. – Nursing Simulation & Self-Efficacy. Education in Medicine Journal." },
+  { title: "Chapitre – Springer (2023)", desc: "ELACHOURI M., ABOUDAMIA F.Z, EDDABRA R. et al. – Citrullus colocynthis (L.) Schrad. In: Ethnobotany of Northern Africa and Levant. Springer, Cham. doi: 10.1007/978-3-031-13933-8_77-1" },
+  { title: "Revue systématique (2020)", desc: "EDDABRA R., NEFFA M. – Mutations associated with rifampicin resistance in M. tuberculosis. Journal Interdisciplinary Perspectives on Infectious Diseases. doi: 10.1155/2020/5185896" },
+  { title: "Article de revue (2018)", desc: "EDDABRA R. & AIT BEN HASSOU H. – Rapid molecular assays for detection of tuberculosis. Pneumonia (Nathan). doi: 10.1186/s41479-018-0049-2" },
+  { title: "Article (2014) – Nanoparticles & Drug Delivery", desc: "BADRI W., EDDABRA R., FESSI H., ELAISSARI A. – Biodegradable Polymer Based Nanoparticles. Journal of Colloid Science and Biotechnology, 3, 141–149." },
+  { title: "Article (2012) – MALDI-TOF Vibrio", desc: "EDDABRA R., PREVOST G., SCHEFTEL JM. – Rapid discrimination of environmental Vibrio by MALDI-TOF. Microbiological Research, 167: 226–230." },
+  { title: "Article (2011) – Vibrio cholerae & Eaux usées Agadir", desc: "EDDABRA R. et al. – Occurrence of Vibrio cholerae non-O1 in three wastewater treatment plants in Agadir. World Journal of Microbiology and Biotechnology, 27:1099–1108." },
+  { title: "Article (2011) – ChromID Vibrio", desc: "EDDABRA R., SCHEFTEL JM., PIEMONT Y. – Evaluation of a new chromogenic medium ChromID™ Vibrio. Eur. J. Clin. Microbiology & Infectious Diseases, 30:733–737." },
 ];
 
 const communications = [
@@ -67,9 +67,9 @@ const admin = [
 ];
 
 const langues = [
-  { lang: "🇲🇦 Arabe", level: "Langue maternelle" },
-  { lang: "🇫🇷 Français", level: "Courant" },
-  { lang: "🇬🇧 Anglais", level: "Courant (publications internationales)" },
+  { lang: "Arabe", level: "Langue maternelle", flag: "🇲🇦" },
+  { lang: "Français", level: "Courant", flag: "🇫🇷" },
+  { lang: "Anglais", level: "Courant (publications internationales)", flag: "🇬🇧" },
 ];
 
 const associations = [
@@ -78,10 +78,23 @@ const associations = [
   { name: "APRS2D Laayoune", role: "Trésorier · 2017–2019" },
 ];
 
-function CvSection({ title, icon, borderColor, children }: { title: string; icon: string; borderColor: string; children: React.ReactNode }) {
+const sectionIcons: Record<string, { fa: string; border: string }> = {
+  formation: { fa: "fa-solid fa-graduation-cap", border: "border-l-primary" },
+  experience: { fa: "fa-solid fa-briefcase", border: "border-l-gold" },
+  publications: { fa: "fa-solid fa-book", border: "border-l-rose" },
+  communications: { fa: "fa-solid fa-microphone", border: "border-l-primary" },
+  certifications: { fa: "fa-solid fa-certificate", border: "border-l-teal" },
+  admin: { fa: "fa-solid fa-gears", border: "border-l-muted-foreground" },
+  langues: { fa: "fa-solid fa-language", border: "border-l-teal" },
+  associations: { fa: "fa-solid fa-people-group", border: "border-l-rose" },
+};
+
+function CvSection({ title, faIcon, borderColor, children }: { title: string; faIcon: string; borderColor: string; children: React.ReactNode }) {
   return (
     <div className={`bg-card rounded-xl p-6 shadow-card border-l-4 ${borderColor}`}>
-      <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">{icon} {title}</h3>
+      <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">
+        <i className={`${faIcon} text-primary`} aria-hidden="true" /> {title}
+      </h3>
       {children}
     </div>
   );
@@ -91,8 +104,8 @@ function CvEntry({ title, lieu, date, desc }: { title: string; lieu?: string; da
   return (
     <div className="mb-4 pb-4 border-b border-border last:mb-0 last:pb-0 last:border-b-0">
       <div className="font-semibold text-sm">{title}</div>
-      {lieu && <div className="text-sm text-primary font-medium mt-0.5">{lieu}</div>}
-      {date && <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mt-1">{date}</span>}
+      {lieu && <div className="text-sm text-primary font-medium mt-0.5"><i className="fa-solid fa-location-dot mr-1 text-xs" aria-hidden="true" />{lieu}</div>}
+      {date && <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded-full mt-1"><i className="fa-regular fa-calendar mr-1" aria-hidden="true" />{date}</span>}
       {desc && <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{desc}</p>}
     </div>
   );
@@ -106,23 +119,23 @@ export default function CvPage() {
         <AnimatedSection>
           <div className="bg-navy rounded-2xl p-6 lg:sticky lg:top-24 border border-primary/15">
             <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-rose mx-auto mb-4 flex items-center justify-center text-3xl shadow-lg border-2 border-gold/30">
-              👩‍🔬
+              <i className="fa-solid fa-user-doctor text-white" aria-hidden="true" />
             </div>
             <h2 className="font-display text-xl font-bold text-navy-foreground text-center mb-1">{sidebarInfo.name}</h2>
             <p className="text-center text-gold text-xs tracking-widest uppercase font-medium mb-6">{sidebarInfo.title}</p>
 
             <div className="space-y-1 mb-6">
-              <p className="text-gold text-[10px] tracking-widest uppercase font-bold border-b border-gold/20 pb-1 mb-2">Contact</p>
+              <p className="text-gold text-[10px] tracking-widest uppercase font-bold border-b border-gold/20 pb-1 mb-2"><i className="fa-solid fa-address-card mr-1" aria-hidden="true" />Contact</p>
               {sidebarInfo.contact.map((c, i) => (
                 <div key={i} className="flex items-start gap-2 text-navy-foreground/70 text-sm">
-                  <span className="w-6 h-6 rounded-md bg-gold/10 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">{c.icon}</span>
+                  <span className="w-6 h-6 rounded-md bg-gold/10 flex items-center justify-center text-xs flex-shrink-0 mt-0.5 text-gold"><i className={c.icon} aria-hidden="true" /></span>
                   <span>{c.text}</span>
                 </div>
               ))}
             </div>
 
             <div>
-              <p className="text-gold text-[10px] tracking-widest uppercase font-bold border-b border-gold/20 pb-1 mb-2">Compétences</p>
+              <p className="text-gold text-[10px] tracking-widest uppercase font-bold border-b border-gold/20 pb-1 mb-2"><i className="fa-solid fa-star mr-1" aria-hidden="true" />Compétences</p>
               <div className="flex flex-wrap gap-1.5">
                 {sidebarInfo.skills.map((s, i) => (
                   <span key={i} className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-gold/10 border border-gold/20 text-navy-foreground/80">{s}</span>
@@ -135,41 +148,41 @@ export default function CvPage() {
         {/* Main */}
         <div className="space-y-6">
           <AnimatedSection>
-            <CvSection title="Formation Académique" icon="🎓" borderColor="border-l-primary">
+            <CvSection title="Formation Académique" faIcon={sectionIcons.formation.fa} borderColor={sectionIcons.formation.border}>
               {formations.map((f, i) => <CvEntry key={i} title={f.title} lieu={f.lieu} date={f.date} desc={f.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <CvSection title="Expérience Professionnelle" icon="💼" borderColor="border-l-gold">
+            <CvSection title="Expérience Professionnelle" faIcon={sectionIcons.experience.fa} borderColor={sectionIcons.experience.border}>
               {parcours.map((p, i) => <CvEntry key={i} title={p.title} lieu={p.lieu} date={p.date} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <CvSection title="Publications Scientifiques" icon="📚" borderColor="border-l-rose">
+            <CvSection title="Publications Scientifiques" faIcon={sectionIcons.publications.fa} borderColor={sectionIcons.publications.border}>
               {publications.map((p, i) => <CvEntry key={i} title={p.title} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <CvSection title="Communications & Conférences" icon="🎤" borderColor="border-l-primary">
+            <CvSection title="Communications & Conférences" faIcon={sectionIcons.communications.fa} borderColor={sectionIcons.communications.border}>
               {communications.map((c, i) => <CvEntry key={i} title={c.title} desc={c.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.25}>
-            <CvSection title="Formations & Certifications" icon="🏆" borderColor="border-l-teal">
+            <CvSection title="Formations & Certifications" faIcon={sectionIcons.certifications.fa} borderColor={sectionIcons.certifications.border}>
               {certifications.map((c, i) => <CvEntry key={i} title={c.title} lieu={c.lieu} date={c.date} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <CvSection title="Activités Administratives & Organisationnelles" icon="⚙️" borderColor="border-l-muted-foreground">
+            <CvSection title="Activités Administratives & Organisationnelles" faIcon={sectionIcons.admin.fa} borderColor={sectionIcons.admin.border}>
               <ul className="space-y-2 pl-1">
                 {admin.map((a, i) => (
                   <li key={i} className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2">
-                    <span className="text-foreground mt-1">•</span> {a}
+                    <i className="fa-solid fa-check text-primary text-xs mt-1" aria-hidden="true" /> {a}
                   </li>
                 ))}
               </ul>
@@ -181,13 +194,13 @@ export default function CvPage() {
       {/* Bottom cards: Languages + Associations */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <AnimatedSection delay={0.35}>
-          <CvSection title="Langues" icon="🌐" borderColor="border-l-teal">
-            {langues.map((l, i) => <CvEntry key={i} title={l.lang} desc={l.level} />)}
+          <CvSection title="Langues" faIcon={sectionIcons.langues.fa} borderColor={sectionIcons.langues.border}>
+            {langues.map((l, i) => <CvEntry key={i} title={`${l.flag} ${l.lang}`} desc={l.level} />)}
           </CvSection>
         </AnimatedSection>
 
         <AnimatedSection delay={0.4}>
-          <CvSection title="Associations" icon="🏛️" borderColor="border-l-rose">
+          <CvSection title="Associations" faIcon={sectionIcons.associations.fa} borderColor={sectionIcons.associations.border}>
             {associations.map((a, i) => <CvEntry key={i} title={a.name} desc={a.role} />)}
           </CvSection>
         </AnimatedSection>
