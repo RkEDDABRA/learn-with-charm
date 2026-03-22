@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { cn } from "@/lib/utils";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 const pfeTabs = [
   { id: "licence", label: "PFE Licence", fa: "fa-solid fa-graduation-cap", count: 15 },
@@ -98,7 +99,9 @@ export default function PfePage() {
       <div className="bg-navy py-12 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-gold/10 pointer-events-none" />
         <div className="relative z-10">
-          <span className="inline-block bg-gold text-gold-foreground text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4"><i className="fa-solid fa-folder-open mr-1" aria-hidden="true" /> Travaux Encadrés</span>
+          <span className="inline-block bg-gold text-gold-foreground text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+            <LordIcon src={LORD_ICONS.document} size={18} colors="primary:#1a2332,secondary:#1a2332" /> Travaux Encadrés
+          </span>
           <h1 className="font-display text-2xl sm:text-3xl font-bold text-navy-foreground mb-2">PFE & Travaux Encadrés</h1>
           <p className="text-navy-foreground/60 text-sm">
             Projets de Fin d'Étude et Rapports de Stage encadrés par <strong className="text-gold">Pr. Rkia EDDABRA</strong>

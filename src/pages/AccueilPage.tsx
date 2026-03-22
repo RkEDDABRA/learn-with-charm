@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 interface AccueilPageProps {
   onNavigate: (page: string) => void;
@@ -35,7 +36,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-gold/10 pointer-events-none" />
           <div className="relative z-10">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">
-              <i className="fa-solid fa-star" aria-hidden="true" /> Site pédagogique officiel
+              <LordIcon src={LORD_ICONS.star} size={20} colors="primary:#FFD700,secondary:#FFD700" trigger="loop" /> Site pédagogique officiel
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-navy-foreground mb-3">
               Pr. Rkia <span className="text-gold">EDDABRA</span>
@@ -55,17 +56,17 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
           <button
             onClick={() => onNavigate("licence")}
             className="bg-card rounded-xl p-5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 text-left border-t-4 border-t-primary">
-            <div className="text-2xl mb-2 text-primary"><i className="fa-solid fa-book-open" aria-hidden="true" /></div>
+            <div className="mb-2"><LordIcon src={LORD_ICONS.book} size={36} colors="primary:#3B82F6,secondary:#FFD700" /></div>
             <div className="font-display font-bold text-sm text-foreground">Licence — Modules Enseignés</div>
             <p className="text-xs text-muted-foreground mt-1">Accéder aux modules et ressources</p>
           </button>
           <div className="bg-card rounded-xl p-5 shadow-card border-t-4 border-t-gold opacity-75">
-            <div className="text-2xl mb-2 text-gold"><i className="fa-solid fa-award" aria-hidden="true" /></div>
+            <div className="mb-2"><LordIcon src={LORD_ICONS.trophy} size={36} colors="primary:#FFD700,secondary:#3B82F6" /></div>
             <div className="font-display font-bold text-sm text-foreground">Master — Filière Coordonnée</div>
             <p className="text-xs text-muted-foreground mt-1">PRATIQUES AVANCEES EN URGENTOLOGIE</p>
           </div>
           <div className="bg-card rounded-xl p-5 shadow-card border-t-4 border-t-rose opacity-75">
-            <div className="text-2xl mb-2 text-rose"><i className="fa-solid fa-graduation-cap" aria-hidden="true" /></div>
+            <div className="mb-2"><LordIcon src={LORD_ICONS.document} size={36} colors="primary:#E23670,secondary:#3B82F6" /></div>
             <div className="font-display font-bold text-sm text-foreground">Licence — Filière Coordonnée</div>
             <p className="text-xs text-muted-foreground mt-1">SOINS INFIRMIERS</p>
           </div>
@@ -77,13 +78,15 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.15}>
           <div className="bg-card rounded-xl p-6 shadow-card h-full">
             <h3 className="font-display text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <i className="fa-solid fa-book-open text-primary" aria-hidden="true" /> Filières Enseignées
+              <LordIcon src={LORD_ICONS.bookAlt} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Filières Enseignées
             </h3>
             <div className="space-y-3">
               <button
                 onClick={() => onNavigate("licence")}
                 className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-rose/5 border border-rose/15 hover:border-rose/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-rose flex items-center justify-center text-lg flex-shrink-0 text-rose-foreground"><i className="fa-solid fa-baby" aria-hidden="true" /></div>
+                <div className="w-10 h-10 rounded-xl bg-rose flex items-center justify-center flex-shrink-0">
+                  <LordIcon src={LORD_ICONS.heart} size={24} colors="primary:#ffffff,secondary:#ffffff" />
+                </div>
                 <div>
                   <div className="font-semibold text-sm text-rose">Sage-Femme</div>
                   <div className="text-xs text-muted-foreground">Licence · S1 Sciences Biologiques · S2 Anatomie</div>
@@ -92,7 +95,9 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
               <button
                 onClick={() => onNavigate("licence")}
                 className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-teal/5 border border-teal/15 hover:border-teal/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-teal flex items-center justify-center text-lg flex-shrink-0 text-teal-foreground"><i className="fa-solid fa-apple-whole" aria-hidden="true" /></div>
+                <div className="w-10 h-10 rounded-xl bg-teal flex items-center justify-center flex-shrink-0">
+                  <LordIcon src={LORD_ICONS.trendUp} size={24} colors="primary:#ffffff,secondary:#ffffff" />
+                </div>
                 <div>
                   <div className="font-semibold text-sm text-teal">Diététique / Nutrition</div>
                   <div className="text-xs text-muted-foreground">Licence · S1 Anatomie-Physiologie · S2 Bases Physiologiques</div>
@@ -101,7 +106,9 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
               <button
                 onClick={() => onNavigate("master")}
                 className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-gold/5 border border-gold/15 hover:border-gold/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-gold flex items-center justify-center text-lg flex-shrink-0 text-gold-foreground"><i className="fa-solid fa-medal" aria-hidden="true" /></div>
+                <div className="w-10 h-10 rounded-xl bg-gold flex items-center justify-center flex-shrink-0">
+                  <LordIcon src={LORD_ICONS.trophy} size={24} colors="primary:#1a2332,secondary:#1a2332" />
+                </div>
                 <div>
                   <div className="font-semibold text-sm text-gold">Master PAU</div>
                   <div className="text-xs text-muted-foreground">Pratiques Avancées en Urgentologie · Cours, Stages, Guides</div>
@@ -114,7 +121,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.2}>
           <div className="bg-card rounded-xl p-6 shadow-card h-full">
             <h3 className="font-display text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <i className="fa-solid fa-newspaper text-primary" aria-hidden="true" /> Actualités & Publications
+              <LordIcon src={LORD_ICONS.article} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Actualités & Publications
             </h3>
             {/* Tabs */}
             <div className="flex gap-2 mb-4 flex-wrap">
@@ -157,7 +164,9 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.25}>
           <div className="bg-card rounded-xl p-6 shadow-card border-t-4 border-t-gold">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gold rounded-xl flex items-center justify-center text-lg text-gold-foreground"><i className="fa-solid fa-scroll" aria-hidden="true" /></div>
+              <div className="w-10 h-10 bg-gold rounded-xl flex items-center justify-center">
+                <LordIcon src={LORD_ICONS.document} size={24} colors="primary:#1a2332,secondary:#1a2332" />
+              </div>
               <div>
                 <div className="font-display font-bold text-sm">Textes Réglementaires</div>
                 <div className="text-xs text-muted-foreground">Documents officiels de référence</div>
@@ -200,7 +209,9 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.3}>
           <div className="bg-card rounded-xl p-6 shadow-card border-t-4 border-t-primary">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-lg text-primary-foreground"><i className="fa-solid fa-link" aria-hidden="true" /></div>
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <LordIcon src={LORD_ICONS.target} size={24} colors="primary:#ffffff,secondary:#ffffff" />
+              </div>
               <div>
                 <div className="font-display font-bold text-sm">Liens Utiles</div>
                 <div className="text-xs text-muted-foreground">Ressources institutionnelles</div>
@@ -236,7 +247,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.35}>
           <div className="bg-navy rounded-xl p-6 shadow-card">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-lg text-gold"><i className="fa-solid fa-compass" aria-hidden="true" /></span>
+              <LordIcon src={LORD_ICONS.home} size={24} colors="primary:#FFD700,secondary:#FFD700" />
               <span className="font-display font-bold text-sm text-navy-foreground">Navigation</span>
             </div>
             <div className="space-y-1">
@@ -263,7 +274,7 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         <AnimatedSection delay={0.4}>
           <div className="bg-navy rounded-xl p-6 shadow-card">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-lg text-gold"><i className="fa-solid fa-building-columns" aria-hidden="true" /></span>
+              <LordIcon src={LORD_ICONS.computer} size={24} colors="primary:#FFD700,secondary:#FFD700" />
               <span className="font-display font-bold text-sm text-navy-foreground">Institution</span>
             </div>
             <p className="text-navy-foreground/70 text-sm leading-relaxed mb-4">
@@ -284,7 +295,9 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
       <AnimatedSection delay={0.45}>
         <div className="bg-card rounded-xl p-6 shadow-card border-t-4 border-t-teal">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-teal rounded-xl flex items-center justify-center text-lg text-teal-foreground"><i className="fa-solid fa-envelope" aria-hidden="true" /></div>
+            <div className="w-10 h-10 bg-teal rounded-xl flex items-center justify-center">
+              <LordIcon src={LORD_ICONS.email} size={24} colors="primary:#ffffff,secondary:#ffffff" />
+            </div>
             <div>
               <div className="font-display font-bold text-sm">Formulaire de Contact</div>
               <div className="text-xs text-muted-foreground">N'hésitez pas à me contacter</div>
