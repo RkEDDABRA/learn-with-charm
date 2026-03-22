@@ -4,16 +4,17 @@ import { cn } from "@/lib/utils";
 import { QRCodeSVG } from "qrcode.react";
 import { ExternalLink } from "lucide-react";
 import qrActivites from "@/assets/qr-activites-master.png";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 const tabs = [
-  { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", color: "gold" },
-  { id: "activites", label: "Activités réalisées", fa: "fa-solid fa-bullseye", color: "purple" },
-  { id: "organisation", label: "Organisation Modulaire", fa: "fa-solid fa-puzzle-piece", color: "green" },
-  { id: "planning", label: "Planning", fa: "fa-solid fa-calendar-days", color: "blue" },
-  { id: "stages", label: "Stages", fa: "fa-solid fa-hospital", color: "yellow" },
-  { id: "guides", label: "Guides", fa: "fa-solid fa-book", color: "pink" },
-  { id: "eval", label: "Évaluation", fa: "fa-solid fa-clipboard-check", color: "teal" },
-  { id: "pfe", label: "PFE", fa: "fa-solid fa-graduation-cap", color: "grey" },
+  { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", lordicon: LORD_ICONS.book, color: "gold" },
+  { id: "activites", label: "Activités réalisées", fa: "fa-solid fa-bullseye", lordicon: LORD_ICONS.target, color: "purple" },
+  { id: "organisation", label: "Organisation Modulaire", fa: "fa-solid fa-puzzle-piece", lordicon: LORD_ICONS.settings, color: "green" },
+  { id: "planning", label: "Planning", fa: "fa-solid fa-calendar-days", lordicon: LORD_ICONS.calendar, color: "blue" },
+  { id: "stages", label: "Stages", fa: "fa-solid fa-hospital", lordicon: LORD_ICONS.check, color: "yellow" },
+  { id: "guides", label: "Guides", fa: "fa-solid fa-book", lordicon: LORD_ICONS.bookAlt, color: "pink" },
+  { id: "eval", label: "Évaluation", fa: "fa-solid fa-clipboard-check", lordicon: LORD_ICONS.check, color: "teal" },
+  { id: "pfe", label: "PFE", fa: "fa-solid fa-graduation-cap", lordicon: LORD_ICONS.document, color: "grey" },
 ];
 
 const semesters = [
@@ -144,6 +145,21 @@ export default function MasterPage() {
     return map[id] || "";
   };
 
+  const getTabIconColors = (id: string, isActive: boolean) => {
+    if (!isActive) return "primary:#6b7280,secondary:#9ca3af";
+    const map: Record<string, string> = {
+      cours: "primary:#1a2332,secondary:#1a2332",
+      activites: "primary:#ffffff,secondary:#ffffff",
+      organisation: "primary:#ffffff,secondary:#ffffff",
+      planning: "primary:#ffffff,secondary:#ffffff",
+      stages: "primary:#1a2332,secondary:#1a2332",
+      guides: "primary:#ffffff,secondary:#ffffff",
+      eval: "primary:#ffffff,secondary:#ffffff",
+      pfe: "primary:#ffffff,secondary:#ffffff",
+    };
+    return map[id] || "primary:#ffffff,secondary:#ffffff";
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
@@ -157,7 +173,7 @@ export default function MasterPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              <i className="fa-solid fa-award" aria-hidden="true" /> Master
+              <LordIcon src={LORD_ICONS.trophy} size={20} colors="primary:#FFD700,secondary:#FFD700" trigger="loop" /> Master
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Master PAU</h1>
             <p className="text-card/60 text-sm"><i className="fa-solid fa-stethoscope mr-1" aria-hidden="true" />Pratiques Avancées en Urgentologie · ISPITS Agadir</p>
@@ -177,7 +193,8 @@ export default function MasterPage() {
                 getTabColor(tab.id, activeTab === tab.id)
               )}
             >
-              <i className={tab.fa} aria-hidden="true" /> {tab.label}
+              <LordIcon src={tab.lordicon} size={20} colors={getTabIconColors(tab.id, activeTab === tab.id)} />
+              {tab.label}
             </button>
           ))}
         </div>
@@ -187,7 +204,9 @@ export default function MasterPage() {
       {activeTab === "cours" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-book-open text-gold" aria-hidden="true" /> Programme des Cours</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.book} size={28} colors="primary:#FFD700,secondary:#3B82F6" /> Programme des Cours
+            </h2>
            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cours.map((c, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 shadow-card border-t-[3px] ${c.color} hover:-translate-y-1 hover:shadow-card-hover transition-all duration-200`}>
@@ -214,7 +233,9 @@ export default function MasterPage() {
       {activeTab === "activites" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-bullseye text-primary" aria-hidden="true" /> Activités réalisées dans le cadre du Master</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.target} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Activités réalisées dans le cadre du Master
+            </h2>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
               Découvrez toutes les activités réalisées dans le cadre du Master Pratiques Avancées en Urgentologie.
             </p>
@@ -242,7 +263,9 @@ export default function MasterPage() {
       {activeTab === "planning" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-calendar-days text-primary" aria-hidden="true" /> Planning Hebdomadaire</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.calendar} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Planning Hebdomadaire
+            </h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -273,7 +296,9 @@ export default function MasterPage() {
       {activeTab === "organisation" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-puzzle-piece text-emerald-600" aria-hidden="true" /> Organisation Modulaire — Master PAU</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.settings} size={28} colors="primary:#059669,secondary:#3B82F6" /> Organisation Modulaire — Master PAU
+            </h2>
             <div className="space-y-8">
               {semesters.map((sem, si) => (
                 <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
@@ -327,7 +352,9 @@ export default function MasterPage() {
       {activeTab === "stages" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-hospital text-gold" aria-hidden="true" /> Stages Cliniques</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.check} size={28} colors="primary:#FFD700,secondary:#3B82F6" /> Stages Cliniques
+            </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {stages.map((s, i) => (
                 <div key={i} className="bg-secondary rounded-xl p-5 border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200">
@@ -345,7 +372,9 @@ export default function MasterPage() {
       {activeTab === "guides" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-book text-rose" aria-hidden="true" /> Guides Pédagogiques</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.bookAlt} size={28} colors="primary:#E23670,secondary:#3B82F6" /> Guides Pédagogiques
+            </h2>
             <div className="space-y-4">
               {guides.map((g, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 border-l-4 ${g.color} hover:translate-x-1 transition-all duration-200`}>
@@ -377,7 +406,9 @@ export default function MasterPage() {
       {activeTab === "eval" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-clipboard-check text-teal" aria-hidden="true" /> Grilles d'Évaluation</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.check} size={28} colors="primary:#158FAD,secondary:#3B82F6" /> Grilles d'Évaluation
+            </h2>
 
             <h3 className="font-bold text-sm mb-3 text-foreground flex items-center gap-2"><i className="fa-solid fa-hospital text-primary" aria-hidden="true" /> Évaluation du Stage</h3>
             <div className="overflow-x-auto mb-8">
@@ -438,7 +469,9 @@ export default function MasterPage() {
       {activeTab === "pfe" && (
         <AnimatedSection>
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border"><i className="fa-solid fa-graduation-cap text-foreground" aria-hidden="true" /> Projet de Fin d'Étude</h2>
+            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+              <LordIcon src={LORD_ICONS.document} size={28} colors="primary:#333333,secondary:#3B82F6" /> Projet de Fin d'Étude
+            </h2>
             <div className="space-y-4">
               {guides.map((g, i) => (
                 <div key={i} className={`bg-secondary rounded-xl p-5 border-l-4 ${g.color}`}>

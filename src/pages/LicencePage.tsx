@@ -4,6 +4,7 @@ import ImportedModuleCard from "@/components/ModuleCard";
 import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 type Option = "" | "sf" | "diet";
 
@@ -86,7 +87,7 @@ export default function LicencePage() {
           />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              <i className="fa-solid fa-graduation-cap" aria-hidden="true" /> Filière Licence
+              <LordIcon src={LORD_ICONS.book} size={20} colors="primary:#22C55E,secondary:#22C55E" trigger="loop" /> Filière Licence
             </span>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Licence en Sciences de la Santé</h1>
             <p className="text-card/60 text-sm"><i className="fa-solid fa-hand-pointer mr-1" aria-hidden="true" />Sélectionnez votre option pour accéder aux ressources pédagogiques</p>
@@ -106,7 +107,9 @@ export default function LicencePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-rose/90 via-rose/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card"><i className="fa-solid fa-baby mr-2" aria-hidden="true" />Sage-Femme</h3>
+                <h3 className="font-display text-xl font-bold text-card flex items-center gap-2">
+                  <LordIcon src={LORD_ICONS.heart} size={28} colors="primary:#ffffff,secondary:#ffffff" /> Sage-Femme
+                </h3>
                 <p className="text-card/70 text-sm mt-1">Obstétrique · Gynécologie · Sciences Biologiques</p>
               </div>
             </button>
@@ -118,7 +121,9 @@ export default function LicencePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-teal/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card"><i className="fa-solid fa-apple-whole mr-2" aria-hidden="true" />Diététique / Nutrition</h3>
+                <h3 className="font-display text-xl font-bold text-card flex items-center gap-2">
+                  <LordIcon src={LORD_ICONS.trendUp} size={28} colors="primary:#ffffff,secondary:#ffffff" /> Diététique / Nutrition
+                </h3>
                 <p className="text-card/70 text-sm mt-1">Physiologie · Nutrition · Sciences Biologiques</p>
               </div>
             </button>
@@ -133,7 +138,9 @@ export default function LicencePage() {
             <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft size={14} /> Retour
             </button>
-            <h2 className="font-display text-lg font-bold text-rose"><i className="fa-solid fa-baby mr-1" aria-hidden="true" /> Option : Sage-Femme</h2>
+            <h2 className="font-display text-lg font-bold text-rose flex items-center gap-2">
+              <LordIcon src={LORD_ICONS.heart} size={24} colors="primary:#E23670,secondary:#E23670" /> Option : Sage-Femme
+            </h2>
           </div>
           <div className="flex gap-2 mb-6">
             {(["s1", "s2"] as const).map((tab) => (
@@ -162,7 +169,9 @@ export default function LicencePage() {
             <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft size={14} /> Retour
             </button>
-            <h2 className="font-display text-lg font-bold text-teal"><i className="fa-solid fa-apple-whole mr-1" aria-hidden="true" /> Option : Diététique / Nutrition</h2>
+            <h2 className="font-display text-lg font-bold text-teal flex items-center gap-2">
+              <LordIcon src={LORD_ICONS.trendUp} size={24} colors="primary:#158FAD,secondary:#158FAD" /> Option : Diététique / Nutrition
+            </h2>
           </div>
           <div className="flex gap-2 mb-6">
             {(["s1", "s2"] as const).map((tab) => (

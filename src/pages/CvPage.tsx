@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 const sidebarInfo = {
   name: "Pr. Rkia EDDABRA",
@@ -78,22 +79,23 @@ const associations = [
   { name: "APRS2D Laayoune", role: "Trésorier · 2017–2019" },
 ];
 
-const sectionIcons: Record<string, { fa: string; border: string }> = {
-  formation: { fa: "fa-solid fa-graduation-cap", border: "border-l-primary" },
-  experience: { fa: "fa-solid fa-briefcase", border: "border-l-gold" },
-  publications: { fa: "fa-solid fa-book", border: "border-l-rose" },
-  communications: { fa: "fa-solid fa-microphone", border: "border-l-primary" },
-  certifications: { fa: "fa-solid fa-certificate", border: "border-l-teal" },
-  admin: { fa: "fa-solid fa-gears", border: "border-l-muted-foreground" },
-  langues: { fa: "fa-solid fa-language", border: "border-l-teal" },
-  associations: { fa: "fa-solid fa-people-group", border: "border-l-rose" },
+const sectionConfig: Record<string, { lordicon: string; colors: string; border: string }> = {
+  formation: { lordicon: LORD_ICONS.book, colors: "primary:#3B82F6,secondary:#FFD700", border: "border-l-primary" },
+  experience: { lordicon: LORD_ICONS.calendar, colors: "primary:#FFD700,secondary:#3B82F6", border: "border-l-gold" },
+  publications: { lordicon: LORD_ICONS.article, colors: "primary:#E23670,secondary:#3B82F6", border: "border-l-rose" },
+  communications: { lordicon: LORD_ICONS.bell, colors: "primary:#3B82F6,secondary:#FFD700", border: "border-l-primary" },
+  certifications: { lordicon: LORD_ICONS.check, colors: "primary:#158FAD,secondary:#3B82F6", border: "border-l-teal" },
+  admin: { lordicon: LORD_ICONS.settings, colors: "primary:#6b7280,secondary:#3B82F6", border: "border-l-muted-foreground" },
+  langues: { lordicon: LORD_ICONS.target, colors: "primary:#158FAD,secondary:#3B82F6", border: "border-l-teal" },
+  associations: { lordicon: LORD_ICONS.avatarMan, colors: "primary:#E23670,secondary:#3B82F6", border: "border-l-rose" },
 };
 
-function CvSection({ title, faIcon, borderColor, children }: { title: string; faIcon: string; borderColor: string; children: React.ReactNode }) {
+function CvSection({ title, sectionKey, children }: { title: string; sectionKey: string; children: React.ReactNode }) {
+  const config = sectionConfig[sectionKey];
   return (
-    <div className={`bg-card rounded-xl p-6 shadow-card border-l-4 ${borderColor}`}>
+    <div className={`bg-card rounded-xl p-6 shadow-card border-l-4 ${config.border}`}>
       <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">
-        <i className={`${faIcon} text-primary`} aria-hidden="true" /> {title}
+        <LordIcon src={config.lordicon} size={28} colors={config.colors} /> {title}
       </h3>
       {children}
     </div>
@@ -118,8 +120,8 @@ export default function CvPage() {
         {/* Sidebar */}
         <AnimatedSection>
           <div className="bg-navy rounded-2xl p-6 lg:sticky lg:top-24 border border-primary/15">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-rose mx-auto mb-4 flex items-center justify-center text-3xl shadow-lg border-2 border-gold/30">
-              <i className="fa-solid fa-user-doctor text-white" aria-hidden="true" />
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-rose mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gold/30">
+              <LordIcon src={LORD_ICONS.avatar} size={48} colors="primary:#ffffff,secondary:#FFD700" trigger="loop" />
             </div>
             <h2 className="font-display text-xl font-bold text-navy-foreground text-center mb-1">{sidebarInfo.name}</h2>
             <p className="text-center text-gold text-xs tracking-widest uppercase font-medium mb-6">{sidebarInfo.title}</p>
@@ -148,37 +150,37 @@ export default function CvPage() {
         {/* Main */}
         <div className="space-y-6">
           <AnimatedSection>
-            <CvSection title="Formation Académique" faIcon={sectionIcons.formation.fa} borderColor={sectionIcons.formation.border}>
+            <CvSection title="Formation Académique" sectionKey="formation">
               {formations.map((f, i) => <CvEntry key={i} title={f.title} lieu={f.lieu} date={f.date} desc={f.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <CvSection title="Expérience Professionnelle" faIcon={sectionIcons.experience.fa} borderColor={sectionIcons.experience.border}>
+            <CvSection title="Expérience Professionnelle" sectionKey="experience">
               {parcours.map((p, i) => <CvEntry key={i} title={p.title} lieu={p.lieu} date={p.date} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <CvSection title="Publications Scientifiques" faIcon={sectionIcons.publications.fa} borderColor={sectionIcons.publications.border}>
+            <CvSection title="Publications Scientifiques" sectionKey="publications">
               {publications.map((p, i) => <CvEntry key={i} title={p.title} desc={p.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <CvSection title="Communications & Conférences" faIcon={sectionIcons.communications.fa} borderColor={sectionIcons.communications.border}>
+            <CvSection title="Communications & Conférences" sectionKey="communications">
               {communications.map((c, i) => <CvEntry key={i} title={c.title} desc={c.desc} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.25}>
-            <CvSection title="Formations & Certifications" faIcon={sectionIcons.certifications.fa} borderColor={sectionIcons.certifications.border}>
+            <CvSection title="Formations & Certifications" sectionKey="certifications">
               {certifications.map((c, i) => <CvEntry key={i} title={c.title} lieu={c.lieu} date={c.date} />)}
             </CvSection>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <CvSection title="Activités Administratives & Organisationnelles" faIcon={sectionIcons.admin.fa} borderColor={sectionIcons.admin.border}>
+            <CvSection title="Activités Administratives & Organisationnelles" sectionKey="admin">
               <ul className="space-y-2 pl-1">
                 {admin.map((a, i) => (
                   <li key={i} className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2">
@@ -194,13 +196,13 @@ export default function CvPage() {
       {/* Bottom cards: Languages + Associations */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <AnimatedSection delay={0.35}>
-          <CvSection title="Langues" faIcon={sectionIcons.langues.fa} borderColor={sectionIcons.langues.border}>
+          <CvSection title="Langues" sectionKey="langues">
             {langues.map((l, i) => <CvEntry key={i} title={`${l.flag} ${l.lang}`} desc={l.level} />)}
           </CvSection>
         </AnimatedSection>
 
         <AnimatedSection delay={0.4}>
-          <CvSection title="Associations" faIcon={sectionIcons.associations.fa} borderColor={sectionIcons.associations.border}>
+          <CvSection title="Associations" sectionKey="associations">
             {associations.map((a, i) => <CvEntry key={i} title={a.name} desc={a.role} />)}
           </CvSection>
         </AnimatedSection>

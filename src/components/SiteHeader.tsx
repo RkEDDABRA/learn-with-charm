@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 
 const navItems = [
-  { id: "accueil", label: "Accueil", faIcon: "fa-solid fa-house" },
-  { id: "licence", label: "Licence", faIcon: "fa-solid fa-graduation-cap" },
-  { id: "master", label: "Master", faIcon: "fa-solid fa-award" },
-  { id: "pfe", label: "PFE & Travaux", faIcon: "fa-solid fa-folder-open" },
-  { id: "cv", label: "CV", faIcon: "fa-solid fa-user-tie" },
+  { id: "accueil", label: "Accueil", faIcon: "fa-solid fa-house", lordicon: LORD_ICONS.home },
+  { id: "licence", label: "Licence", faIcon: "fa-solid fa-graduation-cap", lordicon: LORD_ICONS.book },
+  { id: "master", label: "Master", faIcon: "fa-solid fa-award", lordicon: LORD_ICONS.trophy },
+  { id: "pfe", label: "PFE & Travaux", faIcon: "fa-solid fa-folder-open", lordicon: LORD_ICONS.document },
+  { id: "cv", label: "CV", faIcon: "fa-solid fa-user-tie", lordicon: LORD_ICONS.avatar },
 ];
 
 interface SiteHeaderProps {
@@ -51,7 +52,11 @@ export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) 
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               )}
             >
-              <i className={`${item.faIcon} text-xs`} aria-hidden="true" />
+              <LordIcon
+                src={item.lordicon}
+                size={22}
+                colors={activePage === item.id ? "primary:#3B82F6,secondary:#FFD700" : "primary:#6b7280,secondary:#9ca3af"}
+              />
               {item.label}
               {activePage === item.id && (
                 <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-full" />
@@ -83,7 +88,11 @@ export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) 
                   : "bg-muted text-muted-foreground hover:text-foreground"
               )}
             >
-              <i className={`${item.faIcon} text-xs`} aria-hidden="true" />
+              <LordIcon
+                src={item.lordicon}
+                size={18}
+                colors={activePage === item.id ? "primary:#ffffff,secondary:#FFD700" : "primary:#6b7280,secondary:#9ca3af"}
+              />
               {item.label}
             </button>
           ))}
