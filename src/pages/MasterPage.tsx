@@ -5,6 +5,8 @@ import { QRCodeSVG } from "qrcode.react";
 import { ExternalLink } from "lucide-react";
 import qrActivites from "@/assets/qr-activites-master.png";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import calendrier2024 from "@/assets/calendrier-vacances-2024-2025.png";
+import calendrier2026 from "@/assets/calendrier-vacances-2025-2026.png";
 
 const tabs = [
   { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", lordicon: LORD_ICONS.book, color: "gold" },
@@ -93,7 +95,7 @@ const cours = [
   { fa: "fa-solid fa-baby", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
-const planning: { day: string; am: string; pm: string }[] = [];
+
 
 const stages = [
   { name: "Stage 1 — Urgences", badge: "S1", desc: "Service des urgences du CHR Hassan II · 4 semaines", color: "bg-primary/10 text-primary" },
@@ -262,31 +264,87 @@ export default function MasterPage() {
       {/* Planning */}
       {activeTab === "planning" && (
         <AnimatedSection>
-          <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
-              <LordIcon src={LORD_ICONS.calendar} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Planning Hebdomadaire
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-navy text-navy-foreground">
-                    <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase rounded-tl-lg">Jour</th>
-                    <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase">Matin</th>
-                    <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase rounded-tr-lg">Après-midi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {planning.map((row, i) => (
-                    <tr key={i} className="border-b border-border last:border-b-0 hover:bg-primary/[0.02]">
-                      <td className="px-4 py-3 font-bold text-sm">{row.day}</td>
-                      <td className="px-4 py-3 text-sm text-muted-foreground">{row.am}</td>
-                      <td className="px-4 py-3 text-sm">
-                        <span className="bg-primary/10 text-primary text-xs font-semibold px-2 py-0.5 rounded-md">{row.pm}</span>
-                      </td>
+          <div className="space-y-8">
+            {/* Planning de démarrage */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+                <LordIcon src={LORD_ICONS.calendar} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Planning Prévisionnel — Master PAU (2024-2026)
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-navy text-navy-foreground">
+                      <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase rounded-tl-lg">Semestre</th>
+                      <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase">Dates</th>
+                      <th className="text-left px-4 py-3 text-xs font-bold tracking-widest uppercase rounded-tr-lg">Événements clés</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {[
+                      { sem: "S1", date: "Lundi 17 février 2025", event: "Rentrée effective" },
+                      { sem: "S1", date: "Du 16 juin au 4 juillet 2025", event: "Examens de fin de semestre" },
+                      { sem: "S1", date: "Lundi 7 juillet 2025", event: "Début du 2ème semestre" },
+                      { sem: "S2", date: "Du 15 au 31 décembre 2025", event: "Examens de fin de semestre" },
+                      { sem: "S2", date: "Lundi 5 janvier 2026", event: "Début du 3ème semestre" },
+                      { sem: "S3", date: "Du 11 au 26 mai 2026", event: "Examens de fin de semestre" },
+                      { sem: "S3", date: "Lundi 1 juin 2026", event: "Début du 4ème semestre" },
+                      { sem: "S3", date: "Du 9 au 27 novembre 2026", event: "Examens de fin de semestre" },
+                      { sem: "S4", date: "Du 30 nov. au 25 déc. 2026", event: "Soutenances" },
+                      { sem: "S4", date: "Fin décembre 2026", event: "Fin de formation" },
+                    ].map((row, i) => {
+                      const semColors: Record<string, string> = {
+                        S1: "bg-emerald-100 text-emerald-800",
+                        S2: "bg-blue-100 text-blue-800",
+                        S3: "bg-orange-100 text-orange-800",
+                        S4: "bg-red-100 text-red-800",
+                      };
+                      return (
+                        <tr key={i} className="border-b border-border last:border-b-0 hover:bg-primary/[0.02]">
+                          <td className="px-4 py-3">
+                            <span className={`text-xs font-bold px-2 py-1 rounded-md ${semColors[row.sem] || ""}`}>{row.sem}</span>
+                          </td>
+                          <td className="px-4 py-3 text-sm text-muted-foreground">{row.date}</td>
+                          <td className="px-4 py-3 text-sm font-medium">{row.event}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4">
+                <a
+                  href="/documents/planning-demarrage-master.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  <i className="fa-solid fa-file-pdf" /> Télécharger le planning officiel (PDF)
+                </a>
+              </div>
+            </div>
+
+            {/* Calendrier des vacances 2024-2025 */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">
+                <i className="fa-solid fa-umbrella-beach text-emerald-500" /> Calendrier des Vacances Universitaires 2024/2025
+              </h3>
+              <img
+                src={calendrier2024}
+                alt="Calendrier des vacances universitaires 2024-2025"
+                className="w-full max-w-2xl mx-auto rounded-xl border border-border shadow-sm"
+              />
+            </div>
+
+            {/* Calendrier des vacances 2025-2026 */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">
+                <i className="fa-solid fa-umbrella-beach text-blue-500" /> Calendrier des Vacances Universitaires 2025/2026
+              </h3>
+              <img
+                src={calendrier2026}
+                alt="Calendrier des vacances universitaires 2025-2026"
+                className="w-full max-w-2xl mx-auto rounded-xl border border-border shadow-sm"
+              />
             </div>
           </div>
         </AnimatedSection>
