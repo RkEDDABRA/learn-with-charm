@@ -95,7 +95,7 @@ const cours = [
   { fa: "fa-solid fa-baby", title: "Urgences pédiatriques et stratégies de prise en charge", desc: "Prise en charge des urgences pédiatriques et stratégies thérapeutiques adaptées.", tag: "Pédiatrie", color: "border-t-rose", link: "https://padlet.com/eddabra/breakout-room/nRxeqrly7kaw456P-RdZYv7LoE55JbrPl" },
 ];
 
-const planning: { day: string; am: string; pm: string }[] = [];
+
 
 const stages = [
   { name: "Stage 1 — Urgences", badge: "S1", desc: "Service des urgences du CHR Hassan II · 4 semaines", color: "bg-primary/10 text-primary" },
