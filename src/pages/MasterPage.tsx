@@ -5,6 +5,8 @@ import { QRCodeSVG } from "qrcode.react";
 import { ExternalLink } from "lucide-react";
 import qrActivites from "@/assets/qr-activites-master.png";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import calendrier2024 from "@/assets/calendrier-vacances-2024-2025.png";
+import calendrier2026 from "@/assets/calendrier-vacances-2025-2026.png";
 
 const tabs = [
   { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", lordicon: LORD_ICONS.book, color: "gold" },
