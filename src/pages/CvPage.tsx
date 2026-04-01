@@ -1,5 +1,13 @@
+import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import { cn } from "@/lib/utils";
+import PfePage from "@/pages/PfePage";
+
+const cvTabs = [
+  { id: "cv", label: "Curriculum Vitae", lordicon: LORD_ICONS.avatar, color: "primary" },
+  { id: "pfe", label: "PFE & Travaux Encadrés", lordicon: LORD_ICONS.document, color: "gold" },
+];
 
 const sidebarInfo = {
   name: "Pr. Rkia EDDABRA",
@@ -113,7 +121,7 @@ function CvEntry({ title, lieu, date, desc }: { title: string; lieu?: string; da
   );
 }
 
-export default function CvPage() {
+function CvContent() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start">
@@ -207,6 +215,44 @@ export default function CvPage() {
           </CvSection>
         </AnimatedSection>
       </div>
+    </div>
+  );
+}
+
+export default function CvPage() {
+  const [activeTab, setActiveTab] = useState("cv");
+
+  return (
+    <div>
+      {/* Sub-tab navigation */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <div className="flex flex-wrap gap-2 mb-2 p-3 bg-card rounded-2xl border border-border shadow-card">
+          {cvTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={cn(
+                "px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2",
+                activeTab === tab.id
+                  ? tab.color === "gold"
+                    ? "bg-gold text-gold-foreground shadow-md"
+                    : "bg-primary text-primary-foreground shadow-md"
+                  : "bg-muted text-muted-foreground hover:text-foreground"
+              )}
+            >
+              <LordIcon
+                src={tab.lordicon}
+                size={20}
+                colors={activeTab === tab.id ? "primary:#ffffff,secondary:#ffffff" : "primary:#6b7280,secondary:#9ca3af"}
+              />
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeTab === "cv" && <CvContent />}
+      {activeTab === "pfe" && <PfePage />}
     </div>
   );
 }
