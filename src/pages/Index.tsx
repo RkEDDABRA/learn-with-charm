@@ -18,8 +18,6 @@ const Index = () => {
         return <LicencePage />;
       case "master":
         return <MasterPage />;
-      case "pfe":
-        return <PfePage />;
       case "cv":
         return <CvPage />;
       default:

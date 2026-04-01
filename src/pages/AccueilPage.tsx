@@ -257,7 +257,6 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
                 { label: "Licence Sage-femme", page: "licence", icon: "fa-solid fa-baby" },
                 { label: "Licence Diététique", page: "licence", icon: "fa-solid fa-apple-whole" },
                 { label: "Master PAU", page: "master", icon: "fa-solid fa-medal" },
-                { label: "Rapports & PFE", page: "pfe", icon: "fa-solid fa-file-lines" },
               ].map((item, i) => (
                 <button
                   key={i}
