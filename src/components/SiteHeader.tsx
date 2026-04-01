@@ -7,7 +7,6 @@ const navItems = [
   { id: "accueil", label: "Accueil", faIcon: "fa-solid fa-house", lordicon: LORD_ICONS.home },
   { id: "licence", label: "Licence", faIcon: "fa-solid fa-graduation-cap", lordicon: LORD_ICONS.book },
   { id: "master", label: "Master", faIcon: "fa-solid fa-award", lordicon: LORD_ICONS.trophy },
-  { id: "pfe", label: "PFE & Travaux", faIcon: "fa-solid fa-folder-open", lordicon: LORD_ICONS.document },
   { id: "cv", label: "CV", faIcon: "fa-solid fa-user-tie", lordicon: LORD_ICONS.avatar },
 ];
 
