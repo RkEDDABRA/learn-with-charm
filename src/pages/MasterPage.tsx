@@ -98,10 +98,11 @@ const cours = [
 
 
 const stages = [
-  { name: "Stage 1 — Urgences", badge: "S1", desc: "Service des urgences du CHR Hassan II · 4 semaines", color: "bg-primary/10 text-primary" },
-  { name: "Stage 2 — Réanimation", badge: "S2", desc: "Service de réanimation polyvalente · 4 semaines", color: "bg-rose/10 text-rose" },
-  { name: "Stage 3 — SAMU / SMUR", badge: "S3", desc: "Régulation et interventions pré-hospitalières · 4 semaines", color: "bg-gold/10 text-gold" },
-  { name: "Stage 4 — Bloc opératoire", badge: "S4", desc: "Soins péri-opératoires et surveillance post-anesthésie · 4 semaines", color: "bg-teal/10 text-teal" },
+  { name: "Stage d'application : Simulation en santé", badge: "S2", desc: "120h · 4 crédits", color: "bg-primary/10 text-primary" },
+  { name: "Stage au bloc opératoire", badge: "S2", desc: "120h · 5 crédits", color: "bg-rose/10 text-rose" },
+  { name: "Stage d'approfondissement : Service d'Accueil des Urgences (SAU)", badge: "S2", desc: "120h · 5 crédits", color: "bg-gold/10 text-gold" },
+  { name: "Stage : Service d'Assistance Médicale d'Urgence (SAMU)", badge: "S3", desc: "120h · 5 crédits", color: "bg-teal/10 text-teal" },
+  { name: "Stage : Mère Enfant", badge: "S3", desc: "120h · 5 crédits", color: "bg-accent/10 text-accent" },
 ];
 
 const guides = [
