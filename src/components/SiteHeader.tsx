@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import { useDarkMode } from "@/hooks/useDarkMode";
 
 const navItems = [
   { id: "accueil", label: "Accueil", faIcon: "fa-solid fa-house", lordicon: LORD_ICONS.home },
@@ -17,6 +18,7 @@ interface SiteHeaderProps {
 
 export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { isDark, toggleDark } = useDarkMode();
 
   const handleNav = (id: string) => {
     onNavigate(id);
@@ -63,6 +65,15 @@ export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) 
             </button>
           ))}
         </nav>
+
+        {/* Dark mode toggle */}
+        <button
+          onClick={toggleDark}
+          aria-label="Basculer le thème"
+          className="p-2 rounded-lg hover:bg-muted text-muted-foreground transition-colors"
+        >
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
 
         {/* Mobile toggle */}
         <button
