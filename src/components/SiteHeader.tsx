@@ -66,6 +66,15 @@ export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) 
           ))}
         </nav>
 
+        {/* Dark mode toggle */}
+        <button
+          onClick={toggleDark}
+          aria-label="Basculer le thème"
+          className="p-2 rounded-lg hover:bg-muted text-muted-foreground transition-colors"
+        >
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
         {/* Mobile toggle */}
         <button
           className="md:hidden p-2 rounded-lg hover:bg-muted text-muted-foreground"
