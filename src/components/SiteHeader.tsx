@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import { useDarkMode } from "@/hooks/useDarkMode";
 
 const navItems = [
   { id: "accueil", label: "Accueil", faIcon: "fa-solid fa-house", lordicon: LORD_ICONS.home },
