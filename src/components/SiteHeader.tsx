@@ -18,6 +18,7 @@ interface SiteHeaderProps {
 
 export default function SiteHeader({ activePage, onNavigate }: SiteHeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { isDark, toggleDark } = useDarkMode();
 
   const handleNav = (id: string) => {
     onNavigate(id);
