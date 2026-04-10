@@ -146,7 +146,29 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
             {/* Content */}
             <div className="space-y-3 min-h-[80px]">
               {activeActuTab === "recherche" && (
-                <p className="text-sm text-muted-foreground italic"><i className="fa-regular fa-clock mr-1" aria-hidden="true" />Aucune actualité pour le moment. Contenu à venir.</p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-rose/5 border border-rose/15">
+                    <div className="w-10 h-12 bg-destructive rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                      <span className="text-[9px] font-bold text-destructive-foreground">PDF</span>
+                      <i className="fa-solid fa-file-pdf text-destructive-foreground text-sm" aria-hidden="true" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-sm text-foreground leading-tight mb-0.5">Mباراة ولوج سلك الماستر ISPITS 2025-2026</p>
+                      <p className="text-xs text-muted-foreground mb-1.5">Concours d'accès au Master ISPITS — 690 places · 10 mai 2026</p>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="inline-flex items-center gap-1 bg-rose/10 text-rose text-[10px] font-bold px-2 py-0.5 rounded-full">2026</span>
+                        <a
+                          href="/documents/Master_ISPITS.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 bg-rose text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full hover:opacity-90 transition-opacity"
+                        >
+                          <i className="fa-solid fa-download" aria-hidden="true" /> Télécharger
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )}
               {activeActuTab === "enseignement" && (
                 <p className="text-sm text-muted-foreground italic"><i className="fa-regular fa-clock mr-1" aria-hidden="true" />Aucune actualité pour le moment. Contenu à venir.</p>
