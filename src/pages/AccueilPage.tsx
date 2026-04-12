@@ -73,50 +73,8 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
         </div>
       </AnimatedSection>
 
-      {/* Filières + Actualités */}
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <AnimatedSection delay={0.15}>
-          <div className="bg-card rounded-xl p-6 shadow-card h-full">
-            <h3 className="font-display text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-              <LordIcon src={LORD_ICONS.bookAlt} size={28} colors="primary:#3B82F6,secondary:#FFD700" /> Filières Enseignées
-            </h3>
-            <div className="space-y-3">
-              <button
-                onClick={() => onNavigate("licence")}
-                className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-rose/5 border border-rose/15 hover:border-rose/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-rose flex items-center justify-center flex-shrink-0">
-                  <LordIcon src={LORD_ICONS.heart} size={24} colors="primary:#ffffff,secondary:#ffffff" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-rose">Sage-Femme</div>
-                  <div className="text-xs text-muted-foreground">Licence · S1 Sciences Biologiques · S2 Anatomie</div>
-                </div>
-              </button>
-              <button
-                onClick={() => onNavigate("licence")}
-                className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-teal/5 border border-teal/15 hover:border-teal/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-teal flex items-center justify-center flex-shrink-0">
-                  <LordIcon src={LORD_ICONS.trendUp} size={24} colors="primary:#ffffff,secondary:#ffffff" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-teal">Diététique / Nutrition</div>
-                  <div className="text-xs text-muted-foreground">Licence · S1 Anatomie-Physiologie · S2 Bases Physiologiques</div>
-                </div>
-              </button>
-              <button
-                onClick={() => onNavigate("master")}
-                className="w-full text-left flex items-center gap-3 p-3 rounded-xl bg-gold/5 border border-gold/15 hover:border-gold/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-gold flex items-center justify-center flex-shrink-0">
-                  <LordIcon src={LORD_ICONS.trophy} size={24} colors="primary:#1a2332,secondary:#1a2332" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-gold">Master PAU</div>
-                  <div className="text-xs text-muted-foreground">Pratiques Avancées en Urgentologie · Cours, Stages, Guides</div>
-                </div>
-              </button>
-            </div>
-          </div>
-        </AnimatedSection>
+      {/* Actualités */}
+      <div className="grid md:grid-cols-1 gap-6 mb-8">
 
         <AnimatedSection delay={0.2}>
           <div className="bg-card rounded-xl p-6 shadow-card h-full">
