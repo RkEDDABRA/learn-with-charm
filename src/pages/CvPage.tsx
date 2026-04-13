@@ -257,7 +257,11 @@ export default function CvPage() {
           <CvContent />
         </PasswordGate>
       )}
-      {activeTab === "pfe" && <PfePage />}
+      {activeTab === "pfe" && (
+        <PasswordGate>
+          <PfePage />
+        </PasswordGate>
+      )}
     </div>
   );
 }
