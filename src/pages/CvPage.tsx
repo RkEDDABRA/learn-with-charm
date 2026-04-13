@@ -3,6 +3,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 import { cn } from "@/lib/utils";
 import PfePage from "@/pages/PfePage";
+import PasswordGate from "@/components/PasswordGate";
 
 const cvTabs = [
   { id: "cv", label: "Curriculum Vitae", lordicon: LORD_ICONS.avatar, color: "primary" },
@@ -251,7 +252,11 @@ export default function CvPage() {
         </div>
       </div>
 
-      {activeTab === "cv" && <CvContent />}
+      {activeTab === "cv" && (
+        <PasswordGate>
+          <CvContent />
+        </PasswordGate>
+      )}
       {activeTab === "pfe" && <PfePage />}
     </div>
   );
