@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CORRECT_PASSWORD = "votre_mot_de_passe"; // ← changez ici
+const CORRECT_PASSWORD = "Eddabra2025";
 
 interface PasswordGateProps {
   children: React.ReactNode;
