@@ -170,8 +170,11 @@ export default function MasterPage() {
         <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-center mb-8 bg-gradient-to-br from-slate-800 via-slate-700 to-cyan-900">
           <img
             src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1200&q=80"
-            alt=""
+            alt="Master Pratiques Avancées en Urgentologie"
+            width={1200} height={400}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
@@ -244,7 +247,7 @@ export default function MasterPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-6">
               <div className="bg-secondary rounded-xl p-3">
-                <img src={qrActivites} alt="QR code Activités réalisées" className="w-[150px] h-[150px]" />
+                <img src={qrActivites} alt="QR code Activités réalisées" width={150} height={150} loading="lazy" className="w-[150px] h-[150px]" />
               </div>
               <div className="flex-1">
                 <a
