@@ -21,11 +21,25 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
   const { toast } = useToast();
   const [contactForm, setContactForm] = useState({ nom: "", email: "", sujet: "", message: "" });
   const [activeActuTab, setActiveActuTab] = useState("recherche");
+  const [contactLoading, setContactLoading] = useState(false);
+  const [contactStatus, setContactStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message envoyé !", description: "Merci pour votre message. Nous vous répondrons bientôt." });
-    setContactForm({ nom: "", email: "", sujet: "", message: "" });
+    if (contactLoading) return;
+    setContactLoading(true);
+    setContactStatus("idle");
+    try {
+      // Mock backend call — replace with real endpoint later
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      toast({ title: "Message envoyé !", description: "Merci pour votre message. Nous vous répondrons bientôt." });
+      setContactForm({ nom: "", email: "", sujet: "", message: "" });
+      setContactStatus("success");
+    } catch {
+      setContactStatus("error");
+    } finally {
+      setContactLoading(false);
+    }
   };
 
   return (
@@ -312,11 +326,30 @@ export default function AccueilPage({ onNavigate }: AccueilPageProps) {
               onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
               className="sm:col-span-2 bg-secondary border-border min-h-[100px]"
             />
-            <div className="sm:col-span-2">
-              <Button type="submit" className="bg-teal text-teal-foreground hover:bg-teal/90 font-semibold">
-                <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
-                Envoyer
+            <div className="sm:col-span-2 flex flex-col gap-2">
+              <Button type="submit" disabled={contactLoading} className="bg-teal text-teal-foreground hover:bg-teal/90 font-semibold disabled:opacity-60">
+                {contactLoading ? (
+                  <>
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-teal-foreground border-t-transparent mr-2" />
+                    Envoi en cours…
+                  </>
+                ) : (
+                  <>
+                    <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
+                    Envoyer
+                  </>
+                )}
               </Button>
+              {contactStatus === "success" && (
+                <p className="text-sm font-medium text-accent flex items-center gap-1.5">
+                  <i className="fa-solid fa-circle-check" aria-hidden="true" /> Message envoyé !
+                </p>
+              )}
+              {contactStatus === "error" && (
+                <p className="text-sm font-medium text-destructive flex items-center gap-1.5">
+                  <i className="fa-solid fa-circle-xmark" aria-hidden="true" /> Échec de l'envoi, réessayez.
+                </p>
+              )}
             </div>
           </form>
         </div>
