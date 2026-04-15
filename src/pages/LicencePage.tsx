@@ -82,7 +82,9 @@ export default function LicencePage() {
         <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-center mb-8 bg-gradient-to-br from-emerald-900 to-cyan-800">
           <img
             src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&q=80"
-            alt=""
+            alt="Licence en Sciences de la Santé"
+            width={1200} height={400}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
           <div className="relative z-10 p-8 sm:p-12">
@@ -103,7 +105,7 @@ export default function LicencePage() {
               onClick={() => setOption("sf")}
               className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-end group shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
             >
-              <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Sage Femme" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Option Sage Femme" width={800} height={400} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-rose/90 via-rose/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
@@ -117,7 +119,7 @@ export default function LicencePage() {
               onClick={() => setOption("diet")}
               className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-end group shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
             >
-              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Diététique" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Option Diététique et Nutrition" width={800} height={400} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-teal/40 to-transparent" />
               <div className="relative z-10 p-6 text-left">
                 <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>

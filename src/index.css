@@ -71,7 +71,7 @@
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 75.1%;
     --accent: 142 71% 45%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
@@ -123,6 +123,30 @@
   .shadow-card-hover {
     box-shadow: var(--shadow-card-hover);
   }
+}
+
+/* Global focus-visible styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Responsive overflow prevention */
+html, body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li, td, th {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Fluid typography for small screens */
+@media (max-width: 400px) {
+  h1 { font-size: clamp(1.25rem, 5vw, 1.875rem) !important; }
+  h2 { font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important; }
+  h3 { font-size: clamp(1rem, 4vw, 1.25rem) !important; }
 }
 
 /* Custom scrollbar */
