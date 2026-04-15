@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { cn } from "@/lib/utils";
 import { QRCodeSVG } from "qrcode.react";
@@ -130,8 +130,30 @@ const evalPFE = [
   { critere: "Présentation PowerPoint", indicateur: "Lisibilité, structuration, respect du timing", pts: "5 pts" },
 ];
 
+const PAU_PASSWORD = "MPAU-AGADIR";
+const PAU_STORAGE_KEY = "pau_guide_auth";
+
 export default function MasterPage() {
   const [activeTab, setActiveTab] = useState("cours");
+  const [pauUnlocked, setPauUnlocked] = useState(() => sessionStorage.getItem(PAU_STORAGE_KEY) === "true");
+  const [pauInput, setPauInput] = useState("");
+  const [pauError, setPauError] = useState(false);
+  const [pauLoading, setPauLoading] = useState(false);
+
+  const handlePauSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (pauLoading) return;
+    setPauLoading(true);
+    await new Promise((r) => setTimeout(r, 400));
+    if (pauInput === PAU_PASSWORD) {
+      sessionStorage.setItem(PAU_STORAGE_KEY, "true");
+      setPauUnlocked(true);
+    } else {
+      setPauError(true);
+      setPauInput("");
+    }
+    setPauLoading(false);
+  };
 
   const getTabColor = (id: string, isActive: boolean) => {
     if (!isActive) return "bg-muted text-muted-foreground hover:text-foreground";
@@ -449,15 +471,50 @@ export default function MasterPage() {
               ))}
             </div>
             <div className="mt-6 pt-4 border-t border-border">
-              <a
-                href="https://padlet.com/eddabra/breakout-room/5Wkoqm1alVemq8pM-RdZYv7LoE55JbrPl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-rose text-rose-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-rose/90 transition-colors"
-              >
-                <ExternalLink size={16} />
-                Accéder au Guide
-              </a>
+              {pauUnlocked ? (
+                <a
+                  href="https://padlet.com/eddabra/breakout-room/5Wkoqm1alVemq8pM-RdZYv7LoE55JbrPl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-rose text-rose-foreground text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-rose/90 transition-colors"
+                >
+                  <ExternalLink size={16} />
+                  Accéder au Guide
+                </a>
+              ) : (
+                <div className="w-full max-w-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <i className="fa-solid fa-lock text-muted-foreground" aria-hidden="true" />
+                    <p className="text-sm font-medium text-foreground">Accès protégé</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3">Entrez le mot de passe pour accéder au guide PAU.</p>
+                  <form onSubmit={handlePauSubmit} className="flex flex-col gap-3">
+                    <input
+                      type="password"
+                      value={pauInput}
+                      onChange={(e) => { setPauInput(e.target.value); setPauError(false); }}
+                      placeholder="Mot de passe"
+                      className="rounded-lg border border-input bg-background px-4 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring transition-shadow"
+                      disabled={pauLoading}
+                    />
+                    {pauError && <p className="text-xs text-destructive">Mot de passe incorrect.</p>}
+                    <button
+                      type="submit"
+                      disabled={pauLoading}
+                      className="rounded-lg bg-rose text-rose-foreground px-4 py-2 text-sm font-semibold hover:bg-rose/90 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+                    >
+                      {pauLoading ? (
+                        <>
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-rose-foreground border-t-transparent" />
+                          Vérification...
+                        </>
+                      ) : (
+                        "Accéder au guide"
+                      )}
+                    </button>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </AnimatedSection>
