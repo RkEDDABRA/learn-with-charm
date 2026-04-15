@@ -87,7 +87,6 @@ export default function LicencePage() {
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
-          />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
               <LordIcon src={LORD_ICONS.book} size={20} colors="primary:#22C55E,secondary:#22C55E" trigger="loop" /> Filière Licence

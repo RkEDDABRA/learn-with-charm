@@ -175,7 +175,6 @@ export default function MasterPage() {
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/40 to-transparent" />
           <div className="relative z-10 p-8 sm:p-12">
             <span className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
