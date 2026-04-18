@@ -3,8 +3,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import ImportedModuleCard from "@/components/ModuleCard";
 import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { cn } from "@/lib/utils";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
 
 type Option = "" | "sf" | "diet";
 
