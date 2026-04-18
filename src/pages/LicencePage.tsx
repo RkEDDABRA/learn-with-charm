@@ -3,8 +3,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import ImportedModuleCard from "@/components/ModuleCard";
 import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
 import { cn } from "@/lib/utils";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
+import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
 
 type Option = "" | "sf" | "diet";
 
@@ -74,6 +75,25 @@ export default function LicencePage() {
   const [option, setOption] = useState<Option>("");
   const [sfTab, setSfTab] = useState<"s1" | "s2">("s1");
   const [dietTab, setDietTab] = useState<"s1" | "s2">("s1");
+  const [showAnatomieCours, setShowAnatomieCours] = useState(false);
+
+  // Si l'utilisateur a ouvert le cours d'Anatomie Gynéco-Obstétricale,
+  // on affiche uniquement le composant cours (avec un bouton retour).
+  if (showAnatomieCours) {
+    return (
+      <div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <button
+            onClick={() => setShowAnatomieCours(false)}
+            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={14} /> Retour aux modules
+          </button>
+        </div>
+        <CoursAnatomieGynecoObstetricale />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -161,6 +181,17 @@ export default function LicencePage() {
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
           </div>
+          {sfTab === "s2" && (
+            <div className="mt-6">
+              <button
+                onClick={() => setShowAnatomieCours(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose text-rose-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
+              >
+                <BookOpen size={18} /> Ouvrir le cours complet — Anatomie Gynéco-Obstétricale
+              </button>
+              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
+            </div>
+          )}
         </AnimatedSection>
       )}
 
