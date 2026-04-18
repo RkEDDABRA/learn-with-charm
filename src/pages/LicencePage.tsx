@@ -181,6 +181,17 @@ export default function LicencePage() {
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
           </div>
+          {sfTab === "s2" && (
+            <div className="mt-6">
+              <button
+                onClick={() => setShowAnatomieCours(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose text-rose-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
+              >
+                <BookOpen size={18} /> Ouvrir le cours complet — Anatomie Gynéco-Obstétricale
+              </button>
+              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
+            </div>
+          )}
         </AnimatedSection>
       )}
 
