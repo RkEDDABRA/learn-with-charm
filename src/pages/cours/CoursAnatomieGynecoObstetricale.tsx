@@ -3,9 +3,9 @@ import { Lock, ChevronDown, ChevronUp, BookOpen, Info, AlertTriangle, Pin, ZoomI
 import { cn } from "@/lib/utils";
 
 // Import de toutes les figures extraites du PDF
-import fig01 from "@/assets/cours-anatomie/figures/fig-01-p3.jpg";
-import fig02 from "@/assets/cours-anatomie/figures/fig-02-p3.jpg";
-import fig03 from "@/assets/cours-anatomie/figures/fig-03-p3.jpg";
+import fig01 from "@/assets/cours-anatomie/figures/fig-01-p1.jpg";
+import fig02 from "@/assets/cours-anatomie/figures/fig-02-p2.jpg";
+import fig03 from "@/assets/cours-anatomie/figures/fig-03-p2.jpg";
 import fig04 from "@/assets/cours-anatomie/figures/fig-04-p3.jpg";
 import fig05 from "@/assets/cours-anatomie/figures/fig-05-p4.jpg";
 import fig06 from "@/assets/cours-anatomie/figures/fig-06-p4.jpg";
