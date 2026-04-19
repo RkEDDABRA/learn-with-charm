@@ -1,6 +1,64 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Lock, ChevronDown, ChevronUp, BookOpen, Info, AlertTriangle, Pin } from "lucide-react";
+import { Lock, ChevronDown, ChevronUp, BookOpen, Info, AlertTriangle, Pin, ZoomIn, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Import de toutes les figures extraites du PDF
+import fig01 from "@/assets/cours-anatomie/figures/fig-01-p3.jpg";
+import fig02 from "@/assets/cours-anatomie/figures/fig-02-p3.jpg";
+import fig03 from "@/assets/cours-anatomie/figures/fig-03-p3.jpg";
+import fig04 from "@/assets/cours-anatomie/figures/fig-04-p3.jpg";
+import fig05 from "@/assets/cours-anatomie/figures/fig-05-p4.jpg";
+import fig06 from "@/assets/cours-anatomie/figures/fig-06-p4.jpg";
+import fig07 from "@/assets/cours-anatomie/figures/fig-07-p4.jpg";
+import fig08 from "@/assets/cours-anatomie/figures/fig-08-p5.jpg";
+import fig09 from "@/assets/cours-anatomie/figures/fig-09-p5.jpg";
+import fig10 from "@/assets/cours-anatomie/figures/fig-10-p6.jpg";
+import fig11 from "@/assets/cours-anatomie/figures/fig-11-p7.jpg";
+import fig12 from "@/assets/cours-anatomie/figures/fig-12-p7.jpg";
+import fig13 from "@/assets/cours-anatomie/figures/fig-13-p8.jpg";
+import fig14 from "@/assets/cours-anatomie/figures/fig-14-p10.jpg";
+import fig15 from "@/assets/cours-anatomie/figures/fig-15-p10.jpg";
+import fig16 from "@/assets/cours-anatomie/figures/fig-16-p11.jpg";
+import fig17 from "@/assets/cours-anatomie/figures/fig-17-p12.jpg";
+import fig18 from "@/assets/cours-anatomie/figures/fig-18-p12.jpg";
+import fig19 from "@/assets/cours-anatomie/figures/fig-19-p13.jpg";
+import fig22 from "@/assets/cours-anatomie/figures/fig-22-p15.jpg";
+import fig23 from "@/assets/cours-anatomie/figures/fig-23-p16.jpg";
+import fig24 from "@/assets/cours-anatomie/figures/fig-24-p17.jpg";
+import fig25 from "@/assets/cours-anatomie/figures/fig-25-p18.jpg";
+import fig26 from "@/assets/cours-anatomie/figures/fig-26-p19.jpg";
+import fig27 from "@/assets/cours-anatomie/figures/fig-27-p19.jpg";
+import fig28 from "@/assets/cours-anatomie/figures/fig-28-p20.jpg";
+import fig29 from "@/assets/cours-anatomie/figures/fig-29-p21.jpg";
+import fig30 from "@/assets/cours-anatomie/figures/fig-30-p21.jpg";
+import fig31 from "@/assets/cours-anatomie/figures/fig-31-p22.jpg";
+import fig33 from "@/assets/cours-anatomie/figures/fig-33-p23.jpg";
+import fig36 from "@/assets/cours-anatomie/figures/fig-36-p25.jpg";
+import fig44 from "@/assets/cours-anatomie/figures/fig-44-p27.jpg";
+import fig47 from "@/assets/cours-anatomie/figures/fig-47-p29.jpg";
+
+// Mapping numéro de figure du cours -> image extraite du PDF
+const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
+  1: { src: fig04, extras: [fig01, fig02, fig03] },
+  2: { src: fig05, extras: [fig06] },
+  3: { src: fig07, extras: [fig08, fig09] },
+  4: { src: fig10 },
+  5: { src: fig14, extras: [fig15] },
+  6: { src: fig16 },
+  7: { src: fig17 },
+  8: { src: fig18 },
+  9: { src: fig19 },
+  10: { src: fig11, extras: [fig12, fig13] },
+  11: { src: fig22, extras: [fig23] },
+  12: { src: fig24 },
+  13: { src: fig25 },
+  14: { src: fig26, extras: [fig27] },
+  15: { src: fig28 },
+  16: { src: fig31, extras: [fig29, fig30] },
+  17: { src: fig33 },
+  18: { src: fig36, extras: [fig44] },
+  19: { src: fig47 },
+};
 
 const COURSE_PASSWORD = "SF2026";
 const STORAGE_KEY = "sf_unlocked";
@@ -84,14 +142,77 @@ function Callout({
 }
 
 function Figure({ n, legend }: { n: number | string; legend: string }) {
+  const [zoomed, setZoomed] = useState<string | null>(null);
+  const mapping = typeof n === "number" ? FIGURE_MAP[n] : undefined;
+  const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
+
+  if (images.length === 0) {
+    // Fallback : aucun visuel disponible -> placeholder
+    return (
+      <figure className="my-6">
+        <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
+          <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
+          <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
+        </div>
+      </figure>
+    );
+  }
+
   return (
-    <figure className="my-6">
-      <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
-        <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
-        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
-        <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
-      </div>
-    </figure>
+    <>
+      <figure className="my-8">
+        <div className={cn(
+          "grid gap-3",
+          images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2"
+        )}>
+          {images.map((src, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setZoomed(src)}
+              className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all"
+            >
+              <img
+                src={src}
+                alt={`${legend} (${i + 1}/${images.length})`}
+                loading="lazy"
+                className="w-full h-auto object-contain bg-card"
+              />
+              <span className="absolute top-2 right-2 bg-foreground/70 text-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn size={14} />
+              </span>
+            </button>
+          ))}
+        </div>
+        <figcaption className="mt-3 text-center">
+          <span className="text-xs uppercase tracking-widest text-primary font-semibold">Figure {n}</span>
+          <p className="text-sm text-muted-foreground italic mt-1">{legend}</p>
+        </figcaption>
+      </figure>
+
+      {zoomed && (
+        <div
+          onClick={() => setZoomed(null)}
+          className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center p-4 cursor-zoom-out animate-in fade-in"
+        >
+          <button
+            type="button"
+            onClick={() => setZoomed(null)}
+            className="absolute top-4 right-4 bg-card text-foreground rounded-full p-2 shadow-lg hover:scale-110 transition-transform"
+            aria-label="Fermer"
+          >
+            <X size={20} />
+          </button>
+          <img
+            src={zoomed}
+            alt={legend}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
   );
 }
 
