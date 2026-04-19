@@ -142,14 +142,77 @@ function Callout({
 }
 
 function Figure({ n, legend }: { n: number | string; legend: string }) {
+  const [zoomed, setZoomed] = useState<string | null>(null);
+  const mapping = typeof n === "number" ? FIGURE_MAP[n] : undefined;
+  const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
+
+  if (images.length === 0) {
+    // Fallback : aucun visuel disponible -> placeholder
+    return (
+      <figure className="my-6">
+        <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
+          <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
+          <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
+        </div>
+      </figure>
+    );
+  }
+
   return (
-    <figure className="my-6">
-      <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
-        <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
-        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
-        <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
-      </div>
-    </figure>
+    <>
+      <figure className="my-8">
+        <div className={cn(
+          "grid gap-3",
+          images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2"
+        )}>
+          {images.map((src, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setZoomed(src)}
+              className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all"
+            >
+              <img
+                src={src}
+                alt={`${legend} (${i + 1}/${images.length})`}
+                loading="lazy"
+                className="w-full h-auto object-contain bg-card"
+              />
+              <span className="absolute top-2 right-2 bg-foreground/70 text-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ZoomIn size={14} />
+              </span>
+            </button>
+          ))}
+        </div>
+        <figcaption className="mt-3 text-center">
+          <span className="text-xs uppercase tracking-widest text-primary font-semibold">Figure {n}</span>
+          <p className="text-sm text-muted-foreground italic mt-1">{legend}</p>
+        </figcaption>
+      </figure>
+
+      {zoomed && (
+        <div
+          onClick={() => setZoomed(null)}
+          className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center p-4 cursor-zoom-out animate-in fade-in"
+        >
+          <button
+            type="button"
+            onClick={() => setZoomed(null)}
+            className="absolute top-4 right-4 bg-card text-foreground rounded-full p-2 shadow-lg hover:scale-110 transition-transform"
+            aria-label="Fermer"
+          >
+            <X size={20} />
+          </button>
+          <img
+            src={zoomed}
+            alt={legend}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
   );
 }
 
