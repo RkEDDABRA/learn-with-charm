@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Lock, ChevronDown, ChevronUp, BookOpen, Info, AlertTriangle, Pin, ZoomIn, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Lock, ChevronDown, ChevronUp, BookOpen, Info, AlertTriangle, Pin, ZoomIn, X, Menu, ArrowUp, Link2, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Import de toutes les figures extraites du PDF
@@ -37,7 +37,6 @@ import fig36 from "@/assets/cours-anatomie/figures/fig-36-p25.jpg";
 import fig44 from "@/assets/cours-anatomie/figures/fig-44-p27.jpg";
 import fig47 from "@/assets/cours-anatomie/figures/fig-47-p29.jpg";
 
-// Mapping numéro de figure du cours -> image extraite du PDF
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig04, extras: [fig01, fig02, fig03] },
   2: { src: fig05, extras: [fig06] },
@@ -64,7 +63,7 @@ const COURSE_PASSWORD = "SF2026";
 const STORAGE_KEY = "sf_unlocked";
 
 /* --------------------------------------------------------------------------
- * Helpers de mise en page
+ * Helpers
  * -------------------------------------------------------------------------- */
 const slug = (s: string) =>
   s
@@ -74,33 +73,60 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
+function AnchorLink({ id }: { id: string }) {
+  const [copied, setCopied] = useState(false);
+  const onClick = () => {
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    navigator.clipboard?.writeText(url);
+    setCopied(true);
+    history.replaceState(null, "", `#${id}`);
+    setTimeout(() => setCopied(false), 1500);
+  };
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Copier le lien de cette section"
+      className="ml-2 inline-flex items-center justify-center text-muted-foreground/50 hover:text-primary transition-colors opacity-0 group-hover:opacity-100"
+    >
+      {copied ? <Check size={14} /> : <Link2 size={14} />}
+    </button>
+  );
+}
+
 function H2({ children }: { children: string }) {
+  const id = slug(children);
   return (
     <h2
-      id={slug(children)}
-      className="scroll-mt-24 font-display text-2xl sm:text-3xl font-bold text-primary border-b border-primary/20 pb-2 mt-12 mb-5"
+      id={id}
+      className="group scroll-mt-32 font-display text-2xl sm:text-3xl font-bold text-primary border-b border-primary/20 pb-2 mt-12 mb-5 flex items-center"
     >
-      {children}
+      <span>{children}</span>
+      <AnchorLink id={id} />
     </h2>
   );
 }
 function H3({ children }: { children: string }) {
+  const id = slug(children);
   return (
     <h3
-      id={slug(children)}
-      className="scroll-mt-24 font-display text-lg sm:text-xl font-semibold text-foreground/90 mt-8 mb-3"
+      id={id}
+      className="group scroll-mt-32 font-display text-lg sm:text-xl font-semibold text-foreground/90 mt-8 mb-3 flex items-center"
     >
-      {children}
+      <span>{children}</span>
+      <AnchorLink id={id} />
     </h3>
   );
 }
 function H4({ children }: { children: string }) {
+  const id = slug(children);
   return (
     <h4
-      id={slug(children)}
-      className="scroll-mt-24 font-display text-base font-semibold text-foreground/80 mt-5 mb-2"
+      id={id}
+      className="group scroll-mt-32 font-display text-base font-semibold text-foreground/80 mt-5 mb-2 flex items-center"
     >
-      {children}
+      <span>{children}</span>
+      <AnchorLink id={id} />
     </h4>
   );
 }
@@ -109,9 +135,6 @@ function P({ children }: { children: ReactNode }) {
 }
 function UL({ children }: { children: ReactNode }) {
   return <ul className="list-disc pl-6 space-y-1.5 text-foreground/80 leading-relaxed mb-4">{children}</ul>;
-}
-function OL({ children }: { children: ReactNode }) {
-  return <ol className="list-decimal pl-6 space-y-1.5 text-foreground/80 leading-relaxed mb-4">{children}</ol>;
 }
 
 function Callout({
@@ -147,7 +170,6 @@ function Figure({ n, legend }: { n: number | string; legend: string }) {
   const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
 
   if (images.length === 0) {
-    // Fallback : aucun visuel disponible -> placeholder
     return (
       <figure className="my-6">
         <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
@@ -162,10 +184,7 @@ function Figure({ n, legend }: { n: number | string; legend: string }) {
   return (
     <>
       <figure className="my-8">
-        <div className={cn(
-          "grid gap-3",
-          images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2"
-        )}>
+        <div className={cn("grid gap-3", images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2")}>
           {images.map((src, i) => (
             <button
               key={i}
@@ -216,7 +235,7 @@ function Figure({ n, legend }: { n: number | string; legend: string }) {
   );
 }
 
-function Table({ headers, rows }: { headers: string[]; rows: ReactNode[][] }) {
+function DataTable({ headers, rows }: { headers: string[]; rows: ReactNode[][] }) {
   return (
     <div className="overflow-x-auto my-5 rounded-lg border border-border">
       <table className="w-full text-sm">
@@ -242,21 +261,21 @@ function Table({ headers, rows }: { headers: string[]; rows: ReactNode[][] }) {
 }
 
 /* --------------------------------------------------------------------------
- * Définition des chapitres (onglets)
+ * Sections (sous-parties d'un chapitre)
  * -------------------------------------------------------------------------- */
-type Chapter = {
+type Section = { id: string; title: string; render: () => ReactNode };
+type ChapterDef = {
   id: string;
+  number: number;
   title: string;
-  toc: { h2: string; h3?: string[] }[];
-  render: () => ReactNode;
+  accent: string; // classe tailwind pour l'accent (gradient header)
+  sections: Section[];
 };
 
-const Ch1: Chapter = {
-  id: "differenciation",
-  title: "1. Différenciation du sexe",
-  toc: [
-    { h2: "La différenciation du sexe chez l'embryon", h3: ["Du sexe génétique au sexe indifférencié", "Le gène SRY", "Du sexe génétique au sexe gonadique"] },
-  ],
+/* === CHAPITRE 1 — Différenciation du sexe === */
+const SEC_DIFF: Section = {
+  id: "differenciation-sexe",
+  title: "Différenciation du sexe",
   render: () => (
     <>
       <H2>La différenciation du sexe chez l'embryon</H2>
@@ -283,18 +302,17 @@ const Ch1: Chapter = {
         vers l'un ou l'autre sexe est déterminée par la présence d'un gène, existant sur la partie spécifique du chromosome Y, le <strong>gène SRY</strong>{" "}
         (Sex - determining Region of Y chromosome).
       </P>
+      <Figure n={1} legend="Schéma de différenciation du sexe chez un embryon XY" />
       <P>
         L'<strong>AMH</strong> est synthétisée dans les gonades (cellules de Sertoli) de l'embryon de sexe masculin et sa fonction consiste à éviter le
         développement des canaux de Müller, qui sont les structures à l'origine de l'utérus et des trompes de l'appareil reproducteur féminin.
       </P>
+      <Figure n={2} legend="Évolution du taux d'hormone AMH chez un homme et chez une femme au cours de la vie" />
       <P>
         Les <strong>canaux de Wolff</strong> se développent avec la présence d'androgènes (testostérone), donnant lieu à l'épididyme, aux canaux déférents
         et aux vésicules séminales de l'appareil reproducteur masculin. Chez les embryons de sexe féminin, l'absence d'AMH permet le développement des
         canaux de Müller qui vont finalement se transformer en utérus et trompes de Fallope.
       </P>
-
-      <Figure n={1} legend="Schéma de différenciation du sexe chez un embryon XY" />
-      <Figure n={2} legend="Évolution du taux d'hormone AMH chez un homme et chez une femme au cours de la vie" />
 
       <Callout type="info" title="Remarque">
         <UL>
@@ -316,15 +334,10 @@ const Ch1: Chapter = {
   ),
 };
 
-const Ch2: Chapter = {
-  id: "appareil-masculin",
-  title: "2. Appareil génital masculin",
-  toc: [
-    {
-      h2: "Appareil génital masculin",
-      h3: ["Testicules", "Épididyme", "Canal déférent", "Canaux éjaculateurs", "Urètre", "Vésicules séminales", "Prostate", "Verge", "Glandes de Cowper"],
-    },
-  ],
+/* === CHAPITRE 2 — Appareil génital masculin === */
+const SEC_APP_MASC: Section = {
+  id: "appareil-genital-masculin",
+  title: "Appareil génital masculin",
   render: () => (
     <>
       <H2>Appareil génital masculin</H2>
@@ -429,18 +442,15 @@ const Ch2: Chapter = {
   ),
 };
 
-const Ch3: Chapter = {
+const SEC_SPERMATO: Section = {
   id: "spermatogenese",
-  title: "3. Spermatogenèse",
-  toc: [
-    { h2: "La spermatogenèse", h3: ["Rappel : Mitose / Méiose", "Déroulement de la méiose chez l'homme", "La spermiogenèse", "Structure d'un spermatozoïde mature", "Facteurs pathologiques diminuant la spermatogenèse"] },
-  ],
+  title: "Spermatogenèse",
   render: () => (
     <>
       <H2>La spermatogenèse</H2>
 
       <H3>Rappel : Mitose / Méiose</H3>
-      <Table
+      <DataTable
         headers={["", "Mitose", "Méiose"]}
         rows={[
           ["Réplication de l'ADN", "Pendant l'interphase avant le début de la division nucléaire", "Pendant l'interphase avant le début de la division nucléaire"],
@@ -547,39 +557,11 @@ const Ch3: Chapter = {
   ),
 };
 
-const Ch4: Chapter = {
-  id: "puberte-regulation-h",
-  title: "4. Puberté & régulation (♂)",
-  toc: [
-    { h2: "La puberté" },
-    { h2: "Régulation hormonale chez l'homme", h3: ["L'hypothalamus contrôle l'hypophyse", "L'hypophyse contrôle le testicule", "Le testicule sécrète la testostérone", "Rétrocontrôle négatif"] },
-  ],
+const SEC_REG_MASC: Section = {
+  id: "regulation-hormonale-masculine",
+  title: "Régulation hormonale (masculine)",
   render: () => (
     <>
-      <H2>La puberté</H2>
-      <P>
-        La puberté (du latin <em>pubescere</em>, « se couvrir de poils ») constitue la dernière étape dans la mise en place du sexe phénotypique. Elle débute
-        entre 8 et 13 ans chez la fille et entre 10 et 14 ans chez le garçon. Les cellules de Leydig fœtales (chez le mâle) retrouvent une brève activité
-        postnatale (pic de testostérone juste après la naissance) avant leur retour au repos jusqu'à la puberté (étape nécessaire à la masculinisation du
-        cerveau).
-      </P>
-      <Figure n={6} legend="Évolution du taux de testostérone au cours de la vie chez un homme" />
-      <P>
-        La puberté est la période de la vie où l'individu acquiert la faculté de procréer. Elle est marquée par un ensemble de transformations
-        morphologiques, physiologiques et psychologiques. Les transformations morphologiques constituent les <strong>caractères sexuels secondaires</strong>{" "}
-        (ce sont les caractères qui permettent de différencier visuellement les hommes des femmes).
-      </P>
-      <P>
-        Les transformations pubertaires sont induites par une augmentation importante de la sécrétion des hormones sexuelles au début et tout au long de la
-        puberté : la <strong>testostérone</strong> chez le garçon, les <strong>œstrogènes</strong> chez la fille.
-      </P>
-      <P>
-        En l'absence d'une sécrétion hormonale normale, la puberté est grandement perturbée. En effet, si la mise en place du sexe phénotypique féminin au
-        cours du développement embryonnaire ne nécessite pas l'intervention des hormones femelles, les hormones femelles sont indispensables à l'acquisition
-        de la fonctionnalité de l'appareil génital féminin au moment de la puberté.
-      </P>
-      <Figure n={7} legend="Tableau : Les transformations pubertaires chez le garçon et chez la fille" />
-
       <H2>Régulation hormonale chez l'homme</H2>
       <P>
         L'hypothalamus et l'hypophyse sont deux organes de l'encéphale étroitement associés et situés à la base du cerveau. Le fonctionnement des testicules
@@ -638,12 +620,42 @@ const Ch4: Chapter = {
   ),
 };
 
-const Ch5: Chapter = {
-  id: "appareil-feminin",
-  title: "5. Appareil génital féminin",
-  toc: [
-    { h2: "Appareil génital féminin", h3: ["Les ovaires", "Les voies génitales", "Les organes génitaux externes"] },
-  ],
+const SEC_PUB_MASC: Section = {
+  id: "puberte-masculine",
+  title: "Puberté (masculine)",
+  render: () => (
+    <>
+      <H2>La puberté</H2>
+      <P>
+        La puberté (du latin <em>pubescere</em>, « se couvrir de poils ») constitue la dernière étape dans la mise en place du sexe phénotypique. Elle débute
+        entre 8 et 13 ans chez la fille et entre 10 et 14 ans chez le garçon. Les cellules de Leydig fœtales (chez le mâle) retrouvent une brève activité
+        postnatale (pic de testostérone juste après la naissance) avant leur retour au repos jusqu'à la puberté (étape nécessaire à la masculinisation du
+        cerveau).
+      </P>
+      <Figure n={6} legend="Évolution du taux de testostérone au cours de la vie chez un homme" />
+      <P>
+        La puberté est la période de la vie où l'individu acquiert la faculté de procréer. Elle est marquée par un ensemble de transformations
+        morphologiques, physiologiques et psychologiques. Les transformations morphologiques constituent les <strong>caractères sexuels secondaires</strong>{" "}
+        (ce sont les caractères qui permettent de différencier visuellement les hommes des femmes).
+      </P>
+      <P>
+        Les transformations pubertaires sont induites par une augmentation importante de la sécrétion des hormones sexuelles au début et tout au long de la
+        puberté : la <strong>testostérone</strong> chez le garçon, les <strong>œstrogènes</strong> chez la fille.
+      </P>
+      <P>
+        En l'absence d'une sécrétion hormonale normale, la puberté est grandement perturbée. En effet, si la mise en place du sexe phénotypique féminin au
+        cours du développement embryonnaire ne nécessite pas l'intervention des hormones femelles, les hormones femelles sont indispensables à l'acquisition
+        de la fonctionnalité de l'appareil génital féminin au moment de la puberté.
+      </P>
+      <Figure n={7} legend="Tableau : Les transformations pubertaires chez le garçon et chez la fille" />
+    </>
+  ),
+};
+
+/* === CHAPITRE 3 — Appareil génital féminin === */
+const SEC_APP_FEM: Section = {
+  id: "appareil-genital-feminin",
+  title: "Appareil génital féminin",
   render: () => (
     <>
       <H2>Appareil génital féminin</H2>
@@ -764,12 +776,9 @@ const Ch5: Chapter = {
   ),
 };
 
-const Ch6: Chapter = {
+const SEC_GLANDES: Section = {
   id: "glandes-mammaires",
-  title: "6. Glandes mammaires",
-  toc: [
-    { h2: "Glandes mammaires", h3: ["Situation du sein", "Variations au cours de la vie génitale", "Le poids", "Structure du sein", "Physiologie de la lactation"] },
-  ],
+  title: "Glandes mammaires",
   render: () => (
     <>
       <H2>Glandes mammaires</H2>
@@ -790,7 +799,7 @@ const Ch6: Chapter = {
         <li><strong>Vers 13 ans</strong> : bombement de l'aire mammaire et pigmentation de l'aréole.</li>
         <li><strong>Vers 18 ans</strong> : le sein prend la forme sphérique, celle de l'adulte.</li>
       </UL>
-      <Table
+      <DataTable
         headers={["Stade S1", "Stade S2", "Stade S3", "Stade S4", "Stade S5"]}
         rows={[["Enfant", "Prépuberté", "Puberté", "Adolescente", "Adulte"]]}
       />
@@ -857,12 +866,9 @@ const Ch6: Chapter = {
   ),
 };
 
-const Ch7: Chapter = {
+const SEC_OVO: Section = {
   id: "ovogenese",
-  title: "7. Ovogenèse",
-  toc: [
-    { h2: "L'ovogenèse", h3: ["Les étapes de l'ovogenèse", "Rendement de l'ovogenèse"] },
-  ],
+  title: "Ovogenèse",
   render: () => (
     <>
       <H2>L'ovogenèse</H2>
@@ -923,16 +929,9 @@ const Ch7: Chapter = {
   ),
 };
 
-const Ch8: Chapter = {
+const SEC_CYCLES: Section = {
   id: "cycles-sexuels",
-  title: "8. Cycles sexuels",
-  toc: [
-    { h2: "Les cycles sexuels", h3: ["Notion de cycle sexuel", "Les différents cycles"] },
-    { h2: "Le cycle ovarien", h3: ["Phase folliculaire", "L'ovulation", "Phase lutéinique"] },
-    { h2: "Le cycle de l'utérus", h3: ["Phase proliférative", "Phase sécrétoire"] },
-    { h2: "Cycle de la glaire cervicale" },
-    { h2: "Cycle de la température corporelle" },
-  ],
+  title: "Cycles sexuels",
   render: () => (
     <>
       <H2>Les cycles sexuels</H2>
@@ -1080,12 +1079,9 @@ const Ch8: Chapter = {
   ),
 };
 
-const Ch9: Chapter = {
-  id: "regulation-femme",
-  title: "9. Régulation hormonale (♀)",
-  toc: [
-    { h2: "La régulation des hormones sexuelles chez la femme", h3: ["Contrôle hormonal", "Variations cycliques", "Rôles des hormones ovariennes", "Le rétrocontrôle", "Ménopause"] },
-  ],
+const SEC_REG_FEM: Section = {
+  id: "regulation-hormonale-feminine",
+  title: "Régulation hormonale (féminine)",
   render: () => (
     <>
       <H2>La régulation des hormones sexuelles chez la femme</H2>
@@ -1196,10 +1192,32 @@ const Ch9: Chapter = {
   ),
 };
 
-const CHAPTERS: Chapter[] = [Ch1, Ch2, Ch3, Ch4, Ch5, Ch6, Ch7, Ch8, Ch9];
+const CHAPTERS: ChapterDef[] = [
+  {
+    id: "ch1",
+    number: 1,
+    title: "Différenciation du sexe",
+    accent: "from-indigo-500/15 via-indigo-500/5 to-transparent border-indigo-500",
+    sections: [SEC_DIFF],
+  },
+  {
+    id: "ch2",
+    number: 2,
+    title: "Appareil génital masculin",
+    accent: "from-sky-500/15 via-sky-500/5 to-transparent border-sky-500",
+    sections: [SEC_APP_MASC, SEC_SPERMATO, SEC_REG_MASC, SEC_PUB_MASC],
+  },
+  {
+    id: "ch3",
+    number: 3,
+    title: "Appareil génital féminin",
+    accent: "from-rose-500/15 via-rose-500/5 to-transparent border-rose-500",
+    sections: [SEC_APP_FEM, SEC_GLANDES, SEC_OVO, SEC_CYCLES, SEC_REG_FEM],
+  },
+];
 
 /* --------------------------------------------------------------------------
- * Composant principal
+ * Password screen
  * -------------------------------------------------------------------------- */
 function PasswordScreen({
   password,
@@ -1252,61 +1270,20 @@ function PasswordScreen({
   );
 }
 
-function TableOfContents({ chapter }: { chapter: Chapter }) {
-  const [open, setOpen] = useState(false);
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
-  return (
-    <nav className="border-l-4 border-primary bg-muted/40 rounded-md p-4 sm:p-5 my-6 shadow-sm">
-      <div className="flex items-center justify-between">
-        <h3 className="font-display font-bold text-foreground flex items-center gap-2">
-          <BookOpen size={18} className="text-primary" /> Table des matières
-        </h3>
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="sm:hidden inline-flex items-center gap-1 text-xs text-muted-foreground"
-        >
-          {open ? <>Masquer <ChevronUp size={14} /></> : <>Afficher <ChevronDown size={14} /></>}
-        </button>
-      </div>
-      <ol className={cn("mt-3 space-y-2 list-decimal list-inside", !open && "hidden sm:block")}>
-        {chapter.toc.map((sec, idx) => (
-          <li key={idx}>
-            <button
-              onClick={() => scrollTo(slug(sec.h2))}
-              className="font-semibold text-foreground/90 hover:text-primary hover:underline transition-colors text-left"
-            >
-              {sec.h2}
-            </button>
-            {sec.h3 && sec.h3.length > 0 && (
-              <ul className="mt-1 ml-4 space-y-1">
-                {sec.h3.map((h3, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex">
-                    <span className="mr-2">–</span>
-                    <button
-                      onClick={() => scrollTo(slug(h3))}
-                      className="text-left hover:text-primary hover:underline transition-colors"
-                    >
-                      {h3}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
+/* --------------------------------------------------------------------------
+ * Composant principal
+ * -------------------------------------------------------------------------- */
 export default function CoursAnatomieGynecoObstetricale() {
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [activeId, setActiveId] = useState(CHAPTERS[0].id);
+
+  // Navigation state
+  const [navOpen, setNavOpen] = useState(false);
+  const [activeChapterId, setActiveChapterId] = useState(CHAPTERS[0].id);
+  const [activeSectionId, setActiveSectionId] = useState(CHAPTERS[0].sections[0].id);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const articleRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setUnlocked(sessionStorage.getItem(STORAGE_KEY) === "true");
@@ -1323,10 +1300,64 @@ export default function CoursAnatomieGynecoObstetricale() {
     }
   };
 
-  const activeChapter = useMemo(
-    () => CHAPTERS.find((c) => c.id === activeId) ?? CHAPTERS[0],
-    [activeId]
-  );
+  // Scroll spy : suit le chapitre + section actifs + bouton back-to-top
+  useEffect(() => {
+    if (!unlocked) return;
+    const onScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+
+      // Trouver la section visible la plus proche du haut (offset 140 px pour la sticky bar)
+      const offset = 160;
+      let currentSection = CHAPTERS[0].sections[0].id;
+      let currentChapter = CHAPTERS[0].id;
+      for (const ch of CHAPTERS) {
+        for (const sec of ch.sections) {
+          const el = document.getElementById(`section-${sec.id}`);
+          if (el && el.getBoundingClientRect().top <= offset) {
+            currentSection = sec.id;
+            currentChapter = ch.id;
+          }
+        }
+      }
+      setActiveSectionId(currentSection);
+      setActiveChapterId(currentChapter);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [unlocked]);
+
+  // Gestion ancre initiale (#hash) après déverrouillage
+  useEffect(() => {
+    if (!unlocked) return;
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1);
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [unlocked]);
+
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setNavOpen(false);
+    }
+  };
+
+  // Indicateur de progression
+  const progress = useMemo(() => {
+    const ch = CHAPTERS.find((c) => c.id === activeChapterId) ?? CHAPTERS[0];
+    const secIdx = ch.sections.findIndex((s) => s.id === activeSectionId);
+    return {
+      chapterIdx: CHAPTERS.findIndex((c) => c.id === ch.id) + 1,
+      chapterTotal: CHAPTERS.length,
+      chapterTitle: ch.title,
+      sectionIdx: Math.max(secIdx, 0) + 1,
+      sectionTotal: ch.sections.length,
+    };
+  }, [activeChapterId, activeSectionId]);
 
   if (unlocked === null) {
     return (
@@ -1351,7 +1382,7 @@ export default function CoursAnatomieGynecoObstetricale() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
       {/* En-tête */}
       <header className="mb-6">
         <div className="flex flex-wrap gap-2 mb-3">
@@ -1368,73 +1399,232 @@ export default function CoursAnatomieGynecoObstetricale() {
           Anatomie Gynéco-Obstétricale
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Cours complet structuré en 9 chapitres, naviguez via les onglets ci-dessous.
+          Cours structuré en 3 chapitres — utilisez la navigation latérale ou le menu pour naviguer.
         </p>
       </header>
 
-      {/* Onglets */}
-      <div className="sticky top-0 z-10 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-background/95 backdrop-blur border-b border-border mb-6">
-        <div className="flex gap-1 overflow-x-auto py-3 scrollbar-thin">
-          {CHAPTERS.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => {
-                setActiveId(c.id);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className={cn(
-                "shrink-0 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap",
-                activeId === c.id
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-              )}
-            >
-              {c.title}
-            </button>
-          ))}
+      {/* Barre sticky : indicateur de progression + menu mobile */}
+      <div className="sticky top-0 z-30 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-background/95 backdrop-blur border-b border-border mb-4">
+        <div className="flex items-center justify-between gap-3 py-2.5">
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] uppercase tracking-widest text-muted-foreground font-semibold">
+              Chapitre {progress.chapterIdx}/{progress.chapterTotal} — Section {progress.sectionIdx}/{progress.sectionTotal}
+            </p>
+            <p className="text-sm font-display font-semibold text-foreground truncate">
+              {progress.chapterTitle}
+            </p>
+          </div>
+          {/* Liens de chapitres horizontaux (desktop) */}
+          <nav className="hidden md:flex items-center gap-1">
+            {CHAPTERS.map((c) => (
+              <a
+                key={c.id}
+                href={`#chapter-${c.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(`chapter-${c.id}`);
+                }}
+                className={cn(
+                  "px-3 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap",
+                  activeChapterId === c.id
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                )}
+              >
+                Ch. {c.number}
+              </a>
+            ))}
+          </nav>
+          {/* Toggle menu mobile / lg:hidden */}
+          <button
+            type="button"
+            onClick={() => setNavOpen((v) => !v)}
+            aria-label="Ouvrir le sommaire"
+            className="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors"
+          >
+            {navOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+        {/* Barre de progression visuelle */}
+        <div className="h-1 -mx-px bg-muted rounded-full overflow-hidden">
+          <div
+            className="h-full bg-primary transition-all duration-300"
+            style={{
+              width: `${((progress.chapterIdx - 1) / progress.chapterTotal) * 100 + (progress.sectionIdx / progress.sectionTotal) * (100 / progress.chapterTotal)}%`,
+            }}
+          />
         </div>
       </div>
 
-      {/* TOC + contenu du chapitre actif */}
-      <article className="prose-none">
-        <TableOfContents chapter={activeChapter} />
-        {activeChapter.render()}
-      </article>
+      <div className="lg:grid lg:grid-cols-[260px_1fr] lg:gap-8">
+        {/* Sidebar navigation desktop */}
+        <aside className="hidden lg:block">
+          <nav className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+            <ol className="space-y-4">
+              {CHAPTERS.map((c) => (
+                <li key={c.id}>
+                  <a
+                    href={`#chapter-${c.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToId(`chapter-${c.id}`);
+                    }}
+                    className={cn(
+                      "block font-display font-bold text-sm leading-tight transition-colors",
+                      activeChapterId === c.id ? "text-primary" : "text-foreground hover:text-primary"
+                    )}
+                  >
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground block">Chapitre {c.number}</span>
+                    {c.title}
+                  </a>
+                  <ul className="mt-2 ml-3 space-y-1.5 border-l-2 border-border pl-3">
+                    {c.sections.map((s) => (
+                      <li key={s.id}>
+                        <a
+                          href={`#section-${s.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollToId(`section-${s.id}`);
+                          }}
+                          className={cn(
+                            "block text-xs leading-snug py-1 -ml-[14px] pl-[11px] border-l-2 transition-colors",
+                            activeSectionId === s.id
+                              ? "border-primary text-primary font-semibold"
+                              : "border-transparent text-muted-foreground hover:text-foreground"
+                          )}
+                        >
+                          {s.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </aside>
 
-      {/* Navigation chapitre suivant/précédent */}
-      <div className="mt-12 pt-6 border-t border-border flex justify-between gap-3">
-        {(() => {
-          const idx = CHAPTERS.findIndex((c) => c.id === activeId);
-          const prev = CHAPTERS[idx - 1];
-          const next = CHAPTERS[idx + 1];
-          return (
-            <>
-              {prev ? (
+        {/* Drawer navigation mobile */}
+        {navOpen && (
+          <div
+            className="lg:hidden fixed inset-0 z-40 bg-foreground/40 backdrop-blur-sm"
+            onClick={() => setNavOpen(false)}
+          >
+            <aside
+              onClick={(e) => e.stopPropagation()}
+              className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-card border-l border-border p-5 overflow-y-auto"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-display font-bold text-foreground">Sommaire</h2>
                 <button
-                  onClick={() => {
-                    setActiveId(prev.id);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  type="button"
+                  onClick={() => setNavOpen(false)}
+                  className="w-8 h-8 inline-flex items-center justify-center rounded-lg bg-muted text-foreground"
                 >
-                  ← {prev.title}
+                  <X size={16} />
                 </button>
-              ) : <span />}
-              {next && (
-                <button
-                  onClick={() => {
-                    setActiveId(next.id);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="text-sm font-medium text-primary hover:underline ml-auto"
-                >
-                  {next.title} →
-                </button>
-              )}
-            </>
-          );
-        })()}
+              </div>
+              <ol className="space-y-4">
+                {CHAPTERS.map((c) => (
+                  <li key={c.id}>
+                    <a
+                      href={`#chapter-${c.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToId(`chapter-${c.id}`);
+                      }}
+                      className="block font-display font-bold text-sm text-foreground"
+                    >
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground block">Chapitre {c.number}</span>
+                      {c.title}
+                    </a>
+                    <ul className="mt-2 ml-3 space-y-1.5 border-l-2 border-border pl-3">
+                      {c.sections.map((s) => (
+                        <li key={s.id}>
+                          <a
+                            href={`#section-${s.id}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              scrollToId(`section-${s.id}`);
+                            }}
+                            className={cn(
+                              "block text-xs py-1",
+                              activeSectionId === s.id
+                                ? "text-primary font-semibold"
+                                : "text-muted-foreground"
+                            )}
+                          >
+                            {s.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          </div>
+        )}
+
+        {/* Contenu */}
+        <article ref={articleRef} className="min-w-0">
+          {CHAPTERS.map((c) => (
+            <section key={c.id} id={`chapter-${c.id}`} className="scroll-mt-32 mb-16">
+              {/* En-tête de chapitre distinctif */}
+              <div
+                className={cn(
+                  "rounded-xl border-l-4 bg-gradient-to-r p-5 sm:p-6 mb-2",
+                  c.accent
+                )}
+              >
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
+                  Chapitre {c.number} sur {CHAPTERS.length}
+                </p>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mt-1">
+                  {c.title}
+                </h2>
+                {c.sections.length > 1 && (
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {c.sections.map((s, i) => (
+                      <li key={s.id}>
+                        <a
+                          href={`#section-${s.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollToId(`section-${s.id}`);
+                          }}
+                          className="text-xs px-2.5 py-1 rounded-full bg-card border border-border text-foreground/80 hover:text-primary hover:border-primary transition-colors"
+                        >
+                          {i + 1}. {s.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {/* Sections du chapitre */}
+              {c.sections.map((s) => (
+                <section key={s.id} id={`section-${s.id}`} className="scroll-mt-32">
+                  {s.render()}
+                </section>
+              ))}
+            </section>
+          ))}
+        </article>
       </div>
+
+      {/* Back to top */}
+      {showBackToTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Revenir en haut"
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-110 transition-transform flex items-center justify-center"
+        >
+          <ArrowUp size={18} />
+        </button>
+      )}
     </div>
   );
 }
