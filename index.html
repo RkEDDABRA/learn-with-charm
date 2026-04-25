@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- VÉRIFICATION GOOGLE (une seule suffit) -->
     <meta name="google-site-verification" content="-hdx6h75ADraBQl_ATVnHHS9aDYJA9H9GbmreD2lJRw" />
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -18,8 +20,8 @@
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reddabra.vercel.app" />
-    
-    
+    <meta property="og:title" content="Rkia EDDABRA - Portfolio">
+    <meta property="og:description" content="Portfolio de Rkia EDDABRA - Découvrez mes projets et compétences.">
     <meta property="og:image" content="https://reddabra.vercel.app/og-image.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -29,28 +31,37 @@
     <!-- TWITTER / X CARD -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://reddabra.vercel.app" />
-    
-    
+    <meta name="twitter:title" content="Rkia EDDABRA - Portfolio">
+    <meta name="twitter:description" content="Portfolio de Rkia EDDABRA - Découvrez mes projets et compétences.">
     <meta name="twitter:image" content="https://reddabra.vercel.app/og-image.png">
 
     <!-- SEO TECHNIQUE -->
     <link rel="canonical" href="https://reddabra.vercel.app" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="google-site-verification" content="Hb6Xlx6PIqNHUEsac1yD9IgzbDdAynHzsR9iQItJfgE" />
-    <meta name="google-site-verification" content="5oz7o5uLruahUSKFLXZlSDfTYF4wWqPxq0QJ079cjOg" />
 
-    <!-- LIBRAIRIES EXTERNES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <meta property="og:title" content="Rkia EDDABRA - Portfolio">
-  <meta name="twitter:title" content="Rkia EDDABRA - Portfolio">
-  <meta property="og:description" content="Portfolio de Rkia EDDABRA - Découvrez mes projets et compétences.">
-  <meta name="twitter:description" content="Portfolio de Rkia EDDABRA - Découvrez mes projets et compétences.">
-</head>
+    <!-- FONT AWESOME (non-bloquant) ✅ -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Fallback si JS désactivé -->
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+  </head>
 
   <body>
     <div id="root"></div>
+
+    <!-- LORDICON (defer = non-bloquant) ✅ -->
+    <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
