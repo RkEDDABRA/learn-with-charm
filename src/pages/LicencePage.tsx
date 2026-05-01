@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowLeft, BookOpen } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
+import CoursDietetiqueS2 from "@/pages/cours/CoursDietetiqueS2";
 
 type Option = "" | "sf" | "diet";
 
@@ -76,9 +77,8 @@ export default function LicencePage() {
   const [sfTab, setSfTab] = useState<"s1" | "s2">("s1");
   const [dietTab, setDietTab] = useState<"s1" | "s2">("s1");
   const [showAnatomieCours, setShowAnatomieCours] = useState(false);
+  const [showDietS2Cours, setShowDietS2Cours] = useState(false);
 
-  // Si l'utilisateur a ouvert le cours d'Anatomie Gynéco-Obstétricale,
-  // on affiche uniquement le composant cours (avec un bouton retour).
   if (showAnatomieCours) {
     return (
       <div>
@@ -91,6 +91,22 @@ export default function LicencePage() {
           </button>
         </div>
         <CoursAnatomieGynecoObstetricale />
+      </div>
+    );
+  }
+
+  if (showDietS2Cours) {
+    return (
+      <div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <button
+            onClick={() => setShowDietS2Cours(false)}
+            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={14} /> Retour aux modules
+          </button>
+        </div>
+        <CoursDietetiqueS2 />
       </div>
     );
   }
