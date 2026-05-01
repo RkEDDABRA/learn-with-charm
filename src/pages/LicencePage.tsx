@@ -239,6 +239,17 @@ export default function LicencePage() {
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <SemesterModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
           </div>
+          {dietTab === "s2" && (
+            <div className="mt-6">
+              <button
+                onClick={() => setShowDietS2Cours(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-teal text-teal-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
+              >
+                <BookOpen size={18} /> Ouvrir le cours complet — Diététique / Nutrition S2
+              </button>
+              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
+            </div>
+          )}
         </AnimatedSection>
       )}
     </div>
