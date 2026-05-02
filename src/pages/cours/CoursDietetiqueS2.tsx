@@ -18,6 +18,20 @@ import imgSympPara from "@/assets/cours-diet-s2/sympathique-parasympathique.jpg"
 import imgControle from "@/assets/cours-diet-s2/controle-tube-digestif.jpg";
 import imgInnervationDetail from "@/assets/cours-diet-s2/innervation-detail.jpg";
 
+// Partie 4 & 5 — Physiologie de la digestion
+import p2Fig1a from "@/assets/cours-diet-s2/p2-fig1a-cavite-orale.jpg";
+import p2Fig1b from "@/assets/cours-diet-s2/p2-fig1b-bouche.jpg";
+import p2Fig2 from "@/assets/cours-diet-s2/p2-fig2-langue.jpg";
+import p2Fig3 from "@/assets/cours-diet-s2/p2-fig3-glandes-salivaires.jpg";
+import p2Fig3b from "@/assets/cours-diet-s2/p2-fig3b-glandes-detail.jpg";
+import p2Fig3c from "@/assets/cours-diet-s2/p2-fig3c-glandes-principales.jpg";
+import p2Fig5b from "@/assets/cours-diet-s2/p2-fig5b-salivation.jpg";
+import p2Fig446 from "@/assets/cours-diet-s2/p2-fig446-controle-salive.jpg";
+import p2Fig4 from "@/assets/cours-diet-s2/p2-fig4-deglutition.jpg";
+import p2Fig5 from "@/assets/cours-diet-s2/p2-fig5-peristaltisme.jpg";
+import p2Fig6 from "@/assets/cours-diet-s2/p2-fig6-oesophage.jpg";
+import p2Fig7 from "@/assets/cours-diet-s2/p2-fig7-peristaltisme-oeso.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
