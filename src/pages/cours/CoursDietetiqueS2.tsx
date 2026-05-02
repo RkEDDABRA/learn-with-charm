@@ -213,7 +213,7 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
 function Section1_1() {
   return (
     <section>
-      <H2 id="sec-1-1">I. Caractéristiques générales du système digestif</H2>
+      <H2 id="sec-1-1">Partie 1 — I. Caractéristiques générales du système digestif</H2>
 
       <p className="text-foreground/90 leading-relaxed">
         Le système digestif a comme principale fonction d'assurer la digestion.
@@ -326,7 +326,7 @@ function Section1_1() {
 function Section1_2() {
   return (
     <section>
-      <H2 id="sec-1-2">II. Organisation histologique du tube digestif</H2>
+      <H2 id="sec-1-2">Partie 2 — II. Organisation histologique du tube digestif</H2>
       <p className="text-foreground/90 leading-relaxed">
         Le <strong>tube digestif</strong> comprend fondamentalement <strong>quatre couches</strong> (de la
         plus proche de la cavité vers la plus externe) (<Mark>figures 4, 5</Mark>) :
@@ -516,7 +516,7 @@ function Section1_2() {
 function Section1_3() {
   return (
     <section>
-      <H2 id="sec-1-3">III. Les régulations des processus digestifs</H2>
+      <H2 id="sec-1-3">Partie 3 — III. Les régulations des processus digestifs</H2>
       <p className="text-foreground/90 leading-relaxed">
         Toutes les régulations qui s'opèrent sur le système digestif permettent d'optimiser les conditions
         digestives, c'est-à-dire <strong>d'absorber le maximum des nutriments présents</strong> : il n'y a
