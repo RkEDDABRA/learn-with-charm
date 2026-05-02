@@ -666,7 +666,553 @@ function Section1_3() {
   );
 }
 
-/* ---------- Placeholder pour les autres parties ---------- */
+/* ---------- Partie 4 — Physiologie de la digestion : la cavité buccale ---------- */
+
+function Section1_4() {
+  return (
+    <section>
+      <H2 id="sec-1-4">Partie 4 — Physiologie de la digestion : I. Dans la cavité buccale</H2>
+
+      <H3 id="sec-1-4-1">1. Situation de la cavité buccale</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La cavité buccale est étendue de l'orifice buccal en avant, à l'oropharynx en arrière. Elle est
+        comprise entre les maxillaires et les mandibules : fermée en avant par les lèvres, limitée
+        latéralement par les joues, communiquant en arrière avec l'oropharynx par l'isthme du gosier
+        (<Mark>Figure 1a</Mark>).
+      </p>
+
+      <Figure src={p2Fig1a} n="Figure 1a" legend="La cavité orale et pharynx, section sagittale." />
+      <Figure src={p2Fig1b} n="Figure 1b" legend="La bouche." />
+
+      <H3 id="sec-1-4-2">2. Prise alimentaire</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La prise alimentaire (= manducation) correspond à l'action d'ingérer des aliments et les
+        processus qui s'ensuivent immédiatement dans la bouche (<Mark>Figure 1b</Mark>).
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        La cavité buccale est le lieu de deux processus principaux : la <strong>mastication</strong> et
+        l'<strong>insalivation</strong>.
+      </p>
+
+      <H3 id="sec-1-4-3">3. Mastication : broyage mécanique par les mâchoires et la dentition</H3>
+
+      <H4 id="sec-1-4-3-a">a. Définition de la mastication</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        La mastication est le premier acte mécanique de la digestion et correspond à l'ensemble des
+        mouvements volontaires de la mâchoire (structures opposables comprenant des os, et des dents),
+        de la langue, et des joues qui entraîne la dilacération des aliments.
+      </p>
+
+      <H4 id="sec-1-4-3-b">b. Rôle de la mastication</H4>
+      <ul className="ml-6 list-disc space-y-1 text-foreground/90">
+        <li>Réduction de la taille des aliments</li>
+        <li>Faciliter l'insalivation en augmentant la surface de contact des aliments broyés avec les enzymes</li>
+        <li>Faciliter la déglutition des aliments</li>
+      </ul>
+
+      <H4 id="sec-1-4-3-c">c. Rôle de la langue</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>La langue</strong> participe à la digestion en évaluant certaines qualités des
+        substances ingérées. Elle joue un rôle crucial, puisqu'elle détermine quels aliments
+        poursuivront leur chemin dans le tube digestif.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Une fois la nourriture jugée acceptable, la mastication débute et les mouvements de la langue
+        façonnent les aliments en une boule appelée <strong>bol alimentaire</strong>. Pendant la
+        déglutition, la langue a également pour fonction de pousser le bol alimentaire vers l'arrière
+        de la cavité buccale, dans le pharynx.
+      </p>
+
+      <Figure src={p2Fig2} n="Figure 2" legend="La langue." />
+
+      {/* Tableau : Les papilles de la muqueuse de la langue */}
+      <div className="my-5 overflow-hidden rounded-xl border border-border">
+        <div className="bg-primary/10 px-4 py-2 text-sm font-semibold text-foreground">
+          Tableau — Les papilles de la muqueuse de la langue
+        </div>
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">Types</th>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">Emplacement</th>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">Fonctions</th>
+            </tr>
+          </thead>
+          <tbody className="text-foreground/90">
+            <tr className="bg-muted/40">
+              <td colSpan={3} className="px-3 py-2 font-semibold">Papilles gustatives</td>
+            </tr>
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Caliciformes</td>
+              <td className="border-b border-border px-3 py-3 align-top">
+                Sur la partie supérieure de la langue, disposées en forme de V inversé
+              </td>
+              <td rowSpan={3} className="border-b border-border px-3 py-3 align-top">
+                Perception des saveurs (amer, acide, sucré et salé). Récemment, on a reconnu la
+                perception de la saveur <u>umami</u> (du japonais savoureux).
+              </td>
+            </tr>
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Fongiformes</td>
+              <td className="border-b border-border px-3 py-3 align-top">Sur toute la surface de la langue</td>
+            </tr>
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Foliées</td>
+              <td className="border-b border-border px-3 py-3 align-top">Sur les bords latéraux de la langue</td>
+            </tr>
+            <tr className="bg-muted/40">
+              <td colSpan={3} className="px-3 py-2 font-semibold">Papilles tactiles</td>
+            </tr>
+            <tr>
+              <td className="px-3 py-3 align-top font-medium">Filiformes</td>
+              <td className="px-3 py-3 align-top">Sur toute la surface de la langue</td>
+              <td className="px-3 py-3 align-top">
+                Perception des textures, de la température et de la douleur
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H3 id="sec-1-4-4">4. Insalivation et glandes salivaires</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Les glandes salivaires déversent leurs sécrétions dans la cavité buccale par l'intermédiaire de
+        canaux.
+      </p>
+
+      <Figure src={p2Fig3} n="Figure 3" legend="Les glandes salivaires : une vision simple. Glande salivaire parotide, dents, langue, glande salivaire sous-maxillaire, glande salivaire sublinguale, œsophage." />
+      <Figure src={p2Fig3b} n="Figure 3b" legend="Schéma anatomique détaillé : glande parotide (canal parotidien), glande sous-maxillaire (canal de Wharton), glande sublinguale." />
+      <Figure src={p2Fig3c} n="Figure 3c" legend="Glandes principales (90 % de la sécrétion) : Parotides (canal de Stenon), Sublinguales (canal de Bartholin), Sous-maxillaires (canal de Wharton). Glandes accessoires (10 % de la sécrétion) : glandes buccales." />
+
+      <H4 id="sec-1-4-4-b">b. Rôles</H4>
+      <p className="text-foreground/90 leading-relaxed">Cette insalivation permet :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-2 text-foreground/90">
+        <li><strong>L'humidification du bol alimentaire</strong> (eau 99,5 %).</li>
+        <li>
+          Le <strong>début de la digestion chimique</strong> :
+          <ul className="mt-1 ml-6 list-[circle] space-y-1">
+            <li>
+              La salive contient des <strong>amylases</strong> salivaires qui{" "}
+              <strong>dégradent l'amidon en maltose</strong> (disaccharide glucose-glucose).
+            </li>
+            <li>
+              <strong>Lipase</strong> : dégradation des graisses, agit en l'absence des sels biliaires
+              et à pH 2,2 et 5.
+            </li>
+            <li><strong>Lysozyme</strong> : dégradation de la paroi des bactéries.</li>
+            <li>
+              <strong>Le mucus</strong> : rend les aliments visqueux, ce qui facilite la déglutition et
+              recouvre la muqueuse buccale.
+            </li>
+            <li><strong>Autres</strong> : immunoglobuline, mucine, protéines plasmatiques (albumine)…</li>
+          </ul>
+        </li>
+        <li>
+          On peut noter la <strong>richesse de la salive</strong> en ions variés, et surtout en{" "}
+          <strong>ions bicarbonates HCO₃⁻</strong> qui contribuent à maintenir un{" "}
+          <strong>pH buccal neutre</strong> proche de 7-8.
+        </li>
+      </ul>
+
+      {/* TABLEAU 4 — Les fonctions de la salive */}
+      <div className="my-5 overflow-hidden rounded-xl border border-border">
+        <div className="bg-primary/10 px-4 py-2 text-sm font-semibold text-foreground">
+          TABLEAU 4 — Les fonctions de la salive
+        </div>
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold w-1/3">Fonctions</th>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">Description</th>
+            </tr>
+          </thead>
+          <tbody className="text-foreground/90">
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Perception des saveurs</td>
+              <td className="border-b border-border px-3 py-3 align-top">• Prépare les aliments pour la gustation.</td>
+            </tr>
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Digestion</td>
+              <td className="border-b border-border px-3 py-3 align-top">
+                • Humidifie la bouche pour assurer une bonne mobilité des organes buccaux.<br />
+                • Prépare les aliments pour la déglutition.<br />
+                • Entame le processus digestif en digérant les sucres complexes (amidon).
+              </td>
+            </tr>
+            <tr>
+              <td className="border-b border-border px-3 py-3 align-top font-medium">Protection de l'organisme</td>
+              <td className="border-b border-border px-3 py-3 align-top">
+                • Limite la prolifération des bactéries grâce à ses qualités antiseptiques.<br />
+                • Modifie le niveau d'acidité dans la bouche, ce qui protège les dents de la carie.
+              </td>
+            </tr>
+            <tr>
+              <td className="px-3 py-3 align-top font-medium">Phonation</td>
+              <td className="px-3 py-3 align-top">• Humidifie la bouche afin de faciliter la parole.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H4 id="sec-1-4-4-c">c. Contrôle</H4>
+      <p className="text-foreground/90 leading-relaxed">Les stimulus les plus efficaces sont :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>les solutions acides diluées (jus de citron : 7 – 8 ml/min) ;</li>
+        <li>
+          le point de départ peut aussi être extra-buccal (phase pré-orale ou d'anticipation) :{" "}
+          <strong>vue</strong>, <strong>odeur</strong>. Ces réflexes sont très conditionnables ; c'est le
+          réflexe classique de Pavlov. Ces 2 premiers sens envoient des premiers messages au cerveau
+          pour préparer la personne à manger (la prise), et notamment préparer sa déglutition efficace.
+        </li>
+      </ul>
+
+      <Callout type="note">
+        <strong>Remarque :</strong> Il n'y a pas de commande hormonale spécifique de la salivation.
+      </Callout>
+
+      <Figure src={p2Fig5b} n="Schéma" legend="Schéma de la régulation de la salivation : stimulus (acidité, vue, odeur, sens) → centres (chémorécepteurs et récepteurs à la pression de la paroi de la bouche / langue → bulbe rachidien) → para Σ (et un peu Σ) → glandes salivaires (parotides, sous-maxillaires, sublinguales) → salive (eau 99 %, sels + protéines 1 %, amylase, mucus)." />
+
+      <Figure src={p2Fig446} n="Figure 44.6" legend="Principaux facteurs influençant la sécrétion de salive. La stimulation des nerfs parasympathiques (NPS) entraîne une production abondante de salive liquide, tandis que la stimulation des nerfs sympathiques (SNS) entraîne la production de salive épaisse et visqueuse." />
+
+      <ul className="mt-3 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>
+          Le <strong>parasympathique</strong> est le principal régulateur du volume salivaire ; il
+          provoque une <strong>sécrétion salivaire de volume abondant</strong>, fluide et pauvre en
+          protéines ; aqueuse par vasodilatation.
+        </li>
+        <li>
+          Le <strong>sympathique</strong> provoque une{" "}
+          <strong>sécrétion salivaire de volume réduit</strong>, visqueuse par vasoconstriction.
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+/* ---------- Partie 5 — Pharynx (déglutition) et œsophage ---------- */
+
+function Section1_5() {
+  return (
+    <section>
+      <H2 id="sec-1-5">Partie 5 — II. Au niveau pharyngien : la déglutition &amp; III. Au niveau de l'œsophage</H2>
+
+      <H3 id="sec-1-5-1">1. Pharynx : définition, fonctions et segments</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le pharynx est un conduit musculo-membraneux allant de la base du crâne jusqu'à l'œsophage.
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>
+          Situé au carrefour aéro-digestif : entre voies aériennes (de la cavité nasale au larynx) et
+          voies digestives (de la cavité buccale à l'œsophage).
+        </li>
+        <li>
+          Ouverture de la trompe d'Eustache (tube auditif) dans le pharynx : communication avec
+          l'oreille moyenne au niveau de la caisse du tympan.
+        </li>
+      </ul>
+      <p className="mt-3 text-foreground/90"><strong>Fonctions :</strong> déglutition, respiration, phonation, audition.</p>
+      <p className="mt-2 text-foreground/90">
+        <strong>Le pharynx est formé de 3 segments :</strong> Nasopharynx, Oropharynx et Laryngopharynx.
+      </p>
+
+      <H3 id="sec-1-5-2">2. Définition</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        On peut appeler <strong>bol alimentaire</strong> un ensemble d'aliments mâchés et insalivés qui
+        est ensuite avalé.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        La <u>déglutition</u> (<Mark>figure 5</Mark>) est le processus qui permet d'avaler le bol
+        alimentaire. C'est une action volontaire mais la suite est un réflexe et provoque une apnée.
+      </p>
+
+      <H3 id="sec-1-5-3">3. Régions anatomiques impliquées</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Les régions anatomiques impliquées dans la déglutition sont la cavité orale, le pharynx, le
+        larynx et l'œsophage (<Mark>figure 4</Mark>).
+      </p>
+      <p className="mt-2 text-foreground/90 leading-relaxed">
+        Les structures de la cavité orale sont les lèvres, les dents, le maxillaire, la mandibule, le
+        plancher buccal et la langue.
+      </p>
+
+      <Figure src={p2Fig4} n="Figure 4" legend="Coupe sagittale des organes impliqués dans la déglutition (bolus d'aliments sur la langue, cavité nasale, langue, épiglotte fermant l'orifice du larynx, naso-pharynx, palais mou, oro-pharynx, laryngo-pharynx, œsophage)." />
+
+      <Figure src={p2Fig5} n="Figure 5" legend="De la bouche à l'estomac : réflexe de déglutition et péristaltisme œsophagien." />
+
+      <H3 id="sec-1-5-4">4. Physiologie de la déglutition</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La <strong>déglutition</strong> permet au bol alimentaire de passer de la bouche à l'estomac.
+        Elle représente une suite d'actes stéréotypés <strong>sous le contrôle d'un centre bulbaire</strong>{" "}
+        (tronc cérébral), qui fonctionne en étroite relation avec le centre de la respiration, afin de
+        garantir le passage des aliments vers l'œsophage et celui de l'air vers le larynx et la trachée
+        (<Mark>figure 5</Mark>).
+      </p>
+
+      <p className="mt-3 text-foreground/90">La déglutition comporte trois étapes :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-2 text-foreground/90">
+        <li>
+          une <strong>étape buccale volontaire</strong>, qui aboutit à déplacer le bol alimentaire
+          jusqu'à l'arrière de la cavité orale dans l'oropharynx et met en jeu des mouvements de la
+          langue, vers le haut et vers l'arrière contre le palais mou ;
+        </li>
+        <li>
+          une <strong>étape pharyngienne</strong> ou passage involontaire (automatique) du bol
+          alimentaire depuis l'oropharynx jusque dans l'œsophage, qui commence lorsque le bol
+          alimentaire pénètre dans l'oropharynx. Ceci entraîne de façon réflexe l'élévation du voile du
+          palais et de la luette pour fermer le nasopharynx, et l'élévation du larynx avec abaissement
+          de l'épiglotte pour fermer la glotte et donc les voies respiratoires. La respiration est alors
+          momentanément interrompue et le bol alimentaire traverse le pharynx pour atteindre l'œsophage
+          en une ou deux secondes, puis les voies respiratoires s'ouvrent de nouveau et la respiration
+          reprend ;
+        </li>
+        <li>
+          une <strong>étape œsophagienne</strong> ou passage involontaire du bol alimentaire le long de
+          l'œsophage jusqu'à l'estomac, qui commence après le franchissement du sphincter œsophagien
+          supérieur qui a été relâché par l'élévation du pharynx.
+        </li>
+      </ul>
+
+      {/* Tableau : la déglutition permet le passage du bol alimentaire dans l'œsophage */}
+      <div className="my-5 overflow-hidden rounded-xl border border-border">
+        <div className="bg-primary/10 px-4 py-2 text-sm font-semibold text-foreground">
+          Schéma — La déglutition permet le passage du bol alimentaire dans l'œsophage
+        </div>
+        <table className="w-full text-sm">
+          <tbody className="text-foreground/90">
+            <tr className="bg-muted/40">
+              <td className="border border-border px-3 py-2 font-semibold">Fermeture des fosses nasales (remontée du palais mou)</td>
+              <td className="border border-border px-3 py-2 font-semibold">Remontée du larynx (mouvement inconscient)</td>
+              <td className="border border-border px-3 py-2 font-semibold">Ouverture du sphincter œsophagien supérieur</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 italic">Empêchant</td>
+              <td className="border border-border px-3 py-2 italic">permettant</td>
+              <td className="border border-border px-3 py-2 italic">Qui entraîne</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Remontée des aliments vers les fosses nasales</td>
+              <td className="border border-border px-3 py-2">Fermeture de la glotte par l'épiglotte</td>
+              <td className="border border-border px-3 py-2">Glissement du bol vers l'œsophage</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 italic">Empêchant</td>
+              <td className="border border-border px-3 py-2"></td>
+              <td className="border border-border px-3 py-2"></td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2"></td>
+              <td className="border border-border px-3 py-2">Nourriture d'aller dans la trachée</td>
+              <td className="border border-border px-3 py-2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H3 id="sec-1-5-5">5. Activité sphinctérienne</H3>
+      <p className="text-foreground/90">4 sphincters sont présents le long du tube digestif :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>le sphincter œsophagien supérieur,</li>
+        <li>le sphincter œsophagien inférieur à l'entrée de l'estomac,</li>
+        <li>le sphincter pylorique à la sortie de l'estomac,</li>
+        <li>le sphincter anal.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les contractions de ces sphincters, commandées par voies réflexes (sauf pour le sphincter anal
+        externe qui est constitué de muscle squelettique activé volontairement), ont pour rôle de
+        contrôler le passage du contenu d'une partie du tube digestif à une autre partie.
+      </p>
+
+      <H3 id="sec-1-5-6">6. Contrôle nerveux de la déglutition</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le centre de la déglutition se situe dans le tronc cérébral.
+      </p>
+
+      <div className="my-5 overflow-hidden rounded-xl border border-border">
+        <div className="bg-primary/10 px-4 py-2 text-sm font-semibold text-foreground">
+          Nerfs crâniens impliqués
+        </div>
+        <table className="w-full text-sm">
+          <tbody className="text-foreground/90">
+            <tr>
+              <td className="border border-border px-3 py-2">Nerf maxillaire</td>
+              <td className="border border-border px-3 py-2">Nerf ophtalmique (V1)</td>
+              <td className="border border-border px-3 py-2">Nerf trijumeau (V)</td>
+              <td className="border border-border px-3 py-2">Nerf mandibulaire (V3)</td>
+              <td className="border border-border px-3 py-2">Nerf glosso-pharyngien</td>
+              <td className="border border-border px-3 py-2">Nerf vague (X)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        C'est un réseau mal individualisé de neurones, à proximité du centre ventilatoire et du centre
+        salivaire. Il est impossible de déglutir et de respirer simultanément. Il possède des
+        interactions avec la phonation et la respiration. Tous les organes participant à la déglutition
+        sont innervés par les V, VII, IX, X, XI et XII paires de nerfs crâniens. Leurs noyaux sensitifs
+        et moteurs sont situés dans la protubérance et le bulbe rachidien.
+      </p>
+
+      <H4 id="sec-1-5-6-a">a. Phase orale (préparation et propulsion) — durée variable</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'aliment, une fois en bouche, est mastiqué et insalivé ; de nouveaux messages sont envoyés au
+        cerveau : la perception gustative et olfactive, l'information sensitive et sensorielle des
+        caractéristiques physiques et chimiques du bol (volume, texture, glissé, goût, température,
+        comestibilité…) — se produit donc la préparation du bol et la propulsion. Dès que la décision
+        de pousser le bol vers l'isthme du gosier (ouverture par laquelle la cavité buccale communique
+        en arrière avec le pharynx) est prise (décision volontaire ou automatico-volontaire), un ordre
+        est envoyé au centre déglutition bulbaire de l'imminence de l'arrivée d'un corps étranger dans
+        le pharynx. Ces informations alertent la personne qu'il a quelque chose dans la bouche et qu'il
+        va falloir l'avaler.
+      </p>
+
+      <H4 id="sec-1-5-6-b">b. Phase laryngo-pharyngée — durée 0,5 à 0,7 seconde</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les messages envoyés au cerveau lors des 2 premières phases vont permettre l'activité des
+        muscles de la déglutition :
+      </p>
+      <ul className="ml-6 list-disc space-y-1 text-foreground/90">
+        <li>protéger les poumons</li>
+        <li>et envoyer les aliments vers l'estomac.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        La <strong>première réponse motrice</strong> consiste alors à fermer les voies aériennes avant
+        que le bolus n'arrive sur la base de langue. <strong>Ensuite la déglutition pharyngée
+        s'active</strong> et le bolus est poussé vers l'œsophage.
+      </p>
+
+      <H4 id="sec-1-5-6-c">c. Phase œsophagienne — durée 0,8 à 3 secondes</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Le bol alimentaire progresse par des <strong>mouvements musculaires involontaires de péristaltisme</strong>.
+      </p>
+
+      <H3 id="sec-1-5-7">III. Au niveau de l'œsophage — Particularités histologiques</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        L'œsophage (<Mark>figure 6</Mark>) est un conduit de 25 cm qui amène le bol alimentaire jusqu'à
+        l'estomac à grande vitesse. Il est accolé à la trachée dans sa partie antérieure puis traverse
+        le diaphragme et débouche dans l'estomac.
+      </p>
+
+      <Figure src={p2Fig6} n="Figure 6" legend="Organisation simplifiée de l'œsophage." />
+
+      <ul className="mt-3 ml-6 list-disc space-y-2 text-foreground/90">
+        <li>
+          <strong>MUQUEUSE</strong> : épithélium pluristratifié pavimenteux comprenant une couche
+          cornée se desquamant dans la partie proche de la lumière — rôle protecteur — et une couche
+          de cellules germinatives à la base, qui assure le renouvellement constant de l'épithélium.
+        </li>
+        <li>Lamina propria = chorion.</li>
+        <li>Muscularis mucosae (favorise l'évacuation du mucus jusqu'à la lumière).</li>
+        <li>
+          <strong>SOUS-MUQUEUSE</strong> : on peut y observer des glandes œsophagiennes d'organisation
+          acineuse (ou tubulo-acineuse) sécrétant un mucus protecteur. [Le mucus est évacué par des
+          canalicules qui traversent la lamina propria et l'épithélium, débouchant ainsi au niveau de
+          la lumière]. On trouve également le plexus sous-muqueux.
+        </li>
+        <li>
+          <strong>MUSCULEUSE</strong> : couche très épaisse (muscles circulaires + muscles
+          longitudinaux) permettant la puissance et la rapidité du transit œsophagien du bol
+          alimentaire. On trouve également le plexus myentérique.
+        </li>
+        <li>
+          <strong>ADVENTICE</strong> : tissu conjonctif. La particularité est l'absence de mésothélium ;
+          il n'y a donc pas de vraie séreuse.
+        </li>
+      </ul>
+
+      <H3 id="sec-1-5-8">Motricité œsophagienne : péristaltisme</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        On appelle <strong>péristaltisme</strong> l'ensemble des contractions musculaires permettant la
+        progression du contenu du tube digestif vers sa partie distale.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Le péristaltisme œsophagien (<Mark>figure 7</Mark>) est assuré par{" "}
+        <strong>la contraction des muscles circulaires</strong> (situés immédiatement au-dessus et
+        autour du bol) et <strong>le relâchement des muscles longitudinaux</strong> (situés autour de
+        la partie inférieure et immédiatement au-dessous du bol).
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les contractions se répètent et forment des <strong>ondes péristaltiques qui forcent le
+        déplacement du bol</strong> vers l'estomac. L'avancée du bol est facilitée par le mucus
+        sécrété par les glandes œsophagiennes situées dans la sous-muqueuse.
+      </p>
+
+      <Figure src={p2Fig7} n="Figure 7" legend="Péristaltisme œsophagien." />
+
+      <Callout type="note">
+        <strong>Remarque :</strong> les ondes péristaltiques sont liées à des{" "}
+        <strong>alternances contraction–relâchement réflexe</strong> des différentes musculatures de la
+        paroi.
+      </Callout>
+
+      <Callout type="note">
+        <strong>Remarque :</strong> Au repos, l'œsophage n'a pas d'activité motrice.
+      </Callout>
+
+      {/* TABLEAU 7 — Les transformations digestives dans le pharynx et l'œsophage */}
+      <div className="my-5 overflow-hidden rounded-xl border border-border">
+        <div className="bg-primary/10 px-4 py-2 text-sm font-semibold text-foreground">
+          TABLEAU 7 — Les transformations digestives dans le pharynx et l'œsophage
+        </div>
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border border-border px-3 py-2 text-left font-semibold" colSpan={3}>
+                Transformations mécaniques*
+              </th>
+              <th className="border border-border px-3 py-2 text-left font-semibold">Résultat</th>
+            </tr>
+            <tr>
+              <th className="border border-border px-3 py-2 text-left">Structure</th>
+              <th className="border border-border px-3 py-2 text-left">Mouvement</th>
+              <th className="border border-border px-3 py-2 text-left">Fonction</th>
+              <th className="border border-border px-3 py-2 text-left" rowSpan={2}>
+                Progression du bol alimentaire vers l'estomac
+              </th>
+            </tr>
+          </thead>
+          <tbody className="text-foreground/90">
+            <tr>
+              <td className="border border-border px-3 py-2">• Œsophage</td>
+              <td className="border border-border px-3 py-2">Péristaltisme</td>
+              <td className="border border-border px-3 py-2">Propulse le bol alimentaire dans l'œsophage.</td>
+            </tr>
+          </tbody>
+          <thead className="bg-muted">
+            <tr>
+              <th className="border border-border px-3 py-2 text-left font-semibold" colSpan={3}>
+                Réaction tissulaire**
+              </th>
+              <th className="border border-border px-3 py-2 text-left font-semibold">Résultat</th>
+            </tr>
+            <tr>
+              <th className="border border-border px-3 py-2 text-left">Structures</th>
+              <th className="border border-border px-3 py-2 text-left">Sécrétion</th>
+              <th className="border border-border px-3 py-2 text-left">Fonction</th>
+              <th className="border border-border px-3 py-2 text-left">Glissement du bol alimentaire facilité</th>
+            </tr>
+          </thead>
+          <tbody className="text-foreground/90">
+            <tr>
+              <td className="border border-border px-3 py-2">• Pharynx<br />• Œsophage</td>
+              <td className="border border-border px-3 py-2">Mucus</td>
+              <td className="border border-border px-3 py-2">Humidifie la paroi du pharynx et de l'œsophage.</td>
+              <td className="border border-border px-3 py-2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="text-xs text-muted-foreground italic mt-2">
+        * Dans cette étape du processus digestif, il n'y a pas de transformation mécanique, mais un
+        simple mouvement propulsif permettant le déplacement du bol alimentaire.
+        <br />
+        ** Dans cette étape du processus digestif, il n'y a pas de véritable transformation chimique,
+        mais la production d'une sécrétion qui favorise la suite du processus.
+      </p>
+    </section>
+  );
+}
 
 function Placeholder({ id, title }: { id: string; title: string }) {
   return (
