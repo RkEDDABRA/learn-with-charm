@@ -128,9 +128,11 @@ const CHAPTERS: Chapter[] = [
     number: 1,
     title: "Aspects anatomiques et physiologiques du système digestif",
     sections: [
-      { id: "sec-1-1", title: "Caractéristiques générales du système digestif" },
-      { id: "sec-1-2", title: "Organisation histologique du tube digestif" },
-      { id: "sec-1-3", title: "Régulations des processus digestifs" },
+      { id: "sec-1-1", title: "Partie 1 — Caractéristiques générales du système digestif" },
+      { id: "sec-1-2", title: "Partie 2 — Organisation histologique du tube digestif" },
+      { id: "sec-1-3", title: "Partie 3 — Régulations des processus digestifs" },
+      { id: "sec-1-4", title: "Partie 4 — Physiologie de la digestion : la cavité buccale" },
+      { id: "sec-1-5", title: "Partie 5 — Pharynx (déglutition) et œsophage" },
     ],
   },
   {
