@@ -32,6 +32,24 @@ import p2Fig5 from "@/assets/cours-diet-s2/p2-fig5-peristaltisme.jpg";
 import p2Fig6 from "@/assets/cours-diet-s2/p2-fig6-oesophage.jpg";
 import p2Fig7 from "@/assets/cours-diet-s2/p2-fig7-peristaltisme-oeso.jpg";
 
+// Partie 6 & 7 — Estomac et intestin grêle
+import p3Fig8a from "@/assets/cours-diet-s2/p3-fig8a-estomac.jpg";
+import p3Fig8b from "@/assets/cours-diet-s2/p3-fig8b-estomac.jpg";
+import p3Fig8c from "@/assets/cours-diet-s2/p3-fig8c-paroi-estomac.jpg";
+import p3Fig9 from "@/assets/cours-diet-s2/p3-fig9-cellules-gastriques.jpg";
+import p3Fig10 from "@/assets/cours-diet-s2/p3-fig10-controle-secretion.jpg";
+import p3ProdSuc from "@/assets/cours-diet-s2/p3-prod-suc-gastrique.jpg";
+import p3Phases from "@/assets/cours-diet-s2/p3-phases-secretion.jpg";
+import p3Fig11a from "@/assets/cours-diet-s2/p3-fig11a-accommodation.jpg";
+import p3Fig11b from "@/assets/cours-diet-s2/p3-fig11b-brassage.jpg";
+import p3Fig11c from "@/assets/cours-diet-s2/p3-fig11c-vidange.jpg";
+import p3Fig12 from "@/assets/cours-diet-s2/p3-fig12-peristaltisme.jpg";
+import p3Fig13 from "@/assets/cours-diet-s2/p3-fig13-intestin.jpg";
+import p3Fig14 from "@/assets/cours-diet-s2/p3-fig14-paroi-intestin.jpg";
+import p3Fig15a from "@/assets/cours-diet-s2/p3-fig15a-villosites.jpg";
+import p3Fig15b1 from "@/assets/cours-diet-s2/p3-fig15b-villosite-detail.jpg";
+import p3Fig15b2 from "@/assets/cours-diet-s2/p3-fig15b-crypte.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -133,6 +151,8 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-1-3", title: "Partie 3 — Régulations des processus digestifs" },
       { id: "sec-1-4", title: "Partie 4 — Physiologie de la digestion : la cavité buccale" },
       { id: "sec-1-5", title: "Partie 5 — Pharynx (déglutition) et œsophage" },
+      { id: "sec-1-6", title: "Partie 6 — IV. La digestion gastrique (estomac)" },
+      { id: "sec-1-7", title: "Partie 7 — V. Au niveau de l'intestin grêle" },
     ],
   },
   {
