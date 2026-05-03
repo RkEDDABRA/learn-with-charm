@@ -1700,7 +1700,7 @@ function Section1_7() {
   );
 }
 
-
+function Placeholder({ id, title }: { id: string; title: string }) {
   return (
     <section>
       <H2 id={id}>{title}</H2>
