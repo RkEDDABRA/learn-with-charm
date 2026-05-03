@@ -1860,6 +1860,8 @@ export default function CoursDietetiqueS2() {
                   <Section1_3 />
                   <Section1_4 />
                   <Section1_5 />
+                  <Section1_6 />
+                  <Section1_7 />
                 </>
               ) : (
                 <>
