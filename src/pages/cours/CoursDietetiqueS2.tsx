@@ -32,6 +32,24 @@ import p2Fig5 from "@/assets/cours-diet-s2/p2-fig5-peristaltisme.jpg";
 import p2Fig6 from "@/assets/cours-diet-s2/p2-fig6-oesophage.jpg";
 import p2Fig7 from "@/assets/cours-diet-s2/p2-fig7-peristaltisme-oeso.jpg";
 
+// Partie 6 & 7 — Estomac et intestin grêle
+import p3Fig8a from "@/assets/cours-diet-s2/p3-fig8a-estomac.jpg";
+import p3Fig8b from "@/assets/cours-diet-s2/p3-fig8b-estomac.jpg";
+import p3Fig8c from "@/assets/cours-diet-s2/p3-fig8c-paroi-estomac.jpg";
+import p3Fig9 from "@/assets/cours-diet-s2/p3-fig9-cellules-gastriques.jpg";
+import p3Fig10 from "@/assets/cours-diet-s2/p3-fig10-controle-secretion.jpg";
+import p3ProdSuc from "@/assets/cours-diet-s2/p3-prod-suc-gastrique.jpg";
+import p3Phases from "@/assets/cours-diet-s2/p3-phases-secretion.jpg";
+import p3Fig11a from "@/assets/cours-diet-s2/p3-fig11a-accommodation.jpg";
+import p3Fig11b from "@/assets/cours-diet-s2/p3-fig11b-brassage.jpg";
+import p3Fig11c from "@/assets/cours-diet-s2/p3-fig11c-vidange.jpg";
+import p3Fig12 from "@/assets/cours-diet-s2/p3-fig12-peristaltisme.jpg";
+import p3Fig13 from "@/assets/cours-diet-s2/p3-fig13-intestin.jpg";
+import p3Fig14 from "@/assets/cours-diet-s2/p3-fig14-paroi-intestin.jpg";
+import p3Fig15a from "@/assets/cours-diet-s2/p3-fig15a-villosites.jpg";
+import p3Fig15b1 from "@/assets/cours-diet-s2/p3-fig15b-villosite-detail.jpg";
+import p3Fig15b2 from "@/assets/cours-diet-s2/p3-fig15b-crypte.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -133,6 +151,8 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-1-3", title: "Partie 3 — Régulations des processus digestifs" },
       { id: "sec-1-4", title: "Partie 4 — Physiologie de la digestion : la cavité buccale" },
       { id: "sec-1-5", title: "Partie 5 — Pharynx (déglutition) et œsophage" },
+      { id: "sec-1-6", title: "Partie 6 — IV. La digestion gastrique (estomac)" },
+      { id: "sec-1-7", title: "Partie 7 — V. Au niveau de l'intestin grêle" },
     ],
   },
   {
@@ -1214,6 +1234,472 @@ function Section1_5() {
   );
 }
 
+/* ---------- Partie 6 — IV. La digestion gastrique ---------- */
+
+function Section1_6() {
+  return (
+    <section>
+      <H2 id="sec-1-6">Partie 6 — IV. La digestion gastrique</H2>
+
+      <H3 id="sec-1-6-1">1. Anatomie de l'estomac</H3>
+
+      <H4 id="sec-1-6-1-a">a. Morphologie de l'estomac</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'estomac est un lieu de <strong>digestion chimique</strong>, notamment grâce à la sécrétion de{" "}
+        <strong>suc gastrique</strong>, mais aussi de <strong>brassage mécanique</strong> important des
+        aliments grâce à une <strong>musculeuse importante</strong>.
+      </p>
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure src={p3Fig8a} n="Figure 8a" legend="Diagramme de l'estomac (fundus, corps, sphincters, pylore, duodénum)" />
+        <Figure src={p3Fig8b} n="Figure 8b" legend="Schéma de l'estomac : œsophage, diaphragme, fundus, antrum, valve pylorique" />
+      </div>
+      <Figure src={p3Fig8c} n="Figure 8c" legend="Organisation de l'estomac et de sa paroi (coupe histologique)" />
+
+      <p className="text-foreground/90 leading-relaxed mt-4">
+        L'estomac est une poche située à gauche sous le diaphragme, en forme de « J » majuscule, de 25 cm
+        de long sur 12 cm de large, présentant une grande courbure à gauche et une petite courbure à droite,
+        du côté du foie. Il a une capacité de 1 à 1,5 litre. Il commence au cardia et se termine dans
+        l'intestin par le pylore, muni d'un sphincter puissant (figure 8 a et b). La surface interne présente
+        des plis profonds longitudinaux qui permettent une distension importante au cours du repas.
+      </p>
+
+      <p className="mt-3 text-foreground/90">D'un point de vue fonctionnel, on différencie trois zones :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>l'estomac proximal formé par le <strong>fundus</strong> (ou poche à air, en haut) ;</li>
+        <li>le <strong>corps de l'estomac</strong> qui a un rôle de réservoir à activité sécrétoire importante ;</li>
+        <li>l'estomac distal formé par l'<strong>antre pylorique</strong>, partie motrice jouant un rôle dans la fragmentation, l'homogénéisation des solides et la régulation du vidange du chyme gastrique vers le duodénum ;</li>
+        <li>on peut y ajouter le <strong>cardia</strong> (orifice d'entrée faisant la jonction avec l'œsophage) et le <strong>pylore</strong> (sortie de l'estomac où un puissant sphincter contrôle l'ouverture/fermeture du conduit).</li>
+      </ul>
+
+      <H4 id="sec-1-6-1-b">b. Histologie de l'estomac</H4>
+      <p className="text-foreground/90 leading-relaxed">La paroi gastrique est constituée (Figure 8c) :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>
+          <strong>MUQUEUSE</strong> : épithélium unistratifié prismatique comprenant des cellules exocrines
+          et endocrines (voire paracrines), particulièrement concentrées au fond des cryptes ou glandes
+          gastriques.
+        </li>
+      </ul>
+
+      <div className="my-4 overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border border-border px-3 py-2 text-left"></th>
+              <th className="border border-border px-3 py-2 text-left">Cryptes</th>
+              <th className="border border-border px-3 py-2 text-left">Glandes principales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Muqueuse de type fundique (Fundus)</td>
+              <td className="border border-border px-3 py-2">Larges et peu profondes</td>
+              <td className="border border-border px-3 py-2">
+                Longues glandes tubulaires droites
+                <ul className="ml-4 list-disc mt-1">
+                  <li>Cellules principales</li>
+                  <li>Cellules pariétales (bordantes)</li>
+                  <li>Cellules neuroendocrines (ECL)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Muqueuse de type pylorique (Antre)</td>
+              <td className="border border-border px-3 py-2">Étroites et profondes</td>
+              <td className="border border-border px-3 py-2">
+                Glandes tubulaires contournées
+                <ul className="ml-4 list-disc mt-1">
+                  <li>Cellules à mucus</li>
+                  <li>Cellules neuroendocrines (G)</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li><strong>Lamina propria</strong> riche en fins vaisseaux favorisant les échanges (sécrétion d'hormones, apport des nutriments et ions nécessaires à la production des sécrétions).</li>
+        <li><em>Muscularis mucosae</em> (favorise l'évacuation des sécrétions exocrines jusqu'à la lumière).</li>
+        <li><strong>SOUS-MUQUEUSE</strong></li>
+        <li><strong>MUSCULEUSE</strong> : couche épaisse (muscles obliques + circulaires + longitudinaux) permettant un important brassage mécanique du contenu.</li>
+        <li><strong>SÉREUSE</strong> : tissu conjonctif + mésothélium.</li>
+      </ul>
+
+      <H3 id="sec-1-6-2">2. Physiologie</H3>
+
+      <H4 id="sec-1-6-2-a">a. Sécrétions gastriques</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        La sécrétion gastrique est caractérisée essentiellement par sa concentration élevée en{" "}
+        <strong>acide chlorhydrique</strong> (Figure 9). Cette acidité permet :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>de stériliser le bol alimentaire ;</li>
+        <li>et d'initier la digestion, notamment des protéines alimentaires.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90">
+        L'ensemble de ces sécrétions exocrines de l'estomac s'appelle le <strong>suc gastrique</strong> :
+        liquide acide, incolore et visqueux. Le volume quotidien sécrété varie entre 2 et 2,5 litres, et le
+        débit est rythmé par les repas.
+      </p>
+
+      <Figure src={p3Fig9} n="Figure 9" legend="Diversité des types cellulaires et des sécrétions de l'épithélium gastrique" />
+
+      <div className="my-4 overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border border-border px-3 py-2 text-left">Types cellulaires</th>
+              <th className="border border-border px-3 py-2 text-left">Substance sécrétée</th>
+              <th className="border border-border px-3 py-2 text-left">Stimulus de la sécrétion</th>
+              <th className="border border-border px-3 py-2 text-left">Rôle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border border-border px-3 py-2" rowSpan={2}>Cellule à mucus du col</td>
+              <td className="border border-border px-3 py-2">Mucus</td>
+              <td className="border border-border px-3 py-2">Sécrétion tonique ; irritation de la muqueuse</td>
+              <td className="border border-border px-3 py-2">Barrière physique entre lumière et épithélium</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Bicarbonate</td>
+              <td className="border border-border px-3 py-2">Sécrété avec le mucus</td>
+              <td className="border border-border px-3 py-2">Tampon de l'acide gastrique pour empêcher l'atteinte de l'épithélium</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2" rowSpan={2}>Cellules pariétales</td>
+              <td className="border border-border px-3 py-2">Acide gastrique (HCl)</td>
+              <td className="border border-border px-3 py-2">Acétylcholine, gastrine, histamine</td>
+              <td className="border border-border px-3 py-2">Activation de la pepsine ; destruction des bactéries</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Facteur intrinsèque</td>
+              <td className="border border-border px-3 py-2">—</td>
+              <td className="border border-border px-3 py-2">Complexe avec la vitamine B12 permettant son absorption</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Cellule entéro-chromaffine-like (ECL)</td>
+              <td className="border border-border px-3 py-2">Histamine</td>
+              <td className="border border-border px-3 py-2">Acétylcholine, gastrine</td>
+              <td className="border border-border px-3 py-2">Stimulation de la sécrétion d'acide gastrique</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2" rowSpan={2}>Cellules principales</td>
+              <td className="border border-border px-3 py-2">Pepsin(ogène)</td>
+              <td className="border border-border px-3 py-2">Acétylcholine, acide, sécrétine</td>
+              <td className="border border-border px-3 py-2">Digestion des protéines</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Lipase gastrique</td>
+              <td className="border border-border px-3 py-2">—</td>
+              <td className="border border-border px-3 py-2">Digestion des graisses</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Cellules D</td>
+              <td className="border border-border px-3 py-2">Somatostatine</td>
+              <td className="border border-border px-3 py-2">Acidité gastrique</td>
+              <td className="border border-border px-3 py-2">Inhibition de la sécrétion acide gastrique</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2">Cellules G</td>
+              <td className="border border-border px-3 py-2">Gastrine</td>
+              <td className="border border-border px-3 py-2">Acétylcholine, peptides et acides aminés</td>
+              <td className="border border-border px-3 py-2">Stimulation de la sécrétion acide gastrique</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H4 id="sec-1-6-2-b">b. Régulation de la sécrétion acide gastrique</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        La sécrétion acide gastrique est modulée en permanence par voie endocrine, paracrine et exocrine.
+      </p>
+      <p className="mt-3 font-semibold">La sécrétion acide est stimulée par 3 substances :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li><strong>Acétylcholine</strong> : libérée par la stimulation du nerf vague. Elle agit directement sur les cellules pariétales (récepteurs M3) et indirectement en stimulant les cellules ECL et les cellules à gastrine.</li>
+        <li><strong>Gastrine</strong> : produite par les cellules G. Elle agit par voie <strong>endocrine</strong> sur les cellules pariétales et sur les cellules ECL en stimulant la libération d'histamine.</li>
+        <li><strong>Histamine</strong> : sécrétée par les cellules ECL. Elle agit par voie <strong>paracrine</strong>, en se fixant sur les récepteurs H2 des cellules pariétales.</li>
+      </ul>
+      <p className="mt-3 font-semibold">La sécrétion acide est inhibée par :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li><strong>La somatostatine</strong> : sa sécrétion par les cellules D est stimulée par l'augmentation de la concentration en H<sup>+</sup> dans la cavité gastrique ; action paracrine.</li>
+        <li><strong>La sécrétine</strong> : hormone digestive duodénale, libérée dans la circulation sanguine (voie endocrine) en réponse à l'arrivée de nutriments dans le duodénum.</li>
+      </ul>
+
+      <Figure src={p3Fig10} n="Figure 10" legend="Contrôle de la sécrétion gastrique acide au niveau des cellules pariétales" />
+
+      <H4 id="sec-1-6-2-c">c. Régulation de la sécrétion du pepsinogène</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        La production de pepsinogène par les cellules principales débute en phase céphalique et se poursuit
+        durant la phase gastrique ; elle est largement induite par la <strong>stimulation du nerf vague</strong>{" "}
+        en présence d'<strong>acétylcholine</strong>. La <strong>gastrine</strong> peut aussi stimuler la
+        sécrétion d'acide et la production de pepsinogène.
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>Le pepsinogène est transformé en pepsine sous l'action de HCl.</li>
+        <li>La sécrétion de pepsinogène est <strong>inhibée</strong> par une diminution du <strong>pH &lt; 1,5</strong>, après inhibition de la gastrine par les <strong>somatostatines</strong>.</li>
+      </ul>
+
+      <Figure src={p3ProdSuc} n="Schéma" legend="Production du suc gastrique" />
+
+      <H4 id="sec-1-6-2-d">d. Phases de la sécrétion gastrique</H4>
+      <p className="text-foreground/90"><strong>En dehors du repas :</strong> le débit de sécrétion est faible, assuré essentiellement par les cellules muqueuses (mucus et bicarbonate) — suc de jeûne.</p>
+      <p className="mt-2 text-foreground/90"><strong>Au moment du repas :</strong> la prise alimentaire déclenche une abondante sécrétion gastrique par augmentation du débit des cellules pariétales ; ces sécrétions se déroulent en 3 phases successives.</p>
+
+      <Figure src={p3Phases} n="Schéma" legend="Phases de la sécrétion gastrique (céphalique, gastrique, intestinale)" />
+
+      <H4 id="sec-1-6-2-d-1">▸ Phase céphalique</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Phase de régulation nerveuse (réflexe) et paracrine. Elle correspond à la phase « pré-repas » :
+        elle est déclenchée par la pensée, la vue, l'odeur, le goût et le contact des aliments dans la
+        bouche et l'œsophage. Il s'ensuit une stimulation du nerf vague.
+      </p>
+
+      <H4 id="sec-1-6-2-d-2">▸ Phase gastrique</H4>
+      <p className="font-semibold mt-2">Mécanisme chimique</p>
+      <p className="text-foreground/90 leading-relaxed">
+        L'activation du nerf vague pendant la phase céphalique entraîne, pendant le repas, une{" "}
+        <strong>augmentation de l'acétylcholine</strong> dans l'estomac, qui va <strong>activer</strong> :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>les <strong>cellules pariétales</strong> responsables de la production d'HCl (augmentation de l'acidité) ;</li>
+        <li>les <strong>cellules à gastrine</strong>, amplifiant ainsi le nombre de cellules pariétales activées.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90">
+        De plus, certaines <strong>substances alimentaires</strong> (calcium, acides aminés, polypeptides){" "}
+        <strong>activent les cellules à gastrine par mécanisme endocrine</strong>, qui activent à leur tour
+        les cellules pariétales (≈ 80 % de la sécrétion acide).
+      </p>
+      <p className="font-semibold mt-3">Mécanisme mécanique</p>
+      <p className="text-foreground/90 leading-relaxed">
+        L'estomac est pourvu de <strong>mécanorécepteurs sensibles à la distension</strong> : leur activation
+        stimule la sécrétion acide par des réflexes locaux à médiation vagale.
+      </p>
+      <p className="font-semibold mt-3">Rétrocontrôle négatif</p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les cellules pariétales sont aussi responsables de leur <strong>rétrocontrôle négatif</strong> via un
+        mécanisme paracrine : l'augmentation de la concentration en H<sup>+</sup> active les cellules D pour
+        la sécrétion de <strong>somatostatine</strong>, ce qui inhibe la sécrétion de gastrine et d'histamine,
+        diminuant ainsi la production d'HCl et l'acidité de l'estomac.
+      </p>
+
+      <H4 id="sec-1-6-2-d-3">▸ Phase intestinale</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Une fois digérés dans l'estomac, les aliments traversent le pylore et rejoignent le duodénum. Ce
+        dernier exerce un rétrocontrôle négatif sur la sécrétion acide gastrique via la production
+        d'hormones comme la <strong>cholécystokinine</strong>, le <strong>VIP</strong>, le{" "}
+        <strong>GIP</strong> et la <strong>sécrétine</strong>, qui inhibent la sécrétion acide gastrique
+        par voie endocrine.
+      </p>
+
+      <H4 id="sec-1-6-2-e">e. Motricité gastrique</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'estomac est constitué de deux zones fonctionnelles distinctes (proximale et distale), et la
+        motricité gastrique varie selon les zones :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li><strong>L'estomac proximal</strong> : a une fonction de réservoir et de vidange des liquides ; c'est la zone principale de sécrétion. Cette partie est caractérisée par une faible activité motrice mais une grande capacité d'adaptation.</li>
+        <li><strong>L'estomac distal</strong> : fonctionne de manière coordonnée avec le sphincter pylorique et le duodénum ; il a une fonction marquée de broyage mécanique, de mélange avec les sucs gastriques et de contrôle de la vidange des solides, permettant une absorption optimale des nutriments dans l'intestin grêle (Fig. 11).</li>
+      </ul>
+
+      <div className="grid sm:grid-cols-3 gap-3 my-4">
+        <Figure src={p3Fig11a} n="Figure 11A" legend="Accommodation (relaxation) puis vidange du fundus" />
+        <Figure src={p3Fig11b} n="Figure 11B" legend="Remplissage de l'antre et brassage (pylore fermé)" />
+        <Figure src={p3Fig11c} n="Figure 11C" legend="Péristaltisme antral et vidange gastrique (pylore ouvert)" />
+      </div>
+
+      <H4 id="sec-1-6-2-f">f. Les ondes et la vidange gastrique</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Il existe une zone <em>pacemaker</em> située au tiers supérieur du corps gastrique, qui génère des
+        ondes péristaltiques lentes à raison de trois cycles par minute. Ces ondes forment des anneaux
+        contractiles qui progressent jusqu'au pylore (figure 12).
+      </p>
+
+      <Figure src={p3Fig12} n="Figure 12" legend="Sens du péristaltisme" />
+
+      <p className="text-foreground/90 leading-relaxed">L'arrivée de l'onde péristaltique dans l'antre pylorique provoque simultanément :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>l'ouverture du sphincter pylorique ;</li>
+        <li>et la relaxation duodénale,</li>
+      </ul>
+      <p className="mt-2 text-foreground/90">permettant ainsi l'évacuation d'un petit volume de chyme gastrique liquide (3 mL).</p>
+      <p className="mt-2 text-foreground/90">La fermeture du sphincter pylorique entraîne la rétropulsion du chyme (environ 27 mL) dans l'estomac.</p>
+      <Callout>
+        La vidange gastrique est un phénomène <strong>biphasique (bidirectionnel)</strong> permettant aux
+        aliments d'être bien mélangés avec les sécrétions et d'être réduits en bouillie ou chyme.
+      </Callout>
+
+      <H4 id="sec-1-6-2-g">g. Contrôle de la motricité gastrique</H4>
+      <p className="text-foreground/90 leading-relaxed">L'activité électrique myogène est modulée par :</p>
+
+      <p className="mt-3 font-semibold">• Le système nerveux végétatif</p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les influx <strong>parasympathiques</strong> stimulent le <strong>péristaltisme</strong> de
+        l'estomac, en agissant principalement sur le plexus myentérique d'Auerbach, et{" "}
+        <strong>relâchent le sphincter</strong>, ce qui favorise <strong>l'évacuation gastrique</strong>.
+        Le sympathique a une action inverse, mais son rôle est modeste.
+      </p>
+
+      <div className="my-4 overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <tbody>
+            <tr><td className="border border-border px-3 py-2 font-semibold bg-muted">Tube digestif (lumière)</td></tr>
+            <tr><td className="border border-border px-3 py-2">Récepteurs sensoriels</td></tr>
+            <tr><td className="border border-border px-3 py-2">Plexus submuqueux</td></tr>
+            <tr><td className="border border-border px-3 py-2">Plexus myentérique</td></tr>
+            <tr><td className="border border-border px-3 py-2">Système nerveux central</td></tr>
+            <tr><td className="border border-border px-3 py-2">Innervation sympathique et parasympathique</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="mt-3 font-semibold">• Les aliments</p>
+      <p className="text-foreground/90 leading-relaxed">
+        Le volume et la nature physique des aliments (liquide ou solide) jouent un rôle sur la distension
+        fundique qui provoque l'inhibition du péristaltisme et retarde le début de la vidange gastrique.
+      </p>
+      <p className="mt-2 text-foreground/90 leading-relaxed">
+        La composition chimique des aliments modifie la motricité gastrique : les lipides et les acides
+        aminés augmentent la libération de cholécystokinine en phase duodénale, ce qui ralentit fortement
+        la vidange gastrique.
+      </p>
+
+      <p className="mt-3 font-semibold">• D'autres facteurs</p>
+      <p className="text-foreground/90 leading-relaxed">
+        La douleur, le stress et les émotions ralentissent la vidange de l'estomac par un mécanisme
+        d'inhibition centrale (efférences par le X).
+      </p>
+    </section>
+  );
+}
+
+/* ---------- Partie 7 — V. Au niveau de l'intestin grêle ---------- */
+
+function Section1_7() {
+  return (
+    <section>
+      <H2 id="sec-1-7">Partie 7 — V. Au niveau de l'intestin</H2>
+
+      <H3 id="sec-1-7-1">1. Anatomie de l'intestin grêle</H3>
+
+      <H4 id="sec-1-7-1-a">a. Morphologie de l'intestin</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'intestin grêle mesure 4 à 6 m de long. Il exerce deux fonctions : il achève la digestion du chyme
+        provenant de l'estomac et absorbe les produits de cette digestion au niveau de ses nombreux replis.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Il a un diamètre faible de 3 à 4 cm et est rattaché à la paroi postérieure de l'abdomen par le
+        mésentère (double feuillet péritonéal). Il va du muscle sphincter pylorique, dans la région
+        épigastrique, jusqu'à la valve iléo-cæcale située dans la région iliaque droite, où il rejoint le
+        gros intestin et comprend :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>
+          <strong>le duodénum</strong> (étym. « 12 doigts », en lien avec sa longueur), long de 25 cm
+          environ : c'est une chambre de mélange du chyme gastrique avec la bile sécrétée par le foie et
+          le suc pancréatique. Il neutralise l'acidité du chyme stomacal et est également le siège d'une
+          absorption peu régulée ;
+        </li>
+        <li>
+          <strong>le jéjunum</strong> (étym. « en lien avec le jeûne », parce qu'il s'agit du lieu où se
+          trouvent les aliments lors du jeûne, plusieurs heures après un repas) d'environ 2,5 m : c'est le
+          principal site d'absorption des nutriments ;
+        </li>
+        <li>
+          <strong>l'iléon ou iléum</strong> (du gr. <em>eilein</em>, enrouler) qui constitue la partie
+          mobile repliée en anses intestinales. On y trouve les plaques de Peyer à rôle immunitaire ; long
+          d'environ 3,5 m. Dans l'iléon existent des mécanismes d'absorption très spécifiques (vitamine
+          B12, sels biliaires).
+        </li>
+      </ul>
+
+      <Figure src={p3Fig13} n="Figure 13" legend="Régionalisation de l'intestin grêle : une vision simple" />
+
+      <H4 id="sec-1-7-1-b">b. Histologie de l'intestin</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Du point de vue histologique, la paroi de l'intestin grêle comprend les couches caractéristiques
+        du tube digestif (Figure 14). Cependant, elle présente aussi des spécificités favorisant sa
+        fonction d'absorption en augmentant considérablement la surface de la muqueuse (environ 200 m²) :
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        <u>La muqueuse et la sous-muqueuse</u> forment des replis profonds appelés{" "}
+        <strong>plis circulaires ou valvules conniventes</strong> (Figure 15a).
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>La muqueuse présente des expansions vers la lumière en forme de doigts de gants appelées : <strong>villosités</strong>.</li>
+        <li>Les entérocytes de la muqueuse présentent au niveau de la membrane apicale des <strong>microvillosités</strong>. On appelle <Mark>bordure en brosse</Mark> cette ornementation en microvillosités des membranes d'entérocytes.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Entre les villosités, des cryptes intestinales se prolongent jusqu'aux glandes de la muqueuse,
+        dans lesquelles on trouve de nombreuses cellules endocrines (voire <Mark>paracrines</Mark>) et
+        exocrines.
+      </p>
+
+      <Figure src={p3Fig14} n="Figure 14" legend="Organisation de la paroi de l'intestin grêle" />
+
+      <p className="text-foreground/90 leading-relaxed">Les sécrétions exocrines comprennent :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>
+          le <strong>mucus intestinal</strong> sécrété par les <em>cellules à mucus</em> appelées{" "}
+          <strong>cellules caliciformes</strong>. Ce mucus aurait surtout un rôle immunitaire (en limitant
+          l'adhésion des micro-organismes sur la paroi intestinale) ;
+        </li>
+        <li>
+          quelques <strong>enzymes</strong> soit sécrétées dans la lumière, soit le plus souvent exprimées
+          à la surface des cellules (au niveau de la membrane des microvillosités).
+        </li>
+      </ul>
+      <Callout>
+        On parle parfois de « <Mark>suc intestinal</Mark> » pour désigner les sécrétions intestinales
+        exocrines.
+      </Callout>
+      <p className="text-foreground/90 leading-relaxed">
+        Enfin, au niveau du duodénum, des <strong>glandes de Brünner</strong> présentes dans la
+        sous-muqueuse déversent un mucus alcalin dans la lumière du duodénum contribuant à neutraliser
+        l'acidité du chyme acide déversé par l'estomac. Dans le <strong>reste de l'intestin</strong>, ces
+        glandes sont <strong>rares</strong> voire <strong>absentes</strong>. La <strong>sous-muqueuse</strong>{" "}
+        ne présente alors rien de particulier, si ce n'est son implication dans les valvules conniventes.
+      </p>
+      <ul className="mt-3 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>
+          <em>Lamina propria</em> riche en <strong>fins vaisseaux sanguins</strong> favorisant les{" "}
+          <strong>échanges</strong> et notamment l'<strong>absorption</strong> ; présence aussi de{" "}
+          <Mark>chylifères</Mark> (capillaires lymphatiques situés dans les villosités de l'intestin
+          grêle) (figure 15b).
+        </li>
+        <li><em>Muscularis mucosae</em> : favorise l'évacuation des <strong>sécrétions exocrines</strong> jusqu'à la lumière.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90">
+        <strong>MUSCULEUSE</strong> : couche assurant le <strong>péristaltisme</strong> et la{" "}
+        <strong>segmentation</strong> du chyme.
+        <br />
+        <strong>SÉREUSE</strong> : tissu conjonctif + mésothélium.
+      </p>
+
+      <Figure
+        src={p3Fig15a}
+        n="Figure 15a"
+        legend="Augmentation de la surface de la paroi de l'intestin grêle par trois niveaux de replis (plis circulaires, villosités, microvillosités)"
+      />
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure
+          src={p3Fig15b1}
+          n="Figure 15b"
+          legend="Vascularisation sanguine et lymphatique d'une villosité"
+        />
+        <Figure
+          src={p3Fig15b2}
+          n="Figure 15b"
+          legend="Gros plan sur une villosité et une crypte de Lieberkühn"
+        />
+      </div>
+    </section>
+  );
+}
+
 function Placeholder({ id, title }: { id: string; title: string }) {
   return (
     <section>
@@ -1374,6 +1860,8 @@ export default function CoursDietetiqueS2() {
                   <Section1_3 />
                   <Section1_4 />
                   <Section1_5 />
+                  <Section1_6 />
+                  <Section1_7 />
                 </>
               ) : (
                 <>
