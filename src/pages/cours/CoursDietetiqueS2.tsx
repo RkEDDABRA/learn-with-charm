@@ -50,6 +50,22 @@ import p3Fig15a from "@/assets/cours-diet-s2/p3-fig15a-villosites.jpg";
 import p3Fig15b1 from "@/assets/cours-diet-s2/p3-fig15b-villosite-detail.jpg";
 import p3Fig15b2 from "@/assets/cours-diet-s2/p3-fig15b-crypte.jpg";
 
+// Partie 8 & 9 — Motricité, sécrétions, absorption, gros intestin (doc 4)
+import p4Fig16 from "@/assets/cours-diet-s2/p4-fig16-mouvements-grele.jpg";
+import p4Fig17a from "@/assets/cours-diet-s2/p4-fig17a-anatomie.jpg";
+import p4Fig17b from "@/assets/cours-diet-s2/p4-fig17b-controle.jpg";
+import p4Fig18ent from "@/assets/cours-diet-s2/p4-fig18-enterocyte.jpg";
+import p4FigVillosite from "@/assets/cours-diet-s2/p4-fig-villosite.jpg";
+import p4FigVoies from "@/assets/cours-diet-s2/p4-fig-voies-absorption.jpg";
+import p4FigGros from "@/assets/cours-diet-s2/p4-fig18-gros-intestin.jpg";
+import p4Fig19histo from "@/assets/cours-diet-s2/p4-fig19-histologie-colon.jpg";
+import p4Fig20eau from "@/assets/cours-diet-s2/p4-fig20-eau-colon.jpg";
+import p4FigRoles from "@/assets/cours-diet-s2/p4-fig-roles-colon.jpg";
+import p4FigDefecation from "@/assets/cours-diet-s2/p4-fig-defecation.jpg";
+import p4FigMouv from "@/assets/cours-diet-s2/p4-fig-mouvements-colon.jpg";
+import p4Fig21 from "@/assets/cours-diet-s2/p4-fig21-microbiote.jpg";
+import p4Fig22 from "@/assets/cours-diet-s2/p4-fig22-enzymes-microbiote.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -153,6 +169,8 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-1-5", title: "Partie 5 — Pharynx (déglutition) et œsophage" },
       { id: "sec-1-6", title: "Partie 6 — IV. La digestion gastrique (estomac)" },
       { id: "sec-1-7", title: "Partie 7 — V. Au niveau de l'intestin grêle" },
+      { id: "sec-1-8", title: "Partie 8 — Motricité, sécrétions et absorption intestinales" },
+      { id: "sec-1-9", title: "Partie 9 — VI. Le gros intestin" },
     ],
   },
   {
@@ -1700,6 +1718,363 @@ function Section1_7() {
   );
 }
 
+/* ---------- Partie 8 — Motricité, sécrétions et absorption intestinales ---------- */
+
+function Section1_8() {
+  return (
+    <section>
+      <H2 id="sec-1-8">Partie 8 — Motricité intestinale, sécrétions glandulaires &amp; absorption</H2>
+
+      <H3 id="sec-1-8-1">2. Motricité intestinale</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La <strong>musculeuse intestinale</strong> assure une <em>avancée des aliments</em> par{" "}
+        <Mark>péristaltisme</Mark> (figure 16) à une <strong>vitesse</strong> toutefois considérée comme{" "}
+        <strong>lente</strong> (vitesse de l'ordre de 1 cm·min⁻¹), ce qui laisse le temps à la{" "}
+        <strong>digestion</strong> et l'<strong>absorption</strong> de se réaliser.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        On peut aussi noter que l'<strong>intestin grêle</strong> favorise aussi une digestion mécanique
+        grâce à des mouvements de <Mark>segmentation</Mark> (figure 16).
+      </p>
+      <Figure src={p4Fig16} n="Figure 16" legend="Principaux mouvements de l'intestin grêle" />
+
+      <H3 id="sec-1-8-2">3. Sécrétions glandulaires</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le duodénum est en forme de C, entourant la tête du pancréas. Il mesure 20 à 25 cm de long. Sa
+        lumière est la plus large de l'intestin grêle. Les différents types de sécrétions glandulaires
+        sont présentés dans le Tableau 1.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les conduits qui apportent la bile du foie et le suc pancréatique en provenance du pancréas se
+        rejoignent près du duodénum où ils forment un bulbe appelé{" "}
+        <strong>ampoule hépato-pancréatique</strong> (ou ampoule de Vater), celle-ci s'ouvre dans le
+        duodénum par <strong>la papille duodénale majeure</strong> (ou grande caroncule) — Figure 17.
+      </p>
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure src={p4Fig17a} n="Figure 17a" legend="Anatomie du foie, de la vésicule biliaire, du pancréas et du duodénum" />
+        <Figure src={p4Fig17b} n="Figure 17b" legend="Contrôle hormonal des sécrétions pancréatique et biliaire (CCK, sécrétine)" />
+      </div>
+
+      <p className="font-semibold text-foreground mt-4">
+        Tableau 1 : Hormones et substances semblables aux hormones qui jouent un rôle dans la digestion
+      </p>
+      <div className="my-3 overflow-x-auto rounded-lg border border-border">
+        <table className="w-full text-sm">
+          <thead className="bg-muted">
+            <tr>
+              <th className="border border-border px-3 py-2 text-left">Hormone</th>
+              <th className="border border-border px-3 py-2 text-left">Site de production</th>
+              <th className="border border-border px-3 py-2 text-left">Stimulus de la production</th>
+              <th className="border border-border px-3 py-2 text-left">Organe cible</th>
+              <th className="border border-border px-3 py-2 text-left">Activité</th>
+            </tr>
+          </thead>
+          <tbody className="align-top">
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Somatostatine</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum</td>
+              <td className="border border-border px-3 py-2">Aliments dans l'estomac ; stimulation par les neurofibres du SNS</td>
+              <td className="border border-border px-3 py-2">Pancréas, intestin grêle, vésicule biliaire</td>
+              <td className="border border-border px-3 py-2">
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Inhibe la sécrétion</li>
+                  <li>Diminue la circulation sanguine dans le tube digestif et inhibe l'absorption intestinale</li>
+                  <li>Inhibe la contraction de l'organe et la libération de la bile</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Gastrine entérique</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum</td>
+              <td className="border border-border px-3 py-2">Aliments <strong>acides</strong> partiellement digérés dans le duodénum</td>
+              <td className="border border-border px-3 py-2">Estomac</td>
+              <td className="border border-border px-3 py-2">Stimule les glandes et la motilité gastriques</td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Sécrétine</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum</td>
+              <td className="border border-border px-3 py-2">Chyme <strong>acide</strong> (aussi protéines partiellement digérées, graisses, liquides hypertoniques et hypotoniques)</td>
+              <td className="border border-border px-3 py-2">Estomac, pancréas, foie</td>
+              <td className="border border-border px-3 py-2">
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Inhibe la sécrétion et la motilité gastriques</li>
+                  <li>Accroît la sécrétion du suc pancréatique riche en bicarbonate, potentialise la CCK</li>
+                  <li>Accroît la production de la bile</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Cholécystokinine (CCK)</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum et du jéjunum</td>
+              <td className="border border-border px-3 py-2">Chyme <strong>gras</strong> en particulier, mais aussi protéines partiellement digérées</td>
+              <td className="border border-border px-3 py-2">Foie, pancréas, vésicule biliaire, sphincter de l'ampoule hépato-pancréatique, estomac</td>
+              <td className="border border-border px-3 py-2">
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Accroît la production de la bile</li>
+                  <li>Potentialise l'action de la sécrétine</li>
+                  <li>Stimule la contraction et l'expulsion de la bile</li>
+                  <li>Relâche le sphincter pour permettre l'entrée de la bile et du suc pancréatique dans le duodénum</li>
+                  <li>Inhibe l'activité sécrétoire de l'estomac</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Peptide inhibiteur gastrique (GIP)</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum</td>
+              <td className="border border-border px-3 py-2">Chyme <strong>gras</strong> ou contenant du glucose</td>
+              <td className="border border-border px-3 py-2">Estomac, pancréas (cellules β)</td>
+              <td className="border border-border px-3 py-2">
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Inhibe la sécrétion et la motilité gastrique</li>
+                  <li>Stimule la libération de l'insuline</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-border px-3 py-2 font-semibold">Peptide intestinal vasoactif (VIP)</td>
+              <td className="border border-border px-3 py-2">Muqueuse du duodénum</td>
+              <td className="border border-border px-3 py-2">Chyme contenant des aliments partiellement digérés</td>
+              <td className="border border-border px-3 py-2">Duodénum, estomac, intestin</td>
+              <td className="border border-border px-3 py-2">
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Stimule la sécrétion de tampons ; dilate les capillaires intestinaux</li>
+                  <li>Inhibe la production de HCl</li>
+                  <li>Détend les muscles lisses de l'intestin</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H3 id="sec-1-8-3">4. Absorption intestinale</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Les sécrétions intestinales achèvent la digestion, mais leur volume est beaucoup moins important
+        que celui des sécrétions hépatiques et pancréatiques. En effet, la fonction essentielle de
+        l'intestin est l'absorption. L'absorption et le drainage diffèrent suivant la nature chimique des
+        substances digérées. L'absorption intestinale est un processus opéré grâce aux entérocytes.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les entérocytes sont les cellules absorbantes de l'intestin, particulièrement abondantes dans
+        l'intestin grêle où se réalise la quasi-totalité de l'absorption des nutriments chez la plupart
+        des Mammifères.
+      </p>
+
+      <H4 id="sec-1-8-3-a">a. Ultrastructure des entérocytes</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'ultrastructure des entérocytes est présentée à la figure 30. On peut noter :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>L'allure prismatique des cellules, forme favorisant l'absorption et permettant d'assurer le <strong>tri</strong> de molécules variées.</li>
+        <li>La <strong>présence</strong> de microvillosités augmentant la <strong>surface d'absorption</strong>.</li>
+        <li>La <strong>présence</strong> de jonctions étanches (jonctions serrées) qui <strong>empêchent</strong> le passage latéral et imposent le <strong>passage par la voie transcellulaire</strong>. Ces jonctions assurent aussi la <strong>cohésion</strong> du tissu.</li>
+        <li>Un <strong>noyau volumineux</strong> en lien avec l'<strong>activité de synthèse</strong> et de <strong>renouvellement</strong> d'enzymes, de transporteurs membranaires…</li>
+      </ul>
+      <Figure src={p4Fig18ent} n="Figure 18" legend="Ultrastructure d'un entérocyte" />
+
+      <H4 id="sec-1-8-3-b">b. Absorption des nutriments</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        La fonction d'absorption se fait du pôle apical avec microvillosités permettant le captage des
+        nutriments vers le pôle basal avec une proximité avec les capillaires et les chylifères permettant
+        le transfert des nutriments vers le sang ou la lymphe : le <strong>transfert des nutriments</strong>{" "}
+        s'effectue toujours <em>de la lumière intestinale vers les fluides circulants</em>, soit dans le{" "}
+        <Mark>sens apico-basal</Mark>.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        L'eau, les sels minéraux, le glucose, les acides aminés <strong>pénètrent par diffusion</strong>{" "}
+        dans les capillaires sanguins de la villosité. C'est la <strong>voie sanguine</strong> qui
+        comprend : la veine porte, le foie, les veines sus-hépatiques, la veine cave inférieure,
+        l'oreillette droite.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les produits de la digestion des graisses s'unissent aux sels biliaires et passent dans le
+        chylifère central de la villosité. C'est la <strong>voie lymphatique</strong> qui transporte le{" "}
+        <u>chyle</u> de couleur laiteuse liée à sa charge en lipides. Le <u>chyle</u> est déversé dans le
+        sang au niveau de la veine cave supérieure. Les sels biliaires sont récupérés par le foie et
+        reviennent à la bile.
+      </p>
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure src={p4FigVillosite} n="Figure" legend="Villosité intestinale : capillaires sanguins et chylifère central" />
+        <Figure src={p4FigVoies} n="Figure" legend="Les deux voies de l'absorption intestinale (sanguine et lymphatique)" />
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Partie 9 — VI. Le gros intestin ---------- */
+
+function Section1_9() {
+  return (
+    <section>
+      <H2 id="sec-1-9">Partie 9 — VI. Le gros intestin</H2>
+
+      <H3 id="sec-1-9-1">1. Anatomie du gros intestin</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le gros intestin, parfois appelé abusivement côlon au sens large, est un conduit large (env. 8 cm
+        de diamètre chez l'homme adulte) et long d'1,5 m en moyenne qui constitue la dernière partie du
+        tube digestif.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Le <strong>gros intestin</strong> comprend plusieurs régions (<strong>figure 18</strong>) :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li><strong>Le caecum</strong> : partie proximale en avant de la valvule iléo-cæcale. Il se termine en cul-de-sac et se prolonge par l'<strong>appendice</strong> (rôle immunitaire et entretien de la flore bactérienne).</li>
+        <li><strong>Le côlon</strong> (lui-même divisible en plusieurs régions) qui comprend l'essentiel de l'organe.</li>
+        <li><strong>Le rectum</strong> : partie dont les contractions assurent l'égestion (évacuation des fèces).</li>
+        <li><strong>L'anus</strong> : orifice par lequel s'écoulent les fèces ; un puissant sphincter en contrôle l'ouverture et la fermeture.</li>
+      </ul>
+      <Figure src={p4FigGros} n="Figure 18" legend="Vue antérieure du gros intestin" />
+
+      <H3 id="sec-1-9-2">2. Histologie</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>MUQUEUSE</strong> : épithélium unistratifié prismatique comprenant quelques cellules
+        absorbantes (entérocytes), mais surtout des <em>cellules exocrines</em> (cellules à mucus ou{" "}
+        <span className="text-blue-600">cellules caliciformes</span>) d'apparence cubique, particulièrement
+        concentrées au fond des <span className="text-blue-600">cryptes</span> ou{" "}
+        <span className="text-blue-600">glandes de Lieberkühn</span>, plus nombreuses que dans l'intestin
+        grêle. Les sécrétions exocrines constituent surtout du{" "}
+        <span className="text-blue-600">mucus intestinal</span> (Figure 19).
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li><em>Lamina propria</em>.</li>
+        <li><em>Muscularis mucosae</em> (favorise l'évacuation des sécrétions exocrines).</li>
+      </ul>
+      <p className="mt-3 text-foreground/90">
+        <strong>SOUS-MUQUEUSE</strong> : rien de particulier.<br />
+        <strong>MUSCULEUSE</strong> : couche assurant le <u>péristaltisme</u>.<br />
+        <strong>SÉREUSE</strong> : tissu conjonctif + mésothélium.
+      </p>
+      <Figure src={p4Fig19histo} n="Figure 19" legend="Anatomie du gros intestin et histologie de sa paroi" />
+
+      <H3 id="sec-1-9-3">3. Physiologie du côlon</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le côlon joue un rôle fondamental dans le contrôle du volume et de la composition ionique finale
+        des selles. Il permet une réabsorption d'eau (Figure 20) et des électrolytes, sous le contrôle de
+        différentes hormones.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Il est très riche en bactéries, surtout anaérobies, qui participent :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>à la digestion des protéines endogènes (peptidases bactériennes),</li>
+        <li>au cycle entéro-hépatique de l'urée,</li>
+        <li>à la fermentation de certains glucides,</li>
+        <li>à la production de gaz intestinaux, dont H₂,</li>
+        <li>et à la synthèse de certaines vitamines (B, K, acide folique).</li>
+      </ul>
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure src={p4Fig20eau} n="Figure 20" legend="Sécrétion et absorption d'eau au niveau du tube digestif" />
+        <Figure src={p4FigRoles} n="Figure" legend="Rôles du côlon" />
+      </div>
+
+      <H3 id="sec-1-9-4">4. Les mouvements du côlon</H3>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li><strong>Segmentation</strong> : une série de contractions en anneaux à intervalles réguliers brassent et mélangent les fèces sans les faire avancer.</li>
+        <li><strong>Péristaltisme</strong> : les fèces sont poussées vers le rectum ; les muscles se contractent en amont et se relâchent en aval.</li>
+        <li><strong>Mouvements de masse</strong> : contractions péristaltiques propulsant les fèces deux à trois fois par jour sur une distance assez longue.</li>
+      </ul>
+      <Figure src={p4FigMouv} n="Figure" legend="Les mouvements du côlon" />
+
+      <H3 id="sec-1-9-5">5. La défécation</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La défécation correspond au rejet des produits non digérés. En situation normale, le rectum est
+        vide. Suite aux mouvements de masse du côlon, le rectum se remplit, créant la distension de sa
+        paroi captée par des mécanorécepteurs. Ceux-ci commandent un renforcement des contractions du
+        côlon descendant par réflexe court, forçant les fèces à descendre vers l'anus. À leur tour,
+        d'autres mécanorécepteurs captent cette information qui est intégrée au niveau médullaire et
+        provoque par les efférences parasympathiques un relâchement du sphincter anal interne et la
+        contraction des muscles lisses du rectum.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Si la situation est appropriée, le sphincter anal externe (muscles striés squelettiques) se
+        relâche et permet la défécation. Dans le cas contraire, le sphincter anal externe reste
+        volontairement contracté, retardant alors la défécation.
+      </p>
+      <Figure src={p4FigDefecation} n="Figure" legend="Anatomie fonctionnelle de la défécation : sphincters interne et externe" />
+
+      <H3 id="sec-1-9-6">6. Le microbiote intestinal</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Le tube digestif abrite une vaste diversité de micro-organismes (plus de 400 espèces) en nombre
+        tout aussi vaste : de l'ordre de 10¹⁴ <strong>cellules bactériennes</strong> (plus que le nombre
+        de nos propres cellules), soit une <strong>biomasse de 1 à 2 kg</strong>. Les relations établies
+        entre les bactéries du tractus digestif et leur hôte sont des relations mutualistes, allant du{" "}
+        <u>commensalisme</u> à une véritable <u>symbiose</u> (Figure 21).
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Les bactéries du tractus digestif ont plusieurs rôles positifs pour leur hôte :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1.5 text-foreground/90">
+        <li>Elles produisent des métabolites absorbables et utilisables par leur hôte, comme <strong>les vitamines B₁₂ et K</strong>.</li>
+        <li>Certaines digèrent des biomolécules complexes pour former des composés assimilables. Exemple : <strong>digestion de polysaccharides (fibres)</strong> (figure 22).</li>
+        <li>Elles participent à de nombreux processus de défense de l'hôte (ex. : <strong>protection vis-à-vis des bactéries pathogènes</strong>).</li>
+        <li>Elles protègent de certains <strong>troubles fonctionnels intestinaux</strong> ou des problèmes d'allergie ou d'obésité.</li>
+      </ul>
+
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <Figure src={p4Fig21} n="Figure 21" legend="Bactéries dans le tractus digestif (œsophage, estomac, intestin grêle, côlon)" />
+        <Figure src={p4Fig22} n="Figure 22" legend="Rôles respectifs des enzymes humaines et du microbiote dans la digestion des glucides" />
+      </div>
+
+      <H3 id="sec-1-9-7">7. Composition des selles</H3>
+      <H4 id="sec-1-9-7-a">a. Définition</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les selles sont un produit résultant des mouvements de l'eau et des électrolytes, de la digestion
+        des aliments et de l'absorption des nutriments dans l'intestin grêle, puis au niveau du côlon.
+      </p>
+      <H4 id="sec-1-9-7-b">b. Composition</H4>
+      <p className="text-foreground/90 leading-relaxed">Les selles normales se composent :</p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>d'eau,</li>
+        <li>d'éléments de cellulose indigestible,</li>
+        <li>de quelques fibres de viande bien digérées,</li>
+        <li>de quelques lipides sous forme de savons,</li>
+        <li>d'acides gras,</li>
+        <li>et de bactéries mortes pour la plupart.</li>
+      </ul>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Leur analyse physique et biochimique permet de différencier l'origine fonctionnelle ou organique
+        des diarrhées, constipation, alternance de ces deux phénomènes, météorisme et autres troubles
+        intestinaux.
+      </p>
+
+      <H3 id="sec-1-9-8">8. Gaz intestinaux</H3>
+      <H4 id="sec-1-9-8-a">a. Définition</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les gaz intestinaux, aussi appelés flatulences, sont un phénomène physiologique dû à la production
+        de gaz par les bactéries du côlon. Cette production provient principalement de la dégradation des
+        hydrates de carbone non digérés par l'estomac et l'intestin grêle (oligosaccharides des fruits et
+        légumes, amidon et fibres alimentaires) ; la quantité de gaz produite est variable d'un individu à
+        l'autre.
+      </p>
+      <H4 id="sec-1-9-8-b">b. Composition</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'analyse de la composition des gaz intestinaux se fait généralement par chromatographie gazeuse.
+        Cinq gaz, sans odeur, comptent pour plus de 99 % des gaz émis par le rectum :
+      </p>
+      <ul className="mt-2 ml-6 list-disc space-y-1 text-foreground/90">
+        <li>l'azote (N₂),</li>
+        <li>l'hydrogène (H₂),</li>
+        <li>l'oxygène (O₂),</li>
+        <li>le dioxyde de carbone (CO₂),</li>
+        <li>et le méthane (CH₄).</li>
+      </ul>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        La proportion de chacun de ces gaz et leur débit sont variables. Selon la flore bactérienne
+        colique et le régime, l'H₂ peut représenter jusqu'à 80 % du volume total de chaque émission.
+      </p>
+      <p className="mt-3 text-foreground/90 leading-relaxed">
+        Par spectrométrie de masse, les composés soufrés (méthanethiol [MES], diméthylsulfides [DMS] et
+        sulfure d'hydrogène [H₂S]) ont été identifiés comme à l'origine des gaz malodorants, normalement
+        présents à l'état de traces. Le sulfure d'hydrogène est le principal composé soufré responsable de
+        l'odeur des gaz rectaux.
+      </p>
+    </section>
+  );
+}
+
 function Placeholder({ id, title }: { id: string; title: string }) {
   return (
     <section>
@@ -1862,6 +2237,8 @@ export default function CoursDietetiqueS2() {
                   <Section1_5 />
                   <Section1_6 />
                   <Section1_7 />
+                  <Section1_8 />
+                  <Section1_9 />
                 </>
               ) : (
                 <>
