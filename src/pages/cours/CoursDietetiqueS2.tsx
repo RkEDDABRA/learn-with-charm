@@ -50,6 +50,22 @@ import p3Fig15a from "@/assets/cours-diet-s2/p3-fig15a-villosites.jpg";
 import p3Fig15b1 from "@/assets/cours-diet-s2/p3-fig15b-villosite-detail.jpg";
 import p3Fig15b2 from "@/assets/cours-diet-s2/p3-fig15b-crypte.jpg";
 
+// Partie 8 & 9 — Motricité, sécrétions, absorption, gros intestin (doc 4)
+import p4Fig16 from "@/assets/cours-diet-s2/p4-fig16-mouvements-grele.jpg";
+import p4Fig17a from "@/assets/cours-diet-s2/p4-fig17a-anatomie.jpg";
+import p4Fig17b from "@/assets/cours-diet-s2/p4-fig17b-controle.jpg";
+import p4Fig18ent from "@/assets/cours-diet-s2/p4-fig18-enterocyte.jpg";
+import p4FigVillosite from "@/assets/cours-diet-s2/p4-fig-villosite.jpg";
+import p4FigVoies from "@/assets/cours-diet-s2/p4-fig-voies-absorption.jpg";
+import p4FigGros from "@/assets/cours-diet-s2/p4-fig18-gros-intestin.jpg";
+import p4Fig19histo from "@/assets/cours-diet-s2/p4-fig19-histologie-colon.jpg";
+import p4Fig20eau from "@/assets/cours-diet-s2/p4-fig20-eau-colon.jpg";
+import p4FigRoles from "@/assets/cours-diet-s2/p4-fig-roles-colon.jpg";
+import p4FigDefecation from "@/assets/cours-diet-s2/p4-fig-defecation.jpg";
+import p4FigMouv from "@/assets/cours-diet-s2/p4-fig-mouvements-colon.jpg";
+import p4Fig21 from "@/assets/cours-diet-s2/p4-fig21-microbiote.jpg";
+import p4Fig22 from "@/assets/cours-diet-s2/p4-fig22-enzymes-microbiote.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
