@@ -169,6 +169,8 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-1-5", title: "Partie 5 — Pharynx (déglutition) et œsophage" },
       { id: "sec-1-6", title: "Partie 6 — IV. La digestion gastrique (estomac)" },
       { id: "sec-1-7", title: "Partie 7 — V. Au niveau de l'intestin grêle" },
+      { id: "sec-1-8", title: "Partie 8 — Motricité, sécrétions et absorption intestinales" },
+      { id: "sec-1-9", title: "Partie 9 — VI. Le gros intestin" },
     ],
   },
   {
