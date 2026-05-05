@@ -66,6 +66,26 @@ import p4FigMouv from "@/assets/cours-diet-s2/p4-fig-mouvements-colon.jpg";
 import p4Fig21 from "@/assets/cours-diet-s2/p4-fig21-microbiote.jpg";
 import p4Fig22 from "@/assets/cours-diet-s2/p4-fig22-enzymes-microbiote.jpg";
 
+// Parties 10-14 — Métabolisme (doc 5)
+import p5Fig23 from "@/assets/cours-diet-s2/p5-fig23-digestion-glucides.jpg";
+import p5Fig24 from "@/assets/cours-diet-s2/p5-fig24-absorption-monosaccharides.jpg";
+import p5Fig25 from "@/assets/cours-diet-s2/p5-fig25-digestion-protides.jpg";
+import p5Fig25b from "@/assets/cours-diet-s2/p5-fig25b-peptidases.jpg";
+import p5Fig26 from "@/assets/cours-diet-s2/p5-fig26-absorption-aa.jpg";
+import p5Fig27a from "@/assets/cours-diet-s2/p5-fig27a-emulsion.jpg";
+import p5Fig27b from "@/assets/cours-diet-s2/p5-fig27b-digestion-lipides.jpg";
+import p5Fig27c from "@/assets/cours-diet-s2/p5-fig27c-tg-mg.jpg";
+import p5Fig28 from "@/assets/cours-diet-s2/p5-fig28-absorption-ag.jpg";
+import p5Fig29 from "@/assets/cours-diet-s2/p5-fig29-lpl.jpg";
+import p5Fig29b from "@/assets/cours-diet-s2/p5-fig29b-chylomicrons.jpg";
+import p5Fig30 from "@/assets/cours-diet-s2/p5-fig30-transport-nutriments.jpg";
+import p5Fig31 from "@/assets/cours-diet-s2/p5-fig31-eau-proprietes.jpg";
+import p5Fig32 from "@/assets/cours-diet-s2/p5-fig32-electrolytes.jpg";
+import p5Fig33 from "@/assets/cours-diet-s2/p5-fig33-vit-liposolubles.jpg";
+import p5Fig34 from "@/assets/cours-diet-s2/p5-fig34-vit-hydrosolubles.jpg";
+import p5Fig35 from "@/assets/cours-diet-s2/p5-fig35-synthese.jpg";
+import p5FigB12 from "@/assets/cours-diet-s2/p5-fig-b12.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
