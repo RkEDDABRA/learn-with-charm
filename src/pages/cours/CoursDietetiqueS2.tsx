@@ -2100,7 +2100,551 @@ function Section1_9() {
   );
 }
 
-function Placeholder({ id, title }: { id: string; title: string }) {
+/* ============ PARTIE 10 — Vue d'ensemble des sécrétions digestives ============ */
+function Section1_10() {
+  return (
+    <section>
+      <H2 id="sec-1-10">Partie 10 — 1. Une vue d'ensemble des sécrétions digestives</H2>
+      <p className="text-foreground/90 leading-relaxed">
+        Les macromolécules du vivant sont dépolymérisées par des enzymes spécifiques contenues dans les
+        sécrétions digestives (ou situées à la surface des entérocytes), <strong>Tableau 2</strong>.
+      </p>
+      <div className="my-6 overflow-x-auto">
+        <p className="text-sm font-semibold text-foreground mb-2">
+          Tableau 2 — Sécrétions digestives et leurs principales enzymes
+        </p>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="bg-teal-50">
+              <th className="border border-border p-2 text-left w-40">Sécrétion</th>
+              <th className="border border-border p-2 text-left">Composants et rôles</th>
+            </tr>
+          </thead>
+          <tbody className="[&_td]:border [&_td]:border-border [&_td]:p-2 align-top">
+            <tr>
+              <td className="font-semibold">Salive</td>
+              <td>
+                • <strong>Amylase</strong> : hydrolyse l'amidon (polymère de glucose) en maltose<br />
+                • <strong>Bicarbonates</strong> : maintiennent le pH entre 7 et 8
+              </td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Suc gastrique</td>
+              <td>
+                • <strong>HCl</strong> : acidifie le chyme (le pH descend à 2)<br />
+                • <strong>Pepsinogène</strong> : transformé en <strong>pepsine</strong> par HCl ; la
+                pepsine hydrolyse les protéines
+              </td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Suc pancréatique</td>
+              <td>
+                • <strong>Bicarbonates</strong> : ramènent le pH à une valeur neutre<br />
+                • <strong>Trypsine, chymotrypsine, carboxypeptidase</strong> : hydrolysent les protéines<br />
+                • <strong>Lipase</strong> : hydrolyse les lipides en acides gras et monoglycérides<br />
+                • <strong>Amylase</strong> : poursuit l'hydrolyse de l'amidon en maltose<br />
+                • <strong>Ribonucléase, désoxyribonucléase</strong> : hydrolysent ARN et ADN
+              </td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Bile</td>
+              <td>
+                • <strong>Sels biliaires</strong> : facilitent l'émulsification des lipides et la
+                formation des micelles
+              </td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Suc intestinal</td>
+              <td>
+                • <strong>Maltase, saccharase, lactase</strong> : hydrolysent maltose, saccharose et
+                lactose en sucres simples (glucose, fructose, galactose...)<br />
+                • <strong>Dipeptidase</strong> : hydrolysent les dipeptides en acides aminés
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+/* ============ PARTIE 11 — Métabolisme des glucides ============ */
+function Section1_11() {
+  return (
+    <section>
+      <H2 id="sec-1-11">Partie 11 — 2. Métabolisme des glucides</H2>
+
+      <H3 id="sec-1-11-a">a. Contenu de la ration alimentaire en glucides</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La ration alimentaire quotidienne contient environ <strong>400 g de glucides</strong>. La majorité,
+        soit <Mark>80 %</Mark>, est sous forme de hauts polymères du glucose, surtout des{" "}
+        <strong>amidons</strong> présents dans tous les aliments d'origine végétale et un peu de{" "}
+        <strong>glycogène</strong> d'origine animale, et de la <strong>cellulose</strong> qui constitue
+        une fibre alimentaire indigeste pour l'homme. Les 20 % restants sont sous forme de{" "}
+        <strong>disaccharides</strong> (saccharose, maltose, lactose). Le <strong>fructose</strong> est le
+        seul sucre présent en petites quantités sous forme de monosaccharide.
+      </p>
+
+      <H3 id="sec-1-11-b">b. Digestion des glucides</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La digestion de l'amidon ou du glycogène s'opère grâce à l'<u>amylase salivaire</u> et surtout
+        l'<u>amylase pancréatique</u> qui produisent toutes deux des petits oligomères de glucose et du{" "}
+        <strong>maltose</strong> (disaccharide glucose-glucose).
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les <strong>disaccharides</strong> (saccharose, maltose, lactose) sont, quant à eux, digérés par
+        des <strong>enzymes spécifiques de la bordure en brosse</strong> (maltases, saccharases...). On
+        obtient à la fin surtout des sucres simples (glucose, fructose...) même si certains disaccharides
+        peuvent être absorbés (Figure 23).
+      </p>
+      <Figure src={p5Fig23} n="Figure 23" legend="Digestion des glucides." />
+
+      <H3 id="sec-1-11-c">c. Localisation de l'absorption</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>L'absorption des sucres est pratiquement totale dès la première moitié du jéjunum.</strong>
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>La cellulose</strong> reste intacte jusqu'au côlon, où elle est attaquée par la flore
+        bactérienne avec production d'acides gras à chaîne courte, d'H₂ et de CO₂. Elle forme un ballast
+        dans l'intestin grêle, jouant le rôle de fibres inertes qui retiennent l'eau.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        De même, <strong>la pectine</strong> est constituée de polysaccharides plus ou moins complexes,
+        qui forment des gels en phase aqueuse, augmentant la viscosité du bol alimentaire.
+      </p>
+
+      <H3 id="sec-1-11-d">d. Voies d'absorption (systèmes de transport)</H3>
+      <H4 id="sec-1-11-d1">d1. Les monosaccharides : Glucose – Galactose</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        L'absorption des monosaccharides (glucose, galactose) est surtout assurée par la voie{" "}
+        <strong>transcellulaire</strong>, grâce aux transporteurs <strong>SGLUT1</strong> situés dans les
+        membranes de l'entérocyte (Figure 24) : <strong>cotransport avec des Na⁺ (transport actif)</strong>.
+        Son activité est déterminée par la pompe Na⁺/K⁺-ATPase de la membrane basolatérale, qui maintient
+        une concentration de Na⁺ faible dans la cellule.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les monosaccharides peuvent aussi diffuser <strong>passivement par voie paracellulaire</strong> à
+        travers les jonctions serrées, surtout dans le duodénum, en fonction des gradients de
+        concentration.
+      </p>
+      <Figure src={p5Fig24} n="Figure 24" legend="Absorption des monosaccharides." />
+      <p className="text-foreground/90 leading-relaxed">
+        Tous les monosaccharides quittent les cellules épithéliales par <strong>diffusion facilitée</strong>{" "}
+        grâce au transporteur <strong>GLUT2</strong> et pénètrent dans le sang par les capillaires des
+        villosités, ensuite transportés jusqu'au foie par la veine porte hépatique.
+      </p>
+
+      <H4 id="sec-1-11-d2">d2. Fructose</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Le fructose est pris en charge par un transporteur spécifique, localisé dans la membrane apicale,{" "}
+        <strong>GLUT5</strong>, qui permet une <strong>diffusion facilitée</strong>. Le franchissement de
+        la membrane basolatérale est assuré par GLUT2. L'absorption du fructose ne dépend donc pas du Na⁺
+        (Figure 24).
+      </p>
+
+      <H4 id="sec-1-11-d3">d3. Disaccharides</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les disaccharidases intestinales agissent sur les disaccharides et sont présentes sur les
+        membranes des entérocytes :
+      </p>
+      <ul className="ml-6 list-disc space-y-1 text-foreground/90">
+        <li>α-Glucosidase (ou sucrase) hydrolyse le maltose en glucose.</li>
+        <li>L'invertase (ou β-fructosidase) hydrolyse le saccharose en glucose et fructose.</li>
+        <li>La lactase (β-galactosidase) hydrolyse le lactose en galactose et glucose.</li>
+      </ul>
+
+      <H3 id="sec-1-11-e">e. Destinée et anabolisme</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Une petite partie des monosaccharides est utilisée in situ par l'entérocyte, mais la majorité est
+        drainée par voie sanguine et conduite au foie pour y être stockée sous forme de glycogène.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Il pourra également être utilisé directement par les cellules en manque d'énergie : le glucose est
+        dégradé dans le cytosol puis dans la mitochondrie en CO₂, H₂O et ATP.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Lors d'une trop grande assimilation de sucres, le foie est saturé, obligeant l'organisme à les
+        stocker sous forme de graisse au niveau des tissus adipeux. Lorsque l'organisme en a à nouveau
+        besoin, le foie est responsable de la fabrication de glucose à partir de substances
+        non-glucidiques : <strong>néoglucogenèse</strong>, ou à partir du glycogène :{" "}
+        <strong>glycogénolyse</strong>.
+      </p>
+    </section>
+  );
+}
+
+/* ============ PARTIE 12 — Métabolisme des protéines ============ */
+function Section1_12() {
+  return (
+    <section>
+      <H2 id="sec-1-12">Partie 12 — 3. Métabolisme des protéines</H2>
+
+      <H3 id="sec-1-12-a">a. Les sources protéiques</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Les protéines fournissent l'azote indispensable à la croissance et au renouvellement cellulaire.
+        Elles sont <strong>d'origine exogène alimentaire et endogène</strong>. Les apports alimentaires
+        quotidiens se situent entre 70 et 100 g et représentent 13 à 16 % de la ration calorique, bien
+        au-delà des besoins recommandés.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        La digestibilité de ces protéines dépend de nombreux facteurs : leur origine (animale ou végétale),
+        le type de protéines, les modes de cuisson et de conservation.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Il faut y ajouter <strong>75 g/j de protéines endogènes</strong> (≈35 g/j pour les enzymes et
+        glycoprotéines des sucs salivaire, gastrique, pancréatique et intestinal, 10 g/j pour les
+        protéines de la bile et ≈30 g/j pour les protéines apportées par la desquamation de l'intestin).
+      </p>
+
+      <H3 id="sec-1-12-b">b. Digestion des protéines</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La digestion des protéines est initiée dans l'estomac sous l'action de l'acide chlorhydrique et
+        des pepsines, puis poursuivie dans le duodénum par les protéases pancréatiques (trypsine,
+        chymotrypsine...) particulièrement actives (Figure 25).
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Elle se poursuit dans l'intestin grêle au niveau de la bordure en brosse des entérocytes, qui
+        contient de nombreuses peptidases coupant les oligopeptides et les protéines non digérées en
+        acides aminés, dipeptides et tripeptides absorbables.
+      </p>
+      <Callout type="note">
+        <strong>Remarque :</strong> on distingue les <em>exopeptidases</em> qui dépolymérisent les
+        protéines par les extrémités, et les <em>endopeptidases</em>, majoritaires, qui scindent les
+        protéines à l'intérieur de la chaîne (en reconnaissant des AA spécifiques).
+      </Callout>
+      <Figure src={p5Fig25} n="Figure 25" legend="La digestion des protides : étapes successives (estomac → intestin grêle)." />
+      <Figure src={p5Fig25b} n="Figure 25 (suite)" legend="Action des endopeptidases et exopeptidases (aminopeptidase, carboxypeptidase) sur les peptides." />
+
+      <H3 id="sec-1-12-c">c. Localisation et absorption des peptides et des acides aminés</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        L'absorption <strong>se fait dans l'intestin grêle</strong> grâce à de nombreux systèmes de
+        transport :
+      </p>
+      <ul className="ml-6 list-disc space-y-1 text-foreground/90">
+        <li>
+          Les <strong>acides aminés</strong> sont absorbés par <u>au moins sept systèmes de transport
+          différents</u>, dont cinq dépendants du gradient de Na⁺ (Figure 26).
+        </li>
+        <li>
+          Certains <strong>oligopeptides</strong> (di- et tripeptides) sont absorbés par cotransport des
+          ions H⁺ et sont transformés en acides aminés par hydrolyse intracellulaire.
+        </li>
+      </ul>
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>Les acides aminés quittent les cellules épithéliales par diffusion facilitée</strong> et
+        pénètrent dans le sang par les capillaires des villosités, transportés jusqu'au foie par la veine
+        porte hépatique.
+      </p>
+      <Figure src={p5Fig26} n="Figure 26" legend="Absorption des acides aminés (transports actifs secondaires Na⁺-dépendants, Na⁺/K⁺-ATPase)." />
+      <Callout type="note">
+        <strong>Remarque :</strong> l'absorption intestinale des acides aminés ou petits peptides se fait
+        pratiquement exclusivement dans le jéjunum. Le côlon peut digérer et absorber les protéines
+        bactériennes.
+      </Callout>
+
+      <H3 id="sec-1-12-d">d. Devenir et anabolisme</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La plus grande partie des peptides absorbés dans l'entérocyte est hydrolysée par les peptidases
+        intracellulaires en acides aminés. Ceux-ci sont en majorité rejetés dans le sang mésentérique
+        grâce à des systèmes de transport indépendants du Na⁺, localisés dans la membrane basolatérale,
+        et gagnent le foie par la veine porte. L'entérocyte utilise surtout la glutamine et plus
+        faiblement le glutamate, l'aspartate et l'arginine.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les cellules utilisent les acides aminés pour la synthèse des protéines de l'organisme. Les
+        fonctions de ces protéines sont diverses : structurale (collagène), enzymatique (pepsine), motrice
+        (actine, myosine), de transport (lipoprotéines), hormonale (insuline), immunitaire
+        (immunoglobulines), informationnelle (récepteurs)...
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        Les <strong>malabsorptions intestinales</strong> qui touchent les protéines ont des conséquences
+        graves. L'intolérance au gluten est responsable de la <strong>maladie cœliaque</strong>.
+      </p>
+    </section>
+  );
+}
+
+/* ============ PARTIE 13 — Métabolisme des lipides ============ */
+function Section1_13() {
+  return (
+    <section>
+      <H2 id="sec-1-13">Partie 13 — 4. Métabolisme des lipides</H2>
+
+      <H3 id="sec-1-13-a">a. La ration alimentaire</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La ration alimentaire lipidique est de <strong>60 à 150 g/j</strong>, soit 36 à 42 % (au lieu de
+        30 à 35 % recommandé) de la ration calorique. Les <strong>triglycérides</strong> représentent 80 %
+        de cette ration.
+      </p>
+
+      <H3 id="sec-1-13-b">b. Digestion des lipides</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La digestion intraluminale commence dans l'estomac, dont les mouvements de brassage favorisent
+        l'émulsion lipidique. Elle nécessite l'intervention des différentes <strong>enzymes gastriques et
+        pancréatiques</strong> (triglycéride lipase, phospholipase A2, cholestérol estérase) pour libérer
+        les éléments constitutifs des différentes classes de lipides (Figure 27). <strong>Les sels
+        biliaires</strong> sont indispensables : à partir d'une certaine concentration, les lipides se
+        regroupent avec les sels biliaires en <strong>micelles</strong>.
+      </p>
+      <ul className="ml-6 list-disc space-y-2 text-foreground/90">
+        <li>
+          <strong>Une lyse enzymatique :</strong> les triglycérides commencent à être digérés dans
+          l'estomac sous l'action de la lipase gastrique (et linguale), active en milieu acide surtout sur
+          les émulsions de TG à chaîne moyenne. Ainsi, 20 % des triglycérides sont hydrolysés en
+          monoglycérides et acides gras.
+        </li>
+      </ul>
+      <Figure src={p5Fig27a} n="Figure 27a" legend="Émulsification des lipides par les sels biliaires." />
+      <Figure src={p5Fig27b} n="Figure 27b" legend="Digestion des lipides : de la bouche à l'intestin grêle." />
+      <Figure src={p5Fig27c} n="Figure 27c" legend="Digestion des triglycérides en monoglycérides et acides gras libres." />
+      <ul className="ml-6 list-disc space-y-2 text-foreground/90">
+        <li>
+          <strong>Une émulsion</strong> (mélange intime de deux liquides non miscibles : milieu aqueux et
+          lipides hydrophobes/amphiphiles) au moyen des sels biliaires. Dans l'intestin grêle,
+          l'hydrolyse des émulsions de TG se poursuit sous l'action de la <strong>lipase pancréatique</strong>,
+          active à l'interface huile/eau grâce à la <strong>colipase pancréatique</strong>. Des
+          monoglycérides et des acides gras sont formés.
+        </li>
+        <li>
+          Les <strong>phospholipides</strong> sont digérés dans l'intestin grêle à l'intérieur des
+          micelles, sous l'action de la <strong>phospholipase A2</strong> pancréatique, libérant
+          lysophospholipides et acides gras.
+        </li>
+        <li>
+          Le <strong>cholestérol libre</strong> est libéré à partir des esters de cholestérol sous
+          l'action de la <strong>cholestérol estérase pancréatique</strong>.
+        </li>
+      </ul>
+
+      <H3 id="sec-1-13-c">c. Absorption intestinale des lipides</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Les acides gras et les monoglycérides, arrivés au contact de la membrane apicale, pénètrent dans
+        l'entérocyte par <strong>diffusion passive</strong> (Figure 28).
+      </p>
+      <Figure src={p5Fig28} n="Figure 28" legend="Absorption des acides gras dans les cellules épithéliales : digestion des micelles, transport des chylomicrons vers le vaisseau chylifère." />
+      <ul className="ml-6 list-disc space-y-2 text-foreground/90">
+        <li>
+          Dans les cellules, acides gras et monoglycérides se recombinent pour former des triglycérides
+          (REL), puis sont combinés à d'autres lipides et à des protéines pour former des{" "}
+          <strong>chylomicrons</strong> (complexe golgien), expulsés des cellules par <strong>exocytose</strong>.
+        </li>
+        <li>
+          Les <strong>chylomicrons passent dans les vaisseaux chylifères</strong> des villosités et{" "}
+          <strong>sont transportés avec la lymphe</strong> par le conduit thoracique jusqu'à la circulation
+          systémique.
+        </li>
+        <li>
+          <strong>Remarque :</strong> certains acides gras à chaîne courte entrent dans le sang par
+          diffusion facilitée au niveau des capillaires des villosités, puis sont transportés au foie par
+          la veine porte hépatique.
+        </li>
+      </ul>
+      <p className="text-foreground/90 leading-relaxed">
+        Au total, il s'agit d'un système complexe, ce qui explique que les <strong>malabsorptions des
+        lipides</strong> (ou stéatorrhées) soient plus fréquentes que celles des glucides ou des
+        protéines, et risquent d'entraîner une malabsorption des vitamines liposolubles A, D, E, K.
+      </p>
+
+      <H3 id="sec-1-13-d">d. Utilisation et anabolisme</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        Dans la <strong>circulation sanguine</strong>, les triglycérides des chylomicrons sont dégradés en
+        acides gras libres et glycérol par la <strong>lipoprotéine lipase (LPL)</strong>, enzyme associée
+        à l'endothélium capillaire. Les acides gras et le glycérol traversent les parois capillaires et
+        servent de source d'énergie ou sont stockés sous forme de lipides dans le tissu adipeux (Figure 29).
+      </p>
+      <Figure src={p5Fig29} n="Figure 29" legend="Intervention de la LPL sur les chylomicrons." />
+      <p className="text-foreground/90 leading-relaxed">
+        <strong>Au niveau du foie</strong>, les cellules hépatiques ajoutent des protéines aux résidus de
+        chylomicrons ; les nouvelles <strong>lipoprotéines</strong> servent au transport du cholestérol
+        dans le sang.
+      </p>
+      <Figure src={p5Fig29b} n="Figure 30" legend="Métabolisme des chylomicrons et de leurs résidus." />
+      <Figure src={p5Fig30} n="Figure 31" legend="Vue d'ensemble des mécanismes de transport des nutriments à travers les cellules épithéliales intestinales." />
+    </section>
+  );
+}
+
+/* ============ PARTIE 14 — Absorption d'eau et de micro-nutriments ============ */
+function Section1_14() {
+  return (
+    <section>
+      <H2 id="sec-1-14">Partie 14 — 5. Absorption d'eau et de micro-nutriments</H2>
+
+      <H3 id="sec-1-14-a">a. L'eau</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        L'intestin est le siège de très nombreux transferts d'eau et d'ions. L'eau est la substance la plus
+        abondante du chyme et l'intestin grêle en absorbe <Mark>95 % par osmose</Mark>. L'eau traverse
+        librement la muqueuse intestinale dans les deux sens, mais une osmose nette se produit chaque fois
+        que le transport actif des solutés (notamment de Na⁺) vers les cellules de la muqueuse crée un
+        gradient de concentration.
+      </p>
+      <Callout type="note">
+        <strong>Remarque :</strong> pour plusieurs auteurs, il semblerait que l'eau puisse même passer par
+        les jonctions serrées.
+      </Callout>
+      <Figure src={p5Fig31} n="Figure 32" legend="Quelques propriétés de l'eau : régulation thermique, solvant, amortissement des chocs, transport de substances et lubrification." />
+
+      <H3 id="sec-1-14-b">b. Électrolytes</H3>
+      <p className="text-foreground/90 leading-relaxed">
+        La digestion est la voie d'entrée de l'eau dans l'organisme mais aussi des ions qu'elle contient.
+        Ceux-ci passent par des mécanismes variés de <strong>transport passif et actif</strong>. Cas de
+        l'absorption de NaCl (Figure 33).
+      </p>
+      <Figure src={p5Fig32} n="Figure 33" legend="Réabsorption de NaCl au niveau de l'intestin grêle et du côlon. Une part non négligeable du Na⁺ est réabsorbée par des transports couplés Na⁺-solutés organiques (membrane apicale)." />
+
+      <H3 id="sec-1-14-c">c. Vitamines</H3>
+      <H4 id="sec-1-14-c1">Liposolubles</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les vitamines liposolubles (<strong>A, D, E, K</strong>) sont absorbées essentiellement par
+        diffusion passive ou facilitée, en suivant l'absorption des lipides (duodénum – jéjunum) :
+        émulsification par les sels biliaires → formation de micelles mixtes → diffusion vers la bordure
+        en brosse → entrée dans l'entérocyte → estérification → incorporation dans les chylomicrons →
+        exocytose vers la lymphe puis la circulation sanguine (Figure 34).
+      </p>
+      <Figure src={p5Fig33} n="Figure 34" legend="Vitamines liposolubles A, D, E, K — absorption couplée à celle des lipides (duodénum – jéjunum)." />
+
+      <H4 id="sec-1-14-c2">Hydrosolubles</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Les vitamines hydrosolubles diffèrent pour leur absorption selon leur nature physicochimique.
+        Certaines dépendent de transporteurs membranaires, notamment les <strong>vitamines B1, B2 et C</strong>.
+      </p>
+      <p className="text-foreground/90 leading-relaxed">
+        L'<strong>absorption de la vitamine B12</strong> nécessite plusieurs étapes. Dans le milieu acide
+        de l'estomac, elle est séparée des aliments par la pepsine et se lie aux <em>protéines R</em>{" "}
+        salivaires dont elle se libère dans le duodénum sous l'effet des protéases pancréatiques, ce qui
+        lui permet de se lier au <strong>facteur intrinsèque</strong> sécrété par les cellules pariétales
+        de l'estomac. Le complexe B12 + FI est reconnu et absorbé par un transporteur dans la partie
+        terminale de l'iléon.
+      </p>
+      <Figure src={p5Fig34} n="Figure 35" legend="Vitamines hydrosolubles B (sauf B12) et C — absorption directe dans le sang portal (jéjunum – iléon) via des transporteurs spécifiques (SVCT1, THTR, RFVT3, PCFT...)." />
+
+      <div className="my-6 overflow-x-auto">
+        <p className="text-sm font-semibold text-foreground mb-2">
+          Tableau 3 — Vitamines hydrosolubles et leurs transporteurs
+        </p>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="bg-teal-50">
+              <th className="border border-border p-2 text-left">Vitamine</th>
+              <th className="border border-border p-2 text-left">Transport</th>
+            </tr>
+          </thead>
+          <tbody className="[&_td]:border [&_td]:border-border [&_td]:p-2">
+            <tr><td><strong>Vitamine C</strong> (acide ascorbique)</td><td>SVCT1 (Na⁺-dépendant)</td></tr>
+            <tr><td><strong>Vitamine B1</strong> (Thiamine)</td><td>THTR-1 / THTR-2</td></tr>
+            <tr><td><strong>Vitamine B2</strong> (Riboflavine)</td><td>RFVT3</td></tr>
+            <tr><td><strong>Vitamine B3</strong> (Niacine)</td><td>Diffusion facilitée</td></tr>
+            <tr><td><strong>Vitamine B6</strong> (Pyridoxine)</td><td>Diffusion + transport actif</td></tr>
+            <tr><td><strong>Folate (B9)</strong> – pH acide optimal</td><td>PCFT (H⁺-dépendant)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <H4 id="sec-1-14-c3">Cas particulier : Vitamine B12 (cobalamine)</H4>
+      <p className="text-foreground/90 leading-relaxed">
+        Absorption complexe dans l'iléon terminal :
+      </p>
+      <ol className="ml-6 list-decimal space-y-1 text-foreground/90">
+        <li>Libération de B12 des protéines alimentaires (estomac : HCl + pepsine).</li>
+        <li>Liaison à l'haptocorrine (R-protéine salivaire).</li>
+        <li>Dans le duodénum : libération et fixation au facteur intrinsèque (FI).</li>
+        <li>Absorption dans l'iléon terminal.</li>
+        <li>Récepteur spécifique : Cubiline + Amnionless (complexe Cubam).</li>
+        <li>Endocytose du complexe FI-B12.</li>
+        <li>Transport sanguin lié à la transcobalamine II (holo-TCII).</li>
+      </ol>
+      <Figure src={p5FigB12} n="Figure 36" legend="Étapes de l'absorption de la vitamine B12 dans l'iléon terminal." />
+      <p className="text-foreground/90 leading-relaxed">
+        L'<strong>acide folique (B9)</strong>, présent dans les fruits et légumes sous forme de
+        polyglutamates, est déconjugué en folylmonoglutamate par la <em>folate conjugase</em> de la
+        bordure en brosse du jéjunum. Un transport saturable permet alors son absorption.
+      </p>
+
+      <H3 id="sec-1-14-d">d. Synthèse globale</H3>
+      <Figure src={p5Fig35} n="Figure 37" legend="Synthèse globale : absorption des vitamines liposolubles (micelles mixtes → entérocyte → chylomicrons → lymphe → sang) vs hydrosolubles (transporteurs spécifiques → sang portal)." />
+
+      <div className="my-6 overflow-x-auto">
+        <p className="text-sm font-semibold text-foreground mb-2">
+          Tableau 4 — Facteurs influençant l'absorption des vitamines
+        </p>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="bg-teal-50">
+              <th className="border border-border p-2 text-left">Favorisants</th>
+              <th className="border border-border p-2 text-left">Inhibiteurs</th>
+            </tr>
+          </thead>
+          <tbody className="[&_td]:border [&_td]:border-border [&_td]:p-2 align-top">
+            <tr><td>Présence de lipides (A, D, E, K)</td><td>Malabsorption lipidique (cholestase, insuffisance pancréatique)</td></tr>
+            <tr><td>Intégrité de la muqueuse intestinale</td><td>Atrophie villositaire, maladies intestinales</td></tr>
+            <tr><td>pH adéquat (ex : folates)</td><td>Déficit en FI → anémie de Biermer</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="my-6 overflow-x-auto">
+        <p className="text-sm font-semibold text-foreground mb-2">
+          Tableau 5 — Sites de digestion et d'absorption des nutriments
+        </p>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="bg-teal-50">
+              <th className="border border-border p-2 text-left">Nutriment</th>
+              <th className="border border-border p-2 text-left">Bouche</th>
+              <th className="border border-border p-2 text-left">Estomac</th>
+              <th className="border border-border p-2 text-left">Intestin grêle (digestion)</th>
+              <th className="border border-border p-2 text-left">Intestin grêle (absorption)</th>
+              <th className="border border-border p-2 text-left">Gros intestin</th>
+            </tr>
+          </thead>
+          <tbody className="[&_td]:border [&_td]:border-border [&_td]:p-2 align-top">
+            <tr>
+              <td className="font-semibold">Hydrates de carbone</td>
+              <td>Amylase salivaire : amidons cuits → disaccharides</td>
+              <td>HCl dénature et arrête l'amylase salivaire</td>
+              <td>Amylase pancréatique : amidons cuits → disaccharides ; saccharase, maltase, lactase (entérocytes) → monosaccharides</td>
+              <td>Capillaires sanguins des villosités</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Protéines</td>
+              <td>—</td>
+              <td>HCl : pepsinogène → pepsine ; pepsine : protéines → polypeptides</td>
+              <td>Entérokinase ; chymotrypsine et trypsine ; peptidases → acides aminés</td>
+              <td>Capillaires sanguins des villosités</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Graisses</td>
+              <td>—</td>
+              <td>—</td>
+              <td>Bile (sels biliaires émulsifient) ; lipase pancréatique → AG + glycérol</td>
+              <td>Chylifères des villosités</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Eau</td>
+              <td>—</td>
+              <td>Petites quantités absorbées</td>
+              <td>—</td>
+              <td>La plus grande partie absorbée ici</td>
+              <td>Le reste est absorbé ici</td>
+            </tr>
+            <tr>
+              <td className="font-semibold">Vitamines</td>
+              <td>—</td>
+              <td>Sécrétion du facteur intrinsèque pour B12</td>
+              <td>—</td>
+              <td>Vitamines hydrosolubles</td>
+              <td>Bactéries synthétisent de la vitamine K</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
   return (
     <section>
       <H2 id={id}>{title}</H2>
