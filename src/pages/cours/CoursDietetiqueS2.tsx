@@ -171,6 +171,11 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-1-7", title: "Partie 7 — V. Au niveau de l'intestin grêle" },
       { id: "sec-1-8", title: "Partie 8 — Motricité, sécrétions et absorption intestinales" },
       { id: "sec-1-9", title: "Partie 9 — VI. Le gros intestin" },
+      { id: "sec-1-10", title: "Partie 10 — Vue d'ensemble des sécrétions digestives" },
+      { id: "sec-1-11", title: "Partie 11 — Métabolisme des glucides" },
+      { id: "sec-1-12", title: "Partie 12 — Métabolisme des protéines" },
+      { id: "sec-1-13", title: "Partie 13 — Métabolisme des lipides" },
+      { id: "sec-1-14", title: "Partie 14 — Absorption d'eau et de micro-nutriments" },
     ],
   },
   {
