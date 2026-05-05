@@ -2644,7 +2644,7 @@ function Section1_14() {
     </section>
   );
 }
-
+function Placeholder({ id, title }: { id: string; title: string }) {
   return (
     <section>
       <H2 id={id}>{title}</H2>
