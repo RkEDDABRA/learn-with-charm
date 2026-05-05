@@ -2808,6 +2808,11 @@ export default function CoursDietetiqueS2() {
                   <Section1_7 />
                   <Section1_8 />
                   <Section1_9 />
+                  <Section1_10 />
+                  <Section1_11 />
+                  <Section1_12 />
+                  <Section1_13 />
+                  <Section1_14 />
                 </>
               ) : (
                 <>
