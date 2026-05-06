@@ -224,9 +224,9 @@ const CHAPTERS: Chapter[] = [
     number: 2,
     title: "Aspects anatomiques et physiologiques du système endocrinien",
     sections: [
-      { id: "sec-2-1", title: "Généralités sur le système endocrinien" },
-      { id: "sec-2-2", title: "Hypothalamus et hypophyse" },
-      { id: "sec-2-3", title: "Glandes périphériques" },
+      { id: "sec-2-1", title: "1. Notions générales d'endocrinologie" },
+      { id: "sec-2-2", title: "2. Axe hypothalamo-hypophysaire" },
+      { id: "sec-2-3", title: "3. La thyroïde" },
     ],
   },
 ];
