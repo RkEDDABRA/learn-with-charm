@@ -86,6 +86,27 @@ import p5Fig34 from "@/assets/cours-diet-s2/p5-fig34-vit-hydrosolubles.jpg";
 import p5Fig35 from "@/assets/cours-diet-s2/p5-fig35-synthese.jpg";
 import p5FigB12 from "@/assets/cours-diet-s2/p5-fig-b12.jpg";
 
+// Chapitre 2 — Système endocrinien
+import ch2Img1 from "@/assets/cours-diet-s2/ch2/img1.png";
+import ch2Img2 from "@/assets/cours-diet-s2/ch2/img2.png";
+import ch2Img3 from "@/assets/cours-diet-s2/ch2/img3.png";
+import ch2Img4 from "@/assets/cours-diet-s2/ch2/img4.png";
+import ch2Img5 from "@/assets/cours-diet-s2/ch2/img5.png";
+import ch2Img6 from "@/assets/cours-diet-s2/ch2/img6.png";
+import ch2Img7 from "@/assets/cours-diet-s2/ch2/img7.png";
+import ch2Img8 from "@/assets/cours-diet-s2/ch2/img8.png";
+import ch2Img9 from "@/assets/cours-diet-s2/ch2/img9.png";
+import ch2Img10 from "@/assets/cours-diet-s2/ch2/img10.png";
+import ch2Img11 from "@/assets/cours-diet-s2/ch2/img11.png";
+import ch2Img12 from "@/assets/cours-diet-s2/ch2/img12.png";
+import ch2Img13 from "@/assets/cours-diet-s2/ch2/img13.png";
+import ch2Img14 from "@/assets/cours-diet-s2/ch2/img14.png";
+import ch2Img15 from "@/assets/cours-diet-s2/ch2/img15.png";
+import ch2Img16 from "@/assets/cours-diet-s2/ch2/img16.png";
+import ch2Img17 from "@/assets/cours-diet-s2/ch2/img17.png";
+import ch2Img18 from "@/assets/cours-diet-s2/ch2/img18.png";
+import ch2Img19 from "@/assets/cours-diet-s2/ch2/img19.png";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
