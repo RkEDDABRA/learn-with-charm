@@ -86,6 +86,27 @@ import p5Fig34 from "@/assets/cours-diet-s2/p5-fig34-vit-hydrosolubles.jpg";
 import p5Fig35 from "@/assets/cours-diet-s2/p5-fig35-synthese.jpg";
 import p5FigB12 from "@/assets/cours-diet-s2/p5-fig-b12.jpg";
 
+// Chapitre 2 — Système endocrinien
+import ch2Img1 from "@/assets/cours-diet-s2/ch2/img1.png";
+import ch2Img2 from "@/assets/cours-diet-s2/ch2/img2.png";
+import ch2Img3 from "@/assets/cours-diet-s2/ch2/img3.png";
+import ch2Img4 from "@/assets/cours-diet-s2/ch2/img4.png";
+import ch2Img5 from "@/assets/cours-diet-s2/ch2/img5.png";
+import ch2Img6 from "@/assets/cours-diet-s2/ch2/img6.png";
+import ch2Img7 from "@/assets/cours-diet-s2/ch2/img7.png";
+import ch2Img8 from "@/assets/cours-diet-s2/ch2/img8.png";
+import ch2Img9 from "@/assets/cours-diet-s2/ch2/img9.png";
+import ch2Img10 from "@/assets/cours-diet-s2/ch2/img10.png";
+import ch2Img11 from "@/assets/cours-diet-s2/ch2/img11.png";
+import ch2Img12 from "@/assets/cours-diet-s2/ch2/img12.png";
+import ch2Img13 from "@/assets/cours-diet-s2/ch2/img13.png";
+import ch2Img14 from "@/assets/cours-diet-s2/ch2/img14.png";
+import ch2Img15 from "@/assets/cours-diet-s2/ch2/img15.png";
+import ch2Img16 from "@/assets/cours-diet-s2/ch2/img16.png";
+import ch2Img17 from "@/assets/cours-diet-s2/ch2/img17.png";
+import ch2Img18 from "@/assets/cours-diet-s2/ch2/img18.png";
+import ch2Img19 from "@/assets/cours-diet-s2/ch2/img19.png";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -203,9 +224,9 @@ const CHAPTERS: Chapter[] = [
     number: 2,
     title: "Aspects anatomiques et physiologiques du système endocrinien",
     sections: [
-      { id: "sec-2-1", title: "Généralités sur le système endocrinien" },
-      { id: "sec-2-2", title: "Hypothalamus et hypophyse" },
-      { id: "sec-2-3", title: "Glandes périphériques" },
+      { id: "sec-2-1", title: "1. Notions générales d'endocrinologie" },
+      { id: "sec-2-2", title: "2. Axe hypothalamo-hypophysaire" },
+      { id: "sec-2-3", title: "3. La thyroïde" },
     ],
   },
 ];
@@ -2657,6 +2678,286 @@ function Placeholder({ id, title }: { id: string; title: string }) {
   );
 }
 
+/* ---------- Chapitre 2 — Système endocrinien ---------- */
+
+function Section2_1() {
+  return (
+    <section>
+      <H2 id="sec-2-1">1. Notions générales d'endocrinologie</H2>
+
+      <Figure src={ch2Img1} n="Figure 1" legend="Vue d'ensemble du système endocrinien" />
+
+      <H3 id="sec-2-1-1">1.1. Système endocrinien</H3>
+      <p className="mb-3 text-foreground/90">
+        Le maintien de l'homéostasie du milieu intérieur est réalisé d'une part par le système nerveux et d'autre part par le système endocrinien ou hormonal, les <strong>hormones</strong> étant des messagers élaborés par les glandes endocrines pour agir le plus souvent à distance des organes qui les ont synthétisées. Les glandes endocrines sont réparties dans tout l'organisme et sécrètent au moins une cinquantaine d'hormones.
+      </p>
+      <p className="mb-2 text-foreground/90">Le système endocrinien assure trois grandes fonctions :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>il maintient l'équilibre des fonctions internes du corps humain,</li>
+        <li>répond adéquatement aux stimuli internes et externes,</li>
+        <li>et gère le développement du stade embryonnaire à l'âge adulte.</li>
+      </ul>
+      <p className="mb-2 text-foreground/90">Le système endocrinien est constitué :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>d'une dizaine de glandes spécialisées</strong> (l'hypophyse, la thyroïde, les quatre parathyroïdes, les deux surrénales et le thymus),</li>
+        <li><strong>auxquelles s'ajoutent plusieurs organes</strong> capables de produire des hormones (le pancréas, le cœur, les reins, les ovaires, les testicules, les intestins…).</li>
+        <li><strong>L'hypothalamus, qui n'est pas une glande mais un centre nerveux</strong>, joue également un rôle majeur dans la synthèse et la libération de certaines hormones.</li>
+      </ul>
+
+      <H3 id="sec-2-1-2">1.2. Glandes</H3>
+      <p className="mb-3 text-foreground/90">
+        <u>Glande :</u> organe dont le fonctionnement est caractérisé par la synthèse puis la sécrétion d'une substance. La sécrétion d'une glande peut être exocrine, endocrine ou mixte.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <em><u>Glande endocrine</u></em> : sécrétion interne. Elle rejette la substance produite appelée hormone, <strong>dans le sang</strong>. Ainsi, la substance va agir sur un organe cible. <br />
+        <span className="text-muted-foreground">Ex : hypophyse, thyroïde, parathyroïde, surrénale.</span>
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <em><u>Glande exocrine</u></em> : sécrétion externe du corps. Elle rejette la substance produite <strong>à l'extérieur</strong> soit directement (peau), soit indirectement (tube digestif, bronches, voies génitales et urinaires). Elles sont souvent munies d'un canal excréteur. <br />
+        <span className="text-muted-foreground">Ex : les glandes salivaires (salive), sudoripares (sueur), lacrymales (larmes), glandes mammaires (lait).</span>
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <em><u>Glande mixte :</u></em> Une glande mixte sécrète à la fois des substances qui sont déversées à l'extérieur du corps et des substances (hormones) qui le sont directement dans le sang. Ce sont donc des glandes à la fois exocrines et endocrines. Parmi les principales glandes mixtes, on retrouve le foie, le pancréas, les ovaires et les testicules.
+      </p>
+      <Callout type="note">
+        <p className="font-semibold mb-1"><u>Remarques</u> :</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>certaines glandes sont à la fois exocrine et endocrine, comme le pancréas qui sécrète des enzymes digestives et des hormones comme l'insuline qui est rejetée dans le sang ;</li>
+          <li>d'autres organes sont capables à la fois d'une sécrétion endocrine et d'un autre rôle physiologique, par exemple l'hypothalamus, les gonades ;</li>
+          <li>une même glande endocrine peut sécréter plusieurs types d'hormones.</li>
+        </ul>
+      </Callout>
+      <Figure src={ch2Img2} n="Figure 2" legend="Localisation des principales glandes du système endocrinien" />
+
+      <H3 id="sec-2-1-3">1.3. Hormones</H3>
+
+      <H4 id="sec-2-1-3-1">1.3.1. Définition</H4>
+      <p className="mb-3 text-foreground/90">
+        Les hormones sont des <strong>molécules qui sont sécrétées dans le milieu intérieur par</strong> des cellules spécifiques, <strong>les cellules endocrines</strong>, <strong>puis transportées par</strong> les liquides internes, en particulier <strong>le sang, pour agir sur des cellules cibles situées à distance en se fixant sur des récepteurs</strong> qui sont des protéines capables de les reconnaître de façon sélective. Cette définition correspond à l'endocrinie.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        Mais l'action des hormones peut s'exercer de façon paracrine (sur les cellules voisines) ou encore de façon autocrine (sur les cellules sécrétrices elles-mêmes) (Figure 3).
+      </p>
+      <Figure src={ch2Img3} n="Figure 3" legend="Les différents moyens de communication hormonale : endocrinie, autocrinie, paracrinie." />
+
+      <H4 id="sec-2-1-3-2">1.3.2. Nature chimique des hormones</H4>
+      <p className="mb-2 text-foreground/90">Il existe 3 grands groupes d'hormones selon leur nature chimique :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>les hormones protéiques (polypeptidiques)</strong> : regroupent des peptides, des protéines et des glycoprotéines. Le nombre des acides aminés qui les composent est variable, allant de 3 pour la thyrolibérine à 250 pour l'inhibine A.</li>
+        <li><strong>les hormones dérivées d'un seul acide aminé particulier</strong> : comme la mélatonine sécrétée par l'épiphyse, l'adrénaline sécrétée par la médullosurrénale et les hormones thyroïdiennes sécrétées par la glande thyroïde.</li>
+        <li><strong>les hormones stéroïdes</strong> (dérivées du cholestérol). Ex : le cortisol.</li>
+      </ul>
+
+      <H4 id="sec-2-1-3-3">1.3.3. Stimulation des glandes endocrines</H4>
+      <p className="mb-3 text-foreground/90">
+        La stimulation des glandes endocrines est réalisée par 3 mécanismes différents (Figure 4) :
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <strong>Stimulation humorale :</strong> ex : la diminution du taux sanguin de calcium déclenche la libération de parathormone (PTH) par les glandes parathyroïdes. La parathormone élève le taux sanguin de calcium en stimulant, entre autres, la libération de Ca<sup>2+</sup> des os. Ce qui va mettre fin au stimulus provoquant la sécrétion de PTH.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <strong>Stimulus nerveux :</strong> la stimulation des cellules de la médulla surrénale par le système sympathique du SNA déclenche la libération d'adrénaline et de noradrénaline dans le sang.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        <strong>Stimulus hormonal :</strong> les hormones libérées par l'hypothalamus stimulent l'adénohypophyse : celle-ci va libérer des hormones qui amènent d'autres glandes endocrines à sécréter des hormones. Ainsi, l'hypothalamus régit une grande partie de l'activité du système endocrinien.
+      </p>
+      <Figure src={ch2Img4} n="Figure 4" legend="Stimulation des glandes endocrines" />
+    </section>
+  );
+}
+
+function Section2_2() {
+  return (
+    <section>
+      <H2 id="sec-2-2">2. Axe hypothalamo-hypophysaire</H2>
+
+      <H3 id="sec-2-2-1">2.1. Hypothalamus</H3>
+
+      <H4 id="sec-2-2-1-1">2.1.1. Anatomie</H4>
+      <p className="mb-3 text-foreground/90">
+        La région hypothalamique est le véritable « <strong>cerveau endocrinien</strong> » de l'organisme puisqu'elle commande la sécrétion de toutes les glandes endocrines du corps — pancréas, thyroïde et parathyroïdes, ovaires et testicules, surrénales — à commencer par l'hypophyse. La fonction de l'hypophyse est sous la dépendance de l'hypothalamus.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 5).
+      </p>
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <img src={ch2Img5} alt="Hypothalamus - vue 1" className="w-full rounded-lg border border-border" />
+        <img src={ch2Img6} alt="Hypothalamus - vue 2" className="w-full rounded-lg border border-border" />
+      </div>
+      <Figure src={ch2Img7} n="Figure 5" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
+      <p className="mb-3 text-foreground/90">
+        L'hypothalamus se situe dans le plancher du troisième ventricule, se compose de 7 noyaux distincts.
+      </p>
+
+      <H4 id="sec-2-2-1-2">2.1.2. Hormones sécrétées</H4>
+      <p className="mb-3 text-foreground/90">
+        Les hormones hypothalamiques sont de nature protéique. Les hormones hypothalamiques qui ont pour cible des cellules de l'adénohypophyse sont appelées respectivement <strong>libérines ou statines</strong> selon qu'elles stimulent ou freinent la libération d'hormones hypophysaires. On distingue :
+      </p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>La TRH</strong>, ou thyrolibérine, qui stimule la libération de TSH et de PRL ;</li>
+        <li><strong>La GnRH</strong>, ou gonadolibérine, qui stimule la libération de FSH et LH ;</li>
+        <li><strong>La CRH</strong>, ou corticolibérine, qui stimule la libération d'ACTH ;</li>
+        <li><strong>La GHRH</strong>, ou somatolibérine, qui stimule la sécrétion de GH ;</li>
+        <li><strong>La somatostatine</strong>, qui inhibe la sécrétion de GH et de TSH ;</li>
+        <li><strong>Le PIF</strong> (Prolactine Inhibitory Factor), qui inhibe la sécrétion de PRL.</li>
+      </ul>
+      <Figure src={ch2Img8} n="Figure 6" legend="Hormones hypothalamiques et leurs cibles hypophysaires" />
+
+      <H3 id="sec-2-2-2">2.2. Hypophyse</H3>
+
+      <H4 id="sec-2-2-2-1">2.2.1. Définition et structure anatomique</H4>
+      <p className="mb-3 text-foreground/90">
+        L'hypophyse (ou glande pituitaire) est une petite glande, de la taille d'une noisette, ne pesant 0,5 à 0,7 g, située à la base de l'encéphale, dans une loge osseuse : la selle turcique de l'os sphénoïde, et est située sous l'hypothalamus auquel elle est reliée par la tige pituitaire, ou infundibulum (Figure 5).
+      </p>
+      <p className="mb-2 text-foreground/90">Elle est constituée de trois parties :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>un lobe antérieur ou antéhypophyse (également appelé adénohypophyse) ;</li>
+        <li>un lobe intermédiaire (fente hypophysaire) ;</li>
+        <li>un lobe postérieur ou posthypophyse.</li>
+      </ul>
+      <p className="mb-3 text-foreground/90">
+        Les lobes antérieur, intermédiaire et postérieur sécrètent des hormones qui agissent sur des organes cibles stimulant leur propre sécrétion endocrine ou exocrine.
+      </p>
+      <Figure src={ch2Img9} n="Figure 7" legend="Les différentes parties de l'hypophyse (ou glande pituitaire)" />
+
+      <H3 id="sec-2-2-3">2.3. Physiologie</H3>
+
+      <H4 id="sec-2-2-3-1">2.3.1. Hormones antéhypophysaires</H4>
+      <p className="mb-2 text-foreground/90">Le lobe antérieur de l'hypophyse produit 5 hormones :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li>la <strong>TSH</strong> ou <strong>Thyréotrophine</strong>. Elle stimule la sécrétion d'hormones T3 et T4 par la thyroïde.</li>
+        <li>la <strong>corticotrophine ou ACTH</strong>. Elle régule la sécrétion d'hormones par les cortico-surrénales.</li>
+        <li>les <strong>gonadotrophines (LH et FSH)</strong> agissent en synergie sur les organes reproducteurs (ovaires et testicules).</li>
+        <li>la <strong>prolactine (PRL)</strong>, excite la sécrétion lactée des glandes mammaires femelles, peu de temps après la naissance d'un enfant. En l'absence de cette hormone, la sécrétion lactée cesse rapidement.</li>
+        <li>les <strong>somatotrophines ou STH ou hormone de croissance Gh</strong>. Elles sont responsables de la croissance chez l'enfant. Elle agit sur le métabolisme des protides et des glucides. Une trop faible production de cette hormone entraînera un arrêt de croissance. Une hyperproduction de STH aura l'effet contraire, soit le gigantisme.</li>
+      </ul>
+
+      <H4 id="sec-2-2-3-2">2.3.2. Les hormones posthypophysaires</H4>
+      <p className="mb-3 text-foreground/90">
+        Les deux hormones posthypophysaires (neurohormones), <strong>l'ocytocine</strong> et <strong>l'arginine-vasopressine (ou hormone antidiurétique, ADH)</strong>, <u>sont en réalité des hormones hypothalamiques</u> stockées dans la posthypophyse et libérées dans le sang à partir de la posthypophyse.
+      </p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>ADH ou hormone antidiurétique</strong>. Elle empêche l'eau d'être éliminée par le rein quand il n'y a pas assez d'eau dans l'organisme.</li>
+        <li><strong>Ocytocine :</strong> permet de stimuler l'émission de lait ainsi que les contractions utérines.</li>
+      </ul>
+
+      <H4 id="sec-2-2-3-3">2.3.3. Régulation et effets des hormones hypophysaires</H4>
+      <p className="mb-3 text-foreground/90">
+        Les tableaux 1 et 2 (Figures 8 à 11) montrent les différentes hormones hypophysaires, leurs régulations ainsi que leurs actions.
+      </p>
+      <Figure src={ch2Img10} n="Figure 8" legend="Tableau 1 — Hormones antéhypophysaires : régulation et actions (1)" />
+      <Figure src={ch2Img11} n="Figure 9" legend="Tableau 1 (suite) — Hormones antéhypophysaires : régulation et actions (2)" />
+      <Figure src={ch2Img12} n="Figure 10" legend="Tableau 2 — Hormones posthypophysaires : régulation et actions" />
+      <Figure src={ch2Img13} n="Figure 11" legend="Synthèse de la régulation hypothalamo-hypophysaire" />
+    </section>
+  );
+}
+
+function Section2_3() {
+  return (
+    <section>
+      <H2 id="sec-2-3">3. La thyroïde</H2>
+
+      <H3 id="sec-2-3-1">3.1. Anatomie</H3>
+      <p className="mb-3 text-foreground/90">
+        La glande thyroïde est située dans le cou, devant le larynx et la trachée, à la hauteur des vertèbres cervicales. Elle est très vascularisée, pèse environ 30 g, elle est en forme de papillon, formée de deux lobes réunis par un isthme. La thyroïde est accessible à la palpation.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        Elle comprend 2 types de cellules : les cellules folliculaires et parafolliculaires (Figure 12).
+      </p>
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <figure className="rounded-lg border border-border bg-muted/30 p-3">
+          <img src={ch2Img14} alt="Vue antérieure de la thyroïde" className="w-full rounded-md" />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">Vue antérieure</figcaption>
+        </figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3">
+          <img src={ch2Img15} alt="Vue postérieure de la thyroïde" className="w-full rounded-md" />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">Vue postérieure</figcaption>
+        </figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3">
+          <img src={ch2Img16} alt="Follicules thyroïdiens" className="w-full rounded-md" />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">a : Follicules thyroïdiens</figcaption>
+        </figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3">
+          <img src={ch2Img17} alt="Histologie de la thyroïde" className="w-full rounded-md" />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">b : Histologie de la thyroïde</figcaption>
+        </figure>
+      </div>
+      <p className="text-center text-sm text-muted-foreground -mt-2 mb-6">
+        <span className="font-semibold text-foreground">Figure 12.</span> Glande thyroïde et structure histologique de la glande thyroïde
+      </p>
+
+      <H3 id="sec-2-3-2">3.2. Physiologie</H3>
+
+      <H4 id="sec-2-3-2-1">3.2.1. Les hormones sécrétées</H4>
+      <p className="mb-3 text-foreground/90">
+        La thyroïde est responsable de la synthèse et de la sécrétion des hormones thyroïdiennes, sous le contrôle de l'hypophyse.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        Les hormones thyroïdiennes sont des molécules iodées, dérivées de la tyrosine ou plus précisément de la thyronine, qui correspond à la condensation de deux molécules de tyrosine entre elles.
+      </p>
+
+      <H4 id="sec-2-3-2-2">3.2.2. Les cellules folliculaires</H4>
+      <p className="mb-2 text-foreground/90">
+        Sécrètent <strong>triiodothyronine</strong> (<strong>T3</strong>, 20 %) et <strong>thyroxine</strong> (<strong>T4</strong>, 80 %) sous l'effet de la <strong>Thyréotrophine</strong> (TSH) sécrétée par l'antéhypophyse. Synthétisées par fixation d'iode. Indispensables à la vie. Les hormones :
+      </p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>règlent l'utilisation de l'oxygène ;</li>
+        <li>ont un effet calorifique ;</li>
+        <li>permettent la stimulation de la synthèse des protéines ;</li>
+        <li>augmentent la lipolyse, la croissance ;</li>
+        <li>et stimulent l'érythropoïèse.</li>
+      </ul>
+
+      <H4 id="sec-2-3-2-3">3.2.3. Les cellules parafolliculaires ou cellules C</H4>
+      <p className="mb-3 text-foreground/90">
+        Sécrètent de la <strong>calcitonine (Thyrocalcitonine)</strong>. Participe à la régulation du contenu du calcium et en phosphore dans le sang. Une calcémie basse inhibe la libération de calcitonine, une calcémie élevée la stimule. Certaines hormones, comme la gastrine, stimulent la libération de calcitonine (c'est pourquoi le calcium issu de l'alimentation est rapidement intégré dans les os).
+      </p>
+      <p className="mb-2 text-foreground/90 font-semibold">Action de la calcitonine :</p>
+      <p className="mb-1 text-foreground/90"><u>Au niveau des os</u></p>
+      <ul className="mb-3 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Inhibe la libération du calcium et du phosphore par les os ;</li>
+        <li>Et facilite en même temps leur incorporation dans la matrice osseuse.</li>
+      </ul>
+      <p className="mb-3 text-foreground/90">
+        Ainsi, la concentration du calcium dans le sang chute : <strong>hypocalcémiante</strong>.
+      </p>
+      <p className="mb-1 text-foreground/90"><u>Au niveau des reins :</u></p>
+      <p className="mb-3 text-foreground/90">
+        La calcitonine <strong>augmente l'excrétion</strong> du phosphore, du calcium, mais également des ions sodium, potassium et magnésium.
+      </p>
+      <Callout type="note">
+        <p><strong>Remarque :</strong> Elle ne semble pas jouer un rôle important dans l'homéostasie du calcium chez l'humain. D'ailleurs la calcitonine n'a pas besoin d'être remplacée chez les personnes qui ont subi une ablation de la thyroïde.</p>
+      </Callout>
+
+      <H4 id="sec-2-3-2-4">3.2.4. Régulation et action des hormones thyroïdiennes</H4>
+
+      <H4 id="sec-2-3-2-5">3.2.5. La sécrétion des hormones thyroïdiennes</H4>
+      <p className="mb-2 text-foreground/90">La sécrétion des hormones thyroïdiennes est principalement contrôlée par :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>la TSH</strong> (Thyroid Stimulating Hormone) hypophysaire et par les hormones thyroïdiennes (Figure 13).</li>
+        <li>Mais d'autres facteurs, comme la <strong>quantité d'iodures</strong> apportés dans la glande. C'est <em>l'effet Wolff-Chaikoff</em> : une surcharge très importante en iodures (supérieure à 2 mg par jour) freine la captation des iodures par la glande thyroïde et stoppe la synthèse des hormones thyroïdiennes.</li>
+        <li>La synthèse des hormones thyroïdiennes est stimulée par <strong>la noradrénaline libérée</strong> lors d'une stimulation des fibres sympathiques.</li>
+      </ul>
+
+      <H4 id="sec-2-3-2-6">3.2.6. Inhibition de la sécrétion de TSH</H4>
+      <p className="mb-3 text-foreground/90">
+        Elle fait intervenir <strong>la forme libre de T4</strong>. En réalité, la T4 agit dans la cellule après transformation en T3. Cette rétrorégulation négative (inhibition) s'exerce surtout sur l'adénohypophyse et, à un moindre degré, sur l'hypothalamus.
+      </p>
+      <p className="mb-3 text-foreground/90">
+        Lorsque la concentration de T4 diminue, l'axe hypothalamo-hypophysaire est stimulé et la sécrétion de TSH augmente. À l'inverse, lorsque la concentration de T4 augmente, l'axe hypothalamo-hypophysaire est freiné et la sécrétion de TSH diminue.
+      </p>
+      <Figure src={ch2Img18} n="Figure 13" legend="Régulation et action des hormones thyroïdiennes" />
+      <Callout type="note">
+        <p><strong><u>Remarque :</u></strong> La thyroïde sécrète principalement T4. La conversion de T4 en T3 se produit dans de nombreux organes notamment le foie, grâce à une enzyme, la thyroxine-5'-désiodase qui réalise la 5'-monodésiodation de T4. Ainsi, 80 % de la T3 provient de la désiodation de la T4 et seulement 20 % provient de la synthèse thyroïdienne.</p>
+      </Callout>
+
+      <H3 id="sec-2-3-3">3.3. Pathologies thyroïdiennes</H3>
+      <Figure src={ch2Img19} n="Figure 14" legend="Tableau 3 — Principales pathologies thyroïdiennes" />
+    </section>
+  );
+}
+
 /* ---------- Composant principal ---------- */
 
 export default function CoursDietetiqueS2() {
@@ -2816,9 +3117,9 @@ export default function CoursDietetiqueS2() {
                 </>
               ) : (
                 <>
-                  <Placeholder id="sec-2-1" title="I. Généralités sur le système endocrinien" />
-                  <Placeholder id="sec-2-2" title="II. Hypothalamus et hypophyse" />
-                  <Placeholder id="sec-2-3" title="III. Glandes périphériques" />
+                  <Section2_1 />
+                  <Section2_2 />
+                  <Section2_3 />
                 </>
               )}
             </article>
