@@ -2837,9 +2837,9 @@ export default function CoursDietetiqueS2() {
                 </>
               ) : (
                 <>
-                  <Placeholder id="sec-2-1" title="I. Généralités sur le système endocrinien" />
-                  <Placeholder id="sec-2-2" title="II. Hypothalamus et hypophyse" />
-                  <Placeholder id="sec-2-3" title="III. Glandes périphériques" />
+                  <Section2_1 />
+                  <Section2_2 />
+                  <Section2_3 />
                 </>
               )}
             </article>
