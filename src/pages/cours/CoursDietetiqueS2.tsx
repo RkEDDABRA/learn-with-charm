@@ -2803,13 +2803,13 @@ function Section2_2() {
         La région hypothalamique est le véritable « <strong>cerveau endocrinien</strong> » de l'organisme puisqu'elle commande la sécrétion de toutes les glandes endocrines du corps — pancréas, thyroïde et parathyroïdes, ovaires et testicules, surrénales — à commencer par l'hypophyse. La fonction de l'hypophyse est sous la dépendance de l'hypothalamus.
       </p>
       <p className="mb-3 text-foreground/90">
-        L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 5).
+        L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 42).
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
         <img src={ch2Img5} alt="Hypothalamus - vue 1" className="w-full rounded-lg border border-border" />
         <img src={ch2Img6} alt="Hypothalamus - vue 2" className="w-full rounded-lg border border-border" />
       </div>
-      <Figure src={ch2Img7} n="Figure 5" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
+      <Figure src={ch2Img7} n="Figure 42" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
       <p className="mb-3 text-foreground/90">
         L'hypothalamus se situe dans le plancher du troisième ventricule, se compose de 7 noyaux distincts.
       </p>
@@ -2826,13 +2826,13 @@ function Section2_2() {
         <li><strong>La somatostatine</strong>, qui inhibe la sécrétion de GH et de TSH ;</li>
         <li><strong>Le PIF</strong> (Prolactine Inhibitory Factor), qui inhibe la sécrétion de PRL.</li>
       </ul>
-      <Figure src={ch2Img8} n="Figure 6" legend="Hormones hypothalamiques et leurs cibles hypophysaires" />
+      <Figure src={ch2Img8} n="Figure 43" legend="Hormones hypothalamiques et leurs cibles hypophysaires" />
 
       <H3 id="sec-2-2-2">2.2. Hypophyse</H3>
 
       <H4 id="sec-2-2-2-1">2.2.1. Définition et structure anatomique</H4>
       <p className="mb-3 text-foreground/90">
-        L'hypophyse (ou glande pituitaire) est une petite glande, de la taille d'une noisette, ne pesant 0,5 à 0,7 g, située à la base de l'encéphale, dans une loge osseuse : la selle turcique de l'os sphénoïde, et est située sous l'hypothalamus auquel elle est reliée par la tige pituitaire, ou infundibulum (Figure 5).
+        L'hypophyse (ou glande pituitaire) est une petite glande, de la taille d'une noisette, ne pesant 0,5 à 0,7 g, située à la base de l'encéphale, dans une loge osseuse : la selle turcique de l'os sphénoïde, et est située sous l'hypothalamus auquel elle est reliée par la tige pituitaire, ou infundibulum (Figure 42).
       </p>
       <p className="mb-2 text-foreground/90">Elle est constituée de trois parties :</p>
       <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
@@ -2843,7 +2843,7 @@ function Section2_2() {
       <p className="mb-3 text-foreground/90">
         Les lobes antérieur, intermédiaire et postérieur sécrètent des hormones qui agissent sur des organes cibles stimulant leur propre sécrétion endocrine ou exocrine.
       </p>
-      <Figure src={ch2Img9} n="Figure 7" legend="Les différentes parties de l'hypophyse (ou glande pituitaire)" />
+      <Figure src={ch2Img9} n="Figure 44" legend="Les différentes parties de l'hypophyse (ou glande pituitaire)" />
 
       <H3 id="sec-2-2-3">2.3. Physiologie</H3>
 
@@ -2868,12 +2868,12 @@ function Section2_2() {
 
       <H4 id="sec-2-2-3-3">2.3.3. Régulation et effets des hormones hypophysaires</H4>
       <p className="mb-3 text-foreground/90">
-        Les tableaux 1 et 2 (Figures 8 à 11) montrent les différentes hormones hypophysaires, leurs régulations ainsi que leurs actions.
+        Les tableaux 6 et 7 (Figures 45 à 48) montrent les différentes hormones hypophysaires, leurs régulations ainsi que leurs actions.
       </p>
-      <Figure src={ch2Img10} n="Figure 8" legend="Tableau 1 — Hormones antéhypophysaires : régulation et actions (1)" />
-      <Figure src={ch2Img11} n="Figure 9" legend="Tableau 1 (suite) — Hormones antéhypophysaires : régulation et actions (2)" />
-      <Figure src={ch2Img12} n="Figure 10" legend="Tableau 2 — Hormones posthypophysaires : régulation et actions" />
-      <Figure src={ch2Img13} n="Figure 11" legend="Synthèse de la régulation hypothalamo-hypophysaire" />
+      <Figure src={ch2Img10} n="Figure 45" legend="Tableau 6 — Hormones antéhypophysaires : régulation et actions (1)" />
+      <Figure src={ch2Img11} n="Figure 46" legend="Tableau 6 (suite) — Hormones antéhypophysaires : régulation et actions (2)" />
+      <Figure src={ch2Img12} n="Figure 47" legend="Tableau 7 — Hormones posthypophysaires : régulation et actions" />
+      <Figure src={ch2Img13} n="Figure 48" legend="Synthèse de la régulation hypothalamo-hypophysaire" />
     </section>
   );
 }
@@ -2888,7 +2888,7 @@ function Section2_3() {
         La glande thyroïde est située dans le cou, devant le larynx et la trachée, à la hauteur des vertèbres cervicales. Elle est très vascularisée, pèse environ 30 g, elle est en forme de papillon, formée de deux lobes réunis par un isthme. La thyroïde est accessible à la palpation.
       </p>
       <p className="mb-3 text-foreground/90">
-        Elle comprend 2 types de cellules : les cellules folliculaires et parafolliculaires (Figure 12).
+        Elle comprend 2 types de cellules : les cellules folliculaires et parafolliculaires (Figure 49).
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
@@ -2909,7 +2909,7 @@ function Section2_3() {
         </figure>
       </div>
       <p className="text-center text-sm text-muted-foreground -mt-2 mb-6">
-        <span className="font-semibold text-foreground">Figure 12.</span> Glande thyroïde et structure histologique de la glande thyroïde
+        <span className="font-semibold text-foreground">Figure 49.</span> Glande thyroïde et structure histologique de la glande thyroïde
       </p>
 
       <H3 id="sec-2-3-2">3.2. Physiologie</H3>
@@ -2960,7 +2960,7 @@ function Section2_3() {
       <H4 id="sec-2-3-2-5">3.2.5. La sécrétion des hormones thyroïdiennes</H4>
       <p className="mb-2 text-foreground/90">La sécrétion des hormones thyroïdiennes est principalement contrôlée par :</p>
       <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
-        <li><strong>la TSH</strong> (Thyroid Stimulating Hormone) hypophysaire et par les hormones thyroïdiennes (Figure 13).</li>
+        <li><strong>la TSH</strong> (Thyroid Stimulating Hormone) hypophysaire et par les hormones thyroïdiennes (Figure 50).</li>
         <li>Mais d'autres facteurs, comme la <strong>quantité d'iodures</strong> apportés dans la glande. C'est <em>l'effet Wolff-Chaikoff</em> : une surcharge très importante en iodures (supérieure à 2 mg par jour) freine la captation des iodures par la glande thyroïde et stoppe la synthèse des hormones thyroïdiennes.</li>
         <li>La synthèse des hormones thyroïdiennes est stimulée par <strong>la noradrénaline libérée</strong> lors d'une stimulation des fibres sympathiques.</li>
       </ul>
@@ -2972,13 +2972,13 @@ function Section2_3() {
       <p className="mb-3 text-foreground/90">
         Lorsque la concentration de T4 diminue, l'axe hypothalamo-hypophysaire est stimulé et la sécrétion de TSH augmente. À l'inverse, lorsque la concentration de T4 augmente, l'axe hypothalamo-hypophysaire est freiné et la sécrétion de TSH diminue.
       </p>
-      <Figure src={ch2Img18} n="Figure 13" legend="Régulation et action des hormones thyroïdiennes" />
+      <Figure src={ch2Img18} n="Figure 50" legend="Régulation et action des hormones thyroïdiennes" />
       <Callout type="note">
         <p><strong><u>Remarque :</u></strong> La thyroïde sécrète principalement T4. La conversion de T4 en T3 se produit dans de nombreux organes notamment le foie, grâce à une enzyme, la thyroxine-5'-désiodase qui réalise la 5'-monodésiodation de T4. Ainsi, 80 % de la T3 provient de la désiodation de la T4 et seulement 20 % provient de la synthèse thyroïdienne.</p>
       </Callout>
 
       <H3 id="sec-2-3-3">3.3. Pathologies thyroïdiennes</H3>
-      <Figure src={ch2Img19} n="Figure 14" legend="Tableau 3 — Principales pathologies thyroïdiennes" />
+      <Figure src={ch2Img19} n="Figure 51" legend="Tableau 8 — Principales pathologies thyroïdiennes" />
     </section>
   );
 }
