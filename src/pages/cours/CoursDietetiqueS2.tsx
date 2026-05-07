@@ -107,6 +107,28 @@ import ch2Img17 from "@/assets/cours-diet-s2/ch2/img17.png";
 import ch2Img18 from "@/assets/cours-diet-s2/ch2/img18.png";
 import ch2Img19 from "@/assets/cours-diet-s2/ch2/img19.png";
 
+// Chapitre 2 — Sections supplémentaires (parathyroïdes, surrénales, pancréas)
+import ch2Parathy from "@/assets/cours-diet-s2/ch2/parathy-anat.jpg";
+import ch2ParathyPth from "@/assets/cours-diet-s2/ch2/parathy-pth.jpg";
+import ch2ParathyCa from "@/assets/cours-diet-s2/ch2/parathy-calcium.jpg";
+import ch2ParathyCalcemie from "@/assets/cours-diet-s2/ch2/parathy-calcemie.jpg";
+import ch2SurrRein from "@/assets/cours-diet-s2/ch2/surrenale-rein.jpg";
+import ch2SurrZones from "@/assets/cours-diet-s2/ch2/surrenale-zones.jpg";
+import ch2Medullo from "@/assets/cours-diet-s2/ch2/medullo.jpg";
+import ch2CortReg from "@/assets/cours-diet-s2/ch2/cortisol-reg.jpg";
+import ch2Stress from "@/assets/cours-diet-s2/ch2/stress.jpg";
+import ch2PancHisto from "@/assets/cours-diet-s2/ch2/pancreas-histo.jpg";
+import ch2Ilot from "@/assets/cours-diet-s2/ch2/ilot-langerhans.jpg";
+import ch2GlycVal from "@/assets/cours-diet-s2/ch2/glycemie-valeur.jpg";
+import ch2GlycRep from "@/assets/cours-diet-s2/ch2/glycemie-rep.jpg";
+import ch2InsGluc from "@/assets/cours-diet-s2/ch2/insuline-glucagon.jpg";
+import ch2Diabete from "@/assets/cours-diet-s2/ch2/diabete-info.jpg";
+import ch2GlycNiv from "@/assets/cours-diet-s2/ch2/glycemie-niveau.jpg";
+import ch2GlycReg from "@/assets/cours-diet-s2/ch2/glycemie-reg.jpg";
+import ch2MetabProt from "@/assets/cours-diet-s2/ch2/metab-prot.jpg";
+import ch2MetabLip from "@/assets/cours-diet-s2/ch2/metab-lip.jpg";
+import ch2MetabGluc from "@/assets/cours-diet-s2/ch2/metab-gluc.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -227,6 +249,9 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-2-1", title: "1. Notions générales d'endocrinologie" },
       { id: "sec-2-2", title: "2. Axe hypothalamo-hypophysaire" },
       { id: "sec-2-3", title: "3. La thyroïde" },
+      { id: "sec-2-4", title: "4. Les parathyroïdes" },
+      { id: "sec-2-5", title: "5. Les surrénales" },
+      { id: "sec-2-6", title: "6. Le pancréas endocrine" },
     ],
   },
 ];
