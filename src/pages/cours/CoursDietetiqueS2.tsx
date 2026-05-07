@@ -2983,7 +2983,198 @@ function Section2_3() {
   );
 }
 
-/* ---------- Composant principal ---------- */
+function Section2_4() {
+  return (
+    <section>
+      <H2 id="sec-2-4">4. Les parathyroïdes</H2>
+      <H3 id="sec-2-4-1">4.1. Anatomie</H3>
+      <p className="mb-3 text-foreground/90">Les glandes parathyroïdiennes sont généralement au nombre de quatre, les deux glandes supérieures sont accolées à la thyroïde et les deux glandes inférieures sont incluses dans les lobes thyroïdiens en position latérodorsale.</p>
+      <p className="mb-3 text-foreground/90">Les dimensions de chaque glande sont de 6×4×2 mm. Le poids est de 20 à 50 mg pour chaque glande, soit 150 mg au total, face à 25 g pour la thyroïde. La vascularisation est assurée par des ramifications de plusieurs artères thyroïdiennes.</p>
+      <Figure src={ch2Parathy} n="Figure 52" legend="Glandes parathyroïdiennes." />
+      <H3 id="sec-2-4-2">4.2. Histologie</H3>
+      <p className="mb-2 text-foreground/90">Le tissu des glandes parathyroïdes contient deux types de cellules :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>Les cellules principales</strong>, qui peuvent être <em>claires</em> (vacuolisées, ayant sécrété la PTH) ou <em>foncées</em> (qui synthétisent et sécrètent beaucoup de PTH).</li>
+        <li><strong>Les cellules oxyphiles</strong>, plus grandes, dépourvues de glycogène, ayant un noyau très petit et dont le rôle est inconnu à l'heure actuelle.</li>
+      </ul>
+      <H3 id="sec-2-4-3">4.3. Physiologie</H3>
+      <H4 id="sec-2-4-3-1">4.3.1. Action de l'hormone sécrétée</H4>
+      <p className="mb-3 text-foreground/90">Les parathyroïdes, indispensables à la vie, contrôlent la calcémie et la maintiennent aux environs de 100 mg/L. Les cellules principales sécrètent la <strong>parathormone (PTH)</strong>, protéine de 84 acides aminés.</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>La PTH est <strong>activée par l'hypocalcémie</strong> et <strong>inhibée par l'hypercalcémie</strong>.</li>
+        <li>Elle stimule la résorption osseuse, induisant un flux de calcium de l'os vers le sang.</li>
+        <li>Elle augmente la réabsorption tubulaire rénale du calcium et diminue celle du phosphore.</li>
+        <li>Elle est <strong>hypercalcémiante</strong> et hypophosphorémiante.</li>
+      </ul>
+      <Figure src={ch2ParathyPth} n="Figure 53" legend="Organigramme résumant les principales actions de la parathormone." />
+      <p className="mb-2 text-foreground/90 font-semibold">a. Au niveau de l'os</p>
+      <p className="mb-3 text-foreground/90">Dans le tissu osseux, elle <strong>provoque la décomposition de la matrice minéralisée</strong> renfermant du phosphate de calcium et la libération de Ca<sup>2+</sup> dans le sang, ce qui tend à augmenter la calcémie et la phosphatémie et à libérer l'hydroxyproline, la pyridinoline et la déoxypyridinoline retrouvées dans les urines.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Au niveau du rein</p>
+      <p className="mb-3 text-foreground/90">Dans les reins, elle <strong>inhibe l'élimination urinaire</strong> du calcium et favorise la conversion de la vitamine D en sa forme active (D3 ou cholécalciférol), processus accéléré par la PTH après une activation initiale dans le foie.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">c. Au niveau de l'intestin</p>
+      <p className="mb-3 text-foreground/90">La PTH n'exerce pas d'effet direct sur l'intestin. Cependant, la forme active de la vitamine D agit directement sur les intestins où elle stimule l'absorption du Ca<sup>2+</sup>, augmentant ainsi l'effet de la PTH. Une boucle de rétroinhibition fait cesser la libération de PTH.</p>
+      <Figure src={ch2ParathyCa} n="Figure 54" legend="Régulation du contenu du calcium de l'organisme. Vert : actions élevant le calcium sanguin ; bleu : celles qui le diminuent. PTH : parathormone, D : vitamine D, CT : calcitonine." />
+      <H4 id="sec-2-4-3-2">4.3.2. Contrôle de la sécrétion de PTH</H4>
+      <p className="mb-3 text-foreground/90">La PTH a une demi-vie d'environ 5 minutes et est sécrétée en continu à un faible taux. Une boucle de rétroaction négative directe entre les ions calcium plasmatiques et la sécrétion de PTH passe par le récepteur sensible au calcium (CaSR) sur la membrane des cellules principales.</p>
+      <p className="mb-3 text-foreground/90">L'hypocalcémie est le stimulus le plus puissant ; l'hypercalcémie inhibe la libération de PTH. La PTH élève le Ca<sup>2+</sup> sanguin en stimulant 3 organes : squelette, reins et intestin (Figure 55).</p>
+      <Figure src={ch2ParathyCalcemie} n="Figure 55" legend="La régulation homéostatique de la calcémie : actions opposées de la calcitonine et de la PTH." />
+      <H4 id="sec-2-4-3-3">4.3.3. Hyper- / hypo-parathyroïdie</H4>
+      <p className="mb-3 text-foreground/90">La régulation rigoureuse de la calcémie est vitale. Une forte baisse provoque des contractions convulsives (tétanie, mortelle si non traitée). Une augmentation marquée peut entraîner des dépôts de phosphate de calcium dans les tissus, causant des dommages organiques étendus.</p>
+    </section>
+  );
+}
+
+function Section2_5() {
+  return (
+    <section>
+      <H2 id="sec-2-5">5. Les surrénales</H2>
+      <H3 id="sec-2-5-1">5.1. Anatomie</H3>
+      <p className="mb-3 text-foreground/90">Les glandes surrénales sont situées juste au-dessus de chaque rein (Figure 56). Chaque glande est constituée de 2 zones :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>une zone médullaire (médullosurrénale)</strong> qui produit des catécholamines, principalement l'adrénaline ;</li>
+        <li><strong>une zone corticale (corticosurrénale ou cortex)</strong> occupant 90 % de la glande et sécrétant des hormones stéroïdes (à partir du cholestérol), composée de 3 parties :
+          <ul className="list-disc pl-6 mt-1 space-y-1">
+            <li><strong>zone glomérulée externe (10 %)</strong> : minéralocorticoïdes (aldostérone) ;</li>
+            <li><strong>zone fasciculée centrale (75 %)</strong> : glucocorticoïdes (cortisol) ;</li>
+            <li><strong>zone réticulée interne (15 %)</strong> : androgènes surrénaliens (DHEA, androstènedione).</li>
+          </ul>
+        </li>
+      </ul>
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <img src={ch2SurrRein} alt="Surrénale et rein" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+        <img src={ch2SurrZones} alt="Zones de la glande surrénale" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+      </div>
+      <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 56.</span> Glandes surrénaliennes et hormones sécrétées.</p>
+      <H3 id="sec-2-5-2">5.2. La médullosurrénale</H3>
+      <p className="mb-3 text-foreground/90">Les hormones médullaires sont les catécholamines, principalement adrénaline et noradrénaline.</p>
+      <H4 id="sec-2-5-2-1">5.2.1. Effets hormonaux</H4>
+      <p className="mb-2 text-foreground/90">Sécrétées en réponse à la stimulation sympathique (notamment au stress) :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Augmentation de la fréquence cardiaque ;</li>
+        <li>Augmentation de la pression artérielle ;</li>
+        <li>Dilatation des bronchioles ;</li>
+        <li>Augmentation du glucose sanguin ;</li>
+        <li>Diminution de l'activité digestive.</li>
+      </ul>
+      <H4 id="sec-2-5-2-2">5.2.2. Régulation</H4>
+      <p className="mb-3 text-foreground/90">Un manque ne produit aucun effet significatif. L'<strong>hypersécrétion</strong> (souvent par tumeur) provoque des réactions sympathiques prolongées.</p>
+      <Figure src={ch2Medullo} n="Figure 57" legend="Stimulation sympathique de la médullosurrénale et libération de catécholamines en réponse au stress." />
+      <H3 id="sec-2-5-3">5.3. La corticosurrénale</H3>
+      <H4 id="sec-2-5-3-1">5.3.1. Les glucocorticoïdes</H4>
+      <p className="mb-3 text-foreground/90">Indispensables à la vie, ils régulent le métabolisme glucidique et la résistance au stress. Le cortisol représente 95 % de l'activité glucocorticoïde.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Rôle</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>Métabolisme glucidique</strong> : hyperglycémiant (néoglucogenèse hépatique).</li>
+        <li><strong>Métabolisme protéique</strong> : protéolyse (muscles, peau, os) ; en excès → atrophie musculaire ; les acides aminés sont captés par le foie pour la formation de glucose.</li>
+        <li><strong>Métabolisme lipidique</strong> : lipolyse, hypercholestérolémiant, hypertriglycéridémiant.</li>
+      </ul>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Régulation</p>
+      <p className="mb-3 text-foreground/90">Sous contrôle de l'axe hypothalamo-hypophyso-surrénalien (rythme circadien) : la <strong>CRH</strong> hypothalamique stimule l'<strong>ACTH</strong> hypophysaire, qui stimule les glucocorticoïdes. Les glucocorticoïdes exercent un <u>rétrocontrôle négatif</u> sur l'ACTH et la CRH.</p>
+      <Figure src={ch2CortReg} n="Figure 58" legend="Axe hypothalamo-hypophyso-surrénalien : régulation de la sécrétion de cortisol et effets périphériques." />
+      <Callout type="note">
+        <p className="font-semibold mb-1">Effets des fortes doses de cortisol :</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Réduisent la réaction inflammatoire ;</li>
+          <li>Favorisent une rétention de Na<sup>+</sup> et d'eau ;</li>
+          <li>Suppriment le système immunitaire ;</li>
+          <li>Inhibent la réparation tissulaire.</li>
+        </ul>
+      </Callout>
+      <H4 id="sec-2-5-3-2">5.3.2. Les minéralocorticoïdes</H4>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Rôle</p>
+      <p className="mb-3 text-foreground/90">L'aldostérone agit sur le métabolisme hydrominéral au niveau du rein (tubule distal) et joue un rôle majeur dans la régulation de la pression artérielle :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Stimule la réabsorption de sodium (échange avec K<sup>+</sup>) accompagnée d'une réabsorption d'eau → ↑ volémie et pression artérielle ;</li>
+        <li>Stimule l'élimination des H<sup>+</sup> (alcalose métabolique).</li>
+      </ul>
+      <Figure src={ch2Stress} n="Figure 59" legend="Réponse intégrée au stress : axes sympathique-médullosurrénalien (court terme) et corticotrope (long terme)." />
+      <p className="mb-2 text-foreground/90 font-semibold">b. Régulation</p>
+      <p className="mb-3 text-foreground/90">Régulée principalement par le système rénine-angiotensine et la kaliémie. L'aldostérone exerce un rétrocontrôle négatif sur la rénine.</p>
+      <H4 id="sec-2-5-3-3">5.3.3. Les androgènes surrénaliens</H4>
+      <p className="mb-3 text-foreground/90">Essentiellement DHEA et androstènedione, liés à l'albumine. Convertis dans les tissus périphériques en androgènes plus actifs (testostérone, delta-4 androstènedione) ou en œstrogènes. Rôle négligeable chez l'homme (5 % de la testostérone totale) ; chez la femme : 40-65 % de la testostérone provient de cette conversion. Sécrétion stimulée par l'ACTH (rythme circadien parallèle à celui du cortisol).</p>
+    </section>
+  );
+}
+
+function Section2_6() {
+  return (
+    <section>
+      <H2 id="sec-2-6">6. Le pancréas endocrine</H2>
+      <H3 id="sec-2-6-1">6.1. Situation</H3>
+      <p className="mb-3 text-foreground/90">Le pancréas, adjacent à l'estomac, est connecté par le canal pancréatique au duodénum. Par ce canal, il sécrète des ions bicarbonate et diverses enzymes digestives.</p>
+      <H3 id="sec-2-6-2">6.2. Anatomie</H3>
+      <p className="mb-2 text-foreground/90">Le pancréas est un <strong>organe amphicrine</strong> :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>99 % exocrines</strong> (acineuses) : produisent le suc pancréatique ;</li>
+        <li><strong>1 % endocrines</strong> rassemblées en <em>îlots de Langerhans</em> (150-300 μm), entourés d'artérioles et pénétrés par de nombreux capillaires.</li>
+      </ul>
+      <p className="mb-2 text-foreground/90">Chaque îlot comprend 2 500 à 3 000 cellules de quatre types :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Cellules <strong>B (β)</strong> (60-70 %, centrales) : <strong>insuline</strong> (hypoglycémiante) ;</li>
+        <li>Cellules <strong>A (α)</strong> (20-25 %) : <strong>glucagon</strong> (hyperglycémiante) ;</li>
+        <li>Cellules <strong>D (δ)</strong> (10 %) : <strong>somatostatine</strong> ;</li>
+        <li>Cellules <strong>PP</strong> (10 %) : <strong>polypeptide pancréatique</strong>.</li>
+      </ul>
+      <Callout><p><strong>Remarque :</strong> Le pancréas endocrine est totalement indépendant du pancréas exocrine sur le plan fonctionnel.</p></Callout>
+      <Figure src={ch2PancHisto} n="Figure 60" legend="Histologie simplifiée du pancréas." />
+      <Figure src={ch2Ilot} n="Figure 61" legend="Un îlot de Langerhans : vaisseaux sanguins, pancréas exocrine, cellules α et β." />
+      <H3 id="sec-2-6-3">6.3. Régulation de la sécrétion hormonale</H3>
+      <Figure src={ch2GlycVal} n="Figure 62" legend="Valeur de la glycémie : entre glycopénie et hyperglycémie. Limites haute (≈ 1,1 g/L) et basse." />
+      <p className="mb-3 text-foreground/90">Une perturbation de la glycémie permet, via un système réglant et des organes effecteurs (tissu adipeux, muscles, foie), de revenir à la valeur de consigne : <Mark>rétrocontrôle négatif</Mark>.</p>
+      <H4 id="sec-2-6-3-1">6.3.1. En cas d'hypoglycémie</H4>
+      <p className="mb-3 text-foreground/90">Une <Mark>hypoglycémie</Mark> est détectée par les <strong>cellules α</strong> qui libèrent du <strong>glucagon</strong>. Celui-ci stimule la lipolyse et surtout, dans le foie, la <strong>néoglucogenèse</strong>. La glycémie remonte : le glucagon est <strong>hyperglycémiant</strong>.</p>
+      <Figure src={ch2GlycRep} n="Figure 63" legend="Réponses aux variations de la glycémie : insuline et glucagon." />
+      <div className="grid sm:grid-cols-3 gap-4 my-4">
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabProt} alt="Protéines" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des protéines</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabLip} alt="Lipides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des lipides</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabGluc} alt="Glucides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des glucides</figcaption></figure>
+      </div>
+      <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 64.</span> Anabolisme et catabolisme des protéines, lipides et glucides.</p>
+      <H4 id="sec-2-6-3-2">6.3.2. En cas d'hyperglycémie</H4>
+      <p className="mb-3 text-foreground/90">Une <strong>hyperglycémie</strong> (post-prandiale) est détectée par les <strong>cellules β</strong> qui libèrent l'<strong>insuline</strong>. Celle-ci se fixe sur les récepteurs des hépatocytes, fibres musculaires et adipocytes, stimulant la captation du glucose, la glycogénogenèse et la lipogenèse. La glycémie diminue : l'insuline est <strong>hypoglycémiante</strong>.</p>
+      <Figure src={ch2InsGluc} n="Figure 65" legend="Régulation de la glycémie par l'insuline et le glucagon." />
+      <H3 id="sec-2-6-4">6.4. Actions physiologiques des hormones</H3>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Insuline</p>
+      <p className="mb-3 text-foreground/90">Hormone clé contrôlant l'utilisation de tous les substrats énergétiques (glucides, lipides, protides). Augmente l'anabolisme et le stockage (glycogène, graisses).</p>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Glucagon</p>
+      <p className="mb-3 text-foreground/90">Hormone hyperglycémiante d'urgence, antagoniste de l'insuline ; tissu cible : le foie.</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>Foie</strong> : stimule glycogénolyse et néoglucogenèse ; inhibe la glycogène synthétase.</li>
+        <li>Effet cétogène.</li>
+        <li><strong>Tissu adipeux</strong> : stimule la lipolyse → ↑ acides gras libres.</li>
+        <li>Effet natriurétique.</li>
+        <li>À forte dose : stimule les contractions cardiaques.</li>
+        <li>Stimule de façon paracrine la sécrétion d'insuline.</li>
+      </ul>
+      <H3 id="sec-2-6-5">6.5. Diabète sucré</H3>
+      <Figure src={ch2Diabete} n="Figure 66" legend="Le diabète : maladie chronique. Rôle de l'insuline, types 1 et 2, symptômes, traitement et conséquences." />
+      <Figure src={ch2GlycNiv} n="Figure 67" legend="Glycémie : seuil d'hypoglycémie (&lt; 2,8 mmol/L) et seuil rénal au-delà duquel apparaît la glycosurie." />
+      <Figure src={ch2GlycReg} n="Figure 68" legend="Régulation de la glycémie : actions opposées de l'insuline (cellules β) et du glucagon (cellules α)." />
+      <H4 id="sec-2-6-5-1">Tableau 9 — Système de régulation de la glycémie</H4>
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border border-border text-sm">
+          <tbody>
+            <tr className="bg-muted/40"><td className="border border-border p-2 font-semibold">Système réglé</td><td className="border border-border p-2">Paramètre</td><td className="border border-border p-2"><strong>Glycémie</strong></td><td className="border border-border p-2">Valeur consigne</td><td className="border border-border p-2">1 g·L<sup>−1</sup></td></tr>
+            <tr className="bg-muted/40"><td className="border border-border p-2 font-semibold" rowSpan={3}>Système réglant</td><td className="border border-border p-2">Capteurs</td><td className="border border-border p-2" colSpan={3}><strong>Cellules du pancréas</strong></td></tr>
+            <tr><td className="border border-border p-2">Commande</td><td className="border border-border p-2" colSpan={3}>Hormones du pancréas (insuline, glucagon)</td></tr>
+            <tr><td className="border border-border p-2">Effecteurs</td><td className="border border-border p-2" colSpan={3}><strong>Foie</strong>, muscles, tissu adipeux</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <H4 id="sec-2-6-5-2">Tableau 10 — Diabète sucré : types 1 et 2</H4>
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border border-border text-sm">
+          <thead className="bg-muted/40"><tr><th className="border border-border p-2 text-left">Diabète de type 1</th><th className="border border-border p-2 text-left">Diabète de type 2</th></tr></thead>
+          <tbody>
+            <tr><td className="border border-border p-2">Carence absolue en insuline</td><td className="border border-border p-2">Carence relative en insuline</td></tr>
+            <tr><td className="border border-border p-2">Insuline (base + bolus si possible) + régime adapté</td><td className="border border-border p-2">Régime adapté (réduction calorique, activité physique) → si insuffisant : antidiabétiques oraux → si insuffisant : insuline.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
 
 export default function CoursDietetiqueS2() {
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
