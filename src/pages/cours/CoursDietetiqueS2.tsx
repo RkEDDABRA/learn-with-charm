@@ -3336,6 +3336,9 @@ export default function CoursDietetiqueS2() {
                   <Section2_1 />
                   <Section2_2 />
                   <Section2_3 />
+                  <Section2_4 />
+                  <Section2_5 />
+                  <Section2_6 />
                 </>
               )}
             </article>
