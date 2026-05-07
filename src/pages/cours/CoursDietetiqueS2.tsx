@@ -107,6 +107,28 @@ import ch2Img17 from "@/assets/cours-diet-s2/ch2/img17.png";
 import ch2Img18 from "@/assets/cours-diet-s2/ch2/img18.png";
 import ch2Img19 from "@/assets/cours-diet-s2/ch2/img19.png";
 
+// Chapitre 2 — Sections supplémentaires (parathyroïdes, surrénales, pancréas)
+import ch2Parathy from "@/assets/cours-diet-s2/ch2/parathy-anat.jpg";
+import ch2ParathyPth from "@/assets/cours-diet-s2/ch2/parathy-pth.jpg";
+import ch2ParathyCa from "@/assets/cours-diet-s2/ch2/parathy-calcium.jpg";
+import ch2ParathyCalcemie from "@/assets/cours-diet-s2/ch2/parathy-calcemie.jpg";
+import ch2SurrRein from "@/assets/cours-diet-s2/ch2/surrenale-rein.jpg";
+import ch2SurrZones from "@/assets/cours-diet-s2/ch2/surrenale-zones.jpg";
+import ch2Medullo from "@/assets/cours-diet-s2/ch2/medullo.jpg";
+import ch2CortReg from "@/assets/cours-diet-s2/ch2/cortisol-reg.jpg";
+import ch2Stress from "@/assets/cours-diet-s2/ch2/stress.jpg";
+import ch2PancHisto from "@/assets/cours-diet-s2/ch2/pancreas-histo.jpg";
+import ch2Ilot from "@/assets/cours-diet-s2/ch2/ilot-langerhans.jpg";
+import ch2GlycVal from "@/assets/cours-diet-s2/ch2/glycemie-valeur.jpg";
+import ch2GlycRep from "@/assets/cours-diet-s2/ch2/glycemie-rep.jpg";
+import ch2InsGluc from "@/assets/cours-diet-s2/ch2/insuline-glucagon.jpg";
+import ch2Diabete from "@/assets/cours-diet-s2/ch2/diabete-info.jpg";
+import ch2GlycNiv from "@/assets/cours-diet-s2/ch2/glycemie-niveau.jpg";
+import ch2GlycReg from "@/assets/cours-diet-s2/ch2/glycemie-reg.jpg";
+import ch2MetabProt from "@/assets/cours-diet-s2/ch2/metab-prot.jpg";
+import ch2MetabLip from "@/assets/cours-diet-s2/ch2/metab-lip.jpg";
+import ch2MetabGluc from "@/assets/cours-diet-s2/ch2/metab-gluc.jpg";
+
 const PASSWORD = "DN2026";
 const STORAGE_KEY = "diet_s2_unlocked";
 
@@ -227,6 +249,9 @@ const CHAPTERS: Chapter[] = [
       { id: "sec-2-1", title: "1. Notions générales d'endocrinologie" },
       { id: "sec-2-2", title: "2. Axe hypothalamo-hypophysaire" },
       { id: "sec-2-3", title: "3. La thyroïde" },
+      { id: "sec-2-4", title: "4. Les parathyroïdes" },
+      { id: "sec-2-5", title: "5. Les surrénales" },
+      { id: "sec-2-6", title: "6. Le pancréas endocrine" },
     ],
   },
 ];
@@ -2685,7 +2710,7 @@ function Section2_1() {
     <section>
       <H2 id="sec-2-1">1. Notions générales d'endocrinologie</H2>
 
-      <Figure src={ch2Img1} n="Figure 1" legend="Vue d'ensemble du système endocrinien" />
+      <Figure src={ch2Img1} n="Figure 38" legend="Vue d'ensemble du système endocrinien" />
 
       <H3 id="sec-2-1-1">1.1. Système endocrinien</H3>
       <p className="mb-3 text-foreground/90">
@@ -2727,7 +2752,7 @@ function Section2_1() {
           <li>une même glande endocrine peut sécréter plusieurs types d'hormones.</li>
         </ul>
       </Callout>
-      <Figure src={ch2Img2} n="Figure 2" legend="Localisation des principales glandes du système endocrinien" />
+      <Figure src={ch2Img2} n="Figure 39" legend="Localisation des principales glandes du système endocrinien" />
 
       <H3 id="sec-2-1-3">1.3. Hormones</H3>
 
@@ -2736,9 +2761,9 @@ function Section2_1() {
         Les hormones sont des <strong>molécules qui sont sécrétées dans le milieu intérieur par</strong> des cellules spécifiques, <strong>les cellules endocrines</strong>, <strong>puis transportées par</strong> les liquides internes, en particulier <strong>le sang, pour agir sur des cellules cibles situées à distance en se fixant sur des récepteurs</strong> qui sont des protéines capables de les reconnaître de façon sélective. Cette définition correspond à l'endocrinie.
       </p>
       <p className="mb-3 text-foreground/90">
-        Mais l'action des hormones peut s'exercer de façon paracrine (sur les cellules voisines) ou encore de façon autocrine (sur les cellules sécrétrices elles-mêmes) (Figure 3).
+        Mais l'action des hormones peut s'exercer de façon paracrine (sur les cellules voisines) ou encore de façon autocrine (sur les cellules sécrétrices elles-mêmes) (Figure 40).
       </p>
-      <Figure src={ch2Img3} n="Figure 3" legend="Les différents moyens de communication hormonale : endocrinie, autocrinie, paracrinie." />
+      <Figure src={ch2Img3} n="Figure 40" legend="Les différents moyens de communication hormonale : endocrinie, autocrinie, paracrinie." />
 
       <H4 id="sec-2-1-3-2">1.3.2. Nature chimique des hormones</H4>
       <p className="mb-2 text-foreground/90">Il existe 3 grands groupes d'hormones selon leur nature chimique :</p>
@@ -2750,7 +2775,7 @@ function Section2_1() {
 
       <H4 id="sec-2-1-3-3">1.3.3. Stimulation des glandes endocrines</H4>
       <p className="mb-3 text-foreground/90">
-        La stimulation des glandes endocrines est réalisée par 3 mécanismes différents (Figure 4) :
+        La stimulation des glandes endocrines est réalisée par 3 mécanismes différents (Figure 41) :
       </p>
       <p className="mb-3 text-foreground/90">
         <strong>Stimulation humorale :</strong> ex : la diminution du taux sanguin de calcium déclenche la libération de parathormone (PTH) par les glandes parathyroïdes. La parathormone élève le taux sanguin de calcium en stimulant, entre autres, la libération de Ca<sup>2+</sup> des os. Ce qui va mettre fin au stimulus provoquant la sécrétion de PTH.
@@ -2761,7 +2786,7 @@ function Section2_1() {
       <p className="mb-3 text-foreground/90">
         <strong>Stimulus hormonal :</strong> les hormones libérées par l'hypothalamus stimulent l'adénohypophyse : celle-ci va libérer des hormones qui amènent d'autres glandes endocrines à sécréter des hormones. Ainsi, l'hypothalamus régit une grande partie de l'activité du système endocrinien.
       </p>
-      <Figure src={ch2Img4} n="Figure 4" legend="Stimulation des glandes endocrines" />
+      <Figure src={ch2Img4} n="Figure 41" legend="Stimulation des glandes endocrines" />
     </section>
   );
 }
@@ -2778,13 +2803,13 @@ function Section2_2() {
         La région hypothalamique est le véritable « <strong>cerveau endocrinien</strong> » de l'organisme puisqu'elle commande la sécrétion de toutes les glandes endocrines du corps — pancréas, thyroïde et parathyroïdes, ovaires et testicules, surrénales — à commencer par l'hypophyse. La fonction de l'hypophyse est sous la dépendance de l'hypothalamus.
       </p>
       <p className="mb-3 text-foreground/90">
-        L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 5).
+        L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 42).
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
         <img src={ch2Img5} alt="Hypothalamus - vue 1" className="w-full rounded-lg border border-border" />
         <img src={ch2Img6} alt="Hypothalamus - vue 2" className="w-full rounded-lg border border-border" />
       </div>
-      <Figure src={ch2Img7} n="Figure 5" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
+      <Figure src={ch2Img7} n="Figure 42" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
       <p className="mb-3 text-foreground/90">
         L'hypothalamus se situe dans le plancher du troisième ventricule, se compose de 7 noyaux distincts.
       </p>
@@ -2801,13 +2826,13 @@ function Section2_2() {
         <li><strong>La somatostatine</strong>, qui inhibe la sécrétion de GH et de TSH ;</li>
         <li><strong>Le PIF</strong> (Prolactine Inhibitory Factor), qui inhibe la sécrétion de PRL.</li>
       </ul>
-      <Figure src={ch2Img8} n="Figure 6" legend="Hormones hypothalamiques et leurs cibles hypophysaires" />
+      <Figure src={ch2Img8} n="Figure 43" legend="Hormones hypothalamiques et leurs cibles hypophysaires" />
 
       <H3 id="sec-2-2-2">2.2. Hypophyse</H3>
 
       <H4 id="sec-2-2-2-1">2.2.1. Définition et structure anatomique</H4>
       <p className="mb-3 text-foreground/90">
-        L'hypophyse (ou glande pituitaire) est une petite glande, de la taille d'une noisette, ne pesant 0,5 à 0,7 g, située à la base de l'encéphale, dans une loge osseuse : la selle turcique de l'os sphénoïde, et est située sous l'hypothalamus auquel elle est reliée par la tige pituitaire, ou infundibulum (Figure 5).
+        L'hypophyse (ou glande pituitaire) est une petite glande, de la taille d'une noisette, ne pesant 0,5 à 0,7 g, située à la base de l'encéphale, dans une loge osseuse : la selle turcique de l'os sphénoïde, et est située sous l'hypothalamus auquel elle est reliée par la tige pituitaire, ou infundibulum (Figure 42).
       </p>
       <p className="mb-2 text-foreground/90">Elle est constituée de trois parties :</p>
       <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
@@ -2818,7 +2843,7 @@ function Section2_2() {
       <p className="mb-3 text-foreground/90">
         Les lobes antérieur, intermédiaire et postérieur sécrètent des hormones qui agissent sur des organes cibles stimulant leur propre sécrétion endocrine ou exocrine.
       </p>
-      <Figure src={ch2Img9} n="Figure 7" legend="Les différentes parties de l'hypophyse (ou glande pituitaire)" />
+      <Figure src={ch2Img9} n="Figure 44" legend="Les différentes parties de l'hypophyse (ou glande pituitaire)" />
 
       <H3 id="sec-2-2-3">2.3. Physiologie</H3>
 
@@ -2843,12 +2868,12 @@ function Section2_2() {
 
       <H4 id="sec-2-2-3-3">2.3.3. Régulation et effets des hormones hypophysaires</H4>
       <p className="mb-3 text-foreground/90">
-        Les tableaux 1 et 2 (Figures 8 à 11) montrent les différentes hormones hypophysaires, leurs régulations ainsi que leurs actions.
+        Les tableaux 6 et 7 (Figures 45 à 48) montrent les différentes hormones hypophysaires, leurs régulations ainsi que leurs actions.
       </p>
-      <Figure src={ch2Img10} n="Figure 8" legend="Tableau 1 — Hormones antéhypophysaires : régulation et actions (1)" />
-      <Figure src={ch2Img11} n="Figure 9" legend="Tableau 1 (suite) — Hormones antéhypophysaires : régulation et actions (2)" />
-      <Figure src={ch2Img12} n="Figure 10" legend="Tableau 2 — Hormones posthypophysaires : régulation et actions" />
-      <Figure src={ch2Img13} n="Figure 11" legend="Synthèse de la régulation hypothalamo-hypophysaire" />
+      <Figure src={ch2Img10} n="Figure 45" legend="Tableau 6 — Hormones antéhypophysaires : régulation et actions (1)" />
+      <Figure src={ch2Img11} n="Figure 46" legend="Tableau 6 (suite) — Hormones antéhypophysaires : régulation et actions (2)" />
+      <Figure src={ch2Img12} n="Figure 47" legend="Tableau 7 — Hormones posthypophysaires : régulation et actions" />
+      <Figure src={ch2Img13} n="Figure 48" legend="Synthèse de la régulation hypothalamo-hypophysaire" />
     </section>
   );
 }
@@ -2863,7 +2888,7 @@ function Section2_3() {
         La glande thyroïde est située dans le cou, devant le larynx et la trachée, à la hauteur des vertèbres cervicales. Elle est très vascularisée, pèse environ 30 g, elle est en forme de papillon, formée de deux lobes réunis par un isthme. La thyroïde est accessible à la palpation.
       </p>
       <p className="mb-3 text-foreground/90">
-        Elle comprend 2 types de cellules : les cellules folliculaires et parafolliculaires (Figure 12).
+        Elle comprend 2 types de cellules : les cellules folliculaires et parafolliculaires (Figure 49).
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
@@ -2884,7 +2909,7 @@ function Section2_3() {
         </figure>
       </div>
       <p className="text-center text-sm text-muted-foreground -mt-2 mb-6">
-        <span className="font-semibold text-foreground">Figure 12.</span> Glande thyroïde et structure histologique de la glande thyroïde
+        <span className="font-semibold text-foreground">Figure 49.</span> Glande thyroïde et structure histologique de la glande thyroïde
       </p>
 
       <H3 id="sec-2-3-2">3.2. Physiologie</H3>
@@ -2935,7 +2960,7 @@ function Section2_3() {
       <H4 id="sec-2-3-2-5">3.2.5. La sécrétion des hormones thyroïdiennes</H4>
       <p className="mb-2 text-foreground/90">La sécrétion des hormones thyroïdiennes est principalement contrôlée par :</p>
       <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
-        <li><strong>la TSH</strong> (Thyroid Stimulating Hormone) hypophysaire et par les hormones thyroïdiennes (Figure 13).</li>
+        <li><strong>la TSH</strong> (Thyroid Stimulating Hormone) hypophysaire et par les hormones thyroïdiennes (Figure 50).</li>
         <li>Mais d'autres facteurs, comme la <strong>quantité d'iodures</strong> apportés dans la glande. C'est <em>l'effet Wolff-Chaikoff</em> : une surcharge très importante en iodures (supérieure à 2 mg par jour) freine la captation des iodures par la glande thyroïde et stoppe la synthèse des hormones thyroïdiennes.</li>
         <li>La synthèse des hormones thyroïdiennes est stimulée par <strong>la noradrénaline libérée</strong> lors d'une stimulation des fibres sympathiques.</li>
       </ul>
@@ -2947,18 +2972,209 @@ function Section2_3() {
       <p className="mb-3 text-foreground/90">
         Lorsque la concentration de T4 diminue, l'axe hypothalamo-hypophysaire est stimulé et la sécrétion de TSH augmente. À l'inverse, lorsque la concentration de T4 augmente, l'axe hypothalamo-hypophysaire est freiné et la sécrétion de TSH diminue.
       </p>
-      <Figure src={ch2Img18} n="Figure 13" legend="Régulation et action des hormones thyroïdiennes" />
+      <Figure src={ch2Img18} n="Figure 50" legend="Régulation et action des hormones thyroïdiennes" />
       <Callout type="note">
         <p><strong><u>Remarque :</u></strong> La thyroïde sécrète principalement T4. La conversion de T4 en T3 se produit dans de nombreux organes notamment le foie, grâce à une enzyme, la thyroxine-5'-désiodase qui réalise la 5'-monodésiodation de T4. Ainsi, 80 % de la T3 provient de la désiodation de la T4 et seulement 20 % provient de la synthèse thyroïdienne.</p>
       </Callout>
 
       <H3 id="sec-2-3-3">3.3. Pathologies thyroïdiennes</H3>
-      <Figure src={ch2Img19} n="Figure 14" legend="Tableau 3 — Principales pathologies thyroïdiennes" />
+      <Figure src={ch2Img19} n="Figure 51" legend="Tableau 8 — Principales pathologies thyroïdiennes" />
     </section>
   );
 }
 
-/* ---------- Composant principal ---------- */
+function Section2_4() {
+  return (
+    <section>
+      <H2 id="sec-2-4">4. Les parathyroïdes</H2>
+      <H3 id="sec-2-4-1">4.1. Anatomie</H3>
+      <p className="mb-3 text-foreground/90">Les glandes parathyroïdiennes sont généralement au nombre de quatre, les deux glandes supérieures sont accolées à la thyroïde et les deux glandes inférieures sont incluses dans les lobes thyroïdiens en position latérodorsale.</p>
+      <p className="mb-3 text-foreground/90">Les dimensions de chaque glande sont de 6×4×2 mm. Le poids est de 20 à 50 mg pour chaque glande, soit 150 mg au total, face à 25 g pour la thyroïde. La vascularisation est assurée par des ramifications de plusieurs artères thyroïdiennes.</p>
+      <Figure src={ch2Parathy} n="Figure 52" legend="Glandes parathyroïdiennes." />
+      <H3 id="sec-2-4-2">4.2. Histologie</H3>
+      <p className="mb-2 text-foreground/90">Le tissu des glandes parathyroïdes contient deux types de cellules :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>Les cellules principales</strong>, qui peuvent être <em>claires</em> (vacuolisées, ayant sécrété la PTH) ou <em>foncées</em> (qui synthétisent et sécrètent beaucoup de PTH).</li>
+        <li><strong>Les cellules oxyphiles</strong>, plus grandes, dépourvues de glycogène, ayant un noyau très petit et dont le rôle est inconnu à l'heure actuelle.</li>
+      </ul>
+      <H3 id="sec-2-4-3">4.3. Physiologie</H3>
+      <H4 id="sec-2-4-3-1">4.3.1. Action de l'hormone sécrétée</H4>
+      <p className="mb-3 text-foreground/90">Les parathyroïdes, indispensables à la vie, contrôlent la calcémie et la maintiennent aux environs de 100 mg/L. Les cellules principales sécrètent la <strong>parathormone (PTH)</strong>, protéine de 84 acides aminés.</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>La PTH est <strong>activée par l'hypocalcémie</strong> et <strong>inhibée par l'hypercalcémie</strong>.</li>
+        <li>Elle stimule la résorption osseuse, induisant un flux de calcium de l'os vers le sang.</li>
+        <li>Elle augmente la réabsorption tubulaire rénale du calcium et diminue celle du phosphore.</li>
+        <li>Elle est <strong>hypercalcémiante</strong> et hypophosphorémiante.</li>
+      </ul>
+      <Figure src={ch2ParathyPth} n="Figure 53" legend="Organigramme résumant les principales actions de la parathormone." />
+      <p className="mb-2 text-foreground/90 font-semibold">a. Au niveau de l'os</p>
+      <p className="mb-3 text-foreground/90">Dans le tissu osseux, elle <strong>provoque la décomposition de la matrice minéralisée</strong> renfermant du phosphate de calcium et la libération de Ca<sup>2+</sup> dans le sang, ce qui tend à augmenter la calcémie et la phosphatémie et à libérer l'hydroxyproline, la pyridinoline et la déoxypyridinoline retrouvées dans les urines.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Au niveau du rein</p>
+      <p className="mb-3 text-foreground/90">Dans les reins, elle <strong>inhibe l'élimination urinaire</strong> du calcium et favorise la conversion de la vitamine D en sa forme active (D3 ou cholécalciférol), processus accéléré par la PTH après une activation initiale dans le foie.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">c. Au niveau de l'intestin</p>
+      <p className="mb-3 text-foreground/90">La PTH n'exerce pas d'effet direct sur l'intestin. Cependant, la forme active de la vitamine D agit directement sur les intestins où elle stimule l'absorption du Ca<sup>2+</sup>, augmentant ainsi l'effet de la PTH. Une boucle de rétroinhibition fait cesser la libération de PTH.</p>
+      <Figure src={ch2ParathyCa} n="Figure 54" legend="Régulation du contenu du calcium de l'organisme. Vert : actions élevant le calcium sanguin ; bleu : celles qui le diminuent. PTH : parathormone, D : vitamine D, CT : calcitonine." />
+      <H4 id="sec-2-4-3-2">4.3.2. Contrôle de la sécrétion de PTH</H4>
+      <p className="mb-3 text-foreground/90">La PTH a une demi-vie d'environ 5 minutes et est sécrétée en continu à un faible taux. Une boucle de rétroaction négative directe entre les ions calcium plasmatiques et la sécrétion de PTH passe par le récepteur sensible au calcium (CaSR) sur la membrane des cellules principales.</p>
+      <p className="mb-3 text-foreground/90">L'hypocalcémie est le stimulus le plus puissant ; l'hypercalcémie inhibe la libération de PTH. La PTH élève le Ca<sup>2+</sup> sanguin en stimulant 3 organes : squelette, reins et intestin (Figure 55).</p>
+      <Figure src={ch2ParathyCalcemie} n="Figure 55" legend="La régulation homéostatique de la calcémie : actions opposées de la calcitonine et de la PTH." />
+      <H4 id="sec-2-4-3-3">4.3.3. Hyper- / hypo-parathyroïdie</H4>
+      <p className="mb-3 text-foreground/90">La régulation rigoureuse de la calcémie est vitale. Une forte baisse provoque des contractions convulsives (tétanie, mortelle si non traitée). Une augmentation marquée peut entraîner des dépôts de phosphate de calcium dans les tissus, causant des dommages organiques étendus.</p>
+    </section>
+  );
+}
+
+function Section2_5() {
+  return (
+    <section>
+      <H2 id="sec-2-5">5. Les surrénales</H2>
+      <H3 id="sec-2-5-1">5.1. Anatomie</H3>
+      <p className="mb-3 text-foreground/90">Les glandes surrénales sont situées juste au-dessus de chaque rein (Figure 56). Chaque glande est constituée de 2 zones :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>une zone médullaire (médullosurrénale)</strong> qui produit des catécholamines, principalement l'adrénaline ;</li>
+        <li><strong>une zone corticale (corticosurrénale ou cortex)</strong> occupant 90 % de la glande et sécrétant des hormones stéroïdes (à partir du cholestérol), composée de 3 parties :
+          <ul className="list-disc pl-6 mt-1 space-y-1">
+            <li><strong>zone glomérulée externe (10 %)</strong> : minéralocorticoïdes (aldostérone) ;</li>
+            <li><strong>zone fasciculée centrale (75 %)</strong> : glucocorticoïdes (cortisol) ;</li>
+            <li><strong>zone réticulée interne (15 %)</strong> : androgènes surrénaliens (DHEA, androstènedione).</li>
+          </ul>
+        </li>
+      </ul>
+      <div className="grid sm:grid-cols-2 gap-4 my-4">
+        <img src={ch2SurrRein} alt="Surrénale et rein" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+        <img src={ch2SurrZones} alt="Zones de la glande surrénale" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+      </div>
+      <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 56.</span> Glandes surrénaliennes et hormones sécrétées.</p>
+      <H3 id="sec-2-5-2">5.2. La médullosurrénale</H3>
+      <p className="mb-3 text-foreground/90">Les hormones médullaires sont les catécholamines, principalement adrénaline et noradrénaline.</p>
+      <H4 id="sec-2-5-2-1">5.2.1. Effets hormonaux</H4>
+      <p className="mb-2 text-foreground/90">Sécrétées en réponse à la stimulation sympathique (notamment au stress) :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Augmentation de la fréquence cardiaque ;</li>
+        <li>Augmentation de la pression artérielle ;</li>
+        <li>Dilatation des bronchioles ;</li>
+        <li>Augmentation du glucose sanguin ;</li>
+        <li>Diminution de l'activité digestive.</li>
+      </ul>
+      <H4 id="sec-2-5-2-2">5.2.2. Régulation</H4>
+      <p className="mb-3 text-foreground/90">Un manque ne produit aucun effet significatif. L'<strong>hypersécrétion</strong> (souvent par tumeur) provoque des réactions sympathiques prolongées.</p>
+      <Figure src={ch2Medullo} n="Figure 57" legend="Stimulation sympathique de la médullosurrénale et libération de catécholamines en réponse au stress." />
+      <H3 id="sec-2-5-3">5.3. La corticosurrénale</H3>
+      <H4 id="sec-2-5-3-1">5.3.1. Les glucocorticoïdes</H4>
+      <p className="mb-3 text-foreground/90">Indispensables à la vie, ils régulent le métabolisme glucidique et la résistance au stress. Le cortisol représente 95 % de l'activité glucocorticoïde.</p>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Rôle</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-2">
+        <li><strong>Métabolisme glucidique</strong> : hyperglycémiant (néoglucogenèse hépatique).</li>
+        <li><strong>Métabolisme protéique</strong> : protéolyse (muscles, peau, os) ; en excès → atrophie musculaire ; les acides aminés sont captés par le foie pour la formation de glucose.</li>
+        <li><strong>Métabolisme lipidique</strong> : lipolyse, hypercholestérolémiant, hypertriglycéridémiant.</li>
+      </ul>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Régulation</p>
+      <p className="mb-3 text-foreground/90">Sous contrôle de l'axe hypothalamo-hypophyso-surrénalien (rythme circadien) : la <strong>CRH</strong> hypothalamique stimule l'<strong>ACTH</strong> hypophysaire, qui stimule les glucocorticoïdes. Les glucocorticoïdes exercent un <u>rétrocontrôle négatif</u> sur l'ACTH et la CRH.</p>
+      <Figure src={ch2CortReg} n="Figure 58" legend="Axe hypothalamo-hypophyso-surrénalien : régulation de la sécrétion de cortisol et effets périphériques." />
+      <Callout type="note">
+        <p className="font-semibold mb-1">Effets des fortes doses de cortisol :</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Réduisent la réaction inflammatoire ;</li>
+          <li>Favorisent une rétention de Na<sup>+</sup> et d'eau ;</li>
+          <li>Suppriment le système immunitaire ;</li>
+          <li>Inhibent la réparation tissulaire.</li>
+        </ul>
+      </Callout>
+      <H4 id="sec-2-5-3-2">5.3.2. Les minéralocorticoïdes</H4>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Rôle</p>
+      <p className="mb-3 text-foreground/90">L'aldostérone agit sur le métabolisme hydrominéral au niveau du rein (tubule distal) et joue un rôle majeur dans la régulation de la pression artérielle :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Stimule la réabsorption de sodium (échange avec K<sup>+</sup>) accompagnée d'une réabsorption d'eau → ↑ volémie et pression artérielle ;</li>
+        <li>Stimule l'élimination des H<sup>+</sup> (alcalose métabolique).</li>
+      </ul>
+      <Figure src={ch2Stress} n="Figure 59" legend="Réponse intégrée au stress : axes sympathique-médullosurrénalien (court terme) et corticotrope (long terme)." />
+      <p className="mb-2 text-foreground/90 font-semibold">b. Régulation</p>
+      <p className="mb-3 text-foreground/90">Régulée principalement par le système rénine-angiotensine et la kaliémie. L'aldostérone exerce un rétrocontrôle négatif sur la rénine.</p>
+      <H4 id="sec-2-5-3-3">5.3.3. Les androgènes surrénaliens</H4>
+      <p className="mb-3 text-foreground/90">Essentiellement DHEA et androstènedione, liés à l'albumine. Convertis dans les tissus périphériques en androgènes plus actifs (testostérone, delta-4 androstènedione) ou en œstrogènes. Rôle négligeable chez l'homme (5 % de la testostérone totale) ; chez la femme : 40-65 % de la testostérone provient de cette conversion. Sécrétion stimulée par l'ACTH (rythme circadien parallèle à celui du cortisol).</p>
+    </section>
+  );
+}
+
+function Section2_6() {
+  return (
+    <section>
+      <H2 id="sec-2-6">6. Le pancréas endocrine</H2>
+      <H3 id="sec-2-6-1">6.1. Situation</H3>
+      <p className="mb-3 text-foreground/90">Le pancréas, adjacent à l'estomac, est connecté par le canal pancréatique au duodénum. Par ce canal, il sécrète des ions bicarbonate et diverses enzymes digestives.</p>
+      <H3 id="sec-2-6-2">6.2. Anatomie</H3>
+      <p className="mb-2 text-foreground/90">Le pancréas est un <strong>organe amphicrine</strong> :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>99 % exocrines</strong> (acineuses) : produisent le suc pancréatique ;</li>
+        <li><strong>1 % endocrines</strong> rassemblées en <em>îlots de Langerhans</em> (150-300 μm), entourés d'artérioles et pénétrés par de nombreux capillaires.</li>
+      </ul>
+      <p className="mb-2 text-foreground/90">Chaque îlot comprend 2 500 à 3 000 cellules de quatre types :</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li>Cellules <strong>B (β)</strong> (60-70 %, centrales) : <strong>insuline</strong> (hypoglycémiante) ;</li>
+        <li>Cellules <strong>A (α)</strong> (20-25 %) : <strong>glucagon</strong> (hyperglycémiante) ;</li>
+        <li>Cellules <strong>D (δ)</strong> (10 %) : <strong>somatostatine</strong> ;</li>
+        <li>Cellules <strong>PP</strong> (10 %) : <strong>polypeptide pancréatique</strong>.</li>
+      </ul>
+      <Callout><p><strong>Remarque :</strong> Le pancréas endocrine est totalement indépendant du pancréas exocrine sur le plan fonctionnel.</p></Callout>
+      <Figure src={ch2PancHisto} n="Figure 60" legend="Histologie simplifiée du pancréas." />
+      <Figure src={ch2Ilot} n="Figure 61" legend="Un îlot de Langerhans : vaisseaux sanguins, pancréas exocrine, cellules α et β." />
+      <H3 id="sec-2-6-3">6.3. Régulation de la sécrétion hormonale</H3>
+      <Figure src={ch2GlycVal} n="Figure 62" legend="Valeur de la glycémie : entre glycopénie et hyperglycémie. Limites haute (≈ 1,1 g/L) et basse." />
+      <p className="mb-3 text-foreground/90">Une perturbation de la glycémie permet, via un système réglant et des organes effecteurs (tissu adipeux, muscles, foie), de revenir à la valeur de consigne : <Mark>rétrocontrôle négatif</Mark>.</p>
+      <H4 id="sec-2-6-3-1">6.3.1. En cas d'hypoglycémie</H4>
+      <p className="mb-3 text-foreground/90">Une <Mark>hypoglycémie</Mark> est détectée par les <strong>cellules α</strong> qui libèrent du <strong>glucagon</strong>. Celui-ci stimule la lipolyse et surtout, dans le foie, la <strong>néoglucogenèse</strong>. La glycémie remonte : le glucagon est <strong>hyperglycémiant</strong>.</p>
+      <Figure src={ch2GlycRep} n="Figure 63" legend="Réponses aux variations de la glycémie : insuline et glucagon." />
+      <div className="grid sm:grid-cols-3 gap-4 my-4">
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabProt} alt="Protéines" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des protéines</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabLip} alt="Lipides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des lipides</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabGluc} alt="Glucides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des glucides</figcaption></figure>
+      </div>
+      <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 64.</span> Anabolisme et catabolisme des protéines, lipides et glucides.</p>
+      <H4 id="sec-2-6-3-2">6.3.2. En cas d'hyperglycémie</H4>
+      <p className="mb-3 text-foreground/90">Une <strong>hyperglycémie</strong> (post-prandiale) est détectée par les <strong>cellules β</strong> qui libèrent l'<strong>insuline</strong>. Celle-ci se fixe sur les récepteurs des hépatocytes, fibres musculaires et adipocytes, stimulant la captation du glucose, la glycogénogenèse et la lipogenèse. La glycémie diminue : l'insuline est <strong>hypoglycémiante</strong>.</p>
+      <Figure src={ch2InsGluc} n="Figure 65" legend="Régulation de la glycémie par l'insuline et le glucagon." />
+      <H3 id="sec-2-6-4">6.4. Actions physiologiques des hormones</H3>
+      <p className="mb-2 text-foreground/90 font-semibold">a. Insuline</p>
+      <p className="mb-3 text-foreground/90">Hormone clé contrôlant l'utilisation de tous les substrats énergétiques (glucides, lipides, protides). Augmente l'anabolisme et le stockage (glycogène, graisses).</p>
+      <p className="mb-2 text-foreground/90 font-semibold">b. Glucagon</p>
+      <p className="mb-3 text-foreground/90">Hormone hyperglycémiante d'urgence, antagoniste de l'insuline ; tissu cible : le foie.</p>
+      <ul className="mb-4 list-disc pl-6 text-foreground/90 space-y-1">
+        <li><strong>Foie</strong> : stimule glycogénolyse et néoglucogenèse ; inhibe la glycogène synthétase.</li>
+        <li>Effet cétogène.</li>
+        <li><strong>Tissu adipeux</strong> : stimule la lipolyse → ↑ acides gras libres.</li>
+        <li>Effet natriurétique.</li>
+        <li>À forte dose : stimule les contractions cardiaques.</li>
+        <li>Stimule de façon paracrine la sécrétion d'insuline.</li>
+      </ul>
+      <H3 id="sec-2-6-5">6.5. Diabète sucré</H3>
+      <Figure src={ch2Diabete} n="Figure 66" legend="Le diabète : maladie chronique. Rôle de l'insuline, types 1 et 2, symptômes, traitement et conséquences." />
+      <Figure src={ch2GlycNiv} n="Figure 67" legend="Glycémie : seuil d'hypoglycémie (&lt; 2,8 mmol/L) et seuil rénal au-delà duquel apparaît la glycosurie." />
+      <Figure src={ch2GlycReg} n="Figure 68" legend="Régulation de la glycémie : actions opposées de l'insuline (cellules β) et du glucagon (cellules α)." />
+      <H4 id="sec-2-6-5-1">Tableau 9 — Système de régulation de la glycémie</H4>
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border border-border text-sm">
+          <tbody>
+            <tr className="bg-muted/40"><td className="border border-border p-2 font-semibold">Système réglé</td><td className="border border-border p-2">Paramètre</td><td className="border border-border p-2"><strong>Glycémie</strong></td><td className="border border-border p-2">Valeur consigne</td><td className="border border-border p-2">1 g·L<sup>−1</sup></td></tr>
+            <tr className="bg-muted/40"><td className="border border-border p-2 font-semibold" rowSpan={3}>Système réglant</td><td className="border border-border p-2">Capteurs</td><td className="border border-border p-2" colSpan={3}><strong>Cellules du pancréas</strong></td></tr>
+            <tr><td className="border border-border p-2">Commande</td><td className="border border-border p-2" colSpan={3}>Hormones du pancréas (insuline, glucagon)</td></tr>
+            <tr><td className="border border-border p-2">Effecteurs</td><td className="border border-border p-2" colSpan={3}><strong>Foie</strong>, muscles, tissu adipeux</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <H4 id="sec-2-6-5-2">Tableau 10 — Diabète sucré : types 1 et 2</H4>
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border border-border text-sm">
+          <thead className="bg-muted/40"><tr><th className="border border-border p-2 text-left">Diabète de type 1</th><th className="border border-border p-2 text-left">Diabète de type 2</th></tr></thead>
+          <tbody>
+            <tr><td className="border border-border p-2">Carence absolue en insuline</td><td className="border border-border p-2">Carence relative en insuline</td></tr>
+            <tr><td className="border border-border p-2">Insuline (base + bolus si possible) + régime adapté</td><td className="border border-border p-2">Régime adapté (réduction calorique, activité physique) → si insuffisant : antidiabétiques oraux → si insuffisant : insuline.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
 
 export default function CoursDietetiqueS2() {
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
@@ -3120,6 +3336,9 @@ export default function CoursDietetiqueS2() {
                   <Section2_1 />
                   <Section2_2 />
                   <Section2_3 />
+                  <Section2_4 />
+                  <Section2_5 />
+                  <Section2_6 />
                 </>
               )}
             </article>
