@@ -2710,7 +2710,7 @@ function Section2_1() {
     <section>
       <H2 id="sec-2-1">1. Notions générales d'endocrinologie</H2>
 
-      <Figure src={ch2Img1} n="Figure 1" legend="Vue d'ensemble du système endocrinien" />
+      <Figure src={ch2Img1} n="Figure 38" legend="Vue d'ensemble du système endocrinien" />
 
       <H3 id="sec-2-1-1">1.1. Système endocrinien</H3>
       <p className="mb-3 text-foreground/90">
@@ -2752,7 +2752,7 @@ function Section2_1() {
           <li>une même glande endocrine peut sécréter plusieurs types d'hormones.</li>
         </ul>
       </Callout>
-      <Figure src={ch2Img2} n="Figure 2" legend="Localisation des principales glandes du système endocrinien" />
+      <Figure src={ch2Img2} n="Figure 39" legend="Localisation des principales glandes du système endocrinien" />
 
       <H3 id="sec-2-1-3">1.3. Hormones</H3>
 
@@ -2761,9 +2761,9 @@ function Section2_1() {
         Les hormones sont des <strong>molécules qui sont sécrétées dans le milieu intérieur par</strong> des cellules spécifiques, <strong>les cellules endocrines</strong>, <strong>puis transportées par</strong> les liquides internes, en particulier <strong>le sang, pour agir sur des cellules cibles situées à distance en se fixant sur des récepteurs</strong> qui sont des protéines capables de les reconnaître de façon sélective. Cette définition correspond à l'endocrinie.
       </p>
       <p className="mb-3 text-foreground/90">
-        Mais l'action des hormones peut s'exercer de façon paracrine (sur les cellules voisines) ou encore de façon autocrine (sur les cellules sécrétrices elles-mêmes) (Figure 3).
+        Mais l'action des hormones peut s'exercer de façon paracrine (sur les cellules voisines) ou encore de façon autocrine (sur les cellules sécrétrices elles-mêmes) (Figure 40).
       </p>
-      <Figure src={ch2Img3} n="Figure 3" legend="Les différents moyens de communication hormonale : endocrinie, autocrinie, paracrinie." />
+      <Figure src={ch2Img3} n="Figure 40" legend="Les différents moyens de communication hormonale : endocrinie, autocrinie, paracrinie." />
 
       <H4 id="sec-2-1-3-2">1.3.2. Nature chimique des hormones</H4>
       <p className="mb-2 text-foreground/90">Il existe 3 grands groupes d'hormones selon leur nature chimique :</p>
@@ -2775,7 +2775,7 @@ function Section2_1() {
 
       <H4 id="sec-2-1-3-3">1.3.3. Stimulation des glandes endocrines</H4>
       <p className="mb-3 text-foreground/90">
-        La stimulation des glandes endocrines est réalisée par 3 mécanismes différents (Figure 4) :
+        La stimulation des glandes endocrines est réalisée par 3 mécanismes différents (Figure 41) :
       </p>
       <p className="mb-3 text-foreground/90">
         <strong>Stimulation humorale :</strong> ex : la diminution du taux sanguin de calcium déclenche la libération de parathormone (PTH) par les glandes parathyroïdes. La parathormone élève le taux sanguin de calcium en stimulant, entre autres, la libération de Ca<sup>2+</sup> des os. Ce qui va mettre fin au stimulus provoquant la sécrétion de PTH.
@@ -2786,7 +2786,7 @@ function Section2_1() {
       <p className="mb-3 text-foreground/90">
         <strong>Stimulus hormonal :</strong> les hormones libérées par l'hypothalamus stimulent l'adénohypophyse : celle-ci va libérer des hormones qui amènent d'autres glandes endocrines à sécréter des hormones. Ainsi, l'hypothalamus régit une grande partie de l'activité du système endocrinien.
       </p>
-      <Figure src={ch2Img4} n="Figure 4" legend="Stimulation des glandes endocrines" />
+      <Figure src={ch2Img4} n="Figure 41" legend="Stimulation des glandes endocrines" />
     </section>
   );
 }
