@@ -1,34 +1,19 @@
-import { useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import AccueilPage from "@/pages/AccueilPage";
-import LicencePage from "@/pages/LicencePage";
-import MasterPage from "@/pages/MasterPage";
-import PfePage from "@/pages/PfePage";
-import CvPage from "@/pages/CvPage";
 
 const Index = () => {
-  const [activePage, setActivePage] = useState("accueil");
-
-  const renderPage = () => {
-    switch (activePage) {
-      case "accueil":
-        return <AccueilPage onNavigate={setActivePage} />;
-      case "licence":
-        return <LicencePage />;
-      case "master":
-        return <MasterPage />;
-      case "cv":
-        return <CvPage />;
-      default:
-        return <AccueilPage onNavigate={setActivePage} />;
-    }
-  };
+  const { pathname } = useLocation();
+  const activePage =
+    pathname === "/" ? "accueil" :
+    pathname.startsWith("/licence") ? "licence" :
+    pathname.startsWith("/master") ? "master" :
+    pathname.startsWith("/cv") ? "cv" : "";
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <SiteHeader activePage={activePage} onNavigate={setActivePage} />
-      <main className="flex-1">{renderPage()}</main>
+      <SiteHeader activePage={activePage} />
+      <main className="flex-1"><Outlet /></main>
       <SiteFooter />
     </div>
   );

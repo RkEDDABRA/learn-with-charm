@@ -1,14 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
-
-interface AccueilPageProps {
-  onNavigate: (page: string) => void;
-}
 
 const actualites = [
   { tag: "2026", tagColor: "bg-rose/10 text-rose", text: "Molecular Diagnostic Tests for Tuberculosis — Diagnostics (IN PRESS)" },
@@ -17,7 +14,19 @@ const actualites = [
   { tag: "Dubai", tagColor: "bg-gold/10 text-gold", text: "12th International Nursing Conference 2023 — Miliary tuberculosis in children" },
 ];
 
-export default function AccueilPage({ onNavigate }: AccueilPageProps) {
+const PAGE_TO_PATH: Record<string, string> = {
+  accueil: "/",
+  cv: "/cv",
+  licence: "/licence",
+  master: "/master",
+};
+
+export default function AccueilPage() {
+  const navigate = useNavigate();
+  const onNavigate = (page: string) => {
+    navigate(PAGE_TO_PATH[page] ?? "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const { toast } = useToast();
   const [contactForm, setContactForm] = useState({ nom: "", email: "", sujet: "", message: "" });
   const [activeActuTab, setActiveActuTab] = useState("recherche");
