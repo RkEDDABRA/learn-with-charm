@@ -20,6 +20,9 @@ import fig15 from "@/assets/cours-sf-s1/microbio/fig15-pili-fimbriae.jpg";
 import fig16 from "@/assets/cours-sf-s1/microbio/fig16-spore-structure.jpg";
 import fig17 from "@/assets/cours-sf-s1/microbio/fig17-cycle-sporal.jpg";
 import fig18 from "@/assets/cours-sf-s1/microbio/fig18-formes-spore.jpg";
+import fig19 from "@/assets/cours-sf-s1/microbio/fig17-oxygene.jpg";
+import fig20 from "@/assets/cours-sf-s1/microbio/fig18-scissiparite.jpg";
+import fig21 from "@/assets/cours-sf-s1/microbio/fig19-courbe-croissance.jpg";
 
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig01 },
@@ -38,6 +41,9 @@ const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   14: { src: fig16 },
   15: { src: fig17 },
   16: { src: fig18 },
+  17: { src: fig19 },
+  18: { src: fig20 },
+  19: { src: fig21 },
 };
 
 const COURSE_PASSWORD = "SB2026";
@@ -497,6 +503,215 @@ const SEC_BACT: Section = {
         <li>une diminution du nombre de liaisons entre NAM et NAG,</li>
         <li>la présence de protéines de type kératine dans les tuniques.</li>
       </UL>
+
+      {/* ============================================================ */}
+      {/* === 1.3 PHYSIOLOGIE ET CROISSANCE BACTÉRIENNE === */}
+      {/* ============================================================ */}
+      <H2>1.3 Physiologie et croissance bactérienne</H2>
+      <Callout type="definition" title="Notions clés">
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Physiologie bactérienne</strong> : étudie la nutrition, le métabolisme et la croissance des bactéries en fonction des variations (naturelles ou contrôlées) du milieu dans lequel elles vivent.</li>
+          <li><strong>Nutrition</strong> : besoins élémentaires et énergétiques nécessaires à la croissance de la bactérie, ainsi que des facteurs physico-chimiques susceptibles d'influencer cette croissance.</li>
+          <li><strong>Métabolisme</strong> : ensemble des réactions biochimiques mises en jeu par une bactérie pour permettre sa croissance.</li>
+          <li><strong>Croissance bactérienne</strong> : accroissement de la population par unité de temps (à distinguer de la croissance des organismes supérieurs).</li>
+        </ul>
+      </Callout>
+
+      <H3>1.3.1 Introduction</H3>
+      <P>
+        Pour étudier les bactéries, il faut être capable de les faire croître en culture pure. Pour cela, il faut connaître les types de nutriments dont elles ont besoin,
+        ainsi que les différentes conditions physiques qui permettent une croissance optimale.
+      </P>
+      <P>
+        En dehors de l'eau, les micro-organismes sont principalement constitués de molécules de taille importante (<strong>protéines</strong>, <strong>acides nucléiques</strong>,
+        <strong> polysaccharides</strong> et <strong>lipides</strong>) : les polymères représentent plus de 95 % du poids sec de la cellule. Ces macromolécules résultent de
+        l'assemblage de petites molécules solubles disponibles dans le cytoplasme (acides aminés, bases azotées, oses…). Les <strong>ions minéraux</strong> ne représentent
+        que 1 % du poids sec de la cellule. Pour réaliser ces biosynthèses, un micro-organisme doit disposer des <strong>nutriments</strong> nécessaires et d'une
+        <strong> source d'énergie</strong> utilisable.
+      </P>
+
+      <H3>1.3.2 Métabolisme bactérien</H3>
+      <P>Les réactions métaboliques peuvent être classées en deux catégories :</P>
+      <UL>
+        <li>celles qui <strong>produisent</strong> de l'énergie : <em>catabolisme</em>,</li>
+        <li>celles qui <strong>consomment</strong> de l'énergie : <em>anabolisme</em> (ou biosynthèse).</li>
+      </UL>
+      <DataTable
+        caption="Tableau 4 — Catabolisme vs Anabolisme"
+        headers={["Catabolisme", "Anabolisme"]}
+        rows={[
+          ["Dégradation de molécules organiques (rupture des liens chimiques)", "Synthèse de molécules organiques (création de liens chimiques)"],
+          ["Réactions libérant de l'énergie", "Réactions nécessitant de l'énergie"],
+          ["Couplée à la synthèse d'ATP : ADP + Pi + Énergie → ATP", "Couplée à l'hydrolyse d'ATP : ATP → ADP + Pi + Énergie"],
+        ]}
+      />
+
+      <H3>1.3.3 Besoins nutritifs</H3>
+      <H4>a. Les besoins élémentaires</H4>
+      <P>
+        Ce sont les éléments nécessaires à la bactérie pour fabriquer ses constituants. Ils diffèrent d'une espèce à l'autre, notamment en fonction du milieu de vie :
+      </P>
+      <UL>
+        <li><strong>C, H, O, N, P, S</strong> en quantité importante,</li>
+        <li><strong>Fe, Ca, Mg, K</strong> en quantité moindre,</li>
+        <li>d'autres métaux à l'état de trace (<em>oligo-éléments</em>) : Co, Cu, Zn, Mn.</li>
+      </UL>
+      <P>Selon la source de carbone (la moitié du poids d'une bactérie est due à l'atome de carbone) :</P>
+      <UL>
+        <li>source de carbone <strong>atmosphérique</strong> (CO<sub>2</sub>) → bactérie <strong>autotrophe</strong>,</li>
+        <li>source de carbone <strong>organique</strong> (ex. glucose) → bactérie <strong>hétérotrophe</strong>.</li>
+      </UL>
+
+      <H4>b. Les besoins énergétiques</H4>
+      <P>Couvrent les dépenses engagées dans les processus de biosynthèse. Il existe seulement deux sources d'énergie disponibles pour les êtres vivants :</P>
+      <UL>
+        <li>l'<strong>énergie lumineuse</strong>, transformée en ATP par les bactéries <em>phototrophes</em>, grâce à des pigments (chlorophylles, bactériochlorophylles, carotènes…) ;</li>
+        <li>l'<strong>énergie chimique</strong>, provenant de l'oxydation de molécules minérales ou organiques : bactéries <em>chimiotrophes</em>.</li>
+      </UL>
+
+      <H4>c. Les besoins spécifiques</H4>
+      <UL>
+        <li><strong>Bactéries auxotrophes</strong> : nécessitent l'apport de composés spécifiques appelés <em>facteurs de croissance</em> dans le milieu de culture.</li>
+        <li><strong>Bactéries prototrophes</strong> : capables de synthétiser tous leurs constituants sans apport extérieur en facteurs de croissance.</li>
+      </UL>
+      <P>Les facteurs de croissance varient selon les espèces : acides aminés, bases puriques ou pyrimidiques, vitamines.</P>
+      <Callout type="info" title="Exemples">
+        <ul className="list-disc pl-5 space-y-1">
+          <li><em>Escherichia coli</em> : bactérie <strong>prototrophe</strong>, n'exigeant aucun facteur de croissance — se multiplie sur milieu minimum.</li>
+          <li><em>Haemophilus influenzae</em> : bactérie <strong>auxotrophe</strong> — il lui manque les enzymes nécessaires à la synthèse de certains facteurs, qu'il faut donc lui fournir dans le milieu de culture.</li>
+        </ul>
+      </Callout>
+
+      <DataTable
+        caption="Tableau 5 — Types nutritionnels (trophiques) des bactéries"
+        headers={["Besoin", "Source", "Type nutritionnel ou trophique"]}
+        rows={[
+          [<strong key="e1">Énergie</strong>, "Lumineuse", <strong key="e2">Phototrophe</strong>],
+          [<strong key="e1b">Énergie</strong>, "Chimique", <strong key="e3">Chimiotrophe</strong>],
+          [<strong key="c1">Carbone</strong>, "Minérale (CO₂)", <strong key="c2">Autotrophe</strong>],
+          [<strong key="c1b">Carbone</strong>, "Organique", <strong key="c3">Hétérotrophe</strong>],
+          [<strong key="f1">Facteurs de croissance</strong>, "Non nécessaires", <strong key="f2">Prototrophe</strong>],
+          [<strong key="f1b">Facteurs de croissance</strong>, "Nécessaires", <strong key="f3">Auxotrophe</strong>],
+        ]}
+      />
+
+      <H3>1.3.4 Conditions physico-chimiques de la croissance</H3>
+
+      <H4>a. La température</H4>
+      <UL>
+        <li><strong>Bactéries mésophiles</strong> : T° optimale entre 20 °C et 40 °C (optimum 30–37 °C). Majorité des bactéries de l'environnement et d'intérêt médical (ex. <em>Entérobactéries</em>).</li>
+        <li><strong>Bactéries thermophiles</strong> : T° optimale 40 °C (40–70 °C). Bactéries des sources thermales (ex. <em>Pseudomonas</em>).</li>
+        <li><strong>Bactéries psychrophiles</strong> : T° optimale 4–20 °C. Peuvent contaminer les produits alimentaires conservés au réfrigérateur (ex. <em>Listeria</em>).</li>
+        <li><strong>Bactéries cryophiles</strong> : vivent à moins de 4 °C. Bactéries des eaux de mer et des glaces.</li>
+      </UL>
+
+      <H4>b. Le pH</H4>
+      <P>La plupart des bactéries se développent de préférence dans des milieux neutres ou légèrement alcalins.</P>
+      <UL>
+        <li><strong>Neutrophiles</strong> (pH 6–8) : <em>Escherichia coli</em>.</li>
+        <li><strong>Alcalinophiles</strong> (pH &gt; 8) : <em>Pseudomonas</em>, <em>Vibrio</em>.</li>
+        <li><strong>Acidophiles</strong> (pH &lt; 6) : <em>Lactobacillus</em>.</li>
+      </UL>
+
+      <H4>c. La pression osmotique</H4>
+      <P>
+        De façon générale, les bactéries sont assez tolérantes vis-à-vis des variations de concentrations ioniques. La protection contre les chocs osmotiques est assurée
+        par la <strong>paroi</strong>, qui constitue un véritable « mur bactérien ».
+      </P>
+      <Callout type="info" title="Exemple — bactéries halophiles">
+        Certaines espèces tolèrent de fortes concentrations salines. Le <em>Staphylocoque</em> tolère une forte concentration de NaCl ; ce caractère est utilisé pour le
+        sélectionner sur un milieu sélectif (milieu de <strong>Chapman</strong>).
+      </Callout>
+
+      <H4>d. L'oxygène moléculaire : mode respiratoire des bactéries</H4>
+      <P>Selon leur comportement à l'égard de l'oxygène, les bactéries sont classées en 4 catégories :</P>
+      <UL>
+        <li><strong>Aérobies strictes</strong> : ne vivent qu'en présence d'O<sub>2</sub> et tolèrent des P<sub>O₂</sub> élevées. Sur un milieu, elles se multiplient uniquement à la surface (ex. <em>Pseudomonas</em>, <em>Neisseria</em>).</li>
+        <li><strong>Micro-aérophiles</strong> : ont besoin d'oxygène mais ne tolèrent pas de fortes concentrations (ex. <em>Campylobacter</em>).</li>
+        <li><strong>Anaérobies strictes</strong> : ne se développent qu'en absence d'oxygène — l'O<sub>2</sub> est toxique pour elles (ex. <em>Clostridium</em>).</li>
+        <li><strong>Aéro-anaérobies facultatives</strong> : se développent aussi bien en présence qu'en absence d'oxygène (ex. <em>Entérobactéries</em>).</li>
+      </UL>
+      <Figure n={17} legend="Comportement respiratoire des bactéries en tubes de culture — 1. Aérobie stricte, 2. Microaérophile, 3. Aéro-anaérobie facultative (AAF), 4. Anaérobie stricte" />
+
+      <H4>e. Facteurs inhibant la croissance</H4>
+      <UL>
+        <li><strong>Radiations</strong> : les bactéries sont sensibles aux rayons X, UV (soleil) et rayons γ.</li>
+        <li><strong>Substances antibactériennes</strong> : antiseptiques (ATS) et antibiotiques (ATB) s'opposent à la croissance des bactéries et sont utilisés pour leur destruction.</li>
+        <li><strong>Inhibiteurs sélectifs</strong> : certaines substances inhibent sélectivement certaines bactéries ; ajoutées dans les milieux pour favoriser la multiplication des bactéries résistantes — c'est le principe des <em>milieux sélectifs</em>.</li>
+      </UL>
+
+      <H3>1.3.5 Croissance bactérienne</H3>
+      <H4>a. Définition</H4>
+      <P>
+        La croissance est définie comme une augmentation des constituants cellulaires. Chez les organismes pluricellulaires, elle correspond à une augmentation de taille
+        ou de masse ; chez les micro-organismes unicellulaires, elle se traduit par une <strong>augmentation du nombre d'individus</strong>. Une population microbienne
+        augmente donc au rythme des divisions cellulaires :
+      </P>
+      <UL>
+        <li>⇒ augmentation du nombre de bactéries,</li>
+        <li>⇒ appauvrissement du milieu de culture en nutriments,</li>
+        <li>⇒ enrichissement du milieu en sous-produits du métabolisme.</li>
+      </UL>
+
+      <H4>b. Division bactérienne</H4>
+      <P>Les bactéries (organismes asexués) se multiplient par <strong>fission binaire</strong> (= scissiparité) :</P>
+      <UL>
+        <li>allongement de la bactérie,</li>
+        <li>duplication des constituants,</li>
+        <li>séparation.</li>
+      </UL>
+      <Figure n={18} legend="Division cellulaire par scissiparité — élongation et réplication du chromosome, étranglement, formation du septum, séparation en deux cellules-filles identiques" />
+
+      <H4>c. Paramètres cinétiques de la croissance</H4>
+      <p className="text-foreground/80 leading-relaxed mb-2"><strong>Temps de génération (G)</strong> — temps requis pour un dédoublement, en admettant que toutes les bactéries d'une population se divisent de façon synchrone :</p>
+      <div className="my-3 p-3 rounded-md bg-muted/50 border border-border text-center font-mono text-sm">G = t / n</div>
+      <P>Avec <strong>t</strong> : la durée pendant laquelle la bactérie se divise <strong>n</strong> fois.</P>
+      <P><u>Facteurs influençant G</u> :</P>
+      <UL>
+        <li><strong>Nature de la bactérie</strong> : ex. 20 min pour <em>Escherichia coli</em>, 20 h pour <em>Mycobacterium tuberculosis</em>.</li>
+        <li><strong>Milieu de culture</strong> : pour beaucoup de bactéries, un milieu glucosé permet une croissance optimale.</li>
+        <li><strong>Température</strong> de la culture.</li>
+      </UL>
+      <p className="text-foreground/80 leading-relaxed mb-2 mt-4"><strong>Taux de croissance (μ)</strong> — nombre de divisions par unité de temps (heure) :</p>
+      <div className="my-3 p-3 rounded-md bg-muted/50 border border-border text-center font-mono text-sm">μ = n / t&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;μ = 1 / G</div>
+      <P>Les facteurs influençant μ sont les mêmes que ceux influençant G.</P>
+
+      <H4>d. Cinétique de la croissance — courbe en milieu non renouvelé</H4>
+      <P>
+        La croissance dans un tube de bouillon nutritif est <strong>limitée</strong> : elle s'arrête lorsque les nutriments sont épuisés. On dit que la croissance est
+        <strong> discontinue</strong>, en système <strong>fermé</strong>. La courbe est obtenue en traçant l'évolution du logarithme de la biomasse en fonction du temps.
+        Pour <em>E. coli</em>, on distingue plusieurs phases :
+      </P>
+      <UL>
+        <li><strong>Phase 1 — Latence</strong> : adaptation des bactéries au milieu, mise en route des systèmes enzymatiques ; pas de multiplication.</li>
+        <li><strong>Phase 2 — Croissance exponentielle</strong> : taux de croissance maximal ; dédoublement à intervalles réguliers (toutes les 20 min chez <em>E. coli</em>).</li>
+        <li><strong>Phase 3 — Stationnaire</strong> : masse bactérienne maximale ; les nouvelles générations équilibrent les vieilles bactéries qui se lysent.</li>
+        <li><strong>Phase 4 — Déclin</strong> : la masse bactérienne décroît du fait de la lyse accélérée, liée à l'épuisement des nutriments, la réduction de l'oxygène et l'accumulation des déchets.</li>
+      </UL>
+      <Figure n={19} legend="Courbe de croissance bactérienne typique — log du nombre de bactéries en fonction du temps : latence, exponentielle, stationnaire, déclin" />
+
+      <H3>1.3.6 Principales bactérioses humaines</H3>
+      <DataTable
+        caption="Tableau 6 — Principales bactérioses humaines : agents, symptômes, transmission"
+        headers={["Bactériose", "Agent pathogène", "Principaux symptômes", "Mode de transmission", "Période d'incubation", "Remarques"]}
+        rows={[
+          [<strong key="d" className="text-primary">Bactérioses digestives</strong>, "", "", "", "", ""],
+          ["Choléra", <em key="vc">Vibrio cholerae</em>, "Diarrhées liquides, vomissements, fièvre ; asymptomatique chez la plupart des sujets infectés", "Véhicule (eau, aliment)", "Quelques heures à 5 jours", "Faiblement contagieux"],
+          ["Colite hémorragique", <em key="ec">E. coli O157:H7</em>, "Diarrhée hémorragique sans fièvre", "Véhicule (aliments)", "2 à 8 jours", "« Maladie du hamburger » ; se complique parfois en syndrome hémolytique et urémique, surtout chez l'enfant"],
+          [<strong key="c" className="text-primary">Bactérioses circulatoires</strong>, "", "", "", "", ""],
+          ["Maladie de Lyme", <em key="bb">Borrelia burgdorferi</em>, "Lésion cutanée circulaire en expansion, puis anomalies neurologiques, inflammation cardiaque, arthrite", "Vecteur (tique)", "10 à 23 jours", "Zoonose (mulots, cerfs)"],
+          ["Peste", <em key="yp">Yersinia pestis</em>, "Fièvre et bubons (aines, aisselles), choc septique ; toux sanguinolente et délire (forme pulmonaire)", "Vecteur (puces du rat), contact direct, gouttelettes (formes pulmonaires)", "2 à 6 j (2 à 4 j forme pulmonaire)", "Zoonose (rats) ; fort taux de mortalité si non traitée"],
+          [<strong key="p" className="text-primary">Bactérioses de la peau</strong>, "", "", "", "", ""],
+          ["Furoncle", <em key="sa">Staphylococcus aureus</em>, "Abcès purulent entouré d'une zone d'inflammation", "Contact direct ou indirect, gouttelettes", "Variable", "Infection souvent endogène ; peut mener à un anthrax"],
+          ["Maladie du charbon (cutanée)", <em key="ba1">Bacillus anthracis</em>, "Pustule cutanée qui s'ulcère", "Aérosols ou contact direct", "1 à 60 jours", "Zoonose (moutons)"],
+          [<strong key="r" className="text-primary">Bactérioses respiratoires</strong>, "", "", "", "", ""],
+          ["Maladie du charbon (pulmonaire)", <em key="ba2">Bacillus anthracis</em>, "Syndrome grippal", "Aérosols ou contact direct", "1 à 60 jours", "Forme pulmonaire potentiellement mortelle si les bactéries gagnent le sang"],
+          ["Tuberculose", <em key="mt">Mycobacterium tuberculosis</em>, "Fièvre, fatigue, perte de poids, toux avec expectorations sanguinolentes", "Aérosols et gouttelettes", "4 à 12 semaines", "Infection en résurgence, faiblement contagieuse"],
+          [<strong key="u" className="text-primary">Bactérioses uro-génitales</strong>, "", "", "", "", ""],
+          ["Chlamydiose", <em key="ct">Chlamydia trachomatis</em>, "Plaie ou enflure génitale", "Contact sexuel", "Quelques semaines à quelques années", "Aussi appelée lymphogranulomatose vénérienne"],
+          ["Syphilis", <em key="tp">Treponema pallidum</em>, "Chancre", "Contact direct (sexuel)", "10 jours à 10 semaines", "Entraîne parfois des complications neurologiques graves"],
+        ]}
+      />
     </>
   ),
 };
