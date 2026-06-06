@@ -7,6 +7,7 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "@/pages/cours/CoursDietetiqueS2";
+import CoursSageFemmeS1 from "@/pages/cours/CoursSageFemmeS1";
 
 type Option = "" | "sf" | "diet";
 
@@ -78,6 +79,23 @@ export default function LicencePage() {
   const [dietTab, setDietTab] = useState<"s1" | "s2">("s1");
   const [showAnatomieCours, setShowAnatomieCours] = useState(false);
   const [showDietS2Cours, setShowDietS2Cours] = useState(false);
+  const [showSfS1Cours, setShowSfS1Cours] = useState(false);
+
+  if (showSfS1Cours) {
+    return (
+      <div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <button
+            onClick={() => setShowSfS1Cours(false)}
+            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={14} /> Retour aux modules
+          </button>
+        </div>
+        <CoursSageFemmeS1 />
+      </div>
+    );
+  }
 
   if (showAnatomieCours) {
     return (
@@ -197,6 +215,17 @@ export default function LicencePage() {
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
           </div>
+          {sfTab === "s1" && (
+            <div className="mt-6">
+              <button
+                onClick={() => setShowSfS1Cours(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose text-rose-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
+              >
+                <BookOpen size={18} /> Ouvrir le cours complet — Sciences Biologiques (S1)
+              </button>
+              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
+            </div>
+          )}
           {sfTab === "s2" && (
             <div className="mt-6">
               <button
