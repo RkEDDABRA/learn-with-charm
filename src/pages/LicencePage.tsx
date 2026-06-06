@@ -7,6 +7,7 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "@/pages/cours/CoursDietetiqueS2";
+import CoursSageFemmeS1 from "@/pages/cours/CoursSageFemmeS1";
 
 type Option = "" | "sf" | "diet";
 
@@ -78,6 +79,23 @@ export default function LicencePage() {
   const [dietTab, setDietTab] = useState<"s1" | "s2">("s1");
   const [showAnatomieCours, setShowAnatomieCours] = useState(false);
   const [showDietS2Cours, setShowDietS2Cours] = useState(false);
+  const [showSfS1Cours, setShowSfS1Cours] = useState(false);
+
+  if (showSfS1Cours) {
+    return (
+      <div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <button
+            onClick={() => setShowSfS1Cours(false)}
+            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={14} /> Retour aux modules
+          </button>
+        </div>
+        <CoursSageFemmeS1 />
+      </div>
+    );
+  }
 
   if (showAnatomieCours) {
     return (
