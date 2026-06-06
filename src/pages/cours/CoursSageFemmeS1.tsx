@@ -586,12 +586,12 @@ const SEC_BACT: Section = {
         caption="Tableau 5 — Types nutritionnels (trophiques) des bactéries"
         headers={["Besoin", "Source", "Type nutritionnel ou trophique"]}
         rows={[
-          [<span key="e1" rowSpan={2}><strong>Énergie</strong></span>, "Lumineuse", <strong key="e2">Phototrophe</strong>],
-          ["", "Chimique", <strong key="e3">Chimiotrophe</strong>],
+          [<strong key="e1">Énergie</strong>, "Lumineuse", <strong key="e2">Phototrophe</strong>],
+          [<strong key="e1b">Énergie</strong>, "Chimique", <strong key="e3">Chimiotrophe</strong>],
           [<strong key="c1">Carbone</strong>, "Minérale (CO₂)", <strong key="c2">Autotrophe</strong>],
-          ["", "Organique", <strong key="c3">Hétérotrophe</strong>],
+          [<strong key="c1b">Carbone</strong>, "Organique", <strong key="c3">Hétérotrophe</strong>],
           [<strong key="f1">Facteurs de croissance</strong>, "Non nécessaires", <strong key="f2">Prototrophe</strong>],
-          ["", "Nécessaires", <strong key="f3">Auxotrophe</strong>],
+          [<strong key="f1b">Facteurs de croissance</strong>, "Nécessaires", <strong key="f3">Auxotrophe</strong>],
         ]}
       />
 
