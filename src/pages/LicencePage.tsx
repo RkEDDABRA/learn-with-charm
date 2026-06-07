@@ -1,286 +1,391 @@
 import { useState } from "react";
-import AnimatedSection from "@/components/AnimatedSection";
-import ImportedModuleCard from "@/components/ModuleCard";
-import qrSciencesBio from "@/assets/qr-sciences-biologiques.png";
-import { cn } from "@/lib/utils";
-import { ArrowLeft, BookOpen } from "lucide-react";
-import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
-import CoursAnatomieGynecoObstetricale from "@/pages/cours/CoursAnatomieGynecoObstetricale";
-import CoursDietetiqueS2 from "@/pages/cours/CoursDietetiqueS2";
-import CoursSageFemmeS1 from "@/pages/cours/CoursSageFemmeS1";
+import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
+import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
+import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
 
-type Option = "" | "sf" | "diet";
-
-const sfS1 = {
-  label: "Module : Sciences Biologiques",
-  desc: "Le cours est destiné aux étudiants du premier semestre et vise à leur faire acquérir les concepts fondamentaux en sciences biologiques, notamment en immunologie, hématologie, microbiologie (parasitologie, bactériologie, virologie) ainsi qu'en génétique.",
-  tags: ["Immunologie", "Hématologie", "Microbiologie", "Génétique"],
-  link: "https://padlet.com/eddabra/module-sciences-biologiques-um3rj7zq3q4vmz4i",
-  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
-  qrImage: qrSciencesBio,
+/* ================================================================
+   CONFIGURATION
+   ================================================================ */
+const CONFIG = {
+  options: [
+    {
+      id: "sf",
+      label: "Sage-Femme",
+      filiere: "Filière Sage-Femme — Option Sage-Femme",
+      color: "#7c3d8f",
+      light: "#f5eef8",
+      semestres: [
+        {
+          id: "s1",
+          label: "Semestre 1",
+          module: "Sciences Biologiques",
+          CoursComponent: CoursSageFemmeS1 as React.ComponentType | null,
+          exercices: [
+            { titre: "Série 1 – Biologie cellulaire", niveau: "Niveau 1", enonce: "Décrivez les différents organites de la cellule eucaryote et précisez leurs fonctions. Comparez cellule animale et cellule végétale." },
+            { titre: "Série 2 – Microbiologie générale", niveau: "Niveau 2", enonce: "Distinguez bactéries, virus, champignons et parasites. Donnez deux exemples pathogènes rencontrés en obstétrique pour chaque groupe." },
+            { titre: "Série 3 – Immunologie", niveau: "Niveau 2", enonce: "Expliquez les mécanismes de la réponse immunitaire innée et adaptative. Quel est le rôle du placenta dans la protection immunitaire du fœtus ?" },
+          ],
+          corrections: [
+            { titre: "Corrigé Série 1 – Biologie cellulaire", detail: "Correction détaillée avec schémas annotés.", fichier: "#" },
+            { titre: "Corrigé Série 2 – Microbiologie", detail: "Tableaux comparatifs des micro-organismes.", fichier: "#" },
+            { titre: "Corrigé Série 3 – Immunologie", detail: "Schémas de la réponse immunitaire.", fichier: "#" },
+          ],
+          presentations: [
+            { titre: "Présentation – La cellule eucaryote", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Micro-organismes pathogènes", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Immunologie de base", type: "PowerPoint", fichier: "#" },
+          ],
+          ressources: [
+            { titre: "Biologie cellulaire et moléculaire – Karp", type: "Ouvrage de référence", lien: "#" },
+            { titre: "Microbiologie – Tortora, Funke & Case", type: "Manuel recommandé", lien: "#" },
+            { titre: "PubMed – Base de données scientifiques", type: "Ressource en ligne", lien: "https://pubmed.ncbi.nlm.nih.gov/" },
+          ],
+        },
+        {
+          id: "s2",
+          label: "Semestre 2",
+          module: "Anatomie Gynéco-Obstétricale",
+          CoursComponent: CoursAnatomieGynecoObstetricale as React.ComponentType | null,
+          exercices: [
+            { titre: "Série 1 – Le bassin obstétrical", niveau: "Niveau 1", enonce: "Décrivez les différents diamètres du bassin obstétrical et leur importance clinique lors de l'accouchement." },
+            { titre: "Série 2 – Physiologie de la grossesse", niveau: "Niveau 2", enonce: "Expliquez les modifications anatomiques et physiologiques majeures survenant au cours de la grossesse (cardiovasculaires, respiratoires, rénales, hormonales)." },
+            { titre: "Série 3 – Mécanismes de l'accouchement", niveau: "Niveau 3", enonce: "Décrivez les différents temps du mécanisme de l'accouchement en présentation céphalique et les variétés de présentation possibles." },
+          ],
+          corrections: [
+            { titre: "Corrigé Série 1 – Bassin obstétrical", detail: "Schémas et mesures des diamètres pelviens.", fichier: "#" },
+            { titre: "Corrigé Série 2 – Modifications de la grossesse", detail: "Tableaux récapitulatifs par système.", fichier: "#" },
+            { titre: "Corrigé Série 3 – Mécanismes d'accouchement", detail: "Schémas séquentiels des temps de l'accouchement.", fichier: "#" },
+          ],
+          presentations: [
+            { titre: "Présentation – Anatomie du pelvis féminin", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Le bassin obstétrical", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Mécanismes de l'accouchement", type: "PowerPoint", fichier: "#" },
+          ],
+          ressources: [
+            { titre: "Atlas d'anatomie humaine – Netter", type: "Atlas de référence", lien: "#" },
+            { titre: "Obstétrique – Merger, Lévy & Melchior", type: "Ouvrage de référence", lien: "#" },
+            { titre: "WHO – Reproductive health library", type: "Ressource internationale", lien: "https://www.who.int/reproductivehealth/" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "dn",
+      label: "Diététique & Nutrition",
+      filiere: "Filière Techniques de Santé — Option Diététique & Nutrition",
+      color: "#1a7a4a",
+      light: "#eaf7f0",
+      semestres: [
+        {
+          id: "s1",
+          label: "Semestre 1",
+          module: "Anatomie et Physiologie Humaine",
+          CoursComponent: null as React.ComponentType | null,
+          exercices: [
+            { titre: "Série 1 – Le système digestif", niveau: "Niveau 1", enonce: "Décrivez les différents segments du tube digestif en précisant pour chacun la structure anatomique, les sécrétions et le rôle dans la digestion des macronutriments." },
+            { titre: "Série 2 – Absorption intestinale", niveau: "Niveau 2", enonce: "Expliquez les mécanismes d'absorption intestinale des glucides, lipides et protéines. Précisez le rôle de la villosité intestinale." },
+          ],
+          corrections: [
+            { titre: "Corrigé Série 1 – Système digestif", detail: "Correction avec schémas anatomiques annotés.", fichier: "#" },
+            { titre: "Corrigé Série 2 – Absorption intestinale", detail: "Schémas des mécanismes de transport membranaire.", fichier: "#" },
+          ],
+          presentations: [
+            { titre: "Présentation – Organisation du corps humain", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Le système digestif", type: "PowerPoint", fichier: "#" },
+          ],
+          ressources: [
+            { titre: "Physiologie humaine – Sherwood", type: "Manuel de référence", lien: "#" },
+            { titre: "Anatomie & Physiologie – Marieb & Hoehn", type: "Ouvrage recommandé", lien: "#" },
+          ],
+        },
+        {
+          id: "s2",
+          label: "Semestre 2",
+          module: "Bases Physiologiques de la Nutrition",
+          CoursComponent: CoursDietetiqueS2 as React.ComponentType | null,
+          exercices: [
+            { titre: "Série 1 – Métabolisme des glucides", niveau: "Niveau 1", enonce: "Décrivez les voies métaboliques des glucides (glycolyse, néoglucogenèse, glycogénèse). Calculez les besoins glucidiques journaliers d'un adulte de 70 kg avec activité physique modérée." },
+            { titre: "Série 2 – Métabolisme lipidique", niveau: "Niveau 2", enonce: "Distinguez les acides gras saturés, insaturés et trans. Expliquez le rôle des lipoprotéines (HDL, LDL, VLDL) dans le transport des lipides sanguins." },
+            { titre: "Série 3 – Bilan énergétique", niveau: "Niveau 3", enonce: "Calculez le métabolisme de base (Harris-Benedict), la dépense énergétique totale et les apports recommandés pour un patient hospitalisé en dénutrition modérée." },
+          ],
+          corrections: [
+            { titre: "Corrigé Série 1 – Glucides", detail: "Schémas des voies métaboliques + calcul détaillé.", fichier: "#" },
+            { titre: "Corrigé Série 2 – Lipides", detail: "Tableau comparatif des acides gras et lipoprotéines.", fichier: "#" },
+            { titre: "Corrigé Série 3 – Bilan énergétique", detail: "Application numérique complète avec toutes les formules.", fichier: "#" },
+          ],
+          presentations: [
+            { titre: "Présentation – Métabolisme des glucides", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Métabolisme des lipides", type: "PowerPoint", fichier: "#" },
+            { titre: "Présentation – Besoins énergétiques et caloriques", type: "PowerPoint", fichier: "#" },
+          ],
+          ressources: [
+            { titre: "Nutrition clinique pratique – Cynober & Aussel", type: "Ouvrage de référence", lien: "#" },
+            { titre: "Apports Nutritionnels Conseillés – ANSES", type: "Référentiel officiel", lien: "https://www.anses.fr/" },
+            { titre: "FAO – Nutrition et alimentation", type: "Ressource internationale", lien: "https://www.fao.org/nutrition/" },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
-const sfS2 = {
-  label: "Élément du Module : Anatomie Gynéco-Obstétricale",
-  desc: "Au terme de ce module l'étudiante doit:\n• Identifier les structures anatomiques du système reproducteur féminin et masculin\n• Décrire la fonction des organes reproducteurs et leurs caractéristiques physiologiques\n• Distinguer les mécanismes d'homéostasie en lien avec le système reproducteur",
-  tags: ["Pelvis féminin", "Organes génitaux", "Obstétrique"],
-  link: "https://padlet.com/eddabra/module-anatomie-gyn-co-obst-ricale-xa7cxtqdtvwaq9pu",
-  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
+/* ================================================================
+   ICÔNES SVG INLINE
+   ================================================================ */
+const ICONS: Record<string, string> = {
+  book:     "M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z",
+  pencil:   "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z",
+  check:    "M20 6L9 17l-5-5",
+  slides:   "M2 3h20v14H2z M8 21h8M12 17v4",
+  link:     "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71",
+  download: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5M12 15V3",
+  chevron:  "M9 18l6-6-6-6",
+  info:     "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z M12 16v-4M12 8h.01",
+  external: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6M10 14L21 3",
+  lock:     "M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z M17 11V7a5 5 0 0 0-10 0v4",
 };
 
-const dietS1 = {
-  label: "Module : Anatomie Physiologie Humaine",
-  desc: "Bases anatomiques et physiologiques du corps humain. Systèmes digestif, cardiovasculaire et endocrinien.",
-  tags: ["Anatomie", "Physiologie", "Systèmes"],
-  link: "https://padlet.com/eddabra/module-anatomie-physiologie-humaines-qdmuic43ce4la7vp",
-  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
-};
-
-const dietS2 = {
-  label: "Module : Bases Physiologiques de la Nutrition",
-  desc: "Au terme de ce module l'étudiant doit:\n• Décrire et expliquer les aspects anatomiques et physiologiques des systèmes endocrinien et digestif",
-  tags: ["Métabolisme", "Homéostasie", "Régulation"],
-  link: "https://padlet.com/eddabra/module-bases-physiologiques-de-la-nutrition-syst-me-digestif-5jopi0qzi34wa8wf",
-  badge: "Supports de cours • Bibliographie • Exercices corrigés • Vidéos",
-};
-
-interface ModuleData {
-  label: string;
-  desc: string;
-  tags: string[];
-  link: string;
-  badge: string;
-  qrImage?: string;
+function Ico({ name, size = 18, color = "currentColor" }: { name: string; size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
+      stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+      style={{ flexShrink: 0 }}>
+      {ICONS[name]?.split(" M").map((d, i) => (
+        <path key={i} d={i === 0 ? d : "M" + d} />
+      ))}
+    </svg>
+  );
 }
 
-function SemesterModuleCard({ module, semester, color }: { module: ModuleData; semester: string; color: string }) {
+const TABS = [
+  { id: "cours",         label: "Cours complet",    icon: "book"    },
+  { id: "exercices",     label: "Exercices",         icon: "pencil"  },
+  { id: "corrections",   label: "Corrections",       icon: "check"   },
+  { id: "presentations", label: "Présentations",     icon: "slides"  },
+  { id: "ressources",    label: "Ressources",        icon: "link"    },
+];
+
+export default function LicencePage() {
+  const [activeOpt, setActiveOpt] = useState("sf");
+  const [activeSem, setActiveSem] = useState("s1");
+  const [activeTab, setActiveTab] = useState("cours");
+  const [openExo,   setOpenExo]   = useState<number | null>(null);
+
+  const option   = CONFIG.options.find(o => o.id === activeOpt)!;
+  const semestre = option.semestres.find(s => s.id === activeSem) ?? option.semestres[0];
+  const c        = option.color;
+  const light    = option.light;
+  const CoursComponent = semestre.CoursComponent;
+
+  const switchOpt = (id: string) => {
+    const opt = CONFIG.options.find(o => o.id === id)!;
+    setActiveOpt(id);
+    setActiveSem(opt.semestres[0]?.id ?? "s1");
+    setActiveTab("cours");
+    setOpenExo(null);
+  };
+  const switchSem = (id: string) => { setActiveSem(id); setActiveTab("cours"); setOpenExo(null); };
+
   return (
-    <div className="bg-card rounded-xl shadow-card overflow-hidden">
-      <div className={`px-5 py-3 flex items-center gap-3 ${color}`}>
-        <span className="w-9 h-9 rounded-lg bg-card/20 flex items-center justify-center font-bold text-sm text-card">{semester}</span>
-        <h3 className="font-display font-bold text-sm text-card"><i className="fa-solid fa-book-bookmark mr-1" aria-hidden="true" />Semestre {semester.replace("S", "")}</h3>
-      </div>
-      <div className="p-5">
-        <ImportedModuleCard
-          title={module.label}
-          link={module.link}
-          description={module.desc}
-          badge={module.badge}
-          qrImage={module.qrImage}
-        />
+    <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", minHeight: "100vh", background: "#f4f5f7" }}>
+
+      <header style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
+        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 1.5rem", height: 62, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 38, height: 38, borderRadius: "50%", background: c, color: "#fff", fontWeight: 800, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.3s", flexShrink: 0 }}>RE</div>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.1 }}>Pr. Rkia EDDABRA</div>
+              <div style={{ fontSize: 11, color: "#9ca3af" }}>Microbiologie · ISPITS Agadir · Licence</div>
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+            {CONFIG.options.map(opt => (
+              <button key={opt.id} onClick={() => switchOpt(opt.id)} style={{
+                padding: "7px 16px", borderRadius: 999, fontSize: 13, fontWeight: 700, cursor: "pointer",
+                border: `2px solid ${opt.color}`,
+                background: activeOpt === opt.id ? opt.color : "transparent",
+                color:      activeOpt === opt.id ? "#fff"    : opt.color,
+                transition: "all 0.2s",
+              }}>{opt.label}</button>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div style={{ maxWidth: 1080, margin: "0 auto", padding: "1.75rem 1.5rem" }}>
+
+        <div style={{ background: c, borderRadius: 18, padding: "1.6rem 2rem", color: "#fff", marginBottom: "1.25rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14, transition: "background 0.3s" }}>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.4, textTransform: "uppercase", opacity: 0.7, marginBottom: 6 }}>{option.filiere}</div>
+            <div style={{ fontSize: 24, fontWeight: 800, lineHeight: 1.15 }}>{semestre.module}</div>
+            <div style={{ fontSize: 13, opacity: 0.8, marginTop: 6 }}>{semestre.label}</div>
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            {option.semestres.map(sem => (
+              <button key={sem.id} onClick={() => switchSem(sem.id)} style={{
+                padding: "10px 22px", borderRadius: 12, fontSize: 14, fontWeight: 700, cursor: "pointer",
+                border: "2px solid rgba(255,255,255,0.5)",
+                background: activeSem === sem.id ? "rgba(255,255,255,0.22)" : "transparent",
+                color: "#fff", transition: "all 0.2s",
+              }}>{sem.label}</button>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ display: "flex", gap: 4, flexWrap: "wrap", background: "#fff", borderRadius: 14, padding: 5, marginBottom: "1.25rem", boxShadow: "0 1px 4px rgba(0,0,0,0.07)", border: "1px solid #e5e7eb" }}>
+          {TABS.map(tab => {
+            const on = activeTab === tab.id;
+            return (
+              <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
+                display: "flex", alignItems: "center", gap: 7, padding: "9px 16px",
+                borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: "pointer",
+                border: "none", whiteSpace: "nowrap",
+                background: on ? c : "transparent",
+                color:      on ? "#fff" : "#6b7280",
+                transition: "all 0.2s",
+              }}>
+                <Ico name={tab.icon} size={15} color={on ? "#fff" : "#9ca3af"} />
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
+
+          {activeTab === "cours" && (
+            CoursComponent
+              ? <CoursComponent />
+              : (
+                <div style={{ padding: "3rem 2rem", textAlign: "center" }}>
+                  <div style={{ width: 56, height: 56, borderRadius: "50%", background: light, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
+                    <Ico name="lock" size={24} color={c} />
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: 16, color: "#111827", marginBottom: 8 }}>Cours en cours de préparation</div>
+                  <div style={{ fontSize: 14, color: "#6b7280" }}>Ce cours sera disponible prochainement.</div>
+                </div>
+              )
+          )}
+
+          {activeTab === "exercices" && (
+            <div style={{ padding: "1.75rem 2rem" }}>
+              <SectionHead icon="pencil" label="Exercices" color={c} />
+              <Notice color={c} light={light}>Essayez de résoudre chaque exercice avant de consulter la correction dans l'onglet dédié.</Notice>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {semestre.exercices.map((ex, i) => (
+                  <div key={i} style={{ border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
+                    <button onClick={() => setOpenExo(openExo === i ? null : i)} style={{
+                      width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+                      padding: "13px 16px", background: openExo === i ? light : "#fafafa",
+                      border: "none", cursor: "pointer", textAlign: "left", transition: "background 0.2s",
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                        <div style={{ width: 28, height: 28, borderRadius: "50%", background: c, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, flexShrink: 0 }}>{i + 1}</div>
+                        <span style={{ fontWeight: 600, fontSize: 14, color: "#111827" }}>{ex.titre}</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 999, background: light, color: c, fontWeight: 700 }}>{ex.niveau}</span>
+                        <div style={{ transform: openExo === i ? "rotate(90deg)" : "none", transition: "transform 0.2s", display: "flex" }}>
+                          <Ico name="chevron" size={15} color="#9ca3af" />
+                        </div>
+                      </div>
+                    </button>
+                    {openExo === i && (
+                      <div style={{ padding: "1rem 1.25rem", borderTop: `3px solid ${c}`, background: "#fff", fontSize: 14, color: "#374151", lineHeight: 1.75 }}>
+                        {ex.enonce}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "corrections" && (
+            <div style={{ padding: "1.75rem 2rem" }}>
+              <SectionHead icon="check" label="Corrections" color={c} />
+              <Notice color="#1a7a4a" light="#eaf7f0">Les corrigés sont fournis à titre indicatif. D'autres approches peuvent être acceptées.</Notice>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {semestre.corrections.map((item, i) => (
+                  <div key={i} style={{ borderLeft: `4px solid ${c}`, borderRadius: "0 12px 12px 0", padding: "14px 16px", background: light, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: 14, color: c, marginBottom: 4 }}>{item.titre}</div>
+                      <div style={{ fontSize: 13, color: "#4b5563" }}>{item.detail}</div>
+                    </div>
+                    <a href={item.fichier} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, fontSize: 13, fontWeight: 700, background: c, color: "#fff", textDecoration: "none", flexShrink: 0 }}>
+                      <Ico name="download" size={14} color="#fff" /> Télécharger
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "presentations" && (
+            <div style={{ padding: "1.75rem 2rem" }}>
+              <SectionHead icon="slides" label="Mes présentations" color={c} />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
+                {semestre.presentations.map((p, i) => (
+                  <a key={i} href={p.fichier} style={{ textDecoration: "none", border: "1px solid #e5e7eb", borderRadius: 14, overflow: "hidden", display: "block", background: "#fff", transition: "box-shadow 0.2s, transform 0.2s" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.10)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
+                    <div style={{ height: 90, background: light, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Ico name="slides" size={40} color={c} />
+                    </div>
+                    <div style={{ padding: "12px 14px" }}>
+                      <div style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginBottom: 4 }}>{p.titre}</div>
+                      <div style={{ fontSize: 11, color: "#9ca3af" }}>{p.type}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "ressources" && (
+            <div style={{ padding: "1.75rem 2rem" }}>
+              <SectionHead icon="link" label="Ressources bibliographiques" color={c} />
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {semestre.ressources.map((r, i) => (
+                  <a key={i} href={r.lien} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", borderRadius: 12, textDecoration: "none", border: "1px solid #e5e7eb", background: "#fafafa", transition: "background 0.15s" }}
+                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = light}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#fafafa"}>
+                    <div style={{ width: 38, height: 38, borderRadius: 10, background: light, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <Ico name="external" size={18} color={c} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 600, fontSize: 14, color: "#111827" }}>{r.titre}</div>
+                      <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>{r.type}</div>
+                    </div>
+                    <Ico name="chevron" size={15} color="#d1d5db" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
       </div>
     </div>
   );
 }
 
-export default function LicencePage() {
-  const [option, setOption] = useState<Option>("");
-  const [sfTab, setSfTab] = useState<"s1" | "s2">("s1");
-  const [dietTab, setDietTab] = useState<"s1" | "s2">("s1");
-  const [showAnatomieCours, setShowAnatomieCours] = useState(false);
-  const [showDietS2Cours, setShowDietS2Cours] = useState(false);
-  const [showSfS1Cours, setShowSfS1Cours] = useState(false);
-
-  if (showSfS1Cours) {
-    return (
-      <div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <button
-            onClick={() => setShowSfS1Cours(false)}
-            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft size={14} /> Retour aux modules
-          </button>
-        </div>
-        <CoursSageFemmeS1 />
-      </div>
-    );
-  }
-
-  if (showAnatomieCours) {
-    return (
-      <div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <button
-            onClick={() => setShowAnatomieCours(false)}
-            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft size={14} /> Retour aux modules
-          </button>
-        </div>
-        <CoursAnatomieGynecoObstetricale />
-      </div>
-    );
-  }
-
-  if (showDietS2Cours) {
-    return (
-      <div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <button
-            onClick={() => setShowDietS2Cours(false)}
-            className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft size={14} /> Retour aux modules
-          </button>
-        </div>
-        <CoursDietetiqueS2 />
-      </div>
-    );
-  }
-
+function SectionHead({ icon, label, color }: { icon: string; label: string; color: string }) {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <AnimatedSection>
-        <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-center mb-8 bg-gradient-to-br from-emerald-900 to-cyan-800">
-          <img
-            src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=1200&q=80"
-            alt="Licence en Sciences de la Santé"
-            width={1200} height={400}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
-          />
-          <div className="relative z-10 p-8 sm:p-12">
-            <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3">
-              <LordIcon src={LORD_ICONS.book} size={20} colors="primary:#22C55E,secondary:#22C55E" trigger="loop" /> Filière Licence
-            </span>
-            <h1 className="font-display text-2xl sm:text-3xl font-bold text-card mb-2">Licence en Sciences de la Santé</h1>
-            <p className="text-card/60 text-sm"><i className="fa-solid fa-hand-pointer mr-1" aria-hidden="true" />Sélectionnez votre option pour accéder aux ressources pédagogiques</p>
-          </div>
-        </div>
-      </AnimatedSection>
+    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "1.25rem" }}>
+      <div style={{ width: 34, height: 34, borderRadius: 10, background: color + "18", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Ico name={icon} size={18} color={color} />
+      </div>
+      <h2 style={{ fontSize: 17, fontWeight: 800, margin: 0, color: "#111827" }}>{label}</h2>
+    </div>
+  );
+}
 
-      {/* Option selector */}
-      {option === "" && (
-        <AnimatedSection>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <button
-              onClick={() => setOption("sf")}
-              className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-end group shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
-            >
-              <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Option Sage Femme" width={800} height={400} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-rose/90 via-rose/40 to-transparent" />
-              <div className="relative z-10 p-6 text-left">
-                <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card flex items-center gap-2">
-                  <LordIcon src={LORD_ICONS.heart} size={28} colors="primary:#ffffff,secondary:#ffffff" /> Sage-Femme
-                </h3>
-                <p className="text-card/70 text-sm mt-1">Obstétrique · Gynécologie · Sciences Biologiques</p>
-              </div>
-            </button>
-            <button
-              onClick={() => setOption("diet")}
-              className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-end group shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
-            >
-              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Option Diététique et Nutrition" width={800} height={400} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-teal/40 to-transparent" />
-              <div className="relative z-10 p-6 text-left">
-                <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-card/20 border border-card/30 text-card mb-2">Option</span>
-                <h3 className="font-display text-xl font-bold text-card flex items-center gap-2">
-                  <LordIcon src={LORD_ICONS.trendUp} size={28} colors="primary:#ffffff,secondary:#ffffff" /> Diététique / Nutrition
-                </h3>
-                <p className="text-card/70 text-sm mt-1">Physiologie · Nutrition · Sciences Biologiques</p>
-              </div>
-            </button>
-          </div>
-        </AnimatedSection>
-      )}
-
-      {/* Sage-Femme */}
-      {option === "sf" && (
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-6">
-            <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft size={14} /> Retour
-            </button>
-            <h2 className="font-display text-lg font-bold text-rose flex items-center gap-2">
-              <LordIcon src={LORD_ICONS.heart} size={24} colors="primary:#E23670,secondary:#E23670" /> Option : Sage-Femme
-            </h2>
-          </div>
-          <div className="flex gap-2 mb-6">
-            {(["s1", "s2"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setSfTab(tab)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5",
-                  sfTab === tab ? "bg-rose text-rose-foreground shadow-md" : "bg-muted text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <i className={tab === "s1" ? "fa-solid fa-book" : "fa-solid fa-book-open"} aria-hidden="true" /> Semestre {tab === "s1" ? "1" : "2"}
-              </button>
-            ))}
-          </div>
-          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <SemesterModuleCard module={sfTab === "s1" ? sfS1 : sfS2} semester={sfTab.toUpperCase()} color="bg-rose" />
-          </div>
-          {sfTab === "s1" && (
-            <div className="mt-6">
-              <button
-                onClick={() => setShowSfS1Cours(true)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose text-rose-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
-              >
-                <BookOpen size={18} /> Ouvrir le cours complet — Sciences Biologiques (S1)
-              </button>
-              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
-            </div>
-          )}
-          {sfTab === "s2" && (
-            <div className="mt-6">
-              <button
-                onClick={() => setShowAnatomieCours(true)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose text-rose-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
-              >
-                <BookOpen size={18} /> Ouvrir le cours complet — Anatomie Gynéco-Obstétricale
-              </button>
-              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
-            </div>
-          )}
-        </AnimatedSection>
-      )}
-
-      {/* Diététique */}
-      {option === "diet" && (
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-6">
-            <button onClick={() => setOption("")} className="flex items-center gap-1.5 bg-card border border-border px-3 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft size={14} /> Retour
-            </button>
-            <h2 className="font-display text-lg font-bold text-teal flex items-center gap-2">
-              <LordIcon src={LORD_ICONS.trendUp} size={24} colors="primary:#158FAD,secondary:#158FAD" /> Option : Diététique / Nutrition
-            </h2>
-          </div>
-          <div className="flex gap-2 mb-6">
-            {(["s1", "s2"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setDietTab(tab)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5",
-                  dietTab === tab ? "bg-teal text-teal-foreground shadow-md" : "bg-muted text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <i className={tab === "s1" ? "fa-solid fa-book" : "fa-solid fa-book-open"} aria-hidden="true" /> Semestre {tab === "s1" ? "1" : "2"}
-              </button>
-            ))}
-          </div>
-          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-            <SemesterModuleCard module={dietTab === "s1" ? dietS1 : dietS2} semester={dietTab.toUpperCase()} color="bg-teal" />
-          </div>
-          {dietTab === "s2" && (
-            <div className="mt-6">
-              <button
-                onClick={() => setShowDietS2Cours(true)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-teal text-teal-foreground hover:opacity-90 transition-opacity px-5 py-3 rounded-xl text-sm font-semibold shadow-md"
-              >
-                <BookOpen size={18} /> Ouvrir le cours complet — Diététique / Nutrition S2
-              </button>
-              <p className="mt-2 text-xs text-muted-foreground">Cours protégé par mot de passe.</p>
-            </div>
-          )}
-        </AnimatedSection>
-      )}
+function Notice({ color, light, children }: { color: string; light: string; children: React.ReactNode }) {
+  return (
+    <div style={{ background: light, border: `1px solid ${color}25`, borderRadius: 10, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start", fontSize: 13, color: "#374151", marginBottom: "1.25rem" }}>
+      <Ico name="info" size={15} color={color} />
+      <span>{children}</span>
     </div>
   );
 }
