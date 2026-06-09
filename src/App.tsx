@@ -5,12 +5,32 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense } from "react";
 
-const Index = lazy(() => import("./pages/Index.tsx"));
-const AccueilPage = lazy(() => import("./pages/AccueilPage.tsx"));
-const LicencePage = lazy(() => import("./pages/LicencePage.tsx"));
-const MasterPage = lazy(() => import("./pages/MasterPage.tsx"));
-const CvPage = lazy(() => import("./pages/CvPage.tsx"));
-const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+// Retry dynamic imports once, then hard-reload to clear stale chunk references
+// (fixes "error loading dynamically imported module" after a redeploy).
+function lazyWithRetry<T extends React.ComponentType<any>>(
+  factory: () => Promise<{ default: T }>
+) {
+  return lazy(async () => {
+    try {
+      return await factory();
+    } catch (err) {
+      const key = "lovable-chunk-reload";
+      if (typeof window !== "undefined" && !sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+        return new Promise<{ default: T }>(() => {});
+      }
+      throw err;
+    }
+  });
+}
+
+const Index = lazyWithRetry(() => import("./pages/Index.tsx"));
+const AccueilPage = lazyWithRetry(() => import("./pages/AccueilPage.tsx"));
+const LicencePage = lazyWithRetry(() => import("./pages/LicencePage.tsx"));
+const MasterPage = lazyWithRetry(() => import("./pages/MasterPage.tsx"));
+const CvPage = lazyWithRetry(() => import("./pages/CvPage.tsx"));
+const NotFound = lazyWithRetry(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
 
