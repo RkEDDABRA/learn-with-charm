@@ -31,6 +31,9 @@ const LicencePage = lazyWithRetry(() => import("./pages/LicencePage.tsx"));
 const MasterPage = lazyWithRetry(() => import("./pages/MasterPage.tsx"));
 const CvPage = lazyWithRetry(() => import("./pages/CvPage.tsx"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound.tsx"));
+const CoursModesActionMicroorganismes = lazyWithRetry(
+  () => import("./pages/cours/CoursModesActionMicroorganismes.tsx"),
+);
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,10 @@ const App = () => (
               <Route path="/licence/sage-femme" element={<LicencePage />} />
               <Route path="/licence/dietetique" element={<LicencePage />} />
               <Route path="/master" element={<MasterPage />} />
+              <Route
+                path="/licence/sage-femme/s1/microbio/modes-action"
+                element={<CoursModesActionMicroorganismes />}
+              />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
