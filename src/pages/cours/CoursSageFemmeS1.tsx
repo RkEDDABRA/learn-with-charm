@@ -196,8 +196,8 @@ function ComingSoon({ title }: { title: string }) {
 type Section = { id: string; title: string; render: () => ReactNode };
 type ChapterDef = { id: string; number: number; title: string; accent: string; sections: Section[] };
 
-/* === CH1 — Microbiologie — 1.1 Bactéries === */
-const SEC_BACT: Section = {
+/* === CH1 — Microbiologie — 1.1 Bactéries (contenu complet, réutilisable) === */
+export const SEC_BACT_FULL: Section = {
   id: "bacteries",
   title: "1.1 Bactéries",
   render: () => (
@@ -712,6 +712,25 @@ const SEC_BACT: Section = {
           ["Syphilis", <em key="tp">Treponema pallidum</em>, "Chancre", "Contact direct (sexuel)", "10 jours à 10 semaines", "Entraîne parfois des complications neurologiques graves"],
         ]}
       />
+    </>
+  ),
+};
+
+const SEC_BACT: Section = {
+  id: "bacteries",
+  title: "1.1 Bactéries",
+  render: () => (
+    <>
+      <H2>1.1 Bactéries</H2>
+      <p className="mb-4 text-muted-foreground">
+        Ce sous-chapitre couvre l'introduction à la microbiologie, la classification des micro-organismes, la structure bactérienne (paroi, Gram, flagelles, capsule, pili, spore) ainsi que la croissance et les principales bactérioses.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/microbio/bacteries"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
     </>
   ),
 };
