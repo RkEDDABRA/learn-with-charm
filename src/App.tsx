@@ -34,6 +34,7 @@ const NotFound = lazyWithRetry(() => import("./pages/NotFound.tsx"));
 const CoursModesActionMicroorganismes = lazyWithRetry(
   () => import("./pages/cours/CoursModesActionMicroorganismes.tsx"),
 );
+const CoursBacteries = lazyWithRetry(() => import("./pages/cours/CoursBacteries.tsx"));
 
 const queryClient = new QueryClient();
 
