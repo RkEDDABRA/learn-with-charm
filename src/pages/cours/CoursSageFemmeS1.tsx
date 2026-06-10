@@ -197,7 +197,7 @@ type Section = { id: string; title: string; render: () => ReactNode };
 type ChapterDef = { id: string; number: number; title: string; accent: string; sections: Section[] };
 
 /* === CH1 — Microbiologie — 1.1 Bactéries === */
-const SEC_BACT: Section = {
+export const SEC_BACT_FULL: Section = {
   id: "bacteries",
   title: "1.1 Bactéries",
   render: () => (
