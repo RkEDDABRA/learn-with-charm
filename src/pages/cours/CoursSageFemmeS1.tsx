@@ -196,7 +196,7 @@ function ComingSoon({ title }: { title: string }) {
 type Section = { id: string; title: string; render: () => ReactNode };
 type ChapterDef = { id: string; number: number; title: string; accent: string; sections: Section[] };
 
-/* === CH1 — Microbiologie — 1.1 Bactéries === */
+/* === CH1 — Microbiologie — 1.1 Bactéries (contenu complet, réutilisable) === */
 export const SEC_BACT_FULL: Section = {
   id: "bacteries",
   title: "1.1 Bactéries",
