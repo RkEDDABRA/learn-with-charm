@@ -716,6 +716,25 @@ export const SEC_BACT_FULL: Section = {
   ),
 };
 
+const SEC_BACT: Section = {
+  id: "bacteries",
+  title: "1.1 Bactéries",
+  render: () => (
+    <>
+      <H2>1.1 Bactéries</H2>
+      <p className="mb-4 text-muted-foreground">
+        Ce sous-chapitre couvre l'introduction à la microbiologie, la classification des micro-organismes, la structure bactérienne (paroi, Gram, flagelles, capsule, pili, spore) ainsi que la croissance et les principales bactérioses.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/microbio/bacteries"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
+    </>
+  ),
+};
+
 const SEC_VIRUS: Section = { id: "virus", title: "1.2 Virus", render: () => (<><H2>1.2 Virus</H2><ComingSoon title="Sous-chapitre — Virus" /></>) };
 const SEC_MYCETES: Section = { id: "mycetes", title: "1.3 Mycètes", render: () => (<><H2>1.3 Mycètes</H2><ComingSoon title="Sous-chapitre — Mycètes" /></>) };
 const SEC_PARASITES: Section = { id: "parasites", title: "1.4 Parasites", render: () => (<><H2>1.4 Parasites</H2><ComingSoon title="Sous-chapitre — Parasites" /></>) };
