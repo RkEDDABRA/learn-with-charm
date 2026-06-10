@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { BookOpen, Info, AlertTriangle, Pin, Menu, ArrowUp, Link2, Check } from "lucide-react";
+import { BookOpen, Info, AlertTriangle, Pin, Menu, ArrowUp, ArrowLeft, Link2, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import fig1 from "@/assets/cours-sf-s1/modes-action/fig1-chaine-infection.jpg";
@@ -156,6 +156,13 @@ export default function CoursModesActionMicroorganismes() {
       {/* En-tête */}
       <header className="border-b border-border bg-gradient-to-br from-primary/5 to-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+          <a
+            href="/licence/sage-femme"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+          >
+            <ArrowLeft size={16} />
+            Retour à Licence Sage-Femme
+          </a>
           <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">
             Licence · Option Sage-Femme · Semestre 1 · Microbiologie
           </p>
