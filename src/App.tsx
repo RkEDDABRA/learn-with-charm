@@ -35,6 +35,7 @@ const CoursModesActionMicroorganismes = lazyWithRetry(
   () => import("./pages/cours/CoursModesActionMicroorganismes.tsx"),
 );
 const CoursBacteries = lazyWithRetry(() => import("./pages/cours/CoursBacteries.tsx"));
+const CoursVirus = lazyWithRetry(() => import("./pages/cours/CoursVirus.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -66,6 +67,10 @@ const App = () => (
               <Route
                 path="/licence/sage-femme/s1/microbio/bacteries"
                 element={<CoursBacteries />}
+              />
+              <Route
+                path="/licence/sage-femme/s1/microbio/virus"
+                element={<CoursVirus />}
               />
             </Route>
             <Route path="*" element={<NotFound />} />
