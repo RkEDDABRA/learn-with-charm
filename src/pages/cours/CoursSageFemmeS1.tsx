@@ -735,7 +735,24 @@ const SEC_BACT: Section = {
   ),
 };
 
-const SEC_VIRUS: Section = { id: "virus", title: "1.2 Virus", render: () => (<><H2>1.2 Virus</H2><ComingSoon title="Sous-chapitre — Virus" /></>) };
+const SEC_VIRUS: Section = {
+  id: "virus",
+  title: "1.2 Virus",
+  render: () => (
+    <>
+      <H2>1.2 Virus</H2>
+      <p className="mb-4 text-muted-foreground">
+        Ce sous-chapitre couvre la définition des virus, leur anatomie (génome, capside, enveloppe), leur classification, les étapes de la multiplication virale et les principales viroses humaines.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/microbio/virus"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
+    </>
+  ),
+};
 const SEC_MYCETES: Section = { id: "mycetes", title: "1.3 Mycètes", render: () => (<><H2>1.3 Mycètes</H2><ComingSoon title="Sous-chapitre — Mycètes" /></>) };
 const SEC_PARASITES: Section = { id: "parasites", title: "1.4 Parasites", render: () => (<><H2>1.4 Parasites</H2><ComingSoon title="Sous-chapitre — Parasites" /></>) };
 const SEC_MODES: Section = {
