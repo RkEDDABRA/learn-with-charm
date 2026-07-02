@@ -409,21 +409,94 @@ export default function CoursParasites() {
                 <tr className="border-b border-border align-top">
                   <td className="p-3">Amibiase (rhizopodes intestinaux)</td>
                   <td className="p-3"><em>Entamoeba histolytica</em></td>
-                  <td className="p-3">Infecte le côlon de l'homme</td>
+                  <td className="p-3">Côlon de l'homme</td>
                   <td className="p-3">—</td>
                   <td className="p-3">Eau et aliments contaminés par des déjections humaines</td>
                   <td className="p-3">Diarrhée afécale (10 à 15 selles/jour), douleurs abdominales, absence de fièvre en général</td>
                   <td className="p-3">Examen des selles (kystes) ; endoscopie du côlon (complément)</td>
                 </tr>
-                <tr className="align-top">
+                <tr className="border-b border-border align-top">
                   <td className="p-3">Giardiose (flagellés intestinaux)</td>
                   <td className="p-3"><em>Giardia intestinalis</em></td>
                   <td className="p-3">Intestin (duodénum) de l'homme et d'autres mammifères</td>
                   <td className="p-3">—</td>
                   <td className="p-3">Eau et aliments contaminés</td>
-                  <td className="p-3">Diarrhée modérée, douleurs abdominales hautes (épigastriques), ballonnements postprandiaux, nausées, anorexie</td>
-                  <td className="p-3">Examen des selles (kystes) ; recherche immunologique d'antigènes spécifiques dans les selles</td>
+                  <td className="p-3">Diarrhée modérée, douleurs épigastriques, ballonnements postprandiaux, nausées, anorexie</td>
+                  <td className="p-3">Examen des selles (kystes) ; recherche d'antigènes spécifiques dans les selles</td>
                 </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Trichomonose uro-génitale</td>
+                  <td className="p-3"><em>Trichomonas vaginalis</em></td>
+                  <td className="p-3">Voies uro-génitales de l'homme et de la femme</td>
+                  <td className="p-3">—</td>
+                  <td className="p-3">Transmission sexuelle (IST)</td>
+                  <td className="p-3">Femme : leucorrhées mousseuses malodorantes, prurit vulvaire, dyspareunie. Homme : urétrite souvent asymptomatique</td>
+                  <td className="p-3">Examen direct à l'état frais des sécrétions vaginales/urétrales ; PCR</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Cryptosporidiose</td>
+                  <td className="p-3"><em>Cryptosporidium parvum / hominis</em></td>
+                  <td className="p-3">Épithélium intestinal (homme, bovins)</td>
+                  <td className="p-3">—</td>
+                  <td className="p-3">Eau de boisson ou de baignade contaminée ; contact avec animaux</td>
+                  <td className="p-3">Diarrhée aqueuse profuse, douleurs abdominales, fièvre modérée ; forme chronique grave chez l'immunodéprimé</td>
+                  <td className="p-3">Recherche d'oocystes dans les selles (coloration de Ziehl-Neelsen modifiée) ; antigènes ; PCR</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Toxoplasmose</td>
+                  <td className="p-3"><em>Toxoplasma gondii</em></td>
+                  <td className="p-3">HD : chat ; HI : homme et mammifères</td>
+                  <td className="p-3">—</td>
+                  <td className="p-3">Ingestion de viande peu cuite, crudités souillées, contact avec litière de chat ; transmission materno-fœtale</td>
+                  <td className="p-3">Souvent asymptomatique ; fièvre, adénopathies. Formes graves : toxoplasmose congénitale, cérébrale chez l'immunodéprimé</td>
+                  <td className="p-3">Sérologie (IgG, IgM) ; PCR (liquide amniotique, LCR)</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Paludisme (malaria)</td>
+                  <td className="p-3"><em>Plasmodium falciparum, vivax, ovale, malariae, knowlesi</em></td>
+                  <td className="p-3">HD : moustique ; HI : homme (foie, hématies)</td>
+                  <td className="p-3">Moustique <em>Anopheles</em> femelle</td>
+                  <td className="p-3">Séjour en zone d'endémie (Afrique, Asie, Amérique du Sud)</td>
+                  <td className="p-3">Fièvre en accès, frissons, sueurs, céphalées, splénomégalie ; forme grave : neuropaludisme (P. falciparum)</td>
+                  <td className="p-3">Frottis sanguin et goutte épaisse ; tests de diagnostic rapide (TDR) ; PCR</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Leishmanioses (cutanée, viscérale)</td>
+                  <td className="p-3"><em>Leishmania</em> spp.</td>
+                  <td className="p-3">HD : phlébotome ; HI : homme, chien, rongeurs</td>
+                  <td className="p-3">Phlébotome (<em>Phlebotomus</em>)</td>
+                  <td className="p-3">Zones rurales endémiques (Maghreb, Moyen-Orient, Amérique latine)</td>
+                  <td className="p-3">Forme cutanée : ulcère indolore (bouton d'Orient). Forme viscérale (kala-azar) : fièvre irrégulière, hépatosplénomégalie, pancytopénie</td>
+                  <td className="p-3">Examen direct (frottis lésion, moelle) ; culture ; PCR ; sérologie (forme viscérale)</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Trypanosomose africaine (maladie du sommeil)</td>
+                  <td className="p-3"><em>Trypanosoma brucei gambiense / rhodesiense</em></td>
+                  <td className="p-3">HD : glossine ; HI : homme, bétail</td>
+                  <td className="p-3">Mouche tsé-tsé (<em>Glossina</em>)</td>
+                  <td className="p-3">Séjour en Afrique subsaharienne</td>
+                  <td className="p-3">Phase lymphatico-sanguine : fièvre, adénopathies. Phase méningo-encéphalitique : troubles du sommeil, du comportement, coma</td>
+                  <td className="p-3">Examen sanguin, ponction ganglionnaire, LCR ; sérologie (CATT)</td>
+                </tr>
+                <tr className="border-b border-border align-top">
+                  <td className="p-3">Trypanosomose américaine (maladie de Chagas)</td>
+                  <td className="p-3"><em>Trypanosoma cruzi</em></td>
+                  <td className="p-3">HD : réduve ; HI : homme, mammifères</td>
+                  <td className="p-3">Réduve (punaise hématophage)</td>
+                  <td className="p-3">Amérique latine ; transfusion, transmission congénitale</td>
+                  <td className="p-3">Phase aiguë : chagome, signe de Romaña, fièvre. Phase chronique : cardiomyopathie, méga-œsophage, mégacôlon</td>
+                  <td className="p-3">Examen sanguin direct (phase aiguë) ; sérologie (phase chronique) ; PCR</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="p-3">Pneumocystose</td>
+                  <td className="p-3"><em>Pneumocystis jirovecii</em></td>
+                  <td className="p-3">Poumons de l'homme</td>
+                  <td className="p-3">—</td>
+                  <td className="p-3">Immunodépression (VIH, chimiothérapie, greffe)</td>
+                  <td className="p-3">Pneumopathie interstitielle : toux sèche, dyspnée, fièvre, hypoxémie</td>
+                  <td className="p-3">Recherche du germe dans le LBA (colorations, immunofluorescence, PCR)</td>
+                </tr>
+
               </tbody>
             </table>
           </div>
