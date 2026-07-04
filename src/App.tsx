@@ -38,6 +38,7 @@ const CoursBacteries = lazyWithRetry(() => import("./pages/cours/CoursBacteries.
 const CoursVirus = lazyWithRetry(() => import("./pages/cours/CoursVirus.tsx"));
 const CoursParasites = lazyWithRetry(() => import("./pages/cours/CoursParasites.tsx"));
 const CoursMycetes = lazyWithRetry(() => import("./pages/cours/CoursMycetes.tsx"));
+const CoursHematologie = lazyWithRetry(() => import("./pages/cours/CoursHematologie.tsx"));
 
 const queryClient = new QueryClient();
 
