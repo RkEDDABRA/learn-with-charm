@@ -83,6 +83,10 @@ const App = () => (
                 path="/licence/sage-femme/s1/microbio/mycetes"
                 element={<CoursMycetes />}
               />
+              <Route
+                path="/licence/sage-femme/s1/hematologie"
+                element={<CoursHematologie />}
+              />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
