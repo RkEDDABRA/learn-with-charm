@@ -810,7 +810,25 @@ const SEC_MODES: Section = {
 };
 const SEC_ANTI: Section = { id: "antimicrobiens", title: "1.6 Agents antimicrobiens", render: () => (<><H2>1.6 Agents antimicrobiens</H2><ComingSoon title="Sous-chapitre — Agents antimicrobiens" /></>) };
 
-const SEC_HEMATO: Section = { id: "hematologie", title: "Hématologie", render: () => (<><H2>Hématologie</H2><ComingSoon title="Chapitre 2 — Hématologie" /></>) };
+const SEC_HEMATO: Section = {
+  id: "hematologie",
+  title: "Hématologie",
+  render: () => (
+    <>
+      <H2>Hématologie</H2>
+      <p className="mb-4 text-muted-foreground">
+        Composition et fonctions du sang, hématopoïèse, hémostase, immuno-hématologie, groupes sanguins
+        (ABO, Rhésus), transfusion et hémopathies.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/hematologie"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
+    </>
+  ),
+};
 const SEC_IMMUNO: Section = { id: "immunologie", title: "Immunologie", render: () => (<><H2>Immunologie</H2><ComingSoon title="Chapitre 3 — Immunologie" /></>) };
 const SEC_GENETIQUE: Section = { id: "genetique", title: "Génétique", render: () => (<><H2>Génétique</H2><ComingSoon title="Chapitre 4 — Génétique" /></>) };
 
