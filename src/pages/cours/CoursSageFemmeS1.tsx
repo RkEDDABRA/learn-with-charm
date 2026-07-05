@@ -829,7 +829,25 @@ const SEC_HEMATO: Section = {
     </>
   ),
 };
-const SEC_IMMUNO: Section = { id: "immunologie", title: "Immunologie", render: () => (<><H2>Immunologie</H2><ComingSoon title="Chapitre 3 — Immunologie" /></>) };
+const SEC_IMMUNO: Section = {
+  id: "immunologie",
+  title: "Immunologie",
+  render: () => (
+    <>
+      <H2>Immunologie</H2>
+      <p className="mb-4 text-muted-foreground">
+        Notions de soi / non-soi, immunité naturelle (innée) et immunité acquise (adaptative), réponse humorale
+        (anticorps, LB, plasmocytes) et cellulaire (LT4, LT8), vaccination et sérothérapie.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/immunologie"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
+    </>
+  ),
+};
 const SEC_GENETIQUE: Section = { id: "genetique", title: "Génétique", render: () => (<><H2>Génétique</H2><ComingSoon title="Chapitre 4 — Génétique" /></>) };
 
 const CHAPTERS: ChapterDef[] = [
