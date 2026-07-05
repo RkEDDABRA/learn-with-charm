@@ -120,11 +120,11 @@ function TableCap({ n, caption, children }: { n: number; caption: string; childr
     </div>
   );
 }
-const TH = ({ children }: { children: React.ReactNode }) => (
-  <th className="bg-primary text-primary-foreground px-3 py-2 text-left font-semibold border-b border-primary">{children}</th>
+const TH = ({ children, ...rest }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+  <th {...rest} className="bg-primary text-primary-foreground px-3 py-2 text-left font-semibold border-b border-primary">{children}</th>
 );
-const TD = ({ children }: { children: React.ReactNode }) => (
-  <td className="px-3 py-2 align-top border-t border-border text-foreground/85">{children}</td>
+const TD = ({ children, ...rest }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+  <td {...rest} className="px-3 py-2 align-top border-t border-border text-foreground/85">{children}</td>
 );
 
 function Callout({ type = "info", title, children }: { type?: "info" | "warning" | "def"; title?: string; children: React.ReactNode }) {
