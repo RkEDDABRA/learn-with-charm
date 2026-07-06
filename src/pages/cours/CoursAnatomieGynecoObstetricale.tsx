@@ -1536,10 +1536,10 @@ export default function CoursAnatomieGynecoObstetricale() {
                       className="block font-display font-bold text-sm text-foreground"
                     >
                       <span className="text-xs uppercase tracking-widest text-muted-foreground block">Chapitre {c.number}</span>
-                      {c.title}
+                      <span className="text-primary/70 mr-1.5 tabular-nums">{c.number}.</span>{c.title}
                     </a>
                     <ul className="mt-2 ml-3 space-y-1.5 border-l-2 border-border pl-3">
-                      {c.sections.map((s) => (
+                      {c.sections.map((s, i) => (
                         <li key={s.id}>
                           <a
                             href={`#section-${s.id}`}
@@ -1554,7 +1554,7 @@ export default function CoursAnatomieGynecoObstetricale() {
                                 : "text-muted-foreground"
                             )}
                           >
-                            {s.title}
+                            <span className="text-muted-foreground/70 mr-1.5 tabular-nums">{c.number}.{i + 1}</span>{s.title}
                           </a>
                         </li>
                       ))}
