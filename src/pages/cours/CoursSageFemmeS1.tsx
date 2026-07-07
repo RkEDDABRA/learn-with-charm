@@ -848,7 +848,25 @@ const SEC_IMMUNO: Section = {
     </>
   ),
 };
-const SEC_GENETIQUE: Section = { id: "genetique", title: "Génétique", render: () => (<><H2>Génétique</H2><ComingSoon title="Chapitre 4 — Génétique" /></>) };
+const SEC_GENETIQUE: Section = {
+  id: "genetique",
+  title: "Génétique",
+  render: () => (
+    <>
+      <H2>Génétique</H2>
+      <p className="mb-4 text-muted-foreground">
+        Divisions cellulaires (mitose, méiose), diversité génétique, caryotype humain, anomalies
+        chromosomiques, génétique mendélienne et arbres généalogiques.
+      </p>
+      <a
+        href="/licence/sage-femme/s1/genetique"
+        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        Ouvrir le cours complet →
+      </a>
+    </>
+  ),
+};
 
 const CHAPTERS: ChapterDef[] = [
   {
