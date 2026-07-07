@@ -40,6 +40,7 @@ const CoursParasites = lazyWithRetry(() => import("./pages/cours/CoursParasites.
 const CoursMycetes = lazyWithRetry(() => import("./pages/cours/CoursMycetes.tsx"));
 const CoursHematologie = lazyWithRetry(() => import("./pages/cours/CoursHematologie.tsx"));
 const CoursImmunologie = lazyWithRetry(() => import("./pages/cours/CoursImmunologie.tsx"));
+const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,10 @@ const App = () => (
               <Route
                 path="/licence/sage-femme/s1/immunologie"
                 element={<CoursImmunologie />}
+              />
+              <Route
+                path="/licence/sage-femme/s1/genetique"
+                element={<CoursGenetique />}
               />
             </Route>
             <Route path="*" element={<NotFound />} />
