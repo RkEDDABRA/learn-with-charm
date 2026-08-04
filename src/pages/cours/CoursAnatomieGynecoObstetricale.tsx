@@ -59,8 +59,8 @@ const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   19: { src: fig47 },
 };
 
-const COURSE_PASSWORD = "SF2026";
-const STORAGE_KEY = "sf_unlocked";
+const COURSE_PASSWORD = "AGO2026";
+const STORAGE_KEY = "course_unlocked_sf-s2";
 
 /* --------------------------------------------------------------------------
  * Helpers

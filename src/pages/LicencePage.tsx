@@ -1,7 +1,10 @@
 import { useState } from "react";
+import CourseGate from "@/components/CourseGate";
+import type { CourseId } from "@/lib/courseAccess";
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
 import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
+
 
 /* ================================================================
    CONFIGURATION
@@ -20,6 +23,7 @@ const CONFIG = {
           label: "Semestre 1",
           module: "Sciences Biologiques",
           CoursComponent: CoursSageFemmeS1 as React.ComponentType | null,
+          courseId: "sf-s1" as CourseId,
           exercices: [
             { titre: "Série 1 – Biologie cellulaire", niveau: "Niveau 1", enonce: "Décrivez les différents organites de la cellule eucaryote et précisez leurs fonctions. Comparez cellule animale et cellule végétale." },
             { titre: "Série 2 – Microbiologie générale", niveau: "Niveau 2", enonce: "Distinguez bactéries, virus, champignons et parasites. Donnez deux exemples pathogènes rencontrés en obstétrique pour chaque groupe." },
@@ -46,6 +50,7 @@ const CONFIG = {
           label: "Semestre 2",
           module: "Anatomie Gynéco-Obstétricale",
           CoursComponent: CoursAnatomieGynecoObstetricale as React.ComponentType | null,
+          courseId: "sf-s2" as CourseId,
           exercices: [
             { titre: "Série 1 – Le bassin obstétrical", niveau: "Niveau 1", enonce: "Décrivez les différents diamètres du bassin obstétrical et leur importance clinique lors de l'accouchement." },
             { titre: "Série 2 – Physiologie de la grossesse", niveau: "Niveau 2", enonce: "Expliquez les modifications anatomiques et physiologiques majeures survenant au cours de la grossesse (cardiovasculaires, respiratoires, rénales, hormonales)." },
@@ -81,6 +86,7 @@ const CONFIG = {
           label: "Semestre 1",
           module: "Anatomie et Physiologie Humaine",
           CoursComponent: null as React.ComponentType | null,
+          courseId: "dn-s1" as CourseId,
           exercices: [
             { titre: "Série 1 – Le système digestif", niveau: "Niveau 1", enonce: "Décrivez les différents segments du tube digestif en précisant pour chacun la structure anatomique, les sécrétions et le rôle dans la digestion des macronutriments." },
             { titre: "Série 2 – Absorption intestinale", niveau: "Niveau 2", enonce: "Expliquez les mécanismes d'absorption intestinale des glucides, lipides et protéines. Précisez le rôle de la villosité intestinale." },
@@ -103,6 +109,7 @@ const CONFIG = {
           label: "Semestre 2",
           module: "Bases Physiologiques de la Nutrition",
           CoursComponent: CoursDietetiqueS2 as React.ComponentType | null,
+          courseId: "dn-s2" as CourseId,
           exercices: [
             { titre: "Série 1 – Métabolisme des glucides", niveau: "Niveau 1", enonce: "Décrivez les voies métaboliques des glucides (glycolyse, néoglucogenèse, glycogénèse). Calculez les besoins glucidiques journaliers d'un adulte de 70 kg avec activité physique modérée." },
             { titre: "Série 2 – Métabolisme lipidique", niveau: "Niveau 2", enonce: "Distinguez les acides gras saturés, insaturés et trans. Expliquez le rôle des lipoprotéines (HDL, LDL, VLDL) dans le transport des lipides sanguins." },
@@ -252,6 +259,7 @@ export default function LicencePage() {
         </div>
 
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
+          <CourseGate courseId={semestre.courseId} accent={c}>
 
           {activeTab === "cours" && (
             CoursComponent
@@ -364,6 +372,7 @@ export default function LicencePage() {
             </div>
           )}
 
+          </CourseGate>
         </div>
       </div>
     </div>
