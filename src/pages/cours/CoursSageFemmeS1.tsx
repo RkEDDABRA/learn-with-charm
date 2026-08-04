@@ -47,7 +47,7 @@ const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
 };
 
 const COURSE_PASSWORD = "SB2026";
-const STORAGE_KEY = "sf_s1_unlocked";
+const STORAGE_KEY = "course_unlocked_sf-s1";
 
 /* ----------------------------- helpers ----------------------------- */
 const slug = (s: string) =>

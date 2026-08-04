@@ -129,8 +129,8 @@ import ch2MetabProt from "@/assets/cours-diet-s2/ch2/metab-prot.jpg";
 import ch2MetabLip from "@/assets/cours-diet-s2/ch2/metab-lip.jpg";
 import ch2MetabGluc from "@/assets/cours-diet-s2/ch2/metab-gluc.jpg";
 
-const PASSWORD = "DN2026";
-const STORAGE_KEY = "diet_s2_unlocked";
+const PASSWORD = "BPN2026";
+const STORAGE_KEY = "course_unlocked_dn-s2";
 
 /* ---------- Petits composants utilitaires ---------- */
 
