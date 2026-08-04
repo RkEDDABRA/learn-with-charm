@@ -1,6 +1,9 @@
 import { useState } from "react";
 import CourseGate from "@/components/CourseGate";
+import PresentationChapters from "@/components/PresentationChapters";
+import { PRESENTATIONS_SF_S1 } from "@/data/presentationsSfS1";
 import type { CourseId } from "@/lib/courseAccess";
+
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
 import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
@@ -332,23 +335,28 @@ export default function LicencePage() {
           {activeTab === "presentations" && (
             <div style={{ padding: "1.75rem 2rem" }}>
               <SectionHead icon="slides" label="Mes présentations" color={c} />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
-                {semestre.presentations.map((p, i) => (
-                  <a key={i} href={p.fichier} style={{ textDecoration: "none", border: "1px solid #e5e7eb", borderRadius: 14, overflow: "hidden", display: "block", background: "#fff", transition: "box-shadow 0.2s, transform 0.2s" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.10)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
-                    <div style={{ height: 90, background: light, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <Ico name="slides" size={40} color={c} />
-                    </div>
-                    <div style={{ padding: "12px 14px" }}>
-                      <div style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginBottom: 4 }}>{p.titre}</div>
-                      <div style={{ fontSize: 11, color: "#9ca3af" }}>{p.type}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
+              {semestre.courseId === "sf-s1" ? (
+                <PresentationChapters chapters={PRESENTATIONS_SF_S1} color={c} light={light} />
+              ) : (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
+                  {semestre.presentations.map((p, i) => (
+                    <a key={i} href={p.fichier} style={{ textDecoration: "none", border: "1px solid #e5e7eb", borderRadius: 14, overflow: "hidden", display: "block", background: "#fff", transition: "box-shadow 0.2s, transform 0.2s" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(0,0,0,0.10)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
+                      <div style={{ height: 90, background: light, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Ico name="slides" size={40} color={c} />
+                      </div>
+                      <div style={{ padding: "12px 14px" }}>
+                        <div style={{ fontWeight: 700, fontSize: 13, color: "#111827", marginBottom: 4 }}>{p.titre}</div>
+                        <div style={{ fontSize: 11, color: "#9ca3af" }}>{p.type}</div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           )}
+
 
           {activeTab === "ressources" && (
             <div style={{ padding: "1.75rem 2rem" }}>
