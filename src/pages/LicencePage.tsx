@@ -1,7 +1,10 @@
 import { useState } from "react";
+import CourseGate from "@/components/CourseGate";
+import type { CourseId } from "@/lib/courseAccess";
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
 import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
+
 
 /* ================================================================
    CONFIGURATION
