@@ -1,6 +1,9 @@
 import { useState } from "react";
 import CourseGate from "@/components/CourseGate";
+import PresentationChapters from "@/components/PresentationChapters";
+import { PRESENTATIONS_SF_S1 } from "@/data/presentationsSfS1";
 import type { CourseId } from "@/lib/courseAccess";
+
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
 import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
 import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
