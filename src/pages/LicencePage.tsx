@@ -259,6 +259,7 @@ export default function LicencePage() {
         </div>
 
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
+          <CourseGate courseId={semestre.courseId} accent={c}>
 
           {activeTab === "cours" && (
             CoursComponent
@@ -371,6 +372,7 @@ export default function LicencePage() {
             </div>
           )}
 
+          </CourseGate>
         </div>
       </div>
     </div>
