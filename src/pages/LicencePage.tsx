@@ -337,8 +337,13 @@ export default function LicencePage() {
           {activeTab === "presentations" && (
             <div style={{ padding: "1.75rem 2rem" }}>
               <SectionHead icon="slides" label="Mes présentations" color={c} />
+              {FILE_PASSWORDS[semestre.courseId] && (
+                <FilePasswordBanner color={c} light={light} password={FILE_PASSWORDS[semestre.courseId]!} />
+              )}
               {semestre.courseId === "sf-s1" ? (
                 <PresentationChapters chapters={PRESENTATIONS_SF_S1} color={c} light={light} />
+              ) : semestre.courseId === "sf-s2" ? (
+                <PresentationChapters chapters={PRESENTATIONS_SF_S2} color={c} light={light} />
               ) : (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
                   {semestre.presentations.map((p, i) => (
