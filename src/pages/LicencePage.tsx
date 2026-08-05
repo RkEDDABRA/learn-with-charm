@@ -2,6 +2,8 @@ import { useState } from "react";
 import CourseGate from "@/components/CourseGate";
 import PresentationChapters from "@/components/PresentationChapters";
 import { PRESENTATIONS_SF_S1 } from "@/data/presentationsSfS1";
+import { PRESENTATIONS_SF_S2 } from "@/data/presentationsSfS2";
+import polycopieExoSfS1 from "@/assets/exercices/sf-s1/polycopie_exercices.pdf.asset.json";
 import type { CourseId } from "@/lib/courseAccess";
 
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
