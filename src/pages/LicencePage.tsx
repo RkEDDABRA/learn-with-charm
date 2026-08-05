@@ -419,3 +419,17 @@ function Notice({ color, light, children }: { color: string; light: string; chil
     </div>
   );
 }
+
+function FilePasswordBanner({ color, light, password }: { color: string; light: string; password: string }) {
+  return (
+    <div style={{ background: light, border: `1px solid ${color}35`, borderRadius: 12, padding: "12px 16px", display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+      <Ico name="lock" size={16} color={color} />
+      <span style={{ fontSize: 13, color: "#374151" }}>
+        Mot de passe requis pour ouvrir les fichiers :
+      </span>
+      <span style={{ fontSize: 14, fontWeight: 800, letterSpacing: 0.6, color, background: "#fff", border: `1px solid ${color}35`, borderRadius: 8, padding: "4px 12px" }}>
+        {password}
+      </span>
+    </div>
+  );
+}
