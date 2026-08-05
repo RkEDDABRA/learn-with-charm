@@ -171,6 +171,13 @@ function Ico({ name, size = 18, color = "currentColor" }: { name: string; size?:
 
 const TABS = [
   { id: "cours",         label: "Cours complet",    icon: "book"    },
+
+/** Mot de passe nécessaire pour ouvrir les fichiers de présentation, par cours. */
+const FILE_PASSWORDS: Partial<Record<CourseId, string>> = {
+  "sf-s1": "S12024",
+  "sf-s2": "SF2025",
+};
+
   { id: "exercices",     label: "Exercices",         icon: "pencil"  },
   { id: "corrections",   label: "Corrections",       icon: "check"   },
   { id: "presentations", label: "Présentations",     icon: "slides"  },
