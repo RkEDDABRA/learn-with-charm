@@ -290,6 +290,27 @@ export default function LicencePage() {
             <div style={{ padding: "1.75rem 2rem" }}>
               <SectionHead icon="pencil" label="Exercices" color={c} />
               <Notice color={c} light={light}>Essayez de résoudre chaque exercice avant de consulter la correction dans l'onglet dédié.</Notice>
+              {semestre.courseId === "sf-s1" && (
+                <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", border: "1px solid #e5e7eb", borderRadius: 12, background: "#fafafa", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 10, background: "#dc262618", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <i className="fa-solid fa-file-pdf" aria-hidden="true" style={{ color: "#dc2626", fontSize: 18 }} />
+                  </div>
+                  <div style={{ flex: 1, minWidth: 180 }}>
+                    <div style={{ fontWeight: 700, fontSize: 14, color: "#111827" }}>Polycopié des exercices – Sciences Biologiques</div>
+                    <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>
+                      PDF · {(polycopieExoSfS1.size / 1024 / 1024).toFixed(1)} Mo
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+                    <a href={polycopieExoSfS1.url} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, border: `1.5px solid ${c}`, color: c, textDecoration: "none" }}>
+                      <Ico name="external" size={14} color={c} /> Ouvrir
+                    </a>
+                    <a href={polycopieExoSfS1.url} download={polycopieExoSfS1.original_filename} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, background: c, color: "#fff", textDecoration: "none" }}>
+                      <Ico name="download" size={14} color="#fff" /> Télécharger
+                    </a>
+                  </div>
+                </div>
+              )}
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {semestre.exercices.map((ex, i) => (
                   <div key={i} style={{ border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
