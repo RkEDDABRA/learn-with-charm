@@ -302,10 +302,10 @@ export default function LicencePage() {
                     </div>
                   </div>
                   <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                    <a href={polycopieExoSfS1.url} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, border: `1.5px solid ${c}`, color: c, textDecoration: "none" }}>
+                    <a href={encodeURI(polycopieExoSfS1.url)} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, border: `1.5px solid ${c}`, color: c, textDecoration: "none" }}>
                       <Ico name="external" size={14} color={c} /> Ouvrir
                     </a>
-                    <a href={polycopieExoSfS1.url} download={polycopieExoSfS1.original_filename} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, background: c, color: "#fff", textDecoration: "none" }}>
+                    <a href={encodeURI(polycopieExoSfS1.url)} download={polycopieExoSfS1.original_filename} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, fontSize: 13, fontWeight: 700, background: c, color: "#fff", textDecoration: "none" }}>
                       <Ico name="download" size={14} color="#fff" /> Télécharger
                     </a>
                   </div>
