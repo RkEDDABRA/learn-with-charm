@@ -31,7 +31,7 @@ const asDoc = (
   a: { url: string; original_filename: string; content_type: string; size: number },
 ): PresentationDoc => ({
   titre,
-  fichier: a.url,
+  fichier: encodeURI(a.url),
   filename: a.original_filename,
   type: a.content_type,
   size: a.size,
