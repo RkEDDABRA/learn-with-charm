@@ -10,6 +10,7 @@ import doc7 from "@/assets/presentations/sf-s2/7._Glandes_mammaires.pdf.asset.js
 import doc8 from "@/assets/presentations/sf-s2/8._Ovogenese.pdf.asset.json";
 import doc9 from "@/assets/presentations/sf-s2/9._Cycles_sexuels.pdf.asset.json";
 import doc10 from "@/assets/presentations/sf-s2/10._Régulation_hormonale_chez_la_femme.pdf.asset.json";
+import doc11 from "@/assets/presentations/sf-s2/11._La_menopause.pdf.asset.json";
 
 const asDoc = (
   titre: string,
