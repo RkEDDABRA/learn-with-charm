@@ -1,23 +1,23 @@
 import type { PresentationChapter, PresentationDoc } from "@/data/presentationsSfS1";
 
-import doc1 from "@/assets/presentations/sf-s2/1._différenciation_du_sexe.pdf.asset.json";
-import doc2 from "@/assets/presentations/sf-s2/2._La_puberté.pdf.asset.json";
-import doc3 from "@/assets/presentations/sf-s2/3._Système_reproducteur_masculin.pdf.asset.json";
-import doc4 from "@/assets/presentations/sf-s2/4._Spermatogénèse.pdf.asset.json";
-import doc5 from "@/assets/presentations/sf-s2/5._Régulation_hormonale.pdf.asset.json";
-import doc6 from "@/assets/presentations/sf-s2/6._Anatomie_de_l_appareil_génitale_féminin.pdf.asset.json";
-import doc7 from "@/assets/presentations/sf-s2/7._Glandes_mammaires.pdf.asset.json";
-import doc8 from "@/assets/presentations/sf-s2/8._Ovogenese.pdf.asset.json";
-import doc9 from "@/assets/presentations/sf-s2/9._Cycles_sexuels.pdf.asset.json";
-import doc10 from "@/assets/presentations/sf-s2/10._Régulation_hormonale_chez_la_femme.pdf.asset.json";
-import doc11 from "@/assets/presentations/sf-s2/11._La_menopause.pdf.asset.json";
+import doc1 from "@/assets/presentations/sf-s2/1-differenciation-du-sexe.pdf.asset.json";
+import doc2 from "@/assets/presentations/sf-s2/2-la-puberte.pdf.asset.json";
+import doc3 from "@/assets/presentations/sf-s2/3-systeme-reproducteur-masculin.pdf.asset.json";
+import doc4 from "@/assets/presentations/sf-s2/4-spermatogenese.pdf.asset.json";
+import doc5 from "@/assets/presentations/sf-s2/5-regulation-hormonale.pdf.asset.json";
+import doc6 from "@/assets/presentations/sf-s2/6-anatomie-de-l-appareil-genitale-feminin.pdf.asset.json";
+import doc7 from "@/assets/presentations/sf-s2/7-glandes-mammaires.pdf.asset.json";
+import doc8 from "@/assets/presentations/sf-s2/8-ovogenese.pdf.asset.json";
+import doc9 from "@/assets/presentations/sf-s2/9-cycles-sexuels.pdf.asset.json";
+import doc10 from "@/assets/presentations/sf-s2/10-regulation-hormonale-chez-la-femme.pdf.asset.json";
+import doc11 from "@/assets/presentations/sf-s2/11-la-menopause.pdf.asset.json";
 
 const asDoc = (
   titre: string,
   a: { url: string; original_filename: string; content_type: string; size: number },
 ): PresentationDoc => ({
   titre,
-  fichier: a.url,
+  fichier: encodeURI(a.url),
   filename: a.original_filename,
   type: a.content_type,
   size: a.size,
