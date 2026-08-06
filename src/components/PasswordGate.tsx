@@ -96,7 +96,7 @@ export default function PasswordGate({ children }: PasswordGateProps) {
           </button>
         </form>
         <p className="mt-5 text-center text-xs text-muted-foreground leading-relaxed">
-          Ce portfolio est privé, veuillez me contacter pour y accéder.
+          Ce site pédagogique personnel est privé, veuillez me contacter pour y accéder.
           <br />
           <a href="mailto:eddabrarkia@gmail.com" className="text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
             eddabrarkia@gmail.com
