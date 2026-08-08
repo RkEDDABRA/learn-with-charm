@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    {
+      "source": "/__l5e/:path*",
+      "destination": "https://reddabra.lovable.app/__l5e/:path*"
+    },
     { "source": "/((?!sitemap.xml|robots.txt|__l5e/).*)", "destination": "/index.html" }
   ],
   "headers": [
