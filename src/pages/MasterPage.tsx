@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import CourseGate from "@/components/CourseGate";
 import { cn } from "@/lib/utils";
 import { QRCodeSVG } from "qrcode.react";
 import { ExternalLink } from "lucide-react";
@@ -739,5 +740,6 @@ export default function MasterPage() {
         </AnimatedSection>
       )}
     </div>
+    </CourseGate>
   );
 }
