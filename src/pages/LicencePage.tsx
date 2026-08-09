@@ -414,6 +414,7 @@ export default function LicencePage() {
                   </a>
                 ))}
               </div>
+              )}
             </div>
           )}
 
