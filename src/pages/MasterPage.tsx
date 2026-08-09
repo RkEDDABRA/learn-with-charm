@@ -253,7 +253,9 @@ export default function MasterPage() {
   };
 
   return (
+    <CourseGate courseId="master-pau">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
       {/* Header */}
       <AnimatedSection>
         <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-center mb-8 bg-gradient-to-br from-slate-800 via-slate-700 to-cyan-900">
