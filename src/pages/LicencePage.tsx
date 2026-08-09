@@ -395,6 +395,9 @@ export default function LicencePage() {
           {activeTab === "ressources" && (
             <div style={{ padding: "1.75rem 2rem" }}>
               <SectionHead icon="link" label="Ressources bibliographiques" color={c} />
+              {semestre.courseId === "sf-s1" ? (
+                <PresentationChapters chapters={RESSOURCES_SF_S1} color={c} light={light} />
+              ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {semestre.ressources.map((r, i) => (
                   <a key={i} href={r.lien} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", borderRadius: 12, textDecoration: "none", border: "1px solid #e5e7eb", background: "#fafafa", transition: "background 0.15s" }}
