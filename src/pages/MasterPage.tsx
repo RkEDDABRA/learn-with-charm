@@ -89,6 +89,73 @@ const semesters = [
   },
 ];
 
+/** Nouvelle organisation modulaire — accréditation CNPN 2025 */
+const semesters2025 = [
+  {
+    title: "Semestre 1",
+    color: "bg-emerald-600",
+    bgLight: "bg-emerald-50 dark:bg-emerald-950/30",
+    borderColor: "border-emerald-200 dark:border-emerald-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Psychologie et sociologie de la santé", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Aspect organisationnel des urgences", vh: "40h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Droit à la santé, éthique et responsabilité", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Approfondissement clinique en soins d'urgences", vh: "50h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Langues étrangères : anglais professionnel", vh: "40h", credits: "3" },
+      { nature: "Transversal", intitule: "Philosophie des soins et raisonnement clinique", vh: "40h", credits: "3" },
+      { nature: "Disciplinaire", intitule: "Épidémiologie et biostatistique", vh: "50h", credits: "4" },
+    ],
+    totalVH: "320h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 2",
+    color: "bg-blue-600",
+    bgLight: "bg-blue-50 dark:bg-blue-950/30",
+    borderColor: "border-blue-200 dark:border-blue-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences chirurgicales et pathologies circonstancielles", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage au bloc opératoire", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage d'approfondissement : service d'accueil des urgences (SAU)", vh: "120h", credits: "5" },
+      { nature: "Transversal", intitule: "Culture entrepreneuriale et communication managériale", vh: "40h", credits: "3" },
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge (1)", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Pharmacologie d'urgence et matériel/appareillage utilisé en soins d'urgence", vh: "50h", credits: "5" },
+      { nature: "Transversal", intitule: "Méthodologie de recherche", vh: "50h", credits: "3" },
+    ],
+    totalVH: "480h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 3",
+    color: "bg-rose-600",
+    bgLight: "bg-rose-50 dark:bg-rose-950/30",
+    borderColor: "border-rose-200 dark:border-rose-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge (2)", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Démarche qualité / gestion de risques", vh: "40h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Urgences mère-enfant et stratégie de prise en charge", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage d'application : simulation en santé", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage : service d'assistance médicale d'urgence (SAMU)", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage : mère-enfant", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Traumatologie vitale et médecine de catastrophe", vh: "50h", credits: "4" },
+    ],
+    totalVH: "550h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 4",
+    color: "bg-amber-600",
+    bgLight: "bg-amber-50 dark:bg-amber-950/30",
+    borderColor: "border-amber-200 dark:border-amber-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Stage d'intégration : Service d'Accueil des Urgences (SAU) / PFE", vh: "300h", credits: "30" },
+    ],
+    totalVH: "300h",
+    totalCredits: "30",
+  },
+];
+
+
 const cours = [
   { fa: "fa-solid fa-pills", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
   { fa: "fa-solid fa-chart-line", title: "Méthodologie de recherche", desc: "Bases de la recherche scientifique appliquée aux soins d'urgence.", tag: "Recherche", color: "border-t-primary", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
