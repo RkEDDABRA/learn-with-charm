@@ -13,6 +13,8 @@ export const COURSES = {
   "sf-s2": { password: "AGO2026", label: "Anatomie Gynéco-Obstétricale — Sage-Femme (Semestre 2)" },
   "dn-s1": { password: "APH2026", label: "Anatomie et Physiologie Humaine — Diététique (Semestre 1)" },
   "dn-s2": { password: "BPN2026", label: "Bases Physiologiques de la Nutrition — Diététique (Semestre 2)" },
+  "master-pau": { password: "MPAU2026", label: "Master PAU — Pratiques Avancées en Urgentologie" },
+
 } as const;
 
 export type CourseId = keyof typeof COURSES;

@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import CourseGate from "@/components/CourseGate";
 import { cn } from "@/lib/utils";
 import { QRCodeSVG } from "qrcode.react";
 import { ExternalLink } from "lucide-react";
@@ -88,6 +89,73 @@ const semesters = [
     totalCredits: "30",
   },
 ];
+
+/** Nouvelle organisation modulaire — accréditation CNPN 2025 */
+const semesters2025 = [
+  {
+    title: "Semestre 1",
+    color: "bg-emerald-600",
+    bgLight: "bg-emerald-50 dark:bg-emerald-950/30",
+    borderColor: "border-emerald-200 dark:border-emerald-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Psychologie et sociologie de la santé", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Aspect organisationnel des urgences", vh: "40h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Droit à la santé, éthique et responsabilité", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Approfondissement clinique en soins d'urgences", vh: "50h", credits: "5" },
+      { nature: "Langues étrangères", intitule: "Langues étrangères : anglais professionnel", vh: "40h", credits: "3" },
+      { nature: "Transversal", intitule: "Philosophie des soins et raisonnement clinique", vh: "40h", credits: "3" },
+      { nature: "Disciplinaire", intitule: "Épidémiologie et biostatistique", vh: "50h", credits: "4" },
+    ],
+    totalVH: "320h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 2",
+    color: "bg-blue-600",
+    bgLight: "bg-blue-50 dark:bg-blue-950/30",
+    borderColor: "border-blue-200 dark:border-blue-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences chirurgicales et pathologies circonstancielles", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage au bloc opératoire", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage d'approfondissement : service d'accueil des urgences (SAU)", vh: "120h", credits: "5" },
+      { nature: "Transversal", intitule: "Culture entrepreneuriale et communication managériale", vh: "40h", credits: "3" },
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge (1)", vh: "50h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Pharmacologie d'urgence et matériel/appareillage utilisé en soins d'urgence", vh: "50h", credits: "5" },
+      { nature: "Transversal", intitule: "Méthodologie de recherche", vh: "50h", credits: "3" },
+    ],
+    totalVH: "480h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 3",
+    color: "bg-rose-600",
+    bgLight: "bg-rose-50 dark:bg-rose-950/30",
+    borderColor: "border-rose-200 dark:border-rose-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Urgences médicales et stratégie de prise en charge (2)", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Démarche qualité / gestion de risques", vh: "40h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Urgences mère-enfant et stratégie de prise en charge", vh: "50h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage d'application : simulation en santé", vh: "120h", credits: "4" },
+      { nature: "Disciplinaire", intitule: "Stage : service d'assistance médicale d'urgence (SAMU)", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Stage : mère-enfant", vh: "120h", credits: "5" },
+      { nature: "Disciplinaire", intitule: "Traumatologie vitale et médecine de catastrophe", vh: "50h", credits: "4" },
+    ],
+    totalVH: "550h",
+    totalCredits: "30",
+  },
+  {
+    title: "Semestre 4",
+    color: "bg-amber-600",
+    bgLight: "bg-amber-50 dark:bg-amber-950/30",
+    borderColor: "border-amber-200 dark:border-amber-800",
+    modules: [
+      { nature: "Disciplinaire", intitule: "Stage d'intégration : Service d'Accueil des Urgences (SAU) / PFE", vh: "300h", credits: "30" },
+    ],
+    totalVH: "300h",
+    totalCredits: "30",
+  },
+];
+
 
 const cours = [
   { fa: "fa-solid fa-pills", title: "Pharmacologie d'urgence", desc: "Pharmacologie des médicaments utilisés en situation d'urgence.", tag: "Pharmacologie", color: "border-t-gold", link: "https://padlet.com/eddabra/breakout-room/jzJX4E5jpVm34bnO-RdZYv7LoE55JbrPl" },
@@ -186,7 +254,9 @@ export default function MasterPage() {
   };
 
   return (
+    <CourseGate courseId="master-pau">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
       {/* Header */}
       <AnimatedSection>
         <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex items-center mb-8 bg-gradient-to-br from-slate-800 via-slate-700 to-cyan-900">
@@ -378,11 +448,75 @@ export default function MasterPage() {
       {/* Organisation Modulaire */}
       {activeTab === "organisation" && (
         <AnimatedSection>
+          {/* Nouvelle organisation — CNPN 2025 */}
+          <div className="bg-card rounded-2xl p-6 shadow-card mb-8">
+            <h2 className="font-display text-xl font-bold mb-2 flex items-center gap-2">
+              <LordIcon src={LORD_ICONS.settings} size={28} colors="primary:#059669,secondary:#3B82F6" /> Nouvelle Organisation Modulaire de la filière
+            </h2>
+            <div className="mb-6 pb-4 border-b border-border">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/15 border border-gold/35 px-3 py-1 text-xs font-bold text-gold">
+                <i className="fa-solid fa-certificate" aria-hidden="true" /> Accréditée suivant le CNPN 2025
+              </span>
+            </div>
+            <div className="space-y-8">
+              {semesters2025.map((sem, si) => (
+                <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
+                  <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center gap-2`}>
+                    <i className="fa-solid fa-book-bookmark" aria-hidden="true" /> {sem.title}
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className={sem.bgLight}>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Nature</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Intitulé</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume Horaire</th>
+                          <th className="text-left px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">Crédits</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sem.modules.map((m, mi) => (
+                          <tr key={mi} className="border-b border-border last:border-b-0 hover:bg-muted/30 transition-colors">
+                            <td className="px-3 py-2.5">
+                              <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-md ${
+                                m.nature === "Disciplinaire" ? "bg-primary/10 text-primary" :
+                                m.nature === "Transversal" ? "bg-rose/10 text-rose" :
+                                "bg-teal/10 text-teal"
+                              }`}>{m.nature}</span>
+                            </td>
+                            <td className="px-3 py-2.5 text-foreground">{m.intitule}</td>
+                            <td className="px-3 py-2.5 font-medium text-muted-foreground">{m.vh}</td>
+                            <td className="px-3 py-2.5 font-bold text-foreground">{m.credits}</td>
+                          </tr>
+                        ))}
+                        <tr className={`font-bold ${sem.bgLight}`}>
+                          <td className="px-3 py-2.5" colSpan={2}>Total</td>
+                          <td className="px-3 py-2.5">{sem.totalVH}</td>
+                          <td className="px-3 py-2.5">{sem.totalCredits}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-primary/10 via-gold/10 to-rose/10 border border-border text-center">
+              <p className="font-bold text-foreground text-sm"><i className="fa-solid fa-chart-pie mr-1" aria-hidden="true" /> Total Général : <span className="text-primary">1650h</span> — <span className="text-gold">120 crédits</span> — <span className="text-rose">4 Semestres</span></p>
+            </div>
+          </div>
+
+          {/* Ancienne organisation — promotion 2024-2026 */}
           <div className="bg-card rounded-2xl p-6 shadow-card">
-            <h2 className="font-display text-xl font-bold mb-6 flex items-center gap-2 pb-4 border-b border-border">
+            <h2 className="font-display text-xl font-bold mb-2 flex items-center gap-2">
               <LordIcon src={LORD_ICONS.settings} size={28} colors="primary:#059669,secondary:#3B82F6" /> Organisation Modulaire — Master PAU
             </h2>
+            <div className="mb-6 pb-4 border-b border-border">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/25 px-3 py-1 text-xs font-bold text-primary">
+                <i className="fa-solid fa-users" aria-hidden="true" /> Organisation modulaire concernant la promotion 2024-2026
+              </span>
+            </div>
             <div className="space-y-8">
+
               {semesters.map((sem, si) => (
                 <div key={si} className={`rounded-xl overflow-hidden border ${sem.borderColor}`}>
                   <div className={`${sem.color} text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center gap-2`}>
@@ -606,5 +740,6 @@ export default function MasterPage() {
         </AnimatedSection>
       )}
     </div>
+    </CourseGate>
   );
 }
