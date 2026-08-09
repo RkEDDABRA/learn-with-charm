@@ -54,6 +54,7 @@ export const PRESENTATIONS_SF_S2: PresentationChapter[] = [
       asDoc("8. Ovogenèse", doc8),
       asDoc("9. Cycles sexuels", doc9),
       asDoc("10. Régulation hormonale chez la femme", doc10),
+      asDoc("11. Ménopause", doc11),
     ],
   },
 ];
