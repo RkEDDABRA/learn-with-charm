@@ -40,10 +40,10 @@ const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   12: { src: figPili },
   13: { src: figSpore },
   14: { src: figCycleSporal },
-  15: { src: fig18 },
+  15: { src: figFormesSpore },
   16: { src: fig19 },
   17: { src: fig20 },
-  18: { src: fig21 },
+  18: { src: figCourbeCroissance },
 };
 
 /** Largeur maximale (px) recommandée par figure, pour éviter les images surdimensionnées. */
@@ -53,6 +53,8 @@ const FIGURE_MAX_WIDTH: Record<number, number> = {
   12: 460,
   13: 520,
   14: 560,
+  15: 620,
+  18: 520,
 };
 
 const COURSE_PASSWORD = "SB2026";
