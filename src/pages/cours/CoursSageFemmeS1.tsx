@@ -127,17 +127,33 @@ function Callout({ type = "info", title, children }: { type?: "info" | "warning"
   );
 }
 
-function Figure({ n, legend }: { n: number; legend: string }) {
+function Figure({
+  n,
+  legend,
+  label,
+  images: imagesProp,
+  stacked,
+  maxWidth,
+}: {
+  n: number;
+  legend: string;
+  label?: string;
+  images?: string[];
+  stacked?: boolean;
+  maxWidth?: number;
+}) {
   const [zoomed, setZoomed] = useState<string | null>(null);
   const mapping = FIGURE_MAP[n];
-  const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
+  const images = imagesProp ?? (mapping ? [mapping.src, ...(mapping.extras ?? [])] : []);
+  const caption = label ?? `Figure ${n}`;
+  const width = maxWidth ?? FIGURE_MAX_WIDTH[n];
 
   if (images.length === 0) {
     return (
       <figure className="my-6">
         <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
           <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
-          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">{caption}</p>
           <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
         </div>
       </figure>
@@ -145,8 +161,8 @@ function Figure({ n, legend }: { n: number; legend: string }) {
   }
   return (
     <>
-      <figure className="my-8">
-        <div className={cn("grid gap-3", images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2")}>
+      <figure className="my-8 mx-auto w-full" style={width ? { maxWidth: `${width}px` } : undefined}>
+        <div className={cn("grid gap-3", images.length === 1 || stacked ? "grid-cols-1" : "sm:grid-cols-2")}>
           {images.map((src, i) => (
             <button key={i} type="button" onClick={() => setZoomed(src)} className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all">
               <img src={src} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
@@ -155,7 +171,7 @@ function Figure({ n, legend }: { n: number; legend: string }) {
           ))}
         </div>
         <figcaption className="mt-3 text-center">
-          <span className="text-xs uppercase tracking-widest text-primary font-semibold">Figure {n}</span>
+          <span className="text-xs uppercase tracking-widest text-primary font-semibold">{caption}</span>
           <p className="text-sm text-muted-foreground italic mt-1">{legend}</p>
         </figcaption>
       </figure>
