@@ -15,8 +15,6 @@ import fig10 from "@/assets/cours-sf-s1/microbio/fig10-paroi-gram-negatif.jpg";
 import fig11 from "@/assets/cours-sf-s1/microbio/fig11-paroi-gram-neg-2.jpg";
 import fig19 from "@/assets/cours-sf-s1/microbio/fig17-oxygene.jpg";
 import fig20 from "@/assets/cours-sf-s1/microbio/fig18-scissiparite.jpg";
-import fig21 from "@/assets/cours-sf-s1/microbio/fig19-courbe-croissance.jpg";
-import fig18 from "@/assets/cours-sf-s1/microbio/fig18-formes-spore.jpg";
 import fig7p1 from "@/assets/cours-sf-s1/microbio/figure7_partie1_formes.png";
 import fig7p2 from "@/assets/cours-sf-s1/microbio/figure7_partie2_arrangements.png";
 import figFlagelles from "@/assets/cours-sf-s1/microbio/figure10_flagelles.jpeg";
@@ -24,6 +22,8 @@ import figCapsule from "@/assets/cours-sf-s1/microbio/figure11_capsule_structure
 import figPili from "@/assets/cours-sf-s1/microbio/figure12_pili_fimbriae.png";
 import figSpore from "@/assets/cours-sf-s1/microbio/figure13_structure_spore.jpeg";
 import figCycleSporal from "@/assets/cours-sf-s1/microbio/figure14_cycle_sporal.png";
+import figFormesSpore from "@/assets/cours-sf-s1/microbio/figure15_forme_position_deformation_spore.png";
+import figCourbeCroissance from "@/assets/cours-sf-s1/microbio/figure18_courbe_croissance_bacterienne.png";
 
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig01 },
