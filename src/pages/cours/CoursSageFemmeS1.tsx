@@ -13,16 +13,17 @@ import fig08 from "@/assets/cours-sf-s1/microbio/fig08-formes-arrangements.jpg";
 import fig09 from "@/assets/cours-sf-s1/microbio/fig09-paroi-gram-positif.jpg";
 import fig10 from "@/assets/cours-sf-s1/microbio/fig10-paroi-gram-negatif.jpg";
 import fig11 from "@/assets/cours-sf-s1/microbio/fig11-paroi-gram-neg-2.jpg";
-import fig12 from "@/assets/cours-sf-s1/microbio/fig12-bacterie-flagelles.jpg";
-import fig13 from "@/assets/cours-sf-s1/microbio/fig13-structure-flagelle.jpg";
-import fig14 from "@/assets/cours-sf-s1/microbio/fig14-capsule.jpg";
-import fig15 from "@/assets/cours-sf-s1/microbio/fig15-pili-fimbriae.jpg";
-import fig16 from "@/assets/cours-sf-s1/microbio/fig16-spore-structure.jpg";
-import fig17 from "@/assets/cours-sf-s1/microbio/fig17-cycle-sporal.jpg";
-import fig18 from "@/assets/cours-sf-s1/microbio/fig18-formes-spore.jpg";
 import fig19 from "@/assets/cours-sf-s1/microbio/fig17-oxygene.jpg";
 import fig20 from "@/assets/cours-sf-s1/microbio/fig18-scissiparite.jpg";
 import fig21 from "@/assets/cours-sf-s1/microbio/fig19-courbe-croissance.jpg";
+import fig18 from "@/assets/cours-sf-s1/microbio/fig18-formes-spore.jpg";
+import fig7p1 from "@/assets/cours-sf-s1/microbio/figure7_partie1_formes.png";
+import fig7p2 from "@/assets/cours-sf-s1/microbio/figure7_partie2_arrangements.png";
+import figFlagelles from "@/assets/cours-sf-s1/microbio/figure10_flagelles.jpeg";
+import figCapsule from "@/assets/cours-sf-s1/microbio/figure11_capsule_structure.png";
+import figPili from "@/assets/cours-sf-s1/microbio/figure12_pili_fimbriae.png";
+import figSpore from "@/assets/cours-sf-s1/microbio/figure13_structure_spore.jpeg";
+import figCycleSporal from "@/assets/cours-sf-s1/microbio/figure14_cycle_sporal.png";
 
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig01 },
@@ -34,16 +35,24 @@ const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   7: { src: fig08 },
   8: { src: fig09 },
   9: { src: fig10, extras: [fig11] },
-  10: { src: fig12 },
-  11: { src: fig13 },
-  12: { src: fig14 },
-  13: { src: fig15 },
-  14: { src: fig16 },
-  15: { src: fig17 },
-  16: { src: fig18 },
-  17: { src: fig19 },
-  18: { src: fig20 },
-  19: { src: fig21 },
+  10: { src: figFlagelles },
+  11: { src: figCapsule },
+  12: { src: figPili },
+  13: { src: figSpore },
+  14: { src: figCycleSporal },
+  15: { src: fig18 },
+  16: { src: fig19 },
+  17: { src: fig20 },
+  18: { src: fig21 },
+};
+
+/** Largeur maximale (px) recommandée par figure, pour éviter les images surdimensionnées. */
+const FIGURE_MAX_WIDTH: Record<number, number> = {
+  10: 480,
+  11: 560,
+  12: 460,
+  13: 520,
+  14: 560,
 };
 
 const COURSE_PASSWORD = "SB2026";
@@ -118,17 +127,33 @@ function Callout({ type = "info", title, children }: { type?: "info" | "warning"
   );
 }
 
-function Figure({ n, legend }: { n: number; legend: string }) {
+function Figure({
+  n,
+  legend,
+  label,
+  images: imagesProp,
+  stacked,
+  maxWidth,
+}: {
+  n: number;
+  legend: string;
+  label?: string;
+  images?: string[];
+  stacked?: boolean;
+  maxWidth?: number;
+}) {
   const [zoomed, setZoomed] = useState<string | null>(null);
   const mapping = FIGURE_MAP[n];
-  const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
+  const images = imagesProp ?? (mapping ? [mapping.src, ...(mapping.extras ?? [])] : []);
+  const caption = label ?? `Figure ${n}`;
+  const width = maxWidth ?? FIGURE_MAX_WIDTH[n];
 
   if (images.length === 0) {
     return (
       <figure className="my-6">
         <div className="border-2 border-dashed border-border bg-muted/30 rounded-lg px-6 py-10 text-center">
           <BookOpen className="mx-auto text-muted-foreground mb-2" size={28} />
-          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Figure {n}</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">{caption}</p>
           <p className="text-sm text-foreground/70 italic mt-1">{legend}</p>
         </div>
       </figure>
@@ -136,8 +161,8 @@ function Figure({ n, legend }: { n: number; legend: string }) {
   }
   return (
     <>
-      <figure className="my-8">
-        <div className={cn("grid gap-3", images.length === 1 ? "grid-cols-1" : "sm:grid-cols-2")}>
+      <figure className="my-8 mx-auto w-full" style={width ? { maxWidth: `${width}px` } : undefined}>
+        <div className={cn("grid gap-3", images.length === 1 || stacked ? "grid-cols-1" : "sm:grid-cols-2")}>
           {images.map((src, i) => (
             <button key={i} type="button" onClick={() => setZoomed(src)} className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all">
               <img src={src} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
@@ -146,7 +171,7 @@ function Figure({ n, legend }: { n: number; legend: string }) {
           ))}
         </div>
         <figcaption className="mt-3 text-center">
-          <span className="text-xs uppercase tracking-widest text-primary font-semibold">Figure {n}</span>
+          <span className="text-xs uppercase tracking-widest text-primary font-semibold">{caption}</span>
           <p className="text-sm text-muted-foreground italic mt-1">{legend}</p>
         </figcaption>
       </figure>
@@ -345,6 +370,14 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Perméabilité</strong> sélective aux petites molécules.</li>
       </UL>
       <Figure n={7} legend="Formes et arrangements fréquents chez les bactéries (diplo-, strepto-, staphylo-)" />
+      <Figure
+        n={7}
+        label="Figure 7 (suite)"
+        legend="Formes et arrangements fréquents chez les bactéries"
+        images={[fig7p1, fig7p2]}
+        stacked
+        maxWidth={780}
+      />
 
       <H4>Le peptidoglycane</H4>
       <P>
@@ -439,7 +472,7 @@ export const SEC_BACT_FULL: Section = {
         Synthèse nécessitant 20 à 30 gènes. Les flagelles comportent trois parties : le <strong>filament</strong>, le <strong>crochet</strong> et le
         <strong> corpuscule basal</strong>.
       </P>
-      <Figure n={11} legend="Structure d'un flagelle bactérien : filament, crochet, corpuscule basal" />
+      
       <P><strong>Rôles :</strong></P>
       <UL>
         <li>Mobilité de la bactérie.</li>
@@ -455,7 +488,7 @@ export const SEC_BACT_FULL: Section = {
         <li>la possession des gènes codant pour sa fabrication ;</li>
         <li>la disponibilité dans le milieu des éléments nécessaires (principalement glucides).</li>
       </UL>
-      <Figure n={12} legend="Capsule bactérienne et structure générale de la cellule" />
+      <Figure n={11} legend="Capsule bactérienne et structure générale de la cellule" />
       <P><strong>Rôles et propriétés :</strong></P>
       <UL>
         <li><strong>Protection</strong> contre les UV, la dessiccation, les agents physiques et chimiques.</li>
@@ -468,7 +501,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Fimbriae</strong> : fines structures protéiques de surface ; rôle dans l'<strong>adhésion</strong> des pathogènes — facteur de virulence.</li>
         <li><strong>Pili sexuels</strong> : transfert du matériel génétique d'une bactérie « mâle » vers une bactérie « femelle » lors de la <strong>conjugaison</strong>.</li>
       </UL>
-      <Figure n={13} legend="Pili et fimbriae à la surface d'une bactérie" />
+      <Figure n={12} legend="Pili et fimbriae à la surface d'une bactérie" />
 
       <H3>1.2.6 La spore bactérienne (endospore)</H3>
       <H4>a. Définition</H4>
@@ -477,7 +510,7 @@ export const SEC_BACT_FULL: Section = {
         salinité, accumulation de toxines…). L'endospore est une cellule très différenciée, très résistante à la chaleur (détruite à 120 °C, certaines
         survivent jusqu'à 150 °C) et à divers agents chimiques.
       </P>
-      <Figure n={14} legend="Structure d'une spore bactérienne (exosporium, tuniques, cortex, paroi sporale, nucléoïde)" />
+      <Figure n={13} legend="Structure d'une spore bactérienne (exosporium, tuniques, cortex, paroi sporale, nucléoïde)" />
 
       <H4>b. Le cycle sporal</H4>
       <P>Passage de la forme végétative à la forme sporulée et inversement :</P>
@@ -485,14 +518,14 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Sporulation</strong> : forme végétative → spore. 6 à 8 h à 37 °C chez <em>Bacillus subtilis</em>. Déclenchée par modification de l'environnement (épuisement nutritif). Étapes : déshydratation du cytoplasme, densification du nucléoïde, synthèse d'une paroi sporale épaisse et imperméable.</li>
         <li><strong>Germination</strong> : spore → forme végétative, lorsque les conditions redeviennent favorables (nutritionnelles, thermiques, chimiques).</li>
       </UL>
-      <Figure n={15} legend="Cycle sporal : passage forme végétative ↔ spore" />
+      <Figure n={14} legend="Cycle sporal : passage forme végétative ↔ spore" />
 
       <H4>c. Morphologie et structure</H4>
       <P>
         Les spores sont de petites unités <strong>ovales</strong> ou <strong>sphériques</strong>. Elles peuvent <strong>déformer</strong> ou non le corps
         bactérien ; leur <strong>position</strong> est variable : centrale, terminale ou subterminale.
       </P>
-      <Figure n={16} legend="Forme, position et déformation éventuelle de la spore au sein de la bactérie" />
+      <Figure n={15} legend="Forme, position et déformation éventuelle de la spore au sein de la bactérie" />
 
       <H4>d. Composition chimique</H4>
       <P>La spore se différencie de la cellule végétative par :</P>
@@ -631,7 +664,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Anaérobies strictes</strong> : ne se développent qu'en absence d'oxygène — l'O<sub>2</sub> est toxique pour elles (ex. <em>Clostridium</em>).</li>
         <li><strong>Aéro-anaérobies facultatives</strong> : se développent aussi bien en présence qu'en absence d'oxygène (ex. <em>Entérobactéries</em>).</li>
       </UL>
-      <Figure n={17} legend="Comportement respiratoire des bactéries en tubes de culture — 1. Aérobie stricte, 2. Microaérophile, 3. Aéro-anaérobie facultative (AAF), 4. Anaérobie stricte" />
+      <Figure n={16} legend="Comportement respiratoire des bactéries en tubes de culture — 1. Aérobie stricte, 2. Microaérophile, 3. Aéro-anaérobie facultative (AAF), 4. Anaérobie stricte" />
 
       <H4>e. Facteurs inhibant la croissance</H4>
       <UL>
@@ -660,7 +693,7 @@ export const SEC_BACT_FULL: Section = {
         <li>duplication des constituants,</li>
         <li>séparation.</li>
       </UL>
-      <Figure n={18} legend="Division cellulaire par scissiparité — élongation et réplication du chromosome, étranglement, formation du septum, séparation en deux cellules-filles identiques" />
+      <Figure n={17} legend="Division cellulaire par scissiparité — élongation et réplication du chromosome, étranglement, formation du septum, séparation en deux cellules-filles identiques" />
 
       <H4>c. Paramètres cinétiques de la croissance</H4>
       <p className="text-foreground/80 leading-relaxed mb-2"><strong>Temps de génération (G)</strong> — temps requis pour un dédoublement, en admettant que toutes les bactéries d'une population se divisent de façon synchrone :</p>
@@ -688,7 +721,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Phase 3 — Stationnaire</strong> : masse bactérienne maximale ; les nouvelles générations équilibrent les vieilles bactéries qui se lysent.</li>
         <li><strong>Phase 4 — Déclin</strong> : la masse bactérienne décroît du fait de la lyse accélérée, liée à l'épuisement des nutriments, la réduction de l'oxygène et l'accumulation des déchets.</li>
       </UL>
-      <Figure n={19} legend="Courbe de croissance bactérienne typique — log du nombre de bactéries en fonction du temps : latence, exponentielle, stationnaire, déclin" />
+      <Figure n={18} legend="Courbe de croissance bactérienne typique — log du nombre de bactéries en fonction du temps : latence, exponentielle, stationnaire, déclin" />
 
       <H3>1.3.6 Principales bactérioses humaines</H3>
       <DataTable
