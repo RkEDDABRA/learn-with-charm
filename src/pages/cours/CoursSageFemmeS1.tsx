@@ -370,6 +370,14 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Perméabilité</strong> sélective aux petites molécules.</li>
       </UL>
       <Figure n={7} legend="Formes et arrangements fréquents chez les bactéries (diplo-, strepto-, staphylo-)" />
+      <Figure
+        n={7}
+        label="Figure 7 (suite)"
+        legend="Formes et arrangements fréquents chez les bactéries"
+        images={[fig7p1, fig7p2]}
+        stacked
+        maxWidth={780}
+      />
 
       <H4>Le peptidoglycane</H4>
       <P>
@@ -464,7 +472,7 @@ export const SEC_BACT_FULL: Section = {
         Synthèse nécessitant 20 à 30 gènes. Les flagelles comportent trois parties : le <strong>filament</strong>, le <strong>crochet</strong> et le
         <strong> corpuscule basal</strong>.
       </P>
-      <Figure n={11} legend="Structure d'un flagelle bactérien : filament, crochet, corpuscule basal" />
+      
       <P><strong>Rôles :</strong></P>
       <UL>
         <li>Mobilité de la bactérie.</li>
@@ -480,7 +488,7 @@ export const SEC_BACT_FULL: Section = {
         <li>la possession des gènes codant pour sa fabrication ;</li>
         <li>la disponibilité dans le milieu des éléments nécessaires (principalement glucides).</li>
       </UL>
-      <Figure n={12} legend="Capsule bactérienne et structure générale de la cellule" />
+      <Figure n={11} legend="Capsule bactérienne et structure générale de la cellule" />
       <P><strong>Rôles et propriétés :</strong></P>
       <UL>
         <li><strong>Protection</strong> contre les UV, la dessiccation, les agents physiques et chimiques.</li>
@@ -493,7 +501,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Fimbriae</strong> : fines structures protéiques de surface ; rôle dans l'<strong>adhésion</strong> des pathogènes — facteur de virulence.</li>
         <li><strong>Pili sexuels</strong> : transfert du matériel génétique d'une bactérie « mâle » vers une bactérie « femelle » lors de la <strong>conjugaison</strong>.</li>
       </UL>
-      <Figure n={13} legend="Pili et fimbriae à la surface d'une bactérie" />
+      <Figure n={12} legend="Pili et fimbriae à la surface d'une bactérie" />
 
       <H3>1.2.6 La spore bactérienne (endospore)</H3>
       <H4>a. Définition</H4>
@@ -502,7 +510,7 @@ export const SEC_BACT_FULL: Section = {
         salinité, accumulation de toxines…). L'endospore est une cellule très différenciée, très résistante à la chaleur (détruite à 120 °C, certaines
         survivent jusqu'à 150 °C) et à divers agents chimiques.
       </P>
-      <Figure n={14} legend="Structure d'une spore bactérienne (exosporium, tuniques, cortex, paroi sporale, nucléoïde)" />
+      <Figure n={13} legend="Structure d'une spore bactérienne (exosporium, tuniques, cortex, paroi sporale, nucléoïde)" />
 
       <H4>b. Le cycle sporal</H4>
       <P>Passage de la forme végétative à la forme sporulée et inversement :</P>
@@ -510,14 +518,14 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Sporulation</strong> : forme végétative → spore. 6 à 8 h à 37 °C chez <em>Bacillus subtilis</em>. Déclenchée par modification de l'environnement (épuisement nutritif). Étapes : déshydratation du cytoplasme, densification du nucléoïde, synthèse d'une paroi sporale épaisse et imperméable.</li>
         <li><strong>Germination</strong> : spore → forme végétative, lorsque les conditions redeviennent favorables (nutritionnelles, thermiques, chimiques).</li>
       </UL>
-      <Figure n={15} legend="Cycle sporal : passage forme végétative ↔ spore" />
+      <Figure n={14} legend="Cycle sporal : passage forme végétative ↔ spore" />
 
       <H4>c. Morphologie et structure</H4>
       <P>
         Les spores sont de petites unités <strong>ovales</strong> ou <strong>sphériques</strong>. Elles peuvent <strong>déformer</strong> ou non le corps
         bactérien ; leur <strong>position</strong> est variable : centrale, terminale ou subterminale.
       </P>
-      <Figure n={16} legend="Forme, position et déformation éventuelle de la spore au sein de la bactérie" />
+      <Figure n={15} legend="Forme, position et déformation éventuelle de la spore au sein de la bactérie" />
 
       <H4>d. Composition chimique</H4>
       <P>La spore se différencie de la cellule végétative par :</P>
@@ -656,7 +664,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Anaérobies strictes</strong> : ne se développent qu'en absence d'oxygène — l'O<sub>2</sub> est toxique pour elles (ex. <em>Clostridium</em>).</li>
         <li><strong>Aéro-anaérobies facultatives</strong> : se développent aussi bien en présence qu'en absence d'oxygène (ex. <em>Entérobactéries</em>).</li>
       </UL>
-      <Figure n={17} legend="Comportement respiratoire des bactéries en tubes de culture — 1. Aérobie stricte, 2. Microaérophile, 3. Aéro-anaérobie facultative (AAF), 4. Anaérobie stricte" />
+      <Figure n={16} legend="Comportement respiratoire des bactéries en tubes de culture — 1. Aérobie stricte, 2. Microaérophile, 3. Aéro-anaérobie facultative (AAF), 4. Anaérobie stricte" />
 
       <H4>e. Facteurs inhibant la croissance</H4>
       <UL>
@@ -685,7 +693,7 @@ export const SEC_BACT_FULL: Section = {
         <li>duplication des constituants,</li>
         <li>séparation.</li>
       </UL>
-      <Figure n={18} legend="Division cellulaire par scissiparité — élongation et réplication du chromosome, étranglement, formation du septum, séparation en deux cellules-filles identiques" />
+      <Figure n={17} legend="Division cellulaire par scissiparité — élongation et réplication du chromosome, étranglement, formation du septum, séparation en deux cellules-filles identiques" />
 
       <H4>c. Paramètres cinétiques de la croissance</H4>
       <p className="text-foreground/80 leading-relaxed mb-2"><strong>Temps de génération (G)</strong> — temps requis pour un dédoublement, en admettant que toutes les bactéries d'une population se divisent de façon synchrone :</p>
@@ -713,7 +721,7 @@ export const SEC_BACT_FULL: Section = {
         <li><strong>Phase 3 — Stationnaire</strong> : masse bactérienne maximale ; les nouvelles générations équilibrent les vieilles bactéries qui se lysent.</li>
         <li><strong>Phase 4 — Déclin</strong> : la masse bactérienne décroît du fait de la lyse accélérée, liée à l'épuisement des nutriments, la réduction de l'oxygène et l'accumulation des déchets.</li>
       </UL>
-      <Figure n={19} legend="Courbe de croissance bactérienne typique — log du nombre de bactéries en fonction du temps : latence, exponentielle, stationnaire, déclin" />
+      <Figure n={18} legend="Courbe de croissance bactérienne typique — log du nombre de bactéries en fonction du temps : latence, exponentielle, stationnaire, déclin" />
 
       <H3>1.3.6 Principales bactérioses humaines</H3>
       <DataTable
