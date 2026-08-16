@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Menu, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import fig1 from "@/assets/cours-sf-s1/parasites/fig1-localisations.jpg";
+import fig1 from "@/assets/cours-sf-s1/parasites/fig1-localisations-new.png";
 import fig2 from "@/assets/cours-sf-s1/parasites/fig2-cycle-direct.jpg";
 import fig3 from "@/assets/cours-sf-s1/parasites/fig3-cycle-trichuris.jpg";
 import fig4 from "@/assets/cours-sf-s1/parasites/fig4-cycle-indirect.jpg";
