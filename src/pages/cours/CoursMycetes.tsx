@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import fig1 from "@/assets/cours-sf-s1/mycetes/fig1-levures.jpg";
 import fig2 from "@/assets/cours-sf-s1/mycetes/fig2-paroi-levure.jpg";
 import fig3 from "@/assets/cours-sf-s1/mycetes/fig3-hyphes.jpg";
-import fig4 from "@/assets/cours-sf-s1/mycetes/fig4-interactions.jpg";
+import fig4 from "@/assets/cours-sf-s1/mycetes/fig4-interactions-fungi.png";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

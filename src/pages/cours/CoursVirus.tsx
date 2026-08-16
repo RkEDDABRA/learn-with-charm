@@ -16,6 +16,7 @@ import fig07 from "@/assets/cours-sf-s1/virus/fig07-bacteriophage-injection.jpg"
 import fig08 from "@/assets/cours-sf-s1/virus/fig08-cycle-lytique.jpg";
 import fig09 from "@/assets/cours-sf-s1/virus/fig09-virus-arn-enveloppe.jpg";
 import fig10 from "@/assets/cours-sf-s1/virus/fig10-sras-cov.jpg";
+import figBaltimore from "@/assets/cours-sf-s1/virus/classification-baltimore.png";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -308,6 +309,23 @@ export default function CoursVirus() {
           <P>
             Un virus peut ainsi être représenté par un <strong>sigle à 4 éléments</strong>. Inconvénient : la coexistence sous un même sigle de virus différents (paramyxovirus, herpèsvirus). Depuis 1966, un <em>Comité international de taxonomie des virus</em> définit une nomenclature à vocation universelle, en intégrant les caractéristiques moléculaires du génome et le cycle de réplication.
           </P>
+
+          <H3>La classification de Baltimore</H3>
+          <P>
+            Cette classification, utilisée aujourd'hui comme base par l'<strong>ICTV</strong>, a été proposée initialement par <strong>David Baltimore</strong> (lauréat du prix Nobel de médecine en 1975) :
+          </P>
+          <figure className="my-6">
+            <img
+              src={figBaltimore}
+              alt="Classification de Baltimore : groupes I à VII des virus selon la nature de leur génome"
+              className="w-full max-w-2xl mx-auto rounded-lg border border-border bg-white"
+              loading="lazy"
+            />
+            <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
+              Classification de Baltimore — les 7 groupes de virus selon la nature du génome et le mode de réplication.
+            </figcaption>
+          </figure>
+
 
           <H2>5. La multiplication des virus</H2>
           <P>
