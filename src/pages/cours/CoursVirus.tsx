@@ -310,6 +310,23 @@ export default function CoursVirus() {
             Un virus peut ainsi être représenté par un <strong>sigle à 4 éléments</strong>. Inconvénient : la coexistence sous un même sigle de virus différents (paramyxovirus, herpèsvirus). Depuis 1966, un <em>Comité international de taxonomie des virus</em> définit une nomenclature à vocation universelle, en intégrant les caractéristiques moléculaires du génome et le cycle de réplication.
           </P>
 
+          <H3>La classification de Baltimore</H3>
+          <P>
+            Cette classification, utilisée aujourd'hui comme base par l'<strong>ICTV</strong>, a été proposée initialement par <strong>David Baltimore</strong> (lauréat du prix Nobel de médecine en 1975) :
+          </P>
+          <figure className="my-6">
+            <img
+              src={figBaltimore}
+              alt="Classification de Baltimore : groupes I à VII des virus selon la nature de leur génome"
+              className="w-full max-w-2xl mx-auto rounded-lg border border-border bg-white"
+              loading="lazy"
+            />
+            <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
+              Classification de Baltimore — les 7 groupes de virus selon la nature du génome et le mode de réplication.
+            </figcaption>
+          </figure>
+
+
           <H2>5. La multiplication des virus</H2>
           <P>
             La multiplication virale est un phénomène complexe au cours duquel <strong>le virus détourne la machinerie cellulaire à son profit</strong>. Du fait de leur simplicité extrême, les virus ne peuvent pas se multiplier par eux-mêmes : l'introduction du génome viral dans une cellule provoque la fabrication de nouveaux virus par <em>réplication</em>. Le temps du cycle viral varie selon la taille du génome et la complexité du cycle (4 à 8 h pour le poliovirus, plus de 40 h pour les <em>Herpesviridae</em>).
