@@ -16,6 +16,7 @@ import fig07 from "@/assets/cours-sf-s1/virus/fig07-bacteriophage-injection.jpg"
 import fig08 from "@/assets/cours-sf-s1/virus/fig08-cycle-lytique.jpg";
 import fig09 from "@/assets/cours-sf-s1/virus/fig09-virus-arn-enveloppe.jpg";
 import fig10 from "@/assets/cours-sf-s1/virus/fig10-sras-cov.jpg";
+import figBaltimore from "@/assets/cours-sf-s1/virus/classification-baltimore.png";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
